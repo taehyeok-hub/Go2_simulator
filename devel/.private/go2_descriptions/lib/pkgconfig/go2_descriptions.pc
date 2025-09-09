@@ -1,0 +1,8 @@
+prefix=/home/sm/TH/model/Go2_Simulator/devel/.private/go2_descriptions
+
+Name: go2_descriptions
+Description: Description of go2_descriptions
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

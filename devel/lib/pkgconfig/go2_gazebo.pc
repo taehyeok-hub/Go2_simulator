@@ -1,0 +1,1 @@
+/home/sm/TH/model/Go2_Simulator/devel/.private/go2_gazebo/lib/pkgconfig/go2_gazebo.pc

@@ -1,0 +1,8 @@
+prefix=/home/sm/TH/model/Go2_Simulator/devel/.private/go2_controller
+
+Name: go2_controller
+Description: Description of go2_controller
+Version: 0.0.0
+Cflags: -I/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/include -I/usr/include
+Libs: -L${prefix}/lib -lgo2_controller /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
+Requires: eigen_conversions geometry_msgs sensor_msgs tf tf_conversions gazebo_ros roscpp rospy std_msgs

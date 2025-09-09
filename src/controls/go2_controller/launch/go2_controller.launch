@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <arg name="GO2_TOPIC_LEG_STATE" default="/go2/joint_states"/>
+  <arg name="GO2_TOPIC_LEG_COMMAND" default="/go2/joint_torque_controller/command"/>
+
+  <param name="go2_topic_leg_state" value="$(arg GO2_TOPIC_LEG_STATE)"/>
+  <param name="go2_topic_leg_command" value="$(arg GO2_TOPIC_LEG_COMMAND)"/>
+
+  <include file="$(find go2_controls)/launch/go2_control.launch"/>
+
+  <node pkg="go2_controller" name="go2" type="go2_node" output="screen"/>
+</launch>

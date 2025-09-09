@@ -1,0 +1,1 @@
+/home/sm/TH/model/Go2_Simulator/devel/.private/go2_controls/share/go2_controls/cmake/go2_controlsConfig.cmake

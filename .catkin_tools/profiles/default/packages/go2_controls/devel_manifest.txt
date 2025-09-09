@@ -1,0 +1,4 @@
+robots/go2_controls
+/home/sm/TH/model/Go2_Simulator/devel/.private/go2_controls/share/go2_controls/cmake/go2_controlsConfig-version.cmake /home/sm/TH/model/Go2_Simulator/devel/share/go2_controls/cmake/go2_controlsConfig-version.cmake
+/home/sm/TH/model/Go2_Simulator/devel/.private/go2_controls/share/go2_controls/cmake/go2_controlsConfig.cmake /home/sm/TH/model/Go2_Simulator/devel/share/go2_controls/cmake/go2_controlsConfig.cmake
+/home/sm/TH/model/Go2_Simulator/devel/.private/go2_controls/lib/pkgconfig/go2_controls.pc /home/sm/TH/model/Go2_Simulator/devel/lib/pkgconfig/go2_controls.pc

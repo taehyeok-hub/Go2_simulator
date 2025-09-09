@@ -1,0 +1,8 @@
+prefix=/home/sm/TH/model/Go2_Simulator/devel/.private/go2_controls
+
+Name: go2_controls
+Description: Description of go2_controls
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,1 @@
+/home/sm/TH/model/Go2_Simulator/devel/.private/go2_controller/lib/pkgconfig/go2_controller.pc
