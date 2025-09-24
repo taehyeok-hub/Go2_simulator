@@ -1,6 +1,6 @@
-devel_space: /home/sm/TH/model/Go2_Simulator/devel
+devel_space: /home/pth/pth/model/Go2_simulator/devel
 install: false
-install_space: /home/sm/TH/model/Go2_Simulator/install
+install_space: /home/pth/pth/model/Go2_simulator/install
 profile: default
-source_space: /home/sm/TH/model/Go2_Simulator/src
-workspace: /home/sm/TH/model/Go2_Simulator
+source_space: /home/pth/pth/model/Go2_simulator/src
+workspace: /home/pth/pth/model/Go2_simulator

@@ -1,4 +1,4 @@
-prefix=/home/sm/TH/model/Go2_Simulator/install
+prefix=/home/pth/pth/model/Go2_simulator/install
 
 Name: catkin_tools_prebuild
 Description: Description of catkin_tools_prebuild

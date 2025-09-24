@@ -1,0 +1,105 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:[m[K In function ‘[01m[KEigen::Matrix4d CreateTmatrix(double, double, double)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:16:12:[m[K [01;31m[Kerror: [m[K‘[01m[KMatirx4d[m[K’ is not a member of ‘[01m[KEigen[m[K’; did you mean ‘[01m[KMatrix4d[m[K’?
+   16 |     Eigen::[01;31m[KMatirx4d[m[K Translation_Matrix = Eigen::Matirx4d::Identity();
+      |            [01;31m[K^~~~~~~~[m[K
+      |            [32m[KMatrix4d[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:17:5:[m[K [01;31m[Kerror: [m[K‘[01m[KTranslation_Matrix[m[K’ was not declared in this scope
+   17 |     [01;31m[KTranslation_Matrix[m[K(0, 3) = x;
+      |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Forward_Kinematics(Eigen::VectorXd, Eigen::VectorXd)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:38:40:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen::Matirx4d[m[K’ has not been declared
+   38 |     Eigen::Matrix4d T_base_FL = Eigen::[01;31m[KMatirx4d[m[K::Identity();
+      |                                        [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:39:40:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen::Matirx4d[m[K’ has not been declared
+   39 |     Eigen::Matrix4d T_base_FR = Eigen::[01;31m[KMatirx4d[m[K::Identity();
+      |                                        [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:40:40:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen::Matirx4d[m[K’ has not been declared
+   40 |     Eigen::Matrix4d T_base_RL = Eigen::[01;31m[KMatirx4d[m[K::Identity();
+      |                                        [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:41:40:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen::Matirx4d[m[K’ has not been declared
+   41 |     Eigen::Matrix4d T_base_RR = Eigen::[01;31m[KMatirx4d[m[K::Identity();
+      |                                        [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:45:73:[m[K [01;31m[Kerror: [m[K‘[01m[KCreateRmatrix[m[K’ was not declared in this scope; did you mean ‘[01m[KCreateTmatrix[m[K’?
+   45 |     Eigen::Matrix4d T_hip_thigh = CreateTmatrix(0, hip_to_thigh_y, 0) * [01;31m[KCreateRmatrix[m[K(q(1), thigh_axis);
+      |                                                                         [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                                         [32m[KCreateTmatrix[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:52:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_base_hip[m[K’
+   52 |     Eigen::Matrix4d [01;31m[KT_base_hip[m[K = CreateTmatrix(base_to_hip_x, base_to_hip_y, 0) * CreateRmatirx(q(3), hip_axis);
+      |                     [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:44:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_base_hip[m[K’ previously declared here
+   44 |     Eigen::Matrix4d [01;36m[KT_base_hip[m[K = CreateTmatrix(base_to_hip_x, base_to_hip_y, 0) * CreateRmatirx(q(0), hip_axis);
+      |                     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:53:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_hip_thigh[m[K’
+   53 |     Eigen::Matrix4d [01;31m[KT_hip_thigh[m[K = CreateTmatrix(0, hip_to_thigh_y, 0) * CreateRmatrix(q(4), thigh_axis);
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:45:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_hip_thigh[m[K’ previously declared here
+   45 |     Eigen::Matrix4d [01;36m[KT_hip_thigh[m[K = CreateTmatrix(0, hip_to_thigh_y, 0) * CreateRmatrix(q(1), thigh_axis);
+      |                     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:54:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_thigh_calf[m[K’
+   54 |     Eigen::Matrix4d [01;31m[KT_thigh_calf[m[K = CreateTmatrix(0, 0, thigh_to_calf_z) * CreateRmatirx(q(5), calf_axis);
+      |                     [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:46:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_thigh_calf[m[K’ previously declared here
+   46 |     Eigen::Matrix4d [01;36m[KT_thigh_calf[m[K = CreateTmatrix(0, 0, thigh_to_calf_z) * CreateRmatirx(q(2), calf_axis);
+      |                     [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:55:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_calf_foot[m[K’
+   55 |     Eigen::Matrix4d [01;31m[KT_calf_foot[m[K = CreateTmatrix(0, 0, calf_to_foot_z); // 고정관절임.
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:47:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_calf_foot[m[K’ previously declared here
+   47 |     Eigen::Matrix4d [01;36m[KT_calf_foot[m[K = CreateTmatrix(0, 0, calf_to_foot_z); // 고정관절임.
+      |                     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:60:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_base_hip[m[K’
+   60 |     Eigen::Matrix4d [01;31m[KT_base_hip[m[K = CreateTmatrix(base_to_hip_x, base_to_hip_y, 0) * CreateRmatirx(q(6), hip_axis);
+      |                     [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:44:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_base_hip[m[K’ previously declared here
+   44 |     Eigen::Matrix4d [01;36m[KT_base_hip[m[K = CreateTmatrix(base_to_hip_x, base_to_hip_y, 0) * CreateRmatirx(q(0), hip_axis);
+      |                     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:61:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_hip_thigh[m[K’
+   61 |     Eigen::Matrix4d [01;31m[KT_hip_thigh[m[K = CreateTmatrix(0, hip_to_thigh_y, 0) * CreateRmatrix(q(7), thigh_axis);
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:45:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_hip_thigh[m[K’ previously declared here
+   45 |     Eigen::Matrix4d [01;36m[KT_hip_thigh[m[K = CreateTmatrix(0, hip_to_thigh_y, 0) * CreateRmatrix(q(1), thigh_axis);
+      |                     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:62:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_thigh_calf[m[K’
+   62 |     Eigen::Matrix4d [01;31m[KT_thigh_calf[m[K = CreateTmatrix(0, 0, thigh_to_calf_z) * CreateRmatirx(q(8), calf_axis);
+      |                     [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:46:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_thigh_calf[m[K’ previously declared here
+   46 |     Eigen::Matrix4d [01;36m[KT_thigh_calf[m[K = CreateTmatrix(0, 0, thigh_to_calf_z) * CreateRmatirx(q(2), calf_axis);
+      |                     [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:63:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_calf_foot[m[K’
+   63 |     Eigen::Matrix4d [01;31m[KT_calf_foot[m[K = CreateTmatrix(0, 0, calf_to_foot_z); // 고정관절임.
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:47:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_calf_foot[m[K’ previously declared here
+   47 |     Eigen::Matrix4d [01;36m[KT_calf_foot[m[K = CreateTmatrix(0, 0, calf_to_foot_z); // 고정관절임.
+      |                     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:68:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_base_hip[m[K’
+   68 |     Eigen::Matrix4d [01;31m[KT_base_hip[m[K = CreateTmatrix(base_to_hip_x, base_to_hip_y, 0) * CreateRmatirx(q(9), hip_axis);
+      |                     [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:44:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_base_hip[m[K’ previously declared here
+   44 |     Eigen::Matrix4d [01;36m[KT_base_hip[m[K = CreateTmatrix(base_to_hip_x, base_to_hip_y, 0) * CreateRmatirx(q(0), hip_axis);
+      |                     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:69:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_hip_thigh[m[K’
+   69 |     Eigen::Matrix4d [01;31m[KT_hip_thigh[m[K = CreateTmatrix(0, hip_to_thigh_y, 0) * CreateRmatrix(q(10), thigh_axis);
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:45:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_hip_thigh[m[K’ previously declared here
+   45 |     Eigen::Matrix4d [01;36m[KT_hip_thigh[m[K = CreateTmatrix(0, hip_to_thigh_y, 0) * CreateRmatrix(q(1), thigh_axis);
+      |                     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:70:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_thigh_calf[m[K’
+   70 |     Eigen::Matrix4d [01;31m[KT_thigh_calf[m[K = CreateTmatrix(0, 0, thigh_to_calf_z) * CreateRmatirx(q(11), calf_axis);
+      |                     [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:46:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_thigh_calf[m[K’ previously declared here
+   46 |     Eigen::Matrix4d [01;36m[KT_thigh_calf[m[K = CreateTmatrix(0, 0, thigh_to_calf_z) * CreateRmatirx(q(2), calf_axis);
+      |                     [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:71:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::Matrix4d T_calf_foot[m[K’
+   71 |     Eigen::Matrix4d [01;31m[KT_calf_foot[m[K = CreateTmatrix(0, 0, calf_to_foot_z); // 고정관절임.
+      |                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:47:21:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::Matrix4d T_calf_foot[m[K’ previously declared here
+   47 |     Eigen::Matrix4d [01;36m[KT_calf_foot[m[K = CreateTmatrix(0, 0, calf_to_foot_z); // 고정관절임.
+      |                     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:76: CMakeFiles/go2_controller.dir/src/Forward_Kinematics.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

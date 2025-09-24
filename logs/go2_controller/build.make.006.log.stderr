@@ -1,4 +1,25 @@
-[01m[K/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
-[01m[K/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Command(bool)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:40:45:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K::[m[K’ token
+   40 |             homing_start_time_ = ros::Time()[01;31m[K:[m[K[32m[K:[m[Know;
+      |                                             [01;31m[K^[m[K[32m[K~[m[K
+      |                                             [32m[K;[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:53:18:[m[K [01;31m[Kerror: [m[K‘[01m[Ktime[m[K’ is not a member of ‘[01m[Kros[m[K’; did you mean ‘[01m[KTime[m[K’?
+   53 |             ros::[01;31m[Ktime[m[K current_time = ros::time::now;
+      |                  [01;31m[K^~~~[m[K
+      |                  [32m[KTime[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:54:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_time[m[K’ was not declared in this scope
+   54 |             double t = ([01;31m[Kcurrent_time[m[K - homing_start_time_).toSec();
+      |                         [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:61:29:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::VectorXd q_desired[m[K’
+   61 |             Eigen::VectorXd [01;31m[Kq_desired[m[K = q_initial_ + displacement * 0.5 * (1 - cos(M_PI / T * t));
+      |                             [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:47:29:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::VectorXd q_desired[m[K’ previously declared here
+   47 |             Eigen::VectorXd [01;36m[Kq_desired[m[K(12);
+      |                             [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
     6 |     [01;35m[Ksystem("clear")[m[K;
       |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:63: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

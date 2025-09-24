@@ -1,4 +1,4 @@
-prefix=/home/sm/TH/model/Go2_Simulator/install
+prefix=/home/pth/pth/model/Go2_simulator/install
 
 Name: go2_controller
 Description: Description of go2_controller

@@ -1,11 +1,4 @@
-[01m[K/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Command(bool)[m[K’:
-[01m[K/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.cpp:54:44:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[K=[m[K’ token
-   54 |             Eigen::VectorXd dq_desired(12) [01;31m[K=[m[K Eigen::VectorXd::Zero(12); // 이거 의미가 있나?
-      |                                            [01;31m[K^[m[K
-[01m[K/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
-[01m[K/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
     6 |     [01;35m[Ksystem("clear")[m[K;
       |     [01;35m[K~~~~~~^~~~~~~~~[m[K
-make[2]: *** [CMakeFiles/go2_controller.dir/build.make:63: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

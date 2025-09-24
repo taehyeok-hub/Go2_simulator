@@ -1,0 +1,16 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:4:53:[m[K [01;31m[Kerror: [m[K‘[01m[KVector[m[K’ in namespace ‘[01m[KEigen[m[K’ does not name a type; did you mean ‘[01m[KVectorXd[m[K’?
+    4 | Eigen::Matrix4d create_R(double angle, const Eigen::[01;31m[KVector[m[K& axis)
+      |                                                     [01;31m[K^~~~~~[m[K
+      |                                                     [32m[KVectorXd[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:[m[K In function ‘[01m[KEigen::Matrix4d create_R(double, const int&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:7:45:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Knormalized[m[K’ in ‘[01m[Kaxis[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+    7 |     Eigen::AngleAxisd angleAxis(angle, axis.[01;31m[Knormalized[m[K()); // AngleAxisd의 angleAxis 객체 생성
+      |                                             [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Forward_Kinematics(Eigen::VectorXd, Eigen::VectorXd)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:52:98:[m[K [01;31m[Kerror: [m[K‘[01m[KcreateRotationMatrix[m[K’ was not declared in this scope; did you mean ‘[01m[KcreateTranslationMatrix[m[K’?
+   52 |     Eigen::Matrix4d T_base_hip      = createTranslationMatrix(base_to_hip_x, base_to_hip_y, 0) * [01;31m[KcreateRotationMatrix[m[K(q(0), hip_axis);
+      |                                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                                                  [32m[KcreateTranslationMatrix[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:76: CMakeFiles/go2_controller.dir/src/Forward_Kinematics.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

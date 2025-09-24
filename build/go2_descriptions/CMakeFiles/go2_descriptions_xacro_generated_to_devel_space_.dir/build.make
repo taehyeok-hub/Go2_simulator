@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sm/TH/model/Go2_Simulator/src/robots/go2_descriptions
+CMAKE_SOURCE_DIR = /home/pth/pth/model/Go2_simulator/src/robots/go2_descriptions
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sm/TH/model/Go2_Simulator/build/go2_descriptions
+CMAKE_BINARY_DIR = /home/pth/pth/model/Go2_simulator/build/go2_descriptions
 
 # Utility rule file for go2_descriptions_xacro_generated_to_devel_space_.
 
@@ -67,6 +67,6 @@ CMakeFiles/go2_descriptions_xacro_generated_to_devel_space_.dir/clean:
 .PHONY : CMakeFiles/go2_descriptions_xacro_generated_to_devel_space_.dir/clean
 
 CMakeFiles/go2_descriptions_xacro_generated_to_devel_space_.dir/depend:
-	cd /home/sm/TH/model/Go2_Simulator/build/go2_descriptions && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sm/TH/model/Go2_Simulator/src/robots/go2_descriptions /home/sm/TH/model/Go2_Simulator/src/robots/go2_descriptions /home/sm/TH/model/Go2_Simulator/build/go2_descriptions /home/sm/TH/model/Go2_Simulator/build/go2_descriptions /home/sm/TH/model/Go2_Simulator/build/go2_descriptions/CMakeFiles/go2_descriptions_xacro_generated_to_devel_space_.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pth/pth/model/Go2_simulator/build/go2_descriptions && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pth/pth/model/Go2_simulator/src/robots/go2_descriptions /home/pth/pth/model/Go2_simulator/src/robots/go2_descriptions /home/pth/pth/model/Go2_simulator/build/go2_descriptions /home/pth/pth/model/Go2_simulator/build/go2_descriptions /home/pth/pth/model/Go2_simulator/build/go2_descriptions/CMakeFiles/go2_descriptions_xacro_generated_to_devel_space_.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/go2_descriptions_xacro_generated_to_devel_space_.dir/depend
 

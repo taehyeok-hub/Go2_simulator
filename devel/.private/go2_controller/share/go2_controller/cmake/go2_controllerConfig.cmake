@@ -67,14 +67,14 @@ set(go2_controller_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(go2_controller_SOURCE_PREFIX /home/sm/TH/model/Go2_Simulator/src/controls/go2_controller)
-  set(go2_controller_DEVEL_PREFIX /home/sm/TH/model/Go2_Simulator/devel/.private/go2_controller)
+  set(go2_controller_SOURCE_PREFIX /home/pth/pth/model/Go2_simulator/src/controls/go2_controller)
+  set(go2_controller_DEVEL_PREFIX /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller)
   set(go2_controller_INSTALL_PREFIX "")
   set(go2_controller_PREFIX ${go2_controller_DEVEL_PREFIX})
 else()
   set(go2_controller_SOURCE_PREFIX "")
   set(go2_controller_DEVEL_PREFIX "")
-  set(go2_controller_INSTALL_PREFIX /home/sm/TH/model/Go2_Simulator/install)
+  set(go2_controller_INSTALL_PREFIX /home/pth/pth/model/Go2_simulator/install)
   set(go2_controller_PREFIX ${go2_controller_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(go2_controller_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/include;/usr/include " STREQUAL " ")
+if(NOT "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include;/usr/include " STREQUAL " ")
   set(go2_controller_INCLUDE_DIRS "")
-  set(_include_dirs "/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/include;/usr/include")
+  set(_include_dirs "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include;/usr/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/include;/usr
         message(FATAL_ERROR "Project 'go2_controller' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'go2_controller' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'go2_controller' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/${idir}'.  ${_report}")
     endif()
     _list_append_unique(go2_controller_INCLUDE_DIRS ${include})
   endforeach()
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/sm/TH/model/Go2_Simulator/devel/.private/go2_controller/lib;/home/sm/TH/model/Go2_Simulator/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib;/home/pth/pth/model/Go2_simulator/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

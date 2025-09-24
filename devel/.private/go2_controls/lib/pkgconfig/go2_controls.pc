@@ -1,4 +1,4 @@
-prefix=/home/sm/TH/model/Go2_Simulator/devel/.private/go2_controls
+prefix=/home/pth/pth/model/Go2_simulator/devel/.private/go2_controls
 
 Name: go2_controls
 Description: Description of go2_controls

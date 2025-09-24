@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.cpp" "/home/sm/TH/model/Go2_Simulator/build/go2_controller/CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o"
+  "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp" "/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles/go2_controller.dir/src/Forward_Kinematics.cpp.o"
+  "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp" "/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -30,7 +31,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/include"
+  "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/gazebo-11"

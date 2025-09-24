@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sm/TH/model/Go2_Simulator/src/robots/go2_descriptions
+CMAKE_SOURCE_DIR = /home/pth/pth/model/Go2_simulator/src/robots/go2_descriptions
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sm/TH/model/Go2_Simulator/build/go2_descriptions
+CMAKE_BINARY_DIR = /home/pth/pth/model/Go2_simulator/build/go2_descriptions
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sm/TH/model/Go2_Simulator/build/go2_descriptions/CMakeFiles /home/sm/TH/model/Go2_Simulator/build/go2_descriptions/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pth/pth/model/Go2_simulator/build/go2_descriptions/CMakeFiles /home/pth/pth/model/Go2_simulator/build/go2_descriptions/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sm/TH/model/Go2_Simulator/build/go2_descriptions/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pth/pth/model/Go2_simulator/build/go2_descriptions/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

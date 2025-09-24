@@ -1,8 +1,8 @@
-# Install script for directory: /home/sm/TH/model/Go2_Simulator/src/controls/go2_controller
+# Install script for directory: /home/pth/pth/model/Go2_simulator/src/controls/go2_controller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/sm/TH/model/Go2_Simulator/install")
+  set(CMAKE_INSTALL_PREFIX "/home/pth/pth/model/Go2_simulator/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,125 +49,125 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/sm/TH/model/Go2_Simulator/install/_setup_util.py")
+   "/home/pth/pth/model/Go2_simulator/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/sm/TH/model/Go2_Simulator/install" TYPE PROGRAM FILES "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/pth/pth/model/Go2_simulator/install" TYPE PROGRAM FILES "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/sm/TH/model/Go2_Simulator/install/env.sh")
+   "/home/pth/pth/model/Go2_simulator/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/sm/TH/model/Go2_Simulator/install" TYPE PROGRAM FILES "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/pth/pth/model/Go2_simulator/install" TYPE PROGRAM FILES "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/sm/TH/model/Go2_Simulator/install/setup.bash;/home/sm/TH/model/Go2_Simulator/install/local_setup.bash")
+   "/home/pth/pth/model/Go2_simulator/install/setup.bash;/home/pth/pth/model/Go2_simulator/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/sm/TH/model/Go2_Simulator/install" TYPE FILE FILES
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/setup.bash"
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/pth/pth/model/Go2_simulator/install" TYPE FILE FILES
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/setup.bash"
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/sm/TH/model/Go2_Simulator/install/setup.sh;/home/sm/TH/model/Go2_Simulator/install/local_setup.sh")
+   "/home/pth/pth/model/Go2_simulator/install/setup.sh;/home/pth/pth/model/Go2_simulator/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/sm/TH/model/Go2_Simulator/install" TYPE FILE FILES
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/setup.sh"
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/pth/pth/model/Go2_simulator/install" TYPE FILE FILES
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/setup.sh"
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/sm/TH/model/Go2_Simulator/install/setup.zsh;/home/sm/TH/model/Go2_Simulator/install/local_setup.zsh")
+   "/home/pth/pth/model/Go2_simulator/install/setup.zsh;/home/pth/pth/model/Go2_simulator/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/sm/TH/model/Go2_Simulator/install" TYPE FILE FILES
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/setup.zsh"
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/pth/pth/model/Go2_simulator/install" TYPE FILE FILES
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/setup.zsh"
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/sm/TH/model/Go2_Simulator/install/setup.fish;/home/sm/TH/model/Go2_Simulator/install/local_setup.fish")
+   "/home/pth/pth/model/Go2_simulator/install/setup.fish;/home/pth/pth/model/Go2_simulator/install/local_setup.fish")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/sm/TH/model/Go2_Simulator/install" TYPE FILE FILES
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/setup.fish"
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/local_setup.fish"
+file(INSTALL DESTINATION "/home/pth/pth/model/Go2_simulator/install" TYPE FILE FILES
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/setup.fish"
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/local_setup.fish"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/sm/TH/model/Go2_Simulator/install/.rosinstall")
+   "/home/pth/pth/model/Go2_simulator/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/sm/TH/model/Go2_Simulator/install" TYPE FILE FILES "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/pth/pth/model/Go2_simulator/install" TYPE FILE FILES "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/.rosinstall")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/go2_controller.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/go2_controller.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/go2_controller/cmake" TYPE FILE FILES
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/go2_controllerConfig.cmake"
-    "/home/sm/TH/model/Go2_Simulator/build/go2_controller/catkin_generated/installspace/go2_controllerConfig-version.cmake"
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/go2_controllerConfig.cmake"
+    "/home/pth/pth/model/Go2_simulator/build/go2_controller/catkin_generated/installspace/go2_controllerConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/go2_controller" TYPE FILE FILES "/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/go2_controller" TYPE FILE FILES "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/go2_controller" TYPE DIRECTORY FILES
-    "/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/launch"
-    "/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/rviz"
+    "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/launch"
+    "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/rviz"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/sm/TH/model/Go2_Simulator/build/go2_controller/gtest/cmake_install.cmake")
+  include("/home/pth/pth/model/Go2_simulator/build/go2_controller/gtest/cmake_install.cmake")
 
 endif()
 
@@ -179,5 +179,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/sm/TH/model/Go2_Simulator/build/go2_controller/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pth/pth/model/Go2_simulator/build/go2_controller/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

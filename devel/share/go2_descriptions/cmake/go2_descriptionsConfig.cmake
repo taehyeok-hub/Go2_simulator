@@ -1,1 +1,1 @@
-/home/sm/TH/model/Go2_Simulator/devel/.private/go2_descriptions/share/go2_descriptions/cmake/go2_descriptionsConfig.cmake
+/home/pth/pth/model/Go2_simulator/devel/.private/go2_descriptions/share/go2_descriptions/cmake/go2_descriptionsConfig.cmake

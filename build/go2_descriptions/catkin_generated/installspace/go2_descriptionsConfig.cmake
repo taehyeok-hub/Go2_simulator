@@ -67,14 +67,14 @@ set(go2_descriptions_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(go2_descriptions_SOURCE_PREFIX /home/sm/TH/model/Go2_Simulator/src/robots/go2_descriptions)
-  set(go2_descriptions_DEVEL_PREFIX /home/sm/TH/model/Go2_Simulator/devel/.private/go2_descriptions)
+  set(go2_descriptions_SOURCE_PREFIX /home/pth/pth/model/Go2_simulator/src/robots/go2_descriptions)
+  set(go2_descriptions_DEVEL_PREFIX /home/pth/pth/model/Go2_simulator/devel/.private/go2_descriptions)
   set(go2_descriptions_INSTALL_PREFIX "")
   set(go2_descriptions_PREFIX ${go2_descriptions_DEVEL_PREFIX})
 else()
   set(go2_descriptions_SOURCE_PREFIX "")
   set(go2_descriptions_DEVEL_PREFIX "")
-  set(go2_descriptions_INSTALL_PREFIX /home/sm/TH/model/Go2_Simulator/install)
+  set(go2_descriptions_INSTALL_PREFIX /home/pth/pth/model/Go2_simulator/install)
   set(go2_descriptions_PREFIX ${go2_descriptions_INSTALL_PREFIX})
 endif()
 
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/sm/TH/model/Go2_Simulator/install/lib;/home/sm/TH/model/Go2_Simulator/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/pth/pth/model/Go2_simulator/install/lib;/home/pth/pth/model/Go2_simulator/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

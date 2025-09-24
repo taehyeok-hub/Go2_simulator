@@ -1,1 +1,1 @@
-/home/sm/TH/model/Go2_Simulator/devel/.private/catkin_tools_prebuild/_setup_util.py
+/home/pth/pth/model/Go2_simulator/devel/.private/catkin_tools_prebuild/_setup_util.py

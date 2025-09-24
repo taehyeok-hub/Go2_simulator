@@ -1,0 +1,10 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Forward_Kinematics(Eigen::VectorXd, Eigen::VectorXd)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:25:55:[m[K [01;31m[Kerror: [m[Ktoo many arguments to function ‘[01m[KEigen::Matrix4d A_Matrix(double, double, double, double)[m[K’
+   25 |     Eigen::Matrix4d A2 = A_Matrix(0, pi/2.0, 0, pi/2,0[01;31m[K)[m[K;
+      |                                                       [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:11:17:[m[K [01;36m[Knote: [m[Kdeclared here
+   11 | Eigen::Matrix4d [01;36m[KA_Matrix[m[K(double a, double alpha, double d, double theta);
+      |                 [01;36m[K^~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:76: CMakeFiles/go2_controller.dir/src/Forward_Kinematics.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

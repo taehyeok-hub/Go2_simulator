@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/include/go2_controller.h
+/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h
 ros/ros.h
 -
 ros/node_handle.h
@@ -68,13 +68,13 @@ chrono
 iostream
 -
 Eigen/Dense
-/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/include/Eigen/Dense
+/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Eigen/Dense
 Eigen/Geometry
-/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/include/Eigen/Geometry
+/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Eigen/Geometry
 
-/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller_node.cpp
+/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller_node.cpp
 go2_controller.h
-/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.h
+/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.h
 
 /opt/ros/noetic/include/controller_interface/controller.h
 controller_interface/controller_base.h

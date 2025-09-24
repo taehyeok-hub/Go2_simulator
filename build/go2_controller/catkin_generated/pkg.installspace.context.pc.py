@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include;/usr/include".split(';') if
 PROJECT_CATKIN_DEPENDS = "eigen_conversions;geometry_msgs;sensor_msgs;tf;tf_conversions;gazebo_ros;roscpp;rospy;std_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "-lgo2_controller;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0".split(';') if "-lgo2_controller;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0" != "" else []
 PROJECT_NAME = "go2_controller"
-PROJECT_SPACE_DIR = "/home/sm/TH/model/Go2_Simulator/install"
+PROJECT_SPACE_DIR = "/home/pth/pth/model/Go2_simulator/install"
 PROJECT_VERSION = "0.0.0"

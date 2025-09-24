@@ -1,0 +1,55 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Homing()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:59:20:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator==[m[K’ (operand types are ‘[01m[Kros::Time[m[K’ and ‘[01m[Kint[m[K’)
+   59 |     if([32m[KHoming_Time[m[K [01;31m[K==[m[K [34m[K1000[m[K)
+      |        [32m[K~~~~~~~~~~~[m[K [01;31m[K^~[m[K [34m[K~~~~[m[K
+      |        [32m[K|[m[K              [34m[K|[m[K
+      |        [32m[Kros::Time[m[K      [34m[Kint[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/time.h:146:10:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::TimeBase<T, D>::operator==(const T&) const [with T = ros::Time; D = ros::Duration][m[K’
+  146 |     bool [01;36m[Koperator[m[K==(const T &rhs) const;
+      |          [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/time.h:146:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst ros::Time&[m[K’
+  146 |     bool operator==([01;36m[Kconst T &rhs[m[K) const;
+      |                     [01;36m[K~~~~~~~~~^~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:61:23:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kros::Time[m[K’ and ‘[01m[Kint[m[K’)
+   61 |         Homing_Time = [01;31m[K1000[m[K;
+      |                       [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/time.h:174:22:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr ros::Time& ros::Time::operator=(const ros::Time&)[m[K’
+  174 |   class ROSTIME_DECL [01;36m[KTime[m[K : public TimeBase<Time, Duration>
+      |                      [01;36m[K^~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/time.h:174:22:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst ros::Time&[m[K’
+[01m[K/opt/ros/noetic/include/ros/time.h:174:22:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr ros::Time& ros::Time::operator=(ros::Time&&)[m[K’
+[01m[K/opt/ros/noetic/include/ros/time.h:174:22:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kros::Time&&[m[K’
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:63:26:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator<[m[K’ (operand types are ‘[01m[Kros::Time[m[K’ and ‘[01m[Kint[m[K’)
+   63 |     else if ([32m[KHoming_Time[m[K [01;31m[K<[m[K [34m[K1000[m[K)
+      |              [32m[K~~~~~~~~~~~[m[K [01;31m[K^[m[K [34m[K~~~~[m[K
+      |              [32m[K|[m[K             [34m[K|[m[K
+      |              [32m[Kros::Time[m[K     [34m[Kint[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/time.h:149:10:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::TimeBase<T, D>::operator<(const T&) const [with T = ros::Time; D = ros::Duration][m[K’
+  149 |     bool [01;36m[Koperator[m[K<(const T &rhs) const;
+      |          [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/time.h:149:29:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst ros::Time&[m[K’
+  149 |     bool operator<([01;36m[Kconst T &rhs[m[K) const;
+      |                    [01;36m[K~~~~~~~~~^~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:65:20:[m[K [01;31m[Kerror: [m[Kno ‘[01m[Koperator++(int)[m[K’ declared for postfix ‘[01m[K++[m[K’ [[01;31m[K-fpermissive[m[K]
+   65 |         [01;31m[KHoming_Time++[m[K;
+      |         [01;31m[K~~~~~~~~~~~^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:98:102:[m[K [01;31m[Kerror: [m[K‘[01m[Ktime_ratio_5[m[K’ was not declared in this scope; did you mean ‘[01m[Ktime_raito_5[m[K’?
+   98 |         q_desired = q_current + (q_final - q_current) * (10 * time_ratio_3 - 15 * time_ratio_4 + 6 * [01;31m[Ktime_ratio_5[m[K);
+      |                                                                                                      [01;31m[K^~~~~~~~~~~~[m[K
+      |                                                                                                      [32m[Ktime_raito_5[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:63: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

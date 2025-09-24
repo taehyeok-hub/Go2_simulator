@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sm/TH/model/Go2_Simulator/src/controls/go2_controller
+CMAKE_SOURCE_DIR = /home/pth/pth/model/Go2_simulator/src/controls/go2_controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sm/TH/model/Go2_Simulator/build/go2_controller
+CMAKE_BINARY_DIR = /home/pth/pth/model/Go2_simulator/build/go2_controller
 
 # Utility rule file for actionlib_msgs_generate_messages_eus.
 
@@ -67,6 +67,6 @@ CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean:
 .PHONY : CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean
 
 CMakeFiles/actionlib_msgs_generate_messages_eus.dir/depend:
-	cd /home/sm/TH/model/Go2_Simulator/build/go2_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sm/TH/model/Go2_Simulator/src/controls/go2_controller /home/sm/TH/model/Go2_Simulator/src/controls/go2_controller /home/sm/TH/model/Go2_Simulator/build/go2_controller /home/sm/TH/model/Go2_Simulator/build/go2_controller /home/sm/TH/model/Go2_Simulator/build/go2_controller/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pth/pth/model/Go2_simulator/src/controls/go2_controller /home/pth/pth/model/Go2_simulator/src/controls/go2_controller /home/pth/pth/model/Go2_simulator/build/go2_controller /home/pth/pth/model/Go2_simulator/build/go2_controller /home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/actionlib_msgs_generate_messages_eus.dir/depend
 

@@ -1,4 +1,46 @@
-[01m[K/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
-[01m[K/home/sm/TH/model/Go2_Simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:104:32:[m[K [01;31m[Kerror: [m[Kexpected identifier before numeric constant
+  104 |     Eigen::VectorXd q_initial_([01;31m[K12[m[K) = Eigen::VectorXd::Zero(12);
+      |                                [01;31m[K^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:104:32:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before numeric constant
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:104:43:[m[K [01;31m[Kerror: [m[Kinvalid pure specifier (only ‘[01m[K= 0[m[K’ is allowed) before ‘[01m[K::[m[K’ token
+  104 |     Eigen::VectorXd q_initial_(12) = Eigen[01;31m[K::[m[KVectorXd::Zero(12);
+      |                                           [01;31m[K^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Command(bool)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:39:13:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[KEigen::VectorXd go2_controller::q_initial_(int)[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+   39 |             [01;31m[Kq_initial_[m[K =q_; // 초기 각도 설정하기
+      |             [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:40:45:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K::[m[K’ token
+   40 |             homing_start_time_ = ros::Time()[01;31m[K:[m[K[32m[K:[m[Know();
+      |                                             [01;31m[K^[m[K[32m[K~[m[K
+      |                                             [32m[K;[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:53:18:[m[K [01;31m[Kerror: [m[K‘[01m[Ktime[m[K’ is not a member of ‘[01m[Kros[m[K’; did you mean ‘[01m[KTime[m[K’?
+   53 |             ros::[01;31m[Ktime[m[K current_time = ros::time::now();
+      |                  [01;31m[K^~~~[m[K
+      |                  [32m[KTime[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:54:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_time[m[K’ was not declared in this scope
+   54 |             double t = ([01;31m[Kcurrent_time[m[K - homing_start_time_).toSec();
+      |                         [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:58:44:[m[K [01;31m[Kerror: [m[K‘[01m[Kq_final[m[K’ was not declared in this scope
+   58 |             Eigen::VectorXd displacement = [01;31m[Kq_final[m[K - q_initial_; // 총 이동 거리 (사용자 공식의 a_0에 해당)
+      |                                            [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:61:29:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::VectorXd q_desired[m[K’
+   61 |             Eigen::VectorXd [01;31m[Kq_desired[m[K = q_initial_ + displacement * 0.5 * (1 - cos(M_PI / T * t));
+      |                             [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:47:29:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::VectorXd q_desired[m[K’ previously declared here
+   47 |             Eigen::VectorXd [01;36m[Kq_desired[m[K(12);
+      |                             [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:61:52:[m[K [01;31m[Kerror: [m[Kinvalid use of non-static member function ‘[01m[KEigen::VectorXd go2_controller::q_initial_(int)[m[K’
+   61 |             Eigen::VectorXd q_desired = [01;31m[Kq_initial_ + displacement * 0.5 * (1 - cos(M_PI / T * t))[m[K;
+      |                                         [01;31m[K~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:104:21:[m[K [01;36m[Knote: [m[Kdeclared here
+  104 |     Eigen::VectorXd [01;36m[Kq_initial_[m[K(12) = Eigen::VectorXd::Zero(12);
+      |                     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
     6 |     [01;35m[Ksystem("clear")[m[K;
       |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:63: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

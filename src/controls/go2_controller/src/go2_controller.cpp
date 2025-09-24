@@ -14,6 +14,10 @@ void go2_controller::Init()
     // Subscribers
     sub_leg_state_ = nh_.subscribe(go2_topic_leg_state_, queue_size, &go2_controller::StateLegCallback, this, ros::TransportHints().reliable().tcpNoDelay());
     // leg_state(다리상태)를 go2의 legstate를 구독함.
+    /*
+    StateLegCallback 함수는 코드상에서 직접 호출되는 부분이 없으며, ROS 시스템에 의해 특정 이벤트가 발생했을 때 자동으로 호출되도록 등록되어 있습니다.
+    */
+
 
     pub_leg_cmd_ = nh_.advertise<std_msgs::Float64MultiArray>(go2_topic_leg_command_, queue_size);
 
@@ -24,36 +28,32 @@ void go2_controller::Init()
     dq_.setZero(12);
     torque_.setZero(12);
 
-    // homing | 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
-
+    q_final << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
+    // 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40
 }
 
 void go2_controller::Command(bool flag)
 {
     if (Recieved_Joint_State)
     {
+
+        Forward_Kinematics(q_, dq_);
+        
         switch (controlmode)
         {
         case INIT:
         {
+            // Homing 시작 시 초기 상태 저장
+            q_current = q_;
+            Homing_Time = ros::Time::now();
             controlmode = HOMING;
             break;
         }
         case HOMING:
         {
-            // Desired한 행렬 만들어내기
-            Eigen::VectorXd q_desired(12);
-            q_desired << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
-            
-            Eigen::VectorXd dq_desired = Eigen::VectorXd::Zero(12); // 이거 의미가 있나?
-
-            // PD 제어 Gain
-            double K_p = 100.0;
-            double K_d = 1.0;
-
-            torque_ = K_p * (q_desired - q_) - K_d * dq_;
-
-            break;
+          Homing();
+          //torque_(0) = -50; 
+          break;
         }
         }
 
@@ -61,7 +61,101 @@ void go2_controller::Command(bool flag)
     }
 }
 
+void go2_controller::Homing() // 초기자세 설정 하는 코드
+{
+    // 성민이형 스타일
+    // if(Homing_Time == 1000) 
+    // {
+    //     Homing_Time = 1000;
+    // }
+    // else if (Homing_Time < 1000)
+    // {
+    //     Homing_Time++;
+    // }
+    
 
+    // sinusoidal trajectory
+    ros::Time Current_Time = ros::Time::now();
+    double t = (Current_Time - Homing_Time).toSec(); // 계산해야하므로 ros::Time이 아닌 double로 받음.
+    double T = 2; // 계산해야하므로 ros::Time이 아닌 double로 받음.
+    if (t< T) // trajectory 추정중
+    {
+        q_desired = q_current + (q_final - q_current) * 0.5 * (1 - cos(3.14 / T * t));
+    }
+    else if (t == T)
+    {
+        q_desired = q_final;
+    }
+
+
+
+    // // quintic trajectory (1)
+    // ros::Time Current_Time = ros::Time::now();
+    // double t = (Current_Time - Homing_Time).toSec(); // toSec() 적으세요
+    // double T = 2.0;
+
+    // double time_ratio = t/T;
+    // double time_ratio_3 = time_ratio * time_ratio * time_ratio;
+    // double time_ratio_4 = time_ratio_3 * time_ratio;
+    // double time_ratio_5 = time_ratio_4 * time_ratio;
+    
+    // if (t >= T)
+    // {
+    //     q_desired = q_final;
+    // }
+    // else if (t< T)
+    // {
+    //     q_desired = q_current + (q_final - q_current) * (10 * time_ratio_3 - 15 * time_ratio_4 + 6 * time_ratio_5);
+    // } 
+
+    // // quintic trajectory (2)
+    // Eigen::Matrix<double, 6, 6> M; // double 요소의 6x6 행렬 선언
+    // double T2 = T*T;
+    // double T3 = T2*T; 
+    // double T4 = T3*T; 
+    // double T5 = T4*T;
+
+    // M << 1, 0, 0, 0, 0, 0,
+    //      0, 1, 0, 0, 0, 0,
+    //      0, 0, 1, 0, 0, 0,
+    //      1, T, T2, T3, T4, T5,
+    //      0, 1, 2*T, 3*T2, 4*T3, 5*T4,
+    //      0, 0, 2, 6*T, 12*T2, 20*T3;
+
+    // Eigen::Matrix<double, 6, 6> M_inv = M.inverse(); // M의 역행렬을 구함
+
+    // Eigen::Matrix<double, 6, 12> B; // 12개의 관절들의 초기 (위치, 속도, 가속도), 최종 (위치, 속도, 가속도) 구하기 
+    // B.row(0) = q_current.transpose(); // current를 받으면서 바로 초기화
+    // B.row(1) = Eigen::RowVectorXd::Zero(12);
+    // B.row(2) = Eigen::RowVectorXd::Zero(12);
+    // B.row(3) = q_final.transpose();
+    // B.row(4) = Eigen::RowVectorXd::Zero(12);
+    // B.row(5) = Eigen::RowVectorXd::Zero(12);
+
+    // Eigen::Matrix<double, 6, 12> A = M_inv * B; // 계수행렬을 구합니다.
+
+    // if (t >= T)
+    // {
+    //     q_desired = q_final;
+    // }
+    // else 
+    // {
+    //     // q(t) = a0 + a1*t + a2*t^2 + a3*t^3 + a4*t^4 + a5*t^5 이므로
+    //     double t2 = t * t; 
+    //     double t3 = t2 * t; 
+    //     double t4 = t3 * t; 
+    //     double t5 = t4 * t;
+    //     Eigen::Matrix<double, 1, 6> T_vec;
+    //     T_vec << 1, t, t2, t3, t4, t5;
+
+    //     q_desired = (T_vec * A).transpose(); // 12 x 1 열벡터가 된다.
+    // }
+   
+    double K_p = 30.0;
+    double K_d = 1.0;
+
+    torque_ = K_p * (q_desired - q_) - K_d * dq_; // q_와 dq_는 계속 StateLegCallback 함수로 인해 실시간으로 값을 할당받는중임.
+}
 
 void go2_controller::Run()
 {
@@ -139,7 +233,7 @@ void go2_controller::SendCommandsToRobot()
         }
         else
         {
-            msg.data.push_back(torque_(i));
+            msg.data.push_back(torque_(i)); // torque_() : 토크값 저장.
         }
     }
     pub_leg_cmd_.publish(msg);

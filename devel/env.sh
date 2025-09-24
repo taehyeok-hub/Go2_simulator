@@ -1,1 +1,1 @@
-/home/sm/TH/model/Go2_Simulator/devel/.private/catkin_tools_prebuild/env.sh
+/home/pth/pth/model/Go2_simulator/devel/.private/catkin_tools_prebuild/env.sh

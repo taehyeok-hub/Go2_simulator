@@ -1,1 +1,1 @@
-/home/sm/TH/model/Go2_Simulator/devel/.private/go2_gazebo/share/go2_gazebo/cmake/go2_gazeboConfig-version.cmake
+/home/pth/pth/model/Go2_simulator/devel/.private/go2_gazebo/share/go2_gazebo/cmake/go2_gazeboConfig-version.cmake

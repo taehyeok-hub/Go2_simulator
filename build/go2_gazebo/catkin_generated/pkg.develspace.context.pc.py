@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "go2_gazebo"
-PROJECT_SPACE_DIR = "/home/sm/TH/model/Go2_Simulator/devel/.private/go2_gazebo"
+PROJECT_SPACE_DIR = "/home/pth/pth/model/Go2_simulator/devel/.private/go2_gazebo"
 PROJECT_VERSION = "0.0.0"

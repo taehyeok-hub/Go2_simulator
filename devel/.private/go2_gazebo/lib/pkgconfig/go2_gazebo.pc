@@ -1,4 +1,4 @@
-prefix=/home/sm/TH/model/Go2_Simulator/devel/.private/go2_gazebo
+prefix=/home/pth/pth/model/Go2_simulator/devel/.private/go2_gazebo
 
 Name: go2_gazebo
 Description: Description of go2_gazebo

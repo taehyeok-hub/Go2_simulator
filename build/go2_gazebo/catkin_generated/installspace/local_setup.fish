@@ -5,7 +5,7 @@
 # or fall back to the destination set at configure time
 
 if test -z $_CATKIN_SETUP_DIR
-    set _CATKIN_SETUP_DIR /home/sm/TH/model/Go2_Simulator/install
+    set _CATKIN_SETUP_DIR /home/pth/pth/model/Go2_simulator/install
 end
 
 set CATKIN_SETUP_UTIL_ARGS "--extend --local"

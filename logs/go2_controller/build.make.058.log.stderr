@@ -1,0 +1,20 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:1:1:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ does not name a type
+    1 | [01;31m[KEigen[m[K::Matrix4d A_Matrix(double a, double alpha, double d, double theta);
+      | [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:11:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kgo2_controller[m[K’ has not been declared
+   11 | void [01;31m[Kgo2_controller[m[K::Forward_Kinematics(Eigen::VectorXd q, Eigen::VectorXd dq)
+      |      [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:11:41:[m[K [01;31m[Kerror: [m[Kvariable or field ‘[01m[KForward_Kinematics[m[K’ declared void
+   11 | void go2_controller::Forward_Kinematics([01;31m[KEigen[m[K::VectorXd q, Eigen::VectorXd dq)
+      |                                         [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:11:41:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ has not been declared
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:11:60:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ has not been declared
+   11 | void go2_controller::Forward_Kinematics(Eigen::VectorXd q, [01;31m[KEigen[m[K::VectorXd dq)
+      |                                                            [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:47:1:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ does not name a type
+   47 | [01;31m[KEigen[m[K::Matrix4d A_Matrix(double a, double alpha, double d, double theta)
+      | [01;31m[K^~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:76: CMakeFiles/go2_controller.dir/src/Forward_Kinematics.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2

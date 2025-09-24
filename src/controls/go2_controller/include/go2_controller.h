@@ -81,9 +81,10 @@ private:
     // FUNCTION---------------------------------------------------------------------------------------------------------------------------------------------------
 
     void Command(bool flag);
-    void Homming();
+    void Homing();
     void StateLegCallback(const sensor_msgs::JointState &state);
     void SendCommandsToRobot();
+    void Forward_Kinematics(Eigen::VectorXd, Eigen::VectorXd);
 
     ros::NodeHandle nh_;
     ros::Subscriber sub_leg_state_;
@@ -98,9 +99,20 @@ private:
     Eigen::VectorXd dq_              { Eigen::VectorXd::Zero(12) };
     Eigen::VectorXd torque_          { Eigen::VectorXd::Zero(12) };
 
+    Eigen::VectorXd q_current        { Eigen::VectorXd::Zero(12) };
+    Eigen::VectorXd q_final          { Eigen::VectorXd::Zero(12) };
+    Eigen::VectorXd q_desired        { Eigen::VectorXd::Zero(12) };
+
+
+    Eigen::Vector3d EE_Pose_FL       { Eigen::Vector3d::Zero() };
+    Eigen::Vector3d EE_Pose_FR       { Eigen::Vector3d::Zero() };
+    Eigen::Vector3d EE_Pose_RL       { Eigen::Vector3d::Zero() };
+    Eigen::Vector3d EE_Pose_RR       { Eigen::Vector3d::Zero() };
+
     bool Recieved_Joint_State;
 
-    int Homing_Time = 0;
+    ros::Time Homing_Time;
+    // int Homing_Time = 0;
 
 };
 
