@@ -38,6 +38,7 @@ void go2_controller::Command(bool flag)
     {
 
         Forward_Kinematics(q_, dq_);
+        geometrical_IK();
         
         switch (controlmode)
         {

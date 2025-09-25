@@ -1,0 +1,18 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:[m[K In function ‘[01m[KEigen::Matrix4d A_Matrix(double, double, double, double)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:16:75:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kreturn[m[K’
+   16 |          0,           0,                        0,                       1
+      |                                                                           [01;31m[K^[m[K
+      |                                                                           [32m[K;[m[K
+   17 | 
+   18 |     [32m[Kreturn[m[K A;
+      |     [32m[K~~~~~~[m[K                                                                 
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:19:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+   19 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:[m[K In function ‘[01m[KEigen::Vector3d Calculate_Atan2(Eigen::Vector3d&, double, double)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:99:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+   99 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:89: CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

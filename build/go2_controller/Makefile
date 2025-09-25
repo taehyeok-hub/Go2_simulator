@@ -1286,6 +1286,33 @@ src/Forward_Kinematics.cpp.s:
 	$(MAKE) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Forward_Kinematics.cpp.s
 .PHONY : src/Forward_Kinematics.cpp.s
 
+src/Inverse_Kinematics.o: src/Inverse_Kinematics.cpp.o
+
+.PHONY : src/Inverse_Kinematics.o
+
+# target to build an object file
+src/Inverse_Kinematics.cpp.o:
+	$(MAKE) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o
+.PHONY : src/Inverse_Kinematics.cpp.o
+
+src/Inverse_Kinematics.i: src/Inverse_Kinematics.cpp.i
+
+.PHONY : src/Inverse_Kinematics.i
+
+# target to preprocess a source file
+src/Inverse_Kinematics.cpp.i:
+	$(MAKE) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.i
+.PHONY : src/Inverse_Kinematics.cpp.i
+
+src/Inverse_Kinematics.s: src/Inverse_Kinematics.cpp.s
+
+.PHONY : src/Inverse_Kinematics.s
+
+# target to generate assembly for a file
+src/Inverse_Kinematics.cpp.s:
+	$(MAKE) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.s
+.PHONY : src/Inverse_Kinematics.cpp.s
+
 src/go2_controller.o: src/go2_controller.cpp.o
 
 .PHONY : src/go2_controller.o
@@ -1440,6 +1467,9 @@ help:
 	@echo "... src/Forward_Kinematics.o"
 	@echo "... src/Forward_Kinematics.i"
 	@echo "... src/Forward_Kinematics.s"
+	@echo "... src/Inverse_Kinematics.o"
+	@echo "... src/Inverse_Kinematics.i"
+	@echo "... src/Inverse_Kinematics.s"
 	@echo "... src/go2_controller.o"
 	@echo "... src/go2_controller.i"
 	@echo "... src/go2_controller.s"

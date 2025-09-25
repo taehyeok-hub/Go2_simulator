@@ -1,0 +1,89 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:1:10:[m[K [01;31m[Kerror: [m[K#include expects "FILENAME" or <FILENAME>
+    1 | #include [01;31m[Kgo2_controller[m[K.h
+      |          [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:11:1:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ does not name a type
+   11 | [01;31m[KEigen[m[K::Vector3d Calculate_V(Eigen::Vector3& ee, Eigen::Vector3d& bb) // double angle 생략함
+      | [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:34:1:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ does not name a type
+   34 | [01;31m[KEigen[m[K::Vector3d Calculate_Atan2(Eigen::Vector3d& p_hip, double a2, double a3)
+      | [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:68:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kgo2_controller[m[K’ has not been declared
+   68 | void [01;31m[Kgo2_controller[m[K::geometrical_IK()
+      |      [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:[m[K In function ‘[01m[Kvoid geometrical_IK()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:70:5:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ has not been declared
+   70 |     [01;31m[KEigen[m[K::Vector3d FL_base_hip << 0.19295, 0.145, 0;
+      |     [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:71:5:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ has not been declared
+   71 |     [01;31m[KEigen[m[K::Vector3d FR_base_hip << 0.19295, -0.145, 0;
+      |     [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:72:5:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ has not been declared
+   72 |     [01;31m[KEigen[m[K::Vector3d RL_base_hip << -0.19295, 0.145, 0;
+      |     [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:73:5:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ has not been declared
+   73 |     [01;31m[KEigen[m[K::Vector3d RR_base_hip << -0.19295, -0.145, 0;
+      |     [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:77:5:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ has not been declared
+   77 |     [01;31m[KEigen[m[K::Vector3d h_xyz;
+      |     [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:80:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kh_xyz[m[K’ was not declared in this scope
+   80 |     [01;31m[Kh_xyz[m[K = Calculate_V(EE_Pose_FL, FL_base_hip);
+      |     [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:80:25:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_FL[m[K’ was not declared in this scope
+   80 |     h_xyz = Calculate_V([01;31m[KEE_Pose_FL[m[K, FL_base_hip);
+      |                         [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:80:37:[m[K [01;31m[Kerror: [m[K‘[01m[KFL_base_hip[m[K’ was not declared in this scope
+   80 |     h_xyz = Calculate_V(EE_Pose_FL, [01;31m[KFL_base_hip[m[K);
+      |                                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:80:13:[m[K [01;31m[Kerror: [m[K‘[01m[KCalculate_V[m[K’ was not declared in this scope
+   80 |     h_xyz = [01;31m[KCalculate_V[m[K(EE_Pose_FL, FL_base_hip);
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:82:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kall_joint_angles[m[K’ was not declared in this scope
+   82 |     [01;31m[Kall_joint_angles[m[K.segment<3>(0) = Calculate_Atan2(h_xyz, l2, l3);
+      |     [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:82:38:[m[K [01;31m[Kerror: [m[K‘[01m[KCalculate_Atan2[m[K’ was not declared in this scope
+   82 |     all_joint_angles.segment<3>(0) = [01;31m[KCalculate_Atan2[m[K(h_xyz, l2, l3);
+      |                                      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:85:29:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_FR[m[K’ was not declared in this scope
+   85 |     h_xyz = Calculate_V(90, [01;31m[KEE_Pose_FR[m[K, FR_base_hip);
+      |                             [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:85:41:[m[K [01;31m[Kerror: [m[K‘[01m[KFR_base_hip[m[K’ was not declared in this scope
+   85 |     h_xyz = Calculate_V(90, EE_Pose_FR, [01;31m[KFR_base_hip[m[K);
+      |                                         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:89:29:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_RL[m[K’ was not declared in this scope
+   89 |     h_xyz = Calculate_V(90, [01;31m[KEE_Pose_RL[m[K, RL_base_hip);
+      |                             [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:89:41:[m[K [01;31m[Kerror: [m[K‘[01m[KRL_base_hip[m[K’ was not declared in this scope
+   89 |     h_xyz = Calculate_V(90, EE_Pose_RL, [01;31m[KRL_base_hip[m[K);
+      |                                         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:93:29:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_RR[m[K’ was not declared in this scope
+   93 |     h_xyz = Calculate_V(90, [01;31m[KEE_Pose_RR[m[K, RR_base_hip);
+      |                             [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:93:41:[m[K [01;31m[Kerror: [m[K‘[01m[KRR_base_hip[m[K’ was not declared in this scope
+   93 |     h_xyz = Calculate_V(90, EE_Pose_RR, [01;31m[KRR_base_hip[m[K);
+      |                                         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:97:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kcout[m[K’ is not a member of ‘[01m[Kstd[m[K’
+   97 |     std::[01;31m[Kcout[m[K << all_joint_angles.transpose() << std::endl;
+      |          [01;31m[K^~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:1:1:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::cout[m[K’ is defined in header ‘[01m[K<iostream>[m[K’; did you forget to ‘[01m[K#include <iostream>[m[K’?
+  +++ |+[32m[K#include <iostream>[m[K
+    1 | #include go2_controller.h
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:97:55:[m[K [01;31m[Kerror: [m[K‘[01m[Kendl[m[K’ is not a member of ‘[01m[Kstd[m[K’
+   97 |     std::cout << all_joint_angles.transpose() << std::[01;31m[Kendl[m[K;
+      |                                                       [01;31m[K^~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:1:1:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::endl[m[K’ is defined in header ‘[01m[K<ostream>[m[K’; did you forget to ‘[01m[K#include <ostream>[m[K’?
+  +++ |+[32m[K#include <ostream>[m[K
+    1 | #include go2_controller.h
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:89: CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Command(bool)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:41:9:[m[K [01;31m[Kerror: [m[K‘[01m[KInverse_Kinematics[m[K’ was not declared in this scope
+   41 |         [01;31m[KInverse_Kinematics[m[K();
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:63: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

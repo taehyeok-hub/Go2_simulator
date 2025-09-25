@@ -85,6 +85,7 @@ private:
     void StateLegCallback(const sensor_msgs::JointState &state);
     void SendCommandsToRobot();
     void Forward_Kinematics(Eigen::VectorXd, Eigen::VectorXd);
+    void geometrical_IK();
 
     ros::NodeHandle nh_;
     ros::Subscriber sub_leg_state_;
@@ -109,7 +110,7 @@ private:
     Eigen::Vector3d EE_Pose_RL       { Eigen::Vector3d::Zero() };
     Eigen::Vector3d EE_Pose_RR       { Eigen::Vector3d::Zero() };
 
-    Eigen::VectorXd JointVa          { Eigen::VectorXd::Zero(12) }; 
+    Eigen::VectorXd all_joint_angles { Eigen::VectorXd::Zero(12) }; 
     bool Recieved_Joint_State;
 
     ros::Time Homing_Time;

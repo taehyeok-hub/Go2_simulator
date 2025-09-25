@@ -1,0 +1,22 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::geometrical_IK()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:90:25:[m[K [01;31m[Kerror: [m[Kinvalid initialization of non-const reference of type ‘[01m[KEigen::Vector3d&[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>&[m[K’} from an rvalue of type ‘[01m[Kint[m[K’
+   90 |     h_xyz = Calculate_V([01;31m[K90[m[K, EE_Pose_FR, FR_base_hip);
+      |                         [01;31m[K^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:11:46:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[KEigen::Vector3d Calculate_V(Eigen::Vector3d&, Eigen::Vector3d&)[m[K’
+   11 | Eigen::Vector3d Calculate_V([01;36m[KEigen::Vector3d& ee[m[K, Eigen::Vector3d& bb) // double angle 생략함
+      |                             [01;36m[K~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:94:25:[m[K [01;31m[Kerror: [m[Kinvalid initialization of non-const reference of type ‘[01m[KEigen::Vector3d&[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>&[m[K’} from an rvalue of type ‘[01m[Kint[m[K’
+   94 |     h_xyz = Calculate_V([01;31m[K90[m[K, EE_Pose_RL, RL_base_hip);
+      |                         [01;31m[K^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:11:46:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[KEigen::Vector3d Calculate_V(Eigen::Vector3d&, Eigen::Vector3d&)[m[K’
+   11 | Eigen::Vector3d Calculate_V([01;36m[KEigen::Vector3d& ee[m[K, Eigen::Vector3d& bb) // double angle 생략함
+      |                             [01;36m[K~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:98:25:[m[K [01;31m[Kerror: [m[Kinvalid initialization of non-const reference of type ‘[01m[KEigen::Vector3d&[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>&[m[K’} from an rvalue of type ‘[01m[Kint[m[K’
+   98 |     h_xyz = Calculate_V([01;31m[K90[m[K, EE_Pose_RR, RR_base_hip);
+      |                         [01;31m[K^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:11:46:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[KEigen::Vector3d Calculate_V(Eigen::Vector3d&, Eigen::Vector3d&)[m[K’
+   11 | Eigen::Vector3d Calculate_V([01;36m[KEigen::Vector3d& ee[m[K, Eigen::Vector3d& bb) // double angle 생략함
+      |                             [01;36m[K~~~~~~~~~~~~~~~~~^~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:89: CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

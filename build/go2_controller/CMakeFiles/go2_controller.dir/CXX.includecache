@@ -72,7 +72,7 @@ Eigen/Dense
 Eigen/Geometry
 /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Eigen/Geometry
 
-/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp
+/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp
 go2_controller.h
 /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.h
 
