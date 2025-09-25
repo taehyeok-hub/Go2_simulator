@@ -8,7 +8,7 @@ void MainThreadRun(go2_controller &controller)
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "go2_node");
+    ros::init(argc, argv, "go2_node"); // ros에 go2_node라고 연결함.
     ros::NodeHandle nh;
 
     const double freq = 500;
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
         return -1;
     }
 
-    go2_controller go2_controller(nh, go2_topic_leg_state, go2_topic_leg_command, freq);
+    go2_controller go2_controller(nh, go2_topic_leg_state, go2_topic_leg_command, freq); // 객체 생성
 
     std::thread main_thread(MainThreadRun, std::ref(go2_controller));
 

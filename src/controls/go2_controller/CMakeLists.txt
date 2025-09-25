@@ -47,6 +47,7 @@ add_library(${PROJECT_NAME}
   include/go2_controller.h
   src/go2_controller.cpp
   src/Forward_Kinematics.cpp
+  src/Inverse_Kinematics.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
