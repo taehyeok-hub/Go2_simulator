@@ -1,0 +1,51 @@
+warning: source /home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/doc/pictures is not a readable file or directory... skipping.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/internal/traversal_node_bvh_shape.h:850: warning: unbalanced grouping commands
+<unknown>:1: warning: the name '/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/OBB.h' supplied as the argument in the \file statement matches the following input files:
+   /home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/OBB.h
+Please use a more specific name by including a (larger) part of the path!
+<unknown>:1: warning: the name '/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance_func_matrix.h' supplied as the argument in the \file statement matches the following input files:
+   /home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance_func_matrix.h
+Please use a more specific name by including a (larger) part of the path!
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:50: warning: documented symbol 'bool hpp::fcl::Intersect::buildTrianglePlane' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:64: warning: documented symbol 'void hpp::fcl::TriangleDistance::segPoints' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:179: warning: documented symbol 'FCL_REAL hpp::fcl::TriangleDistance::sqrTriDistance' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:403: warning: documented symbol 'FCL_REAL hpp::fcl::TriangleDistance::sqrTriDistance' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:415: warning: documented symbol 'FCL_REAL hpp::fcl::TriangleDistance::sqrTriDistance' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:428: warning: documented symbol 'FCL_REAL hpp::fcl::TriangleDistance::sqrTriDistance' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:441: warning: documented symbol 'FCL_REAL hpp::fcl::TriangleDistance::sqrTriDistance' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:454: warning: documented symbol 'FCL_REAL hpp::fcl::TriangleDistance::sqrTriDistance' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:470: warning: documented symbol 'Project::ProjectResult hpp::fcl::Project::projectLine' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:490: warning: documented symbol 'Project::ProjectResult hpp::fcl::Project::projectTriangle' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:540: warning: documented symbol 'Project::ProjectResult hpp::fcl::Project::projectTetrahedra' was not declared or defined.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:592: warning: no matching class member found for 
+  Project::ProjectResult hpp::fcl::Project::projectLineOrigin(const Vec3f &a, const Vec3f &b)
+
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:612: warning: no matching class member found for 
+  Project::ProjectResult hpp::fcl::Project::projectTriangleOrigin(const Vec3f &a, const Vec3f &b, const Vec3f &c)
+
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/intersect.cpp:662: warning: no matching class member found for 
+  Project::ProjectResult hpp::fcl::Project::projectTetrahedraOrigin(const Vec3f &a, const Vec3f &b, const Vec3f &c, const Vec3f &d)
+
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BV/OBBRSS.h:165: warning: The following parameters of hpp::fcl::overlap(const Matrix3f &R0, const Vec3f &T0, const OBBRSS &b1, const OBBRSS &b2, const CollisionRequest &request, FCL_REAL &sqrDistLowerBound) are not documented:
+  parameter 'request'
+  parameter 'sqrDistLowerBound'
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:338: warning: The following parameter of hpp::fcl::ConvexBase::initialize(bool ownStorage, Vec3f *points_, int num_points_) is not documented:
+  parameter 'ownStorage'
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/narrowphase/details.h:2111: warning: The following parameters of hpp::fcl::details::boxSphereDistance(const Box &b, const Transform3f &tfb, const Sphere &s, const Transform3f &tfs, FCL_REAL &dist, Vec3f &pb, Vec3f &ps, Vec3f &normal) are not documented:
+  parameter 'b'
+  parameter 'tfb'
+  parameter 's'
+  parameter 'tfs'
+  parameter 'dist'
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/narrowphase/gjk.cpp:289: warning: The following parameters of hpp::fcl::details::getSupport(const ShapeBase *shape, const Vec3f &dir, bool dirIsNormalized, int &hint) are not documented:
+  parameter 'shape'
+  parameter 'dir'
+  parameter 'dirIsNormalized'
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/narrowphase/details.h:1949: warning: The following parameters of hpp::fcl::details::halfspaceDistance(const Halfspace &h, const Transform3f &tf1, const ShapeBase &s, const Transform3f &tf2, FCL_REAL &dist, Vec3f &p1, Vec3f &p2, Vec3f &normal) are not documented:
+  parameter 'h'
+  parameter 'tf1'
+  parameter 's'
+  parameter 'tf2'
+  parameter 'dist'
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/doc.hh:66: warning: image file doc/distance_computation.png is not found in IMAGE_PATH: assuming external image.
+/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/doc.hh:66: warning: image file doc/distance_computation.png is not found in IMAGE_PATH: assuming external image.

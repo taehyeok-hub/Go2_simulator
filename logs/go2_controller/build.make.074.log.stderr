@@ -1,8 +1,0 @@
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Forward_Kinematics(Eigen::VectorXd, Eigen::VectorXd)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Forward_Kinematics.cpp:57:67:[m[K [01;31m[Kerror: [m[K‘[01m[KCreateRmatx[m[K’ was not declared in this scope; did you mean ‘[01m[KCreateRmatrix[m[K’?
-   57 |     T_base_hip = CreateTmatrix(base_to_hip_x, base_to_hip_y, 0) * [01;31m[KCreateRmatx[m[K(q(3), hip_axis);
-      |                                                                   [01;31m[K^~~~~~~~~~~[m[K
-      |                                                                   [32m[KCreateRmatrix[m[K
-make[2]: *** [CMakeFiles/go2_controller.dir/build.make:76: CMakeFiles/go2_controller.dir/src/Forward_Kinematics.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

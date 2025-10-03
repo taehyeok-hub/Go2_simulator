@@ -28,7 +28,7 @@ void go2_controller::Init()
     dq_.setZero(12);
     torque_.setZero(12);
 
-    q_final << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
+    
     // 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40
 }
 
@@ -38,6 +38,8 @@ void go2_controller::Command(bool flag)
     {
 
         Forward_Kinematics(q_, dq_);
+        //Jacobians(q_);
+        Create_Jacobian(q_);
         geometrical_IK();
         
         switch (controlmode)
@@ -55,6 +57,11 @@ void go2_controller::Command(bool flag)
           Homing();
           //torque_(0) = -50; 
           break;
+        }
+        case SQUATING:
+        {
+            Squating();
+            break;
         }
         }
 
@@ -76,17 +83,17 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
     
 
     // sinusoidal trajectory
-    ros::Time Current_Time = ros::Time::now();
-    double t = (Current_Time - Homing_Time).toSec(); // 계산해야하므로 ros::Time이 아닌 double로 받음.
-    double T = 2; // 계산해야하므로 ros::Time이 아닌 double로 받음.
-    if (t< T) // trajectory 추정중
-    {
-        q_desired = q_current + (q_final - q_current) * 0.5 * (1 - cos(3.14 / T * t));
-    }
-    else if (t == T)
-    {
-        q_desired = q_final;
-    }
+    // ros::Time Current_Time = ros::Time::now();
+    // double t = (Current_Time - Homing_Time).toSec(); // 계산해야하므로 ros::Time이 아닌 double로 받음.
+    // double T = 2; // 계산해야하므로 ros::Time이 아닌 double로 받음.
+    // if (t< T) // trajectory 추정중
+    // {
+    //     q_desired = q_current + (q_final - q_current) * 0.5 * (1 - cos(3.14 / T * t));
+    // }
+    // else if (t == T)
+    // {
+    //     q_desired = q_final;
+    // }
 
 
 
@@ -110,52 +117,64 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
     // } 
 
     // // quintic trajectory (2)
-    // Eigen::Matrix<double, 6, 6> M; // double 요소의 6x6 행렬 선언
-    // double T2 = T*T;
-    // double T3 = T2*T; 
-    // double T4 = T3*T; 
-    // double T5 = T4*T;
+    ros::Time Current_Time = ros::Time::now();
+    double t = (Current_Time - Homing_Time).toSec(); // toSec() 적으세요
+    double T = 2.0;
 
-    // M << 1, 0, 0, 0, 0, 0,
-    //      0, 1, 0, 0, 0, 0,
-    //      0, 0, 1, 0, 0, 0,
-    //      1, T, T2, T3, T4, T5,
-    //      0, 1, 2*T, 3*T2, 4*T3, 5*T4,
-    //      0, 0, 2, 6*T, 12*T2, 20*T3;
+    q_final << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
 
-    // Eigen::Matrix<double, 6, 6> M_inv = M.inverse(); // M의 역행렬을 구함
+    Eigen::Matrix<double, 6, 6> M; // double 요소의 6x6 행렬 선언
+    double T2 = T*T;
+    double T3 = T2*T; 
+    double T4 = T3*T; 
+    double T5 = T4*T;
 
-    // Eigen::Matrix<double, 6, 12> B; // 12개의 관절들의 초기 (위치, 속도, 가속도), 최종 (위치, 속도, 가속도) 구하기 
-    // B.row(0) = q_current.transpose(); // current를 받으면서 바로 초기화
-    // B.row(1) = Eigen::RowVectorXd::Zero(12);
-    // B.row(2) = Eigen::RowVectorXd::Zero(12);
-    // B.row(3) = q_final.transpose();
-    // B.row(4) = Eigen::RowVectorXd::Zero(12);
-    // B.row(5) = Eigen::RowVectorXd::Zero(12);
+    M << 1, 0, 0, 0, 0, 0,
+         0, 1, 0, 0, 0, 0,
+         0, 0, 1, 0, 0, 0,
+         1, T, T2, T3, T4, T5,
+         0, 1, 2*T, 3*T2, 4*T3, 5*T4,
+         0, 0, 2, 6*T, 12*T2, 20*T3;
 
-    // Eigen::Matrix<double, 6, 12> A = M_inv * B; // 계수행렬을 구합니다.
+    Eigen::Matrix<double, 6, 6> M_inv = M.inverse(); // M의 역행렬을 구함
 
-    // if (t >= T)
-    // {
-    //     q_desired = q_final;
-    // }
-    // else 
-    // {
-    //     // q(t) = a0 + a1*t + a2*t^2 + a3*t^3 + a4*t^4 + a5*t^5 이므로
-    //     double t2 = t * t; 
-    //     double t3 = t2 * t; 
-    //     double t4 = t3 * t; 
-    //     double t5 = t4 * t;
-    //     Eigen::Matrix<double, 1, 6> T_vec;
-    //     T_vec << 1, t, t2, t3, t4, t5;
+    Eigen::Matrix<double, 6, 12> B; // 12개의 관절들의 초기 (위치, 속도, 가속도), 최종 (위치, 속도, 가속도) 구하기 
+    B.row(0) = q_current.transpose(); // current를 받으면서 바로 초기화
+    B.row(1) = Eigen::RowVectorXd::Zero(12);
+    B.row(2) = Eigen::RowVectorXd::Zero(12);
+    B.row(3) = q_final.transpose();
+    B.row(4) = Eigen::RowVectorXd::Zero(12);
+    B.row(5) = Eigen::RowVectorXd::Zero(12);
 
-    //     q_desired = (T_vec * A).transpose(); // 12 x 1 열벡터가 된다.
-    // }
-   
+    Eigen::Matrix<double, 6, 12> A = M_inv * B; // 계수행렬을 구합니다.
+
+    if (t >= T)
+    {
+        q_desired = q_final;
+    }
+    else 
+    {
+        // q(t) = a0 + a1*t + a2*t^2 + a3*t^3 + a4*t^4 + a5*t^5 이므로
+        double t2 = t * t; 
+        double t3 = t2 * t; 
+        double t4 = t3 * t; 
+        double t5 = t4 * t;
+        Eigen::Matrix<double, 1, 6> T_vec;
+        T_vec << 1, t, t2, t3, t4, t5;
+
+        q_desired = (T_vec * A).transpose(); // 12 x 1 열벡터가 된다.
+    }
+
     double K_p = 30.0;
     double K_d = 1.0;
 
     torque_ = K_p * (q_desired - q_) - K_d * dq_; // q_와 dq_는 계속 StateLegCallback 함수로 인해 실시간으로 값을 할당받는중임.
+}
+
+void go2_controller::Squating()
+{
+
+
 }
 
 void go2_controller::Run()

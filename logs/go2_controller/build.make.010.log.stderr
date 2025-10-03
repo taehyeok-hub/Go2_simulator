@@ -1,4 +1,15 @@
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
-    6 |     [01;35m[Ksystem("clear")[m[K;
-      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Jacobians(const VectorXd&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:72:47:[m[K [01;31m[Kerror: [m[K‘[01m[Kp_ee_FL[m[K’ was not declared in this scope
+   72 |     J_FL.block<3, 1>(0, 1) = z_thigh_FL.cross([01;31m[Kp_ee_FL[m[K - p_thigh_joint_FL);
+      |                                               [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:72:57:[m[K [01;31m[Kerror: [m[K‘[01m[Kp_thigh_joint_FL[m[K’ was not declared in this scope; did you mean ‘[01m[Ko_thigh_joint_FL[m[K’?
+   72 |     J_FL.block<3, 1>(0, 1) = z_thigh_FL.cross(p_ee_FL - [01;31m[Kp_thigh_joint_FL[m[K);
+      |                                                         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                                         [32m[Ko_thigh_joint_FL[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:73:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kp_calf_joint_FL[m[K’ was not declared in this scope; did you mean ‘[01m[Ko_calf_joint_FL[m[K’?
+   73 |     J_FL.block<3, 1>(0, 2) = z_calf_FL.cross(p_ee_FL - [01;31m[Kp_calf_joint_FL[m[K);
+      |                                                        [01;31m[K^~~~~~~~~~~~~~~[m[K
+      |                                                        [32m[Ko_calf_joint_FL[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:121: CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

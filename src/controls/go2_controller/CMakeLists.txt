@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.5)
 project(go2_controller)
 
 set(CMAKE_BUILD_TYPE Release)
@@ -31,28 +31,37 @@ catkin_package(
   DEPENDS gazebo_ros roscpp rospy std_msgs Boost
 )
 
+set(PINOCCHIO_DIR )
 include_directories(
   include
+  include/Tools
   ${Boost_INCLUDE_DIR}
   ${catkin_INCLUDE_DIRS}
   ${GAZEBO_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIR}
+  ${pinocchio_INCLUDE_DIR}
 )
 
 link_directories(
   ${GAZEBO_LIBRARY_DIRS}
+  ${pinocchio_LIBRARY_DIRS}
 )
+
+# add_subdirectory(include/Tools)
 
 add_library(${PROJECT_NAME}
   include/go2_controller.h
   src/go2_controller.cpp
-  src/Forward_Kinematics.cpp
+  src/Kinematics.cpp
   src/Inverse_Kinematics.cpp
+  src/Jacobians.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
+  ${pinocchio_LIBRARIES_DIRS}
   ${GAZEBO_LIBRARIES}
+  # Tools
 )
 
 add_executable(go2_node src/go2_controller_node.cpp)

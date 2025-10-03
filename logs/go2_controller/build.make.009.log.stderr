@@ -2,3 +2,8 @@
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
     6 |     [01;35m[Ksystem("clear")[m[K;
       |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+/usr/bin/ld: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: undefined reference to `go2_controller::Jacobians(Eigen::Matrix<double, -1, 1, 0, -1, 1> const&)'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/go2_node.dir/build.make:241: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2833: CMakeFiles/go2_node.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

@@ -1,26 +1,4 @@
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Command(bool)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:41:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kq_initial_[m[K’ was not declared in this scope
-   41 |             [01;31m[Kq_initial_[m[K = q_; // 현재 관절 각도를 초기 각도로 저장
-      |             [01;31m[K^~~~~~~~~~[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:42:13:[m[K [01;31m[Kerror: [m[K‘[01m[Khoming_start_time_[m[K’ was not declared in this scope
-   42 |             [01;31m[Khoming_start_time_[m[K = ros::Time::now(); // 현재 시간을 Homing 시작 시간으로 저장
-      |             [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:54:40:[m[K [01;31m[Kerror: [m[K‘[01m[Khoming_start_time_[m[K’ was not declared in this scope
-   54 |             double t = (current_time - [01;31m[Khoming_start_time_[m[K).toSec();
-      |                                        [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:57:21:[m[K [01;31m[Kerror: [m[K‘[01m[Khoming_duration_[m[K’ was not declared in this scope
-   57 |             if (t > [01;31m[Khoming_duration_[m[K) {
-      |                     [01;31m[K^~~~~~~~~~~~~~~~[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:63:37:[m[K [01;31m[Kerror: [m[K‘[01m[Khoming_duration_[m[K’ was not declared in this scope
-   63 |             double s = 10 * pow(t / [01;31m[Khoming_duration_[m[K, 3) - 15 * pow(t / homing_duration_, 4) + 6 * pow(t / homing_duration_, 5);
-      |                                     [01;31m[K^~~~~~~~~~~~~~~~[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:68:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kq_initial_[m[K’ was not declared in this scope
-   68 |             Eigen::VectorXd q_desired = [01;31m[Kq_initial_[m[K + s * (q_final - q_initial_);
-      |                                         [01;31m[K^~~~~~~~~~[m[K
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
     6 |     [01;35m[Ksystem("clear")[m[K;
       |     [01;35m[K~~~~~~^~~~~~~~~[m[K
-make[2]: *** [CMakeFiles/go2_controller.dir/build.make:63: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:216: CMakeFiles/go2_controller.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

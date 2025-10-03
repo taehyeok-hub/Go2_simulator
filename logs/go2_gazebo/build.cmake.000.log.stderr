@@ -1,6 +1,10 @@
-[33mWARNING: package 'gazebo_ros' is deprecated (This package has been deprecated as of January 2025 with Gazebo classic 11 reaching[0m
-      end-of-life. Users are highly encouraged to migrate to the new Gazebo
-      using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration))
-[33mWARNING: package 'gazebo_msgs' is deprecated (This package has been deprecated as of January 2025 with Gazebo classic 11 reaching[0m
-      end-of-life. Users are highly encouraged to migrate to the new Gazebo
-      using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration))
+[31mCMake Error at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 has been removed from CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+  Or, add -DCMAKE_POLICY_VERSION_MINIMUM=3.5 to try configuring anyway.
+
+[0m

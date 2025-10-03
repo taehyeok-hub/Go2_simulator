@@ -1,0 +1,139 @@
+[  0%] [0mBuilt target go2_controller_xacro_generated_to_devel_space_[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target roscpp_generate_messages_cpp[0m
+[  0%] [0mBuilt target roscpp_generate_messages_lisp[0m
+[  0%] [0mBuilt target roscpp_generate_messages_eus[0m
+[  0%] [0mBuilt target roscpp_generate_messages_nodejs[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target roscpp_generate_messages_py[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target tf_generate_messages_cpp[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target tf_generate_messages_eus[0m
+[  0%] [0mBuilt target tf_generate_messages_nodejs[0m
+[  0%] [0mBuilt target tf_generate_messages_lisp[0m
+[  0%] [0mBuilt target tf_generate_messages_py[0m
+[  0%] [0mBuilt target actionlib_generate_messages_lisp[0m
+[  0%] [0mBuilt target actionlib_generate_messages_cpp[0m
+[  0%] [0mBuilt target actionlib_generate_messages_eus[0m
+[  0%] [0mBuilt target actionlib_generate_messages_nodejs[0m
+[  0%] [0mBuilt target actionlib_generate_messages_py[0m
+[  0%] [0mBuilt target actionlib_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target actionlib_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target actionlib_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target actionlib_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target actionlib_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target tf2_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target tf2_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target tf2_msgs_generate_messages_lisp[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o[0m
+[ 14%] [0mBuilt target tf2_msgs_generate_messages_nodejs[0m
+[ 14%] [0mBuilt target tf2_msgs_generate_messages_py[0m
+[ 14%] [0mBuilt target gazebo_ros_gencfg[0m
+[ 28%] [0mBuilt target std_srvs_generate_messages_cpp[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o[0m
+[ 42%] [0mBuilt target std_srvs_generate_messages_eus[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o[0m
+[ 42%] [0mBuilt target std_srvs_generate_messages_lisp[0m
+[ 42%] [0mBuilt target std_srvs_generate_messages_nodejs[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o[0m
+[ 57%] [0mBuilt target std_srvs_generate_messages_py[0m
+[ 57%] [0mBuilt target dynamic_reconfigure_generate_messages_cpp[0m
+[ 57%] [0mBuilt target dynamic_reconfigure_generate_messages_eus[0m
+[ 57%] [0mBuilt target dynamic_reconfigure_generate_messages_lisp[0m
+[ 57%] [0mBuilt target dynamic_reconfigure_generate_messages_nodejs[0m
+[ 57%] [0mBuilt target dynamic_reconfigure_generate_messages_py[0m
+[ 57%] [0mBuilt target dynamic_reconfigure_gencfg[0m
+[ 57%] [0mBuilt target gazebo_msgs_generate_messages_cpp[0m
+[ 57%] [0mBuilt target gazebo_msgs_generate_messages_eus[0m
+[ 57%] [0mBuilt target gazebo_msgs_generate_messages_nodejs[0m
+[ 57%] [0mBuilt target gazebo_msgs_generate_messages_lisp[0m
+[ 57%] [0mBuilt target gazebo_msgs_generate_messages_py[0m
+[ 57%] [0mBuilt target trajectory_msgs_generate_messages_cpp[0m
+[ 57%] [0mBuilt target trajectory_msgs_generate_messages_eus[0m
+[ 57%] [0mBuilt target trajectory_msgs_generate_messages_lisp[0m
+[ 57%] [0mBuilt target trajectory_msgs_generate_messages_nodejs[0m
+[ 57%] [0mBuilt target trajectory_msgs_generate_messages_py[0m
+[ 57%] [0mBuilt target controller_manager_msgs_generate_messages_cpp[0m
+[ 57%] [0mBuilt target controller_manager_msgs_generate_messages_eus[0m
+[ 57%] [0mBuilt target controller_manager_msgs_generate_messages_nodejs[0m
+[ 57%] [0mBuilt target controller_manager_msgs_generate_messages_lisp[0m
+[ 57%] [0mBuilt target controller_manager_msgs_generate_messages_py[0m
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Create_Jacobian(const VectorXd&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:19:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kbase_to_hip_x[m[K’ does not name a type
+   19 |     const [01;31m[Kbase_to_hip_x[m[K = 0.19275;
+      |           [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:20:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kbase_to_hip_y[m[K’ does not name a type
+   20 |     const [01;31m[Kbase_to_hip_y[m[K = 0.145;
+      |           [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:21:11:[m[K [01;31m[Kerror: [m[K‘[01m[Khip_to_thigh[m[K’ does not name a type
+   21 |     const [01;31m[Khip_to_thigh[m[K = 0.085;
+      |           [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:22:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kthigh_to_calf[m[K’ does not name a type
+   22 |     const [01;31m[Kthigh_to_calf[m[K = 0.215;
+      |           [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:23:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kcalf_to_foot[m[K’ does not name a type
+   23 |     const [01;31m[Kcalf_to_foot[m[K = 0.215;
+      |           [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:25:44:[m[K [01;31m[Kerror: [m[K‘[01m[Kpi[m[K’ was not declared in this scope
+   25 |     Eigen::Matrix4d A_ROTATE = A_Matrix(0, [01;31m[Kpi[m[K/2.0, 0, pi/2.0);
+      |                                            [01;31m[K^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:29:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kbase_to_hip_x[m[K’ was not declared in this scope
+   29 |     A_base_hip_FL(0,3) = [01;31m[Kbase_to_hip_x[m[K; A_base_hip_FL(1,3) = base_to_hip_y; // FL
+      |                          [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:29:62:[m[K [01;31m[Kerror: [m[K‘[01m[Kbase_to_hip_y[m[K’ was not declared in this scope
+   29 |     A_base_hip_FL(0,3) = base_to_hip_x; A_base_hip_FL(1,3) = [01;31m[Kbase_to_hip_y[m[K; // FL
+      |                                                              [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:33:5:[m[K [01;31m[Kerror: [m[K‘[01m[KA_base_hip_FR[m[K’ was not declared in this scope; did you mean ‘[01m[KA_base_hip_FL[m[K’?
+   33 |     [01;31m[KA_base_hip_FR[m[K(0,3) = base_to_hip_x; A_base_hip_FR(1,3) = -base_to_hip_y; // FR
+      |     [01;31m[K^~~~~~~~~~~~~[m[K
+      |     [32m[KA_base_hip_FL[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:37:5:[m[K [01;31m[Kerror: [m[K‘[01m[KA_base_hip_RL[m[K’ was not declared in this scope; did you mean ‘[01m[KA_base_hip_FL[m[K’?
+   37 |     [01;31m[KA_base_hip_RL[m[K(0,3) = -base_to_hip_x; A_base_hip_RL(1,3) = base_to_hip_y; // RL
+      |     [01;31m[K^~~~~~~~~~~~~[m[K
+      |     [32m[KA_base_hip_FL[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:41:5:[m[K [01;31m[Kerror: [m[K‘[01m[KA_base_hip_RR[m[K’ was not declared in this scope; did you mean ‘[01m[KA_base_hip_FL[m[K’?
+   41 |     [01;31m[KA_base_hip_RR[m[K(0,3) = -base_to_hip_x; A_base_hip_RR(1,3) = -base_to_hip_y; // RR
+      |     [01;31m[K^~~~~~~~~~~~~[m[K
+      |     [32m[KA_base_hip_FL[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:46:76:[m[K [01;31m[Kerror: [m[K‘[01m[Khip_to_thigh[m[K’ was not declared in this scope
+   46 |     Eigen::Matrix4d A_thigh_FL = A_base_hip_FL * A_Matrix(q(0)+pi/2.0, 0, -[01;31m[Khip_to_thigh[m[K, pi/2.0);
+      |                                                                            [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:47:65:[m[K [01;31m[Kerror: [m[K‘[01m[Kthigh_to_calf[m[K’ was not declared in this scope
+   47 |     Eigen::Matrix4d A_calf_FL = A_thigh_FL * A_Matrix(q(1), 0, -[01;31m[Kthigh_to_calf[m[K, 0);
+      |                                                                 [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:48:62:[m[K [01;31m[Kerror: [m[K‘[01m[Kcalf_to_foot[m[K’ was not declared in this scope
+   48 |     Eigen::Matrix4d A_ee_FL = A_calf_FL * A_Matrix(q(2), 0, -[01;31m[Kcalf_to_foot[m[K, 0);
+      |                                                              [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:138:61:[m[K [01;31m[Kerror: [m[K‘[01m[Kz_hip_thigh_RR[m[K’ was not declared in this scope; did you mean ‘[01m[Kz_thigh_RR[m[K’?
+  138 |     J_RR.block<3,1>(3,2) = z_calf_RR;J_RR.block<3,1>(0,0) = [01;31m[Kz_hip_thigh_RR[m[K.cross(o_ee_RR - o_hip_thigh_RR);
+      |                                                             [01;31m[K^~~~~~~~~~~~~~[m[K
+      |                                                             [32m[Kz_thigh_RR[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:138:92:[m[K [01;31m[Kerror: [m[K‘[01m[Ko_hip_thigh_RR[m[K’ was not declared in this scope; did you mean ‘[01m[Ko_thigh_RR[m[K’?
+  138 |     J_RR.block<3,1>(3,2) = z_calf_RR;J_RR.block<3,1>(0,0) = z_hip_thigh_RR.cross(o_ee_RR - [01;31m[Ko_hip_thigh_RR[m[K);
+      |                                                                                            [01;31m[K^~~~~~~~~~~~~~[m[K
+      |                                                                                            [32m[Ko_thigh_RR[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:121: CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

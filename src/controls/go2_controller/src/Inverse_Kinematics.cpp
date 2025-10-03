@@ -6,6 +6,10 @@
 // RL : x = -0.180228 y = 0.130531 z = -0.414215
 // RR : x = -0.180228 y = -0.130531 z = -0.414215
 
+// 위 코드에서 진행한 단순화
+// 단순화 1 (theta1=0): 다리의 움직임을 2D 수직 평면에 제한합니다.
+// 단순화 2 (Hip-Thigh 원점 동일시): 2D 평면 문제를 더 쉽게 풀기 위해 0.0955m 오프셋을 계산에서 무시합니다.
+
 
 // ee에 EE_pose 넣겠고
 // theta1 = 0 이후 사용 X
@@ -83,7 +87,7 @@ Eigen::Vector3d Calculate_Atan2(Eigen::Vector3d& p_thigh, double a2, double a3)
     double L_ik_sq = p_thigh.squaredNorm(); // 거리
     double D = (L_ik_sq - a2*a2 - a3*a3) / (2 * a2 * a3);
     
-    theta3 = atan2(sqrt(1 - D * D), D);
+    theta3 = atan2(-sqrt(1 - D * D), D);
     theta2 = atan2(x, -z) - atan2(a3 * sin(theta3), a2 + a3 * cos(theta3));
 
     joint_angles << 0, theta2, theta3;
@@ -99,9 +103,9 @@ void go2_controller::geometrical_IK()
     // Eigen::Vector3d RL_base_hip(-0.19275, 0.145, 0);
     // Eigen::Vector3d RR_base_hip(-0.19275, -0.145, 0);
 
-    //선언 하고 할당을 따로 할 때에는
-    // Eigen::Vector3d FL_base_hip;
-    // FL_base_hip << 0.19275, 0.145, 0; 이렇게 합니다.
+    // // 선언 하고 할당을 따로 할 때에는
+    // // Eigen::Vector3d FL_base_hip;
+    // // FL_base_hip << 0.19275, 0.145, 0; 이렇게 합니다.
 
     // const double l1 = 0.085, l2 = 0.215, l3 = 0.215; // 변하지 않는 수니깐 상수취급하는 keyword 추가
 
@@ -129,26 +133,26 @@ void go2_controller::geometrical_IK()
 
 
     // theta1 = 0 가정 후 진행.
-    Eigen::Vector3d FL_thigh_origin(0.19275, 0.145, -0.085);
-    Eigen::Vector3d FR_thigh_origin(0.19275, -0.145, -0.085);
-    Eigen::Vector3d RL_thigh_origin(-0.19275, 0.145, -0.085);
-    Eigen::Vector3d RR_thigh_origin(-0.19275, -0.145, -0.085);
+    Eigen::Vector3d FL_thigh_origin(0.19275, 0.0465, 0); // urdf 0.1934, 0.0465, 0
+    Eigen::Vector3d FR_thigh_origin(0.1934, -0.0465, 0); // urdf 0.1934, -0.0465, 0
+    Eigen::Vector3d RL_thigh_origin(-0.1934, 0.0465, 0); // urdf -0.1934, 0.0465, 0
+    Eigen::Vector3d RR_thigh_origin(-0.1934, -0.0465, 0); // urdf -0.1934, -0.0465, 0
 
-    const double l2 = 0.215, l3 = 0.215; // Thigh, Calf 링크 길이
+    const double l2 = 0.213, l3 = 0.213; // Thigh, Calf 링크 길이
 
-    // FK
+    // FL
     Eigen::Vector3d V_ik_fl = EE_Pose_FL - FL_thigh_origin;
     all_joint_angles.segment<3>(0) = Calculate_Atan2(V_ik_fl, l2, l3);
 
-    // FK
+    // FR
     Eigen::Vector3d V_ik_fr = EE_Pose_FR - FR_thigh_origin;
     all_joint_angles.segment<3>(3) = Calculate_Atan2(V_ik_fr, l2, l3);
     
-    // FK
+    // RL
     Eigen::Vector3d V_ik_rl = EE_Pose_RL - RL_thigh_origin;
     all_joint_angles.segment<3>(6) = Calculate_Atan2(V_ik_rl, l2, l3);
 
-    // FK
+    // RR
     Eigen::Vector3d V_ik_rr = EE_Pose_RR - RR_thigh_origin;
     all_joint_angles.segment<3>(9) = Calculate_Atan2(V_ik_rr, l2, l3);
     

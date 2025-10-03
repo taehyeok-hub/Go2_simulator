@@ -1,0 +1,5 @@
+Symlinking /home/pth/pth/model/Go2_simulator/devel/share/go2_controller/cmake/go2_controllerConfig.cmake
+Symlinking /home/pth/pth/model/Go2_simulator/devel/share/go2_controller/cmake/go2_controllerConfig-version.cmake
+Symlinking /home/pth/pth/model/Go2_simulator/devel/lib/libgo2_controller.so
+Symlinking /home/pth/pth/model/Go2_simulator/devel/lib/go2_controller/go2_node
+Symlinking /home/pth/pth/model/Go2_simulator/devel/lib/pkgconfig/go2_controller.pc

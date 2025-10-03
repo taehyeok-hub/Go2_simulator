@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/pth/pth/model/Go2_simulator/build/go2_gazebo/cmake_install.cmake",
+		"/home/pth/pth/model/Go2_simulator/build/go2_gazebo/gtest/cmake_install.cmake",
+		"/home/pth/pth/model/Go2_simulator/build/go2_gazebo/gtest/googlemock/cmake_install.cmake",
+		"/home/pth/pth/model/Go2_simulator/build/go2_gazebo/gtest/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

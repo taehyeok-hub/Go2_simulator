@@ -57,7 +57,8 @@ enum ControlMode
 {
     INIT,
     HOMING,
-    NUM_MODE = 2,
+    SQUATING,
+    NUM_MODE = 3,
 };
 
 class go2_controller
@@ -82,10 +83,13 @@ private:
 
     void Command(bool flag);
     void Homing();
+    void Squating();
     void StateLegCallback(const sensor_msgs::JointState &state);
     void SendCommandsToRobot();
-    void Forward_Kinematics(Eigen::VectorXd, Eigen::VectorXd);
+    void Forward_Kinematics(const Eigen::VectorXd& q, const Eigen::VectorXd& dq);
     void geometrical_IK();
+    void Jacobians(const Eigen::VectorXd& q);
+    void Create_Jacobian(const Eigen::VectorXd& q);
 
     ros::NodeHandle nh_;
     ros::Subscriber sub_leg_state_;
@@ -111,6 +115,14 @@ private:
     Eigen::Vector3d EE_Pose_RR       { Eigen::Vector3d::Zero() };
 
     Eigen::VectorXd all_joint_angles { Eigen::VectorXd::Zero(12) }; 
+
+    // Jacobians
+    Eigen::Matrix<double,6,3> J_FL   {Eigen::Matrix<double,6,3>::Zero()};
+    Eigen::Matrix<double,6,3> J_FR   {Eigen::Matrix<double,6,3>::Zero()};
+    Eigen::Matrix<double,6,3> J_RL   {Eigen::Matrix<double,6,3>::Zero()};
+    Eigen::Matrix<double,6,3> J_RR   {Eigen::Matrix<double,6,3>::Zero()};
+    Eigen::Matrix<double,6,12> J     {Eigen::Matrix<double,6,12>::Zero()};
+    
     bool Recieved_Joint_State;
 
     ros::Time Homing_Time;
@@ -119,3 +131,11 @@ private:
 };
 
 #endif
+
+
+// // using 키워드 (C++11 이상에서 선호)
+// using Matrix6x12d = Eigen::Matrix<double, 6, 12>;
+// Matrix6x12d J = Matrix6x12d::Zero();
+
+// // 또는 auto와 함께
+// auto J = Matrix6x12d::Zero();
