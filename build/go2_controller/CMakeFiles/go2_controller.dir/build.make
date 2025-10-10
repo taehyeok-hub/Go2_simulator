@@ -128,12 +128,42 @@ CMakeFiles/go2_controller.dir/src/Jacobians.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/go2_controller.dir/src/Jacobians.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp -o CMakeFiles/go2_controller.dir/src/Jacobians.cpp.s
 
+CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o: CMakeFiles/go2_controller.dir/flags.make
+CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o: /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/TaskSpacePDControl.cpp
+CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o: CMakeFiles/go2_controller.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o -MF CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o.d -o CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o -c /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/TaskSpacePDControl.cpp
+
+CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/TaskSpacePDControl.cpp > CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.i
+
+CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/TaskSpacePDControl.cpp -o CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.s
+
+CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o: CMakeFiles/go2_controller.dir/flags.make
+CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o: /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp
+CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o: CMakeFiles/go2_controller.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o -MF CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o.d -o CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o -c /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp
+
+CMakeFiles/go2_controller.dir/src/Trajectories.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/go2_controller.dir/src/Trajectories.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp > CMakeFiles/go2_controller.dir/src/Trajectories.cpp.i
+
+CMakeFiles/go2_controller.dir/src/Trajectories.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/go2_controller.dir/src/Trajectories.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp -o CMakeFiles/go2_controller.dir/src/Trajectories.cpp.s
+
 # Object files for target go2_controller
 go2_controller_OBJECTS = \
 "CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o" \
 "CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o" \
 "CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o" \
-"CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o"
+"CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o" \
+"CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o" \
+"CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o"
 
 # External object files for target go2_controller
 go2_controller_EXTERNAL_OBJECTS =
@@ -142,6 +172,8 @@ go2_controller_EXTERNAL_OBJECTS =
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o
+/home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o
+/home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: CMakeFiles/go2_controller.dir/build.make
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: /opt/ros/noetic/lib/liburdf.so
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
@@ -241,7 +273,7 @@ go2_controller_EXTERNAL_OBJECTS =
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: /usr/lib/x86_64-linux-gnu/libuuid.so
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: /usr/lib/x86_64-linux-gnu/libuuid.so
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: CMakeFiles/go2_controller.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/go2_controller.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

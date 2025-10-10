@@ -1,0 +1,82 @@
+[  0%] [0mBuilt target geometry_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target go2_controller_xacro_generated_to_devel_space_[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target roscpp_generate_messages_eus[0m
+[  0%] [0mBuilt target roscpp_generate_messages_cpp[0m
+[  0%] [0mBuilt target roscpp_generate_messages_lisp[0m
+[  0%] [0mBuilt target roscpp_generate_messages_py[0m
+[  0%] [0mBuilt target roscpp_generate_messages_nodejs[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_lisp[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o[0m
+[ 11%] [0mBuilt target rosgraph_msgs_generate_messages_py[0m
+[ 11%] [0mBuilt target sensor_msgs_generate_messages_eus[0m
+[ 11%] [0mBuilt target sensor_msgs_generate_messages_lisp[0m
+[ 11%] [0mBuilt target sensor_msgs_generate_messages_cpp[0m
+[ 11%] [0mBuilt target sensor_msgs_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target sensor_msgs_generate_messages_py[0m
+[ 11%] [0mBuilt target tf_generate_messages_cpp[0m
+[ 11%] [0mBuilt target tf_generate_messages_eus[0m
+[ 11%] [0mBuilt target tf_generate_messages_lisp[0m
+[ 11%] [0mBuilt target tf_generate_messages_py[0m
+[ 11%] [0mBuilt target tf_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target actionlib_generate_messages_cpp[0m
+[ 11%] [0mBuilt target actionlib_generate_messages_eus[0m
+[ 11%] [0mBuilt target actionlib_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target actionlib_generate_messages_lisp[0m
+[ 11%] [0mBuilt target actionlib_generate_messages_py[0m
+[ 11%] [0mBuilt target actionlib_msgs_generate_messages_eus[0m
+[ 11%] [0mBuilt target actionlib_msgs_generate_messages_lisp[0m
+[ 11%] [0mBuilt target actionlib_msgs_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target actionlib_msgs_generate_messages_cpp[0m
+[ 11%] [0mBuilt target tf2_msgs_generate_messages_cpp[0m
+[ 11%] [0mBuilt target tf2_msgs_generate_messages_eus[0m
+[ 11%] [0mBuilt target tf2_msgs_generate_messages_lisp[0m
+[ 11%] [0mBuilt target actionlib_msgs_generate_messages_py[0m
+[ 11%] [0mBuilt target tf2_msgs_generate_messages_py[0m
+[ 11%] [0mBuilt target tf2_msgs_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target std_srvs_generate_messages_cpp[0m
+[ 11%] [0mBuilt target gazebo_ros_gencfg[0m
+[ 11%] [0mBuilt target std_srvs_generate_messages_eus[0m
+[ 11%] [0mBuilt target std_srvs_generate_messages_lisp[0m
+[ 11%] [0mBuilt target std_srvs_generate_messages_py[0m
+[ 11%] [0mBuilt target std_srvs_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target dynamic_reconfigure_generate_messages_cpp[0m
+[ 11%] [0mBuilt target dynamic_reconfigure_generate_messages_eus[0m
+[ 11%] [0mBuilt target dynamic_reconfigure_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target dynamic_reconfigure_generate_messages_lisp[0m
+[ 11%] [0mBuilt target dynamic_reconfigure_generate_messages_py[0m
+[ 11%] [0mBuilt target gazebo_msgs_generate_messages_eus[0m
+[ 11%] [0mBuilt target dynamic_reconfigure_gencfg[0m
+[ 11%] [0mBuilt target gazebo_msgs_generate_messages_lisp[0m
+[ 11%] [0mBuilt target gazebo_msgs_generate_messages_cpp[0m
+[ 11%] [0mBuilt target gazebo_msgs_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target gazebo_msgs_generate_messages_py[0m
+[ 11%] [0mBuilt target trajectory_msgs_generate_messages_lisp[0m
+[ 11%] [0mBuilt target trajectory_msgs_generate_messages_eus[0m
+[ 11%] [0mBuilt target trajectory_msgs_generate_messages_cpp[0m
+[ 11%] [0mBuilt target trajectory_msgs_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target trajectory_msgs_generate_messages_py[0m
+[ 11%] [0mBuilt target controller_manager_msgs_generate_messages_eus[0m
+[ 11%] [0mBuilt target controller_manager_msgs_generate_messages_cpp[0m
+[ 11%] [0mBuilt target controller_manager_msgs_generate_messages_lisp[0m
+[ 11%] [0mBuilt target controller_manager_msgs_generate_messages_nodejs[0m
+[ 11%] [0mBuilt target controller_manager_msgs_generate_messages_py[0m
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+[ 22%] [1m[32mLinking CXX shared library /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so[0m
+[ 77%] [0mBuilt target go2_controller[0m
+[ 88%] [1m[32mLinking CXX executable /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node[0m
+[100%] [0mBuilt target go2_node[0m

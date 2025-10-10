@@ -14,10 +14,7 @@ void go2_controller::Init()
     // Subscribers
     sub_leg_state_ = nh_.subscribe(go2_topic_leg_state_, queue_size, &go2_controller::StateLegCallback, this, ros::TransportHints().reliable().tcpNoDelay());
     // leg_state(다리상태)를 go2의 legstate를 구독함.
-    /*
-    StateLegCallback 함수는 코드상에서 직접 호출되는 부분이 없으며, ROS 시스템에 의해 특정 이벤트가 발생했을 때 자동으로 호출되도록 등록되어 있습니다.
-    */
-
+    /* StateLegCallback 함수는 코드상에서 직접 호출되는 부분이 없으며, ROS 시스템에 의해 특정 이벤트가 발생했을 때 자동으로 호출되도록 등록되어 있습니다. */
 
     pub_leg_cmd_ = nh_.advertise<std_msgs::Float64MultiArray>(go2_topic_leg_command_, queue_size);
 
@@ -28,19 +25,15 @@ void go2_controller::Init()
     dq_.setZero(12);
     torque_.setZero(12);
 
-    
-    // 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40
+    // Joint Space PD 제어(Homing) : 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40
 }
 
 void go2_controller::Command(bool flag)
 {
     if (Recieved_Joint_State)
     {
-
         Forward_Kinematics(q_, dq_);
-        //Jacobians(q_);
-        Create_Jacobian(q_);
-        geometrical_IK();
+        Jacobians_URDF(q_);
         
         switch (controlmode)
         {
@@ -56,6 +49,12 @@ void go2_controller::Command(bool flag)
         {
           Homing();
           //torque_(0) = -50; 
+          
+          if ((ros::Time::now() - Homing_Time).toSec() >= 2.0)
+          {
+            is_motion_started_ = false;
+            controlmode = SQUATING;
+          }
           break;
         }
         case SQUATING:
@@ -131,7 +130,7 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
 
     M << 1, 0, 0, 0, 0, 0,
          0, 1, 0, 0, 0, 0,
-         0, 0, 1, 0, 0, 0,
+         0, 0, 2, 0, 0, 0,
          1, T, T2, T3, T4, T5,
          0, 1, 2*T, 3*T2, 4*T3, 5*T4,
          0, 0, 2, 6*T, 12*T2, 20*T3;
@@ -173,8 +172,35 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
 
 void go2_controller::Squating()
 {
+    double motion_duration = 2.0; // 모션 시간
 
+    if(!is_motion_started_) // 동작 시작 flag가 false일 때, (컴퓨터가 어떠한 동작을 하고 있다고 생각하지 않음)
+    {
+        motion_start_time_ = ros::Time::now();
 
+        // final 위치값 설정
+        EE_Pose_FL_final << 0.20, 0.13, -0.42;
+        EE_Pose_FR_final << 0.20, -0.13, -0.42;
+        EE_Pose_RL_final << -0.18, 0.13, -0.42;
+        EE_Pose_RR_final << -0.18, -0.13, -0.42;       
+
+        is_motion_started_ = true;
+    }
+
+    Eigen::Vector3d EE_Pose_FL_desired = Quintic_Task(motion_start_time_, 2.0, EE_Pose_FL, EE_Pose_FL_final);
+    Eigen::Vector3d EE_Pose_FR_desired = Quintic_Task(motion_start_time_, 2.0, EE_Pose_FR, EE_Pose_FR_final);
+    Eigen::Vector3d EE_Pose_RL_desired = Quintic_Task(motion_start_time_, 2.0, EE_Pose_RL, EE_Pose_RL_final);
+    Eigen::Vector3d EE_Pose_RR_desired = Quintic_Task(motion_start_time_, 2.0, EE_Pose_RR, EE_Pose_RR_final);
+
+    // (선택) 속도 desired 값
+    EE_Vel_FL_desired.setZero();
+    EE_Vel_FR_desired.setZero();
+    EE_Vel_RL_desired.setZero();
+    EE_Vel_RR_desired.setZero();
+    
+
+    // 2. "어떻게 갈지 계산": 결정된 목표값으로 토크 계산
+    TaskSpacePDControl(30.0, 2.0);
 }
 
 void go2_controller::Run()

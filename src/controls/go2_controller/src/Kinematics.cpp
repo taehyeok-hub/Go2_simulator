@@ -87,7 +87,8 @@ void go2_controller::Forward_Kinematics(const Eigen::VectorXd& q,const Eigen::Ve
     std::cout << "RR : x = " << EE_Pose_RR(0) << " y = " << EE_Pose_RR(1) << " z = " << EE_Pose_RR(2) << std::endl;
 }
 
-void go2_controller::Jacobians(const Eigen::VectorXd& q)
+
+void go2_controller::Jacobians_URDF(const Eigen::VectorXd& q)
 {
     const double base_to_hip_x = 0.1934; // 0.19275
     const double base_to_hip_y = 0.0465; // 0.145
@@ -108,7 +109,7 @@ void go2_controller::Jacobians(const Eigen::VectorXd& q)
     // urdf에서는 DH convention을 사용하지 않습니다. 따라서 우연스럽게도 base~thigh까지는 잘 맞지만, thih~foot까지는 안맞음.
     // ~~~ 좌표계에서 정의된 점의 좌표를 ... 좌표계 기준으로 변환해 줍니다.
     Eigen::Matrix4d T_base_hip_FL = CreateTmatrix(base_to_hip_x, base_to_hip_y, 0) * CreateRmatrix(q(0), hip_axis); // base좌표계 기준 ->> hip 정의된 점좌표를 표현
-    Eigen::Matrix4d T_hip_thigh_FL = CreateTmatrix(0, -hip_to_thigh_y, 0) * CreateRmatrix(q(1), thigh_axis);
+    Eigen::Matrix4d T_hip_thigh_FL = CreateTmatrix(0, hip_to_thigh_y, 0) * CreateRmatrix(q(1), thigh_axis);
     Eigen::Matrix4d T_thigh_calf_FL = CreateTmatrix(0, 0, thigh_to_calf_z) * CreateRmatrix(q(2), calf_axis);
     Eigen::Matrix4d T_calf_foot_FL = CreateTmatrix(0, 0, calf_to_foot_z);
 
@@ -230,7 +231,7 @@ void go2_controller::Jacobians(const Eigen::VectorXd& q)
     J.block<6,3>(0,6) = J_RL;
     J.block<6,3>(0,9) = J_RR;
 
-    std::cout << J << std::endl;
+    // std::cout << J << std::endl;
 }
 
 

@@ -156,5 +156,5 @@ void go2_controller::geometrical_IK()
     Eigen::Vector3d V_ik_rr = EE_Pose_RR - RR_thigh_origin;
     all_joint_angles.segment<3>(9) = Calculate_Atan2(V_ik_rr, l2, l3);
     
-    std::cout << all_joint_angles.transpose() << std::endl;
+    //std::cout << all_joint_angles.transpose() << std::endl;
 }

@@ -11,6 +11,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp" "CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o" "gcc" "CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o.d"
   "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp" "CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o" "gcc" "CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o.d"
   "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Kinematics.cpp" "CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o" "gcc" "CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o.d"
+  "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/TaskSpacePDControl.cpp" "CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o" "gcc" "CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o.d"
+  "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp" "CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o" "gcc" "CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o.d"
   "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp" "CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o" "gcc" "CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o.d"
   )
 

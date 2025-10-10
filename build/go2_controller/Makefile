@@ -1335,6 +1335,54 @@ src/Kinematics.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Kinematics.cpp.s
 .PHONY : src/Kinematics.cpp.s
 
+src/TaskSpacePDControl.o: src/TaskSpacePDControl.cpp.o
+.PHONY : src/TaskSpacePDControl.o
+
+# target to build an object file
+src/TaskSpacePDControl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o
+.PHONY : src/TaskSpacePDControl.cpp.o
+
+src/TaskSpacePDControl.i: src/TaskSpacePDControl.cpp.i
+.PHONY : src/TaskSpacePDControl.i
+
+# target to preprocess a source file
+src/TaskSpacePDControl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.i
+.PHONY : src/TaskSpacePDControl.cpp.i
+
+src/TaskSpacePDControl.s: src/TaskSpacePDControl.cpp.s
+.PHONY : src/TaskSpacePDControl.s
+
+# target to generate assembly for a file
+src/TaskSpacePDControl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.s
+.PHONY : src/TaskSpacePDControl.cpp.s
+
+src/Trajectories.o: src/Trajectories.cpp.o
+.PHONY : src/Trajectories.o
+
+# target to build an object file
+src/Trajectories.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o
+.PHONY : src/Trajectories.cpp.o
+
+src/Trajectories.i: src/Trajectories.cpp.i
+.PHONY : src/Trajectories.i
+
+# target to preprocess a source file
+src/Trajectories.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Trajectories.cpp.i
+.PHONY : src/Trajectories.cpp.i
+
+src/Trajectories.s: src/Trajectories.cpp.s
+.PHONY : src/Trajectories.s
+
+# target to generate assembly for a file
+src/Trajectories.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Trajectories.cpp.s
+.PHONY : src/Trajectories.cpp.s
+
 src/go2_controller.o: src/go2_controller.cpp.o
 .PHONY : src/go2_controller.o
 
@@ -1489,6 +1537,12 @@ help:
 	@echo "... src/Kinematics.o"
 	@echo "... src/Kinematics.i"
 	@echo "... src/Kinematics.s"
+	@echo "... src/TaskSpacePDControl.o"
+	@echo "... src/TaskSpacePDControl.i"
+	@echo "... src/TaskSpacePDControl.s"
+	@echo "... src/Trajectories.o"
+	@echo "... src/Trajectories.i"
+	@echo "... src/Trajectories.s"
 	@echo "... src/go2_controller.o"
 	@echo "... src/go2_controller.i"
 	@echo "... src/go2_controller.s"

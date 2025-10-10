@@ -7,6 +7,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o.d"
   "CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o"
   "CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o.d"
+  "CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o"
+  "CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o.d"
+  "CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o"
+  "CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o.d"
   "CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o"
   "CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o.d"
 )

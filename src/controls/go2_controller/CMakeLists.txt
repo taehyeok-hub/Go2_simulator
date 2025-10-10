@@ -55,6 +55,8 @@ add_library(${PROJECT_NAME}
   src/Kinematics.cpp
   src/Inverse_Kinematics.cpp
   src/Jacobians.cpp
+  src/TaskSpacePDControl.cpp
+  src/Trajectories.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}

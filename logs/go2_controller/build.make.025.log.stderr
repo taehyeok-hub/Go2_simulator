@@ -1,0 +1,130 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:1:10:[m[K [01;31m[Kerror: [m[K#include expects "FILENAME" or <FILENAME>
+    1 | #include [01;31m[K'go2_controller.h'[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:3:1:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ does not name a type
+    3 | [01;31m[KEigen[m[K::Vector3d go2_controller::Quintic_Task(ros::Time& start_time, double motion_time, Eigen::Vector3d& x_current,
+      | [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:75:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kgo2_controller[m[K’ has not been declared
+   75 | void [01;31m[Kgo2_controller[m[K::Quintic_Joint(ros::Time& start_time, double motion_time, Eigen::VectorXd& q,
+      |      [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:75:36:[m[K [01;31m[Kerror: [m[Kvariable or field ‘[01m[KQuintic_Joint[m[K’ declared void
+   75 | void go2_controller::Quintic_Joint([01;31m[Kros[m[K::Time& start_time, double motion_time, Eigen::VectorXd& q,
+      |                                    [01;31m[K^~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:75:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kros[m[K’ has not been declared
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:75:47:[m[K [01;31m[Kerror: [m[K‘[01m[Kstart_time[m[K’ was not declared in this scope
+   75 | void go2_controller::Quintic_Joint(ros::Time& [01;31m[Kstart_time[m[K, double motion_time, Eigen::VectorXd& q,
+      |                                               [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:75:59:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[Kdouble[m[K’
+   75 | void go2_controller::Quintic_Joint(ros::Time& start_time, [01;31m[Kdouble[m[K motion_time, Eigen::VectorXd& q,
+      |                                                           [01;31m[K^~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:75:79:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ has not been declared
+   75 | void go2_controller::Quintic_Joint(ros::Time& start_time, double motion_time, [01;31m[KEigen[m[K::VectorXd& q,
+      |                                                                               [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:75:96:[m[K [01;31m[Kerror: [m[K‘[01m[Kq[m[K’ was not declared in this scope
+   75 | void go2_controller::Quintic_Joint(ros::Time& start_time, double motion_time, Eigen::VectorXd& [01;31m[Kq[m[K,
+      |                                                                                                [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:76:5:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ has not been declared
+   76 |     [01;31m[KEigen[m[K::VectorXd& q_endtime)
+      |     [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:76:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kq_endtime[m[K’ was not declared in this scope
+   76 |     Eigen::VectorXd& [01;31m[Kq_endtime[m[K)
+      |                      [01;31m[K^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:149: CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:98:77:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+   98 |             double ee_pose_end_x, double ee_pose_end_y, double ee_pose_end_z[01;31m[K)[m[K
+      |                                                                             [01;31m[K^[m[K
+      |                                                                              [32m[K;[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/TaskSpacePDControl.cpp:3:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid go2_controller::TaskSpacePDControl(double, double)[m[K’
+    3 | void [01;31m[Kgo2_controller[m[K::TaskSpacePDControl(double Kp, double Kd)
+      |      [01;31m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:95:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid go2_controller::TaskSpacePDControl(Eigen::VectorXd&, Eigen::VectorXd&)[m[K’
+   95 |     void [01;36m[KTaskSpacePDControl[m[K(Eigen::VectorXd& q, Eigen::VectorXd& dq);
+      |          [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:65:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass go2_controller[m[K’ defined here
+   65 | class [01;36m[Kgo2_controller[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:98:77:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+   98 |             double ee_pose_end_x, double ee_pose_end_y, double ee_pose_end_z[01;31m[K)[m[K
+      |                                                                             [01;31m[K^[m[K
+      |                                                                              [32m[K;[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Jacobians.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:98:77:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+   98 |             double ee_pose_end_x, double ee_pose_end_y, double ee_pose_end_z[01;31m[K)[m[K
+      |                                                                             [01;31m[K^[m[K
+      |                                                                              [32m[K;[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Squating()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:173:9:[m[K [01;31m[Kerror: [m[K‘[01m[KSquating_time[m[K’ was not declared in this scope; did you mean ‘[01m[KSquating[m[K’?
+  173 |         [01;31m[KSquating_time[m[K = ros::Time::now();
+      |         [01;31m[K^~~~~~~~~~~~~[m[K
+      |         [32m[KSquating[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:176:9:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_FL_final[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_FL[m[K’?
+  176 |         [01;31m[KEE_Pose_FL_final[m[K << 0.20, 0.13, -0.15;
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[KEE_Pose_FL[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:177:9:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_FR_final[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_FR[m[K’?
+  177 |         [01;31m[KEE_Pose_FR_final[m[K << 0.20, -0.13, -0.15;
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[KEE_Pose_FR[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:178:9:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_RL_final[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_RL[m[K’?
+  178 |         [01;31m[KEE_Pose_RL_final[m[K << -0.18, 0.13, -0.15;
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[KEE_Pose_RL[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:179:9:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_RR_final[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_RR[m[K’?
+  179 |         [01;31m[KEE_Pose_RR_final[m[K << -0.18, -0.13, -0.15;
+      |         [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |         [32m[KEE_Pose_RR[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:187:55:[m[K [01;31m[Kerror: [m[K‘[01m[KSquating_time[m[K’ was not declared in this scope; did you mean ‘[01m[KSquating[m[K’?
+  187 |     Eigen::Vector3d EE_Pose_FL_desired = Quintic_Task([01;31m[KSquating_time[m[K, 2.0, EE_Pose_FL, EE_Pose_FL_final);
+      |                                                       [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                       [32m[KSquating[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:187:87:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_FL_final[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_FL[m[K’?
+  187 |     Eigen::Vector3d EE_Pose_FL_desired = Quintic_Task(Squating_time, 2.0, EE_Pose_FL, [01;31m[KEE_Pose_FL_final[m[K);
+      |                                                                                       [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                                                                       [32m[KEE_Pose_FL[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:188:87:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_FR_final[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_FR[m[K’?
+  188 |     Eigen::Vector3d EE_Pose_FR_desired = Quintic_Task(Squating_time, 2.0, EE_Pose_FR, [01;31m[KEE_Pose_FR_final[m[K);
+      |                                                                                       [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                                                                       [32m[KEE_Pose_FR[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:189:87:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_RL_final[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_RL[m[K’?
+  189 |     Eigen::Vector3d EE_Pose_RL_desired = Quintic_Task(Squating_time, 2.0, EE_Pose_RL, [01;31m[KEE_Pose_RL_final[m[K);
+      |                                                                                       [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                                                                       [32m[KEE_Pose_RL[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:190:87:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_RR_final[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_RR[m[K’?
+  190 |     Eigen::Vector3d EE_Pose_RR_desired = Quintic_Task(Squating_time, 2.0, EE_Pose_RR, [01;31m[KEE_Pose_RR_final[m[K);
+      |                                                                                       [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                                                                       [32m[KEE_Pose_RR[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:200:24:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kdouble[m[K’ to ‘[01m[KEigen::VectorXd&[m[K’ {aka ‘[01m[KEigen::Matrix<double, -1, 1>&[m[K’}
+  200 |     TaskSpacePDControl([01;31m[K150.0[m[K, 5.0);
+      |                        [01;31m[K^~~~~[m[K
+      |                        [01;31m[K|[m[K
+      |                        [01;31m[Kdouble[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:95:46:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid go2_controller::TaskSpacePDControl(Eigen::VectorXd&, Eigen::VectorXd&)[m[K’
+   95 |     void TaskSpacePDControl([01;36m[KEigen::VectorXd& q[m[K, Eigen::VectorXd& dq);
+      |                             [01;36m[K~~~~~~~~~~~~~~~~~^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Inverse_Kinematics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:98:77:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+   98 |             double ee_pose_end_x, double ee_pose_end_y, double ee_pose_end_z[01;31m[K)[m[K
+      |                                                                             [01;31m[K^[m[K
+      |                                                                              [32m[K;[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Kinematics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:98:77:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+   98 |             double ee_pose_end_x, double ee_pose_end_y, double ee_pose_end_z[01;31m[K)[m[K
+      |                                                                             [01;31m[K^[m[K
+      |                                                                              [32m[K;[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:135: CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o] Error 1
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:121: CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o] Error 1
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:107: CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o] Error 1
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:93: CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o] Error 1
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

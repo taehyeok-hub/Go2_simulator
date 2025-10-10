@@ -1,0 +1,33 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:3:17:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[KEigen::Vector3d go2_controller::Quintic_Task(ros::Time&, double, Eigen::Vector3d&, Eigen::Vector3d&)[m[K’
+    3 | Eigen::Vector3d [01;31m[Kgo2_controller[m[K::Quintic_Task(ros::Time& start_time, double motion_time, Eigen::Vector3d& x_current,
+      |                 [01;31m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:97:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid go2_controller::Quintic_Task(ros::Time&, double, Eigen::Vector3d&, double, double, double)[m[K’
+   97 |     void [01;36m[KQuintic_Task[m[K(ros::Time& start_time, double motion_time, Eigen::Vector3d& ee_pose_current,
+      |          [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:65:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass go2_controller[m[K’ defined here
+   65 | class [01;36m[Kgo2_controller[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:75:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid go2_controller::Quintic_Joint(ros::Time&, double, Eigen::VectorXd&, Eigen::VectorXd&)[m[K’
+   75 | void [01;31m[Kgo2_controller[m[K::Quintic_Joint(ros::Time& start_time, double motion_time, Eigen::VectorXd& q,
+      |      [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:75:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid go2_controller::Quintic_Joint(ros::Time&, double, Eigen::VectorXd&, Eigen::VectorXd&)[m[K’
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:65:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass go2_controller[m[K’ defined here
+   65 | class [01;36m[Kgo2_controller[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Squating()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:184:55:[m[K [01;31m[Kerror: [m[K‘[01m[KSquating_time[m[K’ was not declared in this scope; did you mean ‘[01m[KSquating[m[K’?
+  184 |     Eigen::Vector3d EE_Pose_FL_desired = Quintic_Task([01;31m[KSquating_time[m[K, 2.0, EE_Pose_FL, EE_Pose_FL_final);
+      |                                                       [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                       [32m[KSquating[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:149: CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

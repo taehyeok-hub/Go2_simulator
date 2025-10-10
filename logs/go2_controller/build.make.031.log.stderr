@@ -1,0 +1,25 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Squating()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:184:55:[m[K [01;31m[Kerror: [m[K‘[01m[KSquating_time[m[K’ was not declared in this scope; did you mean ‘[01m[KSquating[m[K’?
+  184 |     Eigen::Vector3d EE_Pose_FL_desired = Quintic_Task([01;31m[KSquating_time[m[K, 2.0, EE_Pose_FL, EE_Pose_FL_final);
+      |                                                       [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                       [32m[KSquating[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:[m[K In member function ‘[01m[KEigen::VectorXd go2_controller::Quintic_Joint(ros::Time&, double, Eigen::VectorXd&, Eigen::VectorXd&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:127:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+  127 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:[m[K In member function ‘[01m[KEigen::Vector3d go2_controller::Sinusoidal_Task()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:132:5:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+  132 |     [01;35m[K}[m[K
+      |     [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:[m[K In member function ‘[01m[KEigen::VectorXd go2_controller::Sinusoidal_Joint()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:137:5:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+  137 |     [01;35m[K}[m[K
+      |     [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

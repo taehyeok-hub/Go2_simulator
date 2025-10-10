@@ -1,0 +1,91 @@
+[  0%] [0mBuilt target geometry_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target go2_controller_xacro_generated_to_devel_space_[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target geometry_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target roscpp_generate_messages_cpp[0m
+[  0%] [0mBuilt target std_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target roscpp_generate_messages_eus[0m
+[  0%] [0mBuilt target roscpp_generate_messages_lisp[0m
+[  0%] [0mBuilt target roscpp_generate_messages_nodejs[0m
+[  0%] [0mBuilt target roscpp_generate_messages_py[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target rosgraph_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_cpp[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_lisp[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_eus[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_nodejs[0m
+[  0%] [0mBuilt target tf_generate_messages_cpp[0m
+[  0%] [0mBuilt target sensor_msgs_generate_messages_py[0m
+[  0%] [0mBuilt target tf_generate_messages_eus[0m
+[  0%] [0mBuilt target tf_generate_messages_lisp[0m
+[  0%] [0mBuilt target tf_generate_messages_nodejs[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o[0m
+[ 11%] [0mBuilt target actionlib_generate_messages_cpp[0m
+[ 11%] [0mBuilt target tf_generate_messages_py[0m
+[ 11%] [0mBuilt target actionlib_generate_messages_eus[0m
+[ 11%] [0mBuilt target actionlib_generate_messages_lisp[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o[0m
+[ 22%] [0mBuilt target actionlib_generate_messages_nodejs[0m
+[ 22%] [0mBuilt target actionlib_generate_messages_py[0m
+[ 22%] [0mBuilt target actionlib_msgs_generate_messages_cpp[0m
+[ 22%] [0mBuilt target actionlib_msgs_generate_messages_eus[0m
+[ 22%] [0mBuilt target actionlib_msgs_generate_messages_lisp[0m
+[ 22%] [0mBuilt target actionlib_msgs_generate_messages_nodejs[0m
+[ 22%] [0mBuilt target actionlib_msgs_generate_messages_py[0m
+[ 22%] [0mBuilt target tf2_msgs_generate_messages_cpp[0m
+[ 22%] [0mBuilt target tf2_msgs_generate_messages_eus[0m
+[ 22%] [0mBuilt target tf2_msgs_generate_messages_nodejs[0m
+[ 22%] [0mBuilt target tf2_msgs_generate_messages_lisp[0m
+[ 22%] [0mBuilt target tf2_msgs_generate_messages_py[0m
+[ 22%] [0mBuilt target std_srvs_generate_messages_cpp[0m
+[ 22%] [0mBuilt target gazebo_ros_gencfg[0m
+[ 22%] [0mBuilt target std_srvs_generate_messages_eus[0m
+[ 22%] [0mBuilt target std_srvs_generate_messages_nodejs[0m
+[ 22%] [0mBuilt target std_srvs_generate_messages_lisp[0m
+[ 22%] [0mBuilt target std_srvs_generate_messages_py[0m
+[ 22%] [0mBuilt target dynamic_reconfigure_generate_messages_eus[0m
+[ 22%] [0mBuilt target dynamic_reconfigure_generate_messages_cpp[0m
+[ 22%] [0mBuilt target dynamic_reconfigure_generate_messages_lisp[0m
+[ 22%] [0mBuilt target dynamic_reconfigure_generate_messages_py[0m
+[ 22%] [0mBuilt target dynamic_reconfigure_generate_messages_nodejs[0m
+[ 22%] [0mBuilt target dynamic_reconfigure_gencfg[0m
+[ 22%] [0mBuilt target gazebo_msgs_generate_messages_eus[0m
+[ 22%] [0mBuilt target gazebo_msgs_generate_messages_cpp[0m
+[ 22%] [0mBuilt target gazebo_msgs_generate_messages_lisp[0m
+[ 22%] [0mBuilt target gazebo_msgs_generate_messages_nodejs[0m
+[ 22%] [0mBuilt target gazebo_msgs_generate_messages_py[0m
+[ 22%] [0mBuilt target trajectory_msgs_generate_messages_cpp[0m
+[ 22%] [0mBuilt target trajectory_msgs_generate_messages_lisp[0m
+[ 22%] [0mBuilt target trajectory_msgs_generate_messages_nodejs[0m
+[ 22%] [0mBuilt target trajectory_msgs_generate_messages_eus[0m
+[ 22%] [0mBuilt target trajectory_msgs_generate_messages_py[0m
+[ 22%] [0mBuilt target controller_manager_msgs_generate_messages_eus[0m
+[ 22%] [0mBuilt target controller_manager_msgs_generate_messages_cpp[0m
+[ 22%] [0mBuilt target controller_manager_msgs_generate_messages_nodejs[0m
+[ 22%] [0mBuilt target controller_manager_msgs_generate_messages_lisp[0m
+[ 22%] [0mBuilt target controller_manager_msgs_generate_messages_py[0m
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Kinematics.cpp:91:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid go2_controller::Jacobians(const VectorXd&)[m[K’
+   91 | void [01;31m[Kgo2_controller[m[K::Jacobians(const Eigen::VectorXd& q)
+      |      [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Kinematics.cpp:91:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid go2_controller::Jacobians(const VectorXd&)[m[K’
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Kinematics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:65:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass go2_controller[m[K’ defined here
+   65 | class [01;36m[Kgo2_controller[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:93: CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

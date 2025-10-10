@@ -144,5 +144,5 @@ void go2_controller::Create_Jacobian(const Eigen::VectorXd& q)
     J.block<6,3>(0,6) = J_RL;
     J.block<6,3>(0,9) = J_RR;
 
-    std::cout << J << std::endl;
+    //std::cout << J << std::endl;
 }
