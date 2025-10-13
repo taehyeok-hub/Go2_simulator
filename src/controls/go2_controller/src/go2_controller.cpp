@@ -172,25 +172,55 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
 
 void go2_controller::Squating()
 {
-    double motion_duration = 2.0; // 모션 시간
+    double motion_duration = 2.5; // 모션 시간
 
-    if(!is_motion_started_) // 동작 시작 flag가 false일 때, (컴퓨터가 어떠한 동작을 하고 있다고 생각하지 않음)
+    if (is_motion_started_) 
+    {
+        double t = (ros::Time::now() - motion_start_time_).toSec();
+
+        // 동작 시간이 끝났으면, 상태를 전환하고 다음 동작을 준비합니다.
+        if (t >= motion_duration)
+        {
+            is_going_down_ = !is_going_down_; // 방향 전환 (앉기 <-> 일어서기)
+            is_motion_started_ = false;       // "동작 끝남" 상태로 변경
+            // 여기서 함수를 끝내고, 다음 제어 주기에서 새 동작을 시작하게 합니다.
+            return; 
+        }
+    }
+
+    if (!is_motion_started_) // 동작 시작 flag가 false일 때, (컴퓨터가 어떠한 동작을 하고 있다고 생각하지 않음)
     {
         motion_start_time_ = ros::Time::now();
 
-        // final 위치값 설정
-        EE_Pose_FL_final << 0.20, 0.13, -0.42;
-        EE_Pose_FR_final << 0.20, -0.13, -0.42;
-        EE_Pose_RL_final << -0.18, 0.13, -0.42;
-        EE_Pose_RR_final << -0.18, -0.13, -0.42;       
+        // start 위치값 설정
+        EE_Pose_FL_start = EE_Pose_FL;
+        EE_Pose_FR_start = EE_Pose_FR;
+        EE_Pose_RL_start = EE_Pose_RL;
+        EE_Pose_RR_start = EE_Pose_RR;
+
+        if (is_going_down_)
+        {
+            // final 위치값 설정
+            EE_Pose_FL_final << 0.20, 0.13, -0.25;
+            EE_Pose_FR_final << 0.20, -0.13, -0.25;
+            EE_Pose_RL_final << -0.18, 0.13, -0.25;
+            EE_Pose_RR_final << -0.18, -0.13, -0.25;       
+        }
+        else
+        {
+            EE_Pose_FL_final << 0.20, 0.13, -0.38;
+            EE_Pose_FR_final << 0.20, -0.13, -0.38;
+            EE_Pose_RL_final << -0.18, 0.13, -0.38;
+            EE_Pose_RR_final << -0.18, -0.13, -0.38;       
+        }
 
         is_motion_started_ = true;
     }
 
-    Eigen::Vector3d EE_Pose_FL_desired = Quintic_Task(motion_start_time_, 2.0, EE_Pose_FL, EE_Pose_FL_final);
-    Eigen::Vector3d EE_Pose_FR_desired = Quintic_Task(motion_start_time_, 2.0, EE_Pose_FR, EE_Pose_FR_final);
-    Eigen::Vector3d EE_Pose_RL_desired = Quintic_Task(motion_start_time_, 2.0, EE_Pose_RL, EE_Pose_RL_final);
-    Eigen::Vector3d EE_Pose_RR_desired = Quintic_Task(motion_start_time_, 2.0, EE_Pose_RR, EE_Pose_RR_final);
+    EE_Pose_FL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
+    EE_Pose_FR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
+    EE_Pose_RL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
+    EE_Pose_RR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
 
     // (선택) 속도 desired 값
     EE_Vel_FL_desired.setZero();
@@ -200,7 +230,7 @@ void go2_controller::Squating()
     
 
     // 2. "어떻게 갈지 계산": 결정된 목표값으로 토크 계산
-    TaskSpacePDControl(30.0, 2.0);
+    TaskSpacePDControl(75.0, 2.2);
 }
 
 void go2_controller::Run()

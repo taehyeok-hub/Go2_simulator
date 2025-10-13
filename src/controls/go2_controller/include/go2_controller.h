@@ -127,6 +127,9 @@ private:
     Eigen::Vector3d EE_Pose_RL       { Eigen::Vector3d::Zero() };
     Eigen::Vector3d EE_Pose_RR       { Eigen::Vector3d::Zero() };
 
+    // (in Task Space) 동작의 시작 xyz값 (담아두는 용도)
+    Eigen::Vector3d EE_Pose_FL_start, EE_Pose_FR_start, EE_Pose_RL_start, EE_Pose_RR_start; 
+
     // (in Task Space) 동작의 최종 목표의 xyz값
     Eigen::Vector3d EE_Pose_FL_final, EE_Pose_FR_final, EE_Pose_RL_final, EE_Pose_RR_final;
 
@@ -149,6 +152,7 @@ private:
     // 동작 상태 관리
     ros::Time motion_start_time_;
     bool is_motion_started_ = false;
+    bool is_going_down_ = true;
     std::array<Eigen::Vector3d, 4> traj_start_poses_;
     std::array<Eigen::Vector3d, 4> traj_final_poses_;
     

@@ -7,7 +7,7 @@ Eigen::Vector3d go2_controller::Quintic_Task(ros::Time& start_time, double motio
     parameter 정리
     1. start_time : trajectory planning 시작 시간
     2. motion_time : trajectory planning 구동 시간
-    3. x_current : 현재 발 끝 위치 (EE_Pose_FL,FR,RL,RR)
+    3. x_current : 현재 발 끝 위치 (EE_Pose_FL,FR,RL,RR) (trajectory의 시작이 될 지점(x_start))
     4. x_final : 목표 발 끝 위치
     */
 
@@ -52,6 +52,11 @@ Eigen::Vector3d go2_controller::Quintic_Task(ros::Time& start_time, double motio
         // t >= T일 때 x_desired = x_final 이므로
         return x_final; 
     }
+    if (t < 0.01) // 동작 시작 직후 0.01초 동안만 출력
+    {
+    Eigen::Vector3d initial_error = EE_Pose_FL_desired - EE_Pose_FL;
+    ROS_INFO_STREAM("Initial Squat Error FL: " << initial_error.transpose());
+    }   
     else if (t < 0)
     {
         // t < 0 일 때 x_desired = x_current 이므로
@@ -111,6 +116,7 @@ Eigen::VectorXd go2_controller::Quintic_Joint(ros::Time& start_time, double moti
     if (t >= T)
     {
         q_desired = q_final;
+        return q_desired;
     }
     else 
     {
@@ -123,6 +129,7 @@ Eigen::VectorXd go2_controller::Quintic_Joint(ros::Time& start_time, double moti
         T_vec << 1, t, t2, t3, t4, t5;
 
         q_desired = (T_vec * A).transpose(); // 12 x 1 열벡터가 된다.
+        return q_desired;
     }
 }
 
