@@ -79,43 +79,8 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
     // {
     //     Homing_Time++;
     // }
-    
 
-    // sinusoidal trajectory
-    // ros::Time Current_Time = ros::Time::now();
-    // double t = (Current_Time - Homing_Time).toSec(); // 계산해야하므로 ros::Time이 아닌 double로 받음.
-    // double T = 2; // 계산해야하므로 ros::Time이 아닌 double로 받음.
-    // if (t< T) // trajectory 추정중
-    // {
-    //     q_desired = q_current + (q_final - q_current) * 0.5 * (1 - cos(3.14 / T * t));
-    // }
-    // else if (t == T)
-    // {
-    //     q_desired = q_final;
-    // }
-
-
-
-    // // quintic trajectory (1)
-    // ros::Time Current_Time = ros::Time::now();
-    // double t = (Current_Time - Homing_Time).toSec(); // toSec() 적으세요
-    // double T = 2.0;
-
-    // double time_ratio = t/T;
-    // double time_ratio_3 = time_ratio * time_ratio * time_ratio;
-    // double time_ratio_4 = time_ratio_3 * time_ratio;
-    // double time_ratio_5 = time_ratio_4 * time_ratio;
-    
-    // if (t >= T)
-    // {
-    //     q_desired = q_final;
-    // }
-    // else if (t< T)
-    // {
-    //     q_desired = q_current + (q_final - q_current) * (10 * time_ratio_3 - 15 * time_ratio_4 + 6 * time_ratio_5);
-    // } 
-
-    // // quintic trajectory (2)
+    // // quintic trajectory 
     ros::Time Current_Time = ros::Time::now();
     double t = (Current_Time - Homing_Time).toSec(); // toSec() 적으세요
     double T = 2.0;
@@ -168,69 +133,142 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
     double K_d = 1.0;
 
     torque_ = K_p * (q_desired - q_) - K_d * dq_; // q_와 dq_는 계속 StateLegCallback 함수로 인해 실시간으로 값을 할당받는중임.
+    // 0.1925, 0.145, -0.31
 }
 
 void go2_controller::Squating()
 {
-    double motion_duration = 2.5; // 모션 시간
+    double motion_duration = 5.0; // 앉았다 일어서는 데 총 3초
 
-    if (is_motion_started_) 
+    if (is_motion_started_)
     {
         double t = (ros::Time::now() - motion_start_time_).toSec();
 
-        // 동작 시간이 끝났으면, 상태를 전환하고 다음 동작을 준비합니다.
-        if (t >= motion_duration)
+        if (t > motion_duration)
         {
-            is_going_down_ = !is_going_down_; // 방향 전환 (앉기 <-> 일어서기)
-            is_motion_started_ = false;       // "동작 끝남" 상태로 변경
-            // 여기서 함수를 끝내고, 다음 제어 주기에서 새 동작을 시작하게 합니다.
-            return; 
-        }
+            is_motion_started_ = false;
+        }            
     }
-
-    if (!is_motion_started_) // 동작 시작 flag가 false일 때, (컴퓨터가 어떠한 동작을 하고 있다고 생각하지 않음)
+    else
     {
         motion_start_time_ = ros::Time::now();
-
-        // start 위치값 설정
-        EE_Pose_FL_start = EE_Pose_FL;
-        EE_Pose_FR_start = EE_Pose_FR;
-        EE_Pose_RL_start = EE_Pose_RL;
-        EE_Pose_RR_start = EE_Pose_RR;
-
-        if (is_going_down_)
-        {
-            // final 위치값 설정
-            EE_Pose_FL_final << 0.20, 0.13, -0.25;
-            EE_Pose_FR_final << 0.20, -0.13, -0.25;
-            EE_Pose_RL_final << -0.18, 0.13, -0.25;
-            EE_Pose_RR_final << -0.18, -0.13, -0.25;       
-        }
-        else
-        {
-            EE_Pose_FL_final << 0.20, 0.13, -0.38;
-            EE_Pose_FR_final << 0.20, -0.13, -0.38;
-            EE_Pose_RL_final << -0.18, 0.13, -0.38;
-            EE_Pose_RR_final << -0.18, -0.13, -0.38;       
-        }
-
+        
+     
+        EE_Pose_FL_start << 0.20, 0.13, -0.30; // 0.19, 0.1425, -0.30
+        EE_Pose_FR_start << 0.20, -0.13, -0.30; // 0.19, -0.1425, -0.30
+        EE_Pose_RL_start << -0.18, 0.13, -0.30; // -0.19, 0.1425, -0.30
+        EE_Pose_RR_start << -0.18, -0.13, -0.30; // -0.19, -0.1425, -0.3
+       
+        
+        EE_Pose_FL_final << 0.20, 0.13, -0.22; // 0.19, 0.1425, -0.22
+        EE_Pose_FR_final << 0.20, -0.13, -0.22; // 0.19, -0.1425, -0.22
+        EE_Pose_RL_final << -0.18, 0.13, -0.22; // -0.19, 0.1425, -0.22
+        EE_Pose_RR_final << -0.18, -0.13, -0.22; // -0.19, -0.1425, -0.22
+      
         is_motion_started_ = true;
     }
 
-    EE_Pose_FL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
-    EE_Pose_FR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
-    EE_Pose_RL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
-    EE_Pose_RR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
+    TrajectoryPoint fl_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
+    TrajectoryPoint fr_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
+    TrajectoryPoint rl_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
+    TrajectoryPoint rr_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
 
-    // (선택) 속도 desired 값
-    EE_Vel_FL_desired.setZero();
-    EE_Vel_FR_desired.setZero();
-    EE_Vel_RL_desired.setZero();
-    EE_Vel_RR_desired.setZero();
-    
+    EE_Pose_FL_desired = fl_target.position;
+    EE_Vel_FL_desired  = fl_target.velocity; 
 
-    // 2. "어떻게 갈지 계산": 결정된 목표값으로 토크 계산
-    TaskSpacePDControl(75.0, 2.2);
+    EE_Pose_FR_desired = fr_target.position;
+    EE_Vel_FR_desired  = fr_target.velocity; 
+
+    EE_Pose_RL_desired = rl_target.position;
+    EE_Vel_RL_desired  = rl_target.velocity; 
+
+    EE_Pose_RR_desired = rr_target.position;
+    EE_Vel_RR_desired  = rr_target.velocity; 
+
+    TaskSpacePDControl(80.0, 3.0);
+
+
+    // Quintic_task (단일 이동)
+    // double motion_duration = 2.5;
+
+    // if (is_motion_started_)
+    // {
+    //     // 작동 시간 판단 및 mode 변환 squating(앉기 / 일어나기)
+    //     double t = (ros::Time::now() - motion_start_time_).toSec();
+        
+    //     if (t > motion_duration)
+    //     {
+    //         is_going_down_ = !is_going_down_;
+    //         is_motion_started_ = false;
+    //     }
+    // }
+
+    // else
+    // {
+    //     motion_start_time_ = ros::Time::now();
+
+    //     // 모션의 시작점 설정
+    //     // EE_Pose_FL_start = EE_Pose_FL;
+    //     // EE_Pose_FR_start = EE_Pose_FR;
+    //     // EE_Pose_RL_start = EE_Pose_RL;
+    //     // EE_Pose_RR_start = EE_Pose_RR;
+
+    //     if (is_going_down_)
+    //     {
+    //         if (squat_count == 0)
+    //         {
+    //             EE_Pose_FL_start << 0.20, 0.13, -0.31;
+    //             EE_Pose_FR_start << 0.20, -0.13, -0.31;
+    //             EE_Pose_RL_start << -0.18, 0.13, -0.31;
+    //             EE_Pose_RR_start << -0.18, -0.13, -0.31;
+    //         }
+    //         else
+    //         {
+    //             EE_Pose_FL_start << 0.20, 0.13, -0.38;
+    //             EE_Pose_FR_start << 0.20, -0.13, -0.38;
+    //             EE_Pose_RL_start << -0.18, 0.13, -0.38;
+    //             EE_Pose_RR_start << -0.18, -0.13, -0.38;
+    //         }
+
+    //         // 모션의 최종 목표점 설정
+    //         EE_Pose_FL_final << 0.20, 0.13, -0.25;
+    //         EE_Pose_FR_final << 0.20, -0.13, -0.25;
+    //         EE_Pose_RL_final << -0.18, 0.13, -0.25;
+    //         EE_Pose_RR_final << -0.18, -0.13, -0.25;
+
+    //         squat_count++;
+           
+    //     }
+    //     else // 올라오기
+    //     {
+    //         EE_Pose_FL_start << 0.20, 0.13, -0.25;
+    //         EE_Pose_FR_start <<0.20, -0.13, -0.25;
+    //         EE_Pose_RL_start <<-0.18, 0.13, -0.25;
+    //         EE_Pose_RR_start << -0.18, -0.13, -0.25;
+
+    //         // 모션의 최종 목표점 설정
+    //         EE_Pose_FL_final << 0.20, 0.13, -0.38;
+    //         EE_Pose_FR_final << 0.20, -0.13, -0.38;
+    //         EE_Pose_RL_final << -0.18, 0.13, -0.38;
+    //         EE_Pose_RR_final << -0.18, -0.13, -0.38;
+    //     }
+        
+    //     is_motion_started_ = true;
+    // }
+
+    // // trajectory planning 설정 값, desired 값 설정
+    // EE_Pose_FL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
+    // EE_Pose_FR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
+    // EE_Pose_RL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
+    // EE_Pose_RR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
+
+    // // 초기 설정 속도
+    // EE_Vel_FL_desired.setZero();
+    // EE_Vel_FR_desired.setZero();
+    // EE_Vel_RL_desired.setZero();
+    // EE_Vel_RR_desired.setZero();
+
+    // TaskSpacePDControl(100.0, 3.0);
 }
 
 void go2_controller::Run()

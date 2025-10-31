@@ -62,6 +62,12 @@ enum ControlMode
     NUM_MODE = 3,
 };
 
+// 궤적의 결과를 담을 구조체
+    struct TrajectoryPoint {
+    Eigen::Vector3d position;
+    Eigen::Vector3d velocity;   
+    };
+
 class go2_controller
 {
 public:
@@ -98,8 +104,8 @@ private:
     // Trajectory 관련 함수들
     Eigen::Vector3d Quintic_Task(ros::Time& start_time, double motion_time, Eigen::Vector3d& x_current, Eigen::Vector3d& x_final);
     Eigen::VectorXd Quintic_Joint(ros::Time& start_time, double motion_time, Eigen::VectorXd& q, Eigen::VectorXd& qf);  
-    Eigen::Vector3d Sinusoidal_Task();
-    Eigen::VectorXd Sinusoidal_Joint();     
+    //Eigen::Vector3d Sinusoidal_Task();
+    //Eigen::VectorXd Sinusoidal_Joint();     
 
 
     ros::NodeHandle nh_;
@@ -155,11 +161,16 @@ private:
     bool is_going_down_ = true;
     std::array<Eigen::Vector3d, 4> traj_start_poses_;
     std::array<Eigen::Vector3d, 4> traj_final_poses_;
-    
+    int squat_count = 0;
+
     bool Recieved_Joint_State;
 
     ros::Time Homing_Time;
     // int Homing_Time = 0;
+
+    TrajectoryPoint Sinusoidal_Task(ros::Time& start_time, double period, 
+                                    const Eigen::Vector3d& stand_pose, 
+                                    const Eigen::Vector3d& squat_pose);
 
 };
 

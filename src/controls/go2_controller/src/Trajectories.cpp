@@ -34,7 +34,8 @@ Eigen::Vector3d go2_controller::Quintic_Task(ros::Time& start_time, double motio
     Eigen::Matrix<double, 6, 6> M_inv = M.inverse();
 
 
-    // B 행렬 : [q0, v0, a0, qf, vf af].transpose() 느낌.
+    // B 행렬 : [q0, v0, a0, qf, vf af].transpose() 느낌. 
+    // 끝 관절의 x,y,z 축 좌표에서의 초기위치,속도,가속도 / 끝위치,속도,가속도
     Eigen::Matrix<double, 6, 3> B;
     B.row(0) = x_current.transpose();
     B.row(1) = Eigen::RowVector3d::Zero();
@@ -54,8 +55,8 @@ Eigen::Vector3d go2_controller::Quintic_Task(ros::Time& start_time, double motio
     }
     if (t < 0.01) // 동작 시작 직후 0.01초 동안만 출력
     {
-    Eigen::Vector3d initial_error = EE_Pose_FL_desired - EE_Pose_FL;
-    ROS_INFO_STREAM("Initial Squat Error FL: " << initial_error.transpose());
+        Eigen::Vector3d initial_error = EE_Pose_FL_desired - EE_Pose_FL;
+        ROS_INFO_STREAM("Initial Squat Error FL: " << initial_error.transpose());
     }   
     else if (t < 0)
     {
@@ -74,6 +75,32 @@ Eigen::Vector3d go2_controller::Quintic_Task(ros::Time& start_time, double motio
         return x_desired;
     }
     
+}
+
+
+TrajectoryPoint go2_controller::Sinusoidal_Task(ros::Time& start_time, double period, 
+                                                const Eigen::Vector3d& stand_pose, 
+                                                const Eigen::Vector3d& squat_pose)
+{
+    double t = (ros::Time::now() - start_time).toSec();
+    double T = period;
+
+    // 1. Z축에 대한 파라미터 계산
+    double z_stand = stand_pose.z();
+    double z_squat = squat_pose.z();
+    double z_amplitude = (z_stand - z_squat) / 2.0;
+    double z_center = (z_stand + z_squat) / 2.0;
+
+    // 2. 시간에 따른 목표(not 최종 목표) (desired) 위치, 속도 식
+    double z_desired = z_center + z_amplitude * cos(2 * M_PI * t / T);
+    double z_vel_desired = - z_amplitude * (2 * M_PI / T) * sin(2 * M_PI * t / T);
+
+    // 3. X, Y는 고정되어있음.
+    TrajectoryPoint target;
+    target.position << stand_pose.x(), stand_pose.y(), z_desired;
+    target.velocity << 0, 0, z_vel_desired;
+    
+    return target;
 }
 
 
@@ -133,12 +160,47 @@ Eigen::VectorXd go2_controller::Quintic_Joint(ros::Time& start_time, double moti
     }
 }
 
-    Eigen::Vector3d go2_controller::Sinusoidal_Task()
-    {
+// Eigen::Vector3d go2_controller::Sinusoidal_Task()
+// {
+//     return;
+// }
 
-    }
+// Eigen::VectorXd go2_controller::Sinusoidal_Joint()
+// {
+//     return;
+// }
 
-    Eigen::VectorXd go2_controller::Sinusoidal_Joint()
-    {
 
-    }
+
+// quintic trajectory in joint space
+// ros::Time Current_Time = ros::Time::now();
+// double t = (Current_Time - Homing_Time).toSec(); // toSec() 적으세요
+// double T = 2.0;
+// double time_ratio = t/T;
+// double time_ratio_3 = time_ratio * time_ratio * time_ratio;
+// double time_ratio_4 = time_ratio_3 * time_ratio;
+// double time_ratio_5 = time_ratio_4 * time_ratio;
+
+// if (t >= T)
+// {
+//     q_desired = q_final;
+// }
+// else if (t< T)
+// {
+//     q_desired = q_current + (q_final - q_current) * (10 * time_ratio_3 - 15 * time_ratio_4 + 6 * time_ratio_5);
+// } 
+
+
+
+// sinusoidal trajectory
+// ros::Time Current_Time = ros::Time::now();
+// double t = (Current_Time - Homing_Time).toSec(); // 계산해야하므로 ros::Time이 아닌 double로 받음.
+// double T = 2; // 계산해야하므로 ros::Time이 아닌 double로 받음.
+// if (t< T) // trajectory 추정중
+// {
+    // q_desired = q_current + (q_final - q_current) * 0.5 * (1 - cos(3.14 / T * t));
+// }
+// else if (t == T)
+// {
+    // q_desired = q_final;
+// }

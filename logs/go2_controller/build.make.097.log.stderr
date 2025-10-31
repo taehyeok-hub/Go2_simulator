@@ -1,0 +1,4 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:[m[K In member function ‘[01m[KEigen::Vector3d go2_controller::Quintic_Task(ros::Time&, double, Eigen::Vector3d&, Eigen::Vector3d&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:78:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+   78 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K

@@ -1,0 +1,182 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:8:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\355[m[K’ in program
+   79 | / Sine [01;31m[K�[m[K��형으로 연속적인 궤적을 생성하는 함수
+      |        [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:9:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\214[m[K’ in program
+   79 | / Sine �[01;31m[K�[m[K�형으로 연속적인 궤적을 생성하는 함수
+      |         [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:10:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\214[m[K’ in program
+   79 | / Sine �[01;31m[K�[m[K형으로 연속적인 궤적을 생성하는 함수
+      |          [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:11:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\355[m[K’ in program
+   79 | / Sine 파[01;31m[K�[m[K��으로 연속적인 궤적을 생성하는 함수
+      |           [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:12:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\230[m[K’ in program
+   79 | / Sine 파�[01;31m[K�[m[K�으로 연속적인 궤적을 생성하는 함수
+      |            [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:13:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\225[m[K’ in program
+   79 | / Sine 파�[01;31m[K�[m[K으로 연속적인 궤적을 생성하는 함수
+      |             [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:14:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형[01;31m[K�[m[K��로 연속적인 궤적을 생성하는 함수
+      |              [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:15:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\234[m[K’ in program
+   79 | / Sine 파형�[01;31m[K�[m[K�로 연속적인 궤적을 생성하는 함수
+      |               [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:16:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\274[m[K’ in program
+   79 | / Sine 파형�[01;31m[K�[m[K로 연속적인 궤적을 생성하는 함수
+      |                [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:17:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\353[m[K’ in program
+   79 | / Sine 파형으[01;31m[K�[m[K�� 연속적인 궤적을 생성하는 함수
+      |                 [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:18:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\241[m[K’ in program
+   79 | / Sine 파형으�[01;31m[K�[m[K� 연속적인 궤적을 생성하는 함수
+      |                  [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:19:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\234[m[K’ in program
+   79 | / Sine 파형으�[01;31m[K�[m[K 연속적인 궤적을 생성하는 함수
+      |                   [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:21:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형으로 [01;31m[K�[m[K��속적인 궤적을 생성하는 함수
+      |                     [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:22:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\227[m[K’ in program
+   79 | / Sine 파형으로 �[01;31m[K�[m[K�속적인 궤적을 생성하는 함수
+      |                      [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:23:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\260[m[K’ in program
+   79 | / Sine 파형으로 �[01;31m[K�[m[K속적인 궤적을 생성하는 함수
+      |                       [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:24:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형으로 연[01;31m[K�[m[K��적인 궤적을 생성하는 함수
+      |                        [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:25:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\206[m[K’ in program
+   79 | / Sine 파형으로 연�[01;31m[K�[m[K�적인 궤적을 생성하는 함수
+      |                         [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:26:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\215[m[K’ in program
+   79 | / Sine 파형으로 연�[01;31m[K�[m[K적인 궤적을 생성하는 함수
+      |                          [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:27:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형으로 연속[01;31m[K�[m[K��인 궤적을 생성하는 함수
+      |                           [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:28:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\240[m[K’ in program
+   79 | / Sine 파형으로 연속�[01;31m[K�[m[K�인 궤적을 생성하는 함수
+      |                            [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:29:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\201[m[K’ in program
+   79 | / Sine 파형으로 연속�[01;31m[K�[m[K인 궤적을 생성하는 함수
+      |                             [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:30:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형으로 연속적[01;31m[K�[m[K�� 궤적을 생성하는 함수
+      |                              [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:31:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\235[m[K’ in program
+   79 | / Sine 파형으로 연속적�[01;31m[K�[m[K� 궤적을 생성하는 함수
+      |                               [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:32:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\270[m[K’ in program
+   79 | / Sine 파형으로 연속적�[01;31m[K�[m[K 궤적을 생성하는 함수
+      |                                [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:34:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\352[m[K’ in program
+   79 | / Sine 파형으로 연속적인 [01;31m[K�[m[K��적을 생성하는 함수
+      |                                  [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:35:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\266[m[K’ in program
+   79 | / Sine 파형으로 연속적인 �[01;31m[K�[m[K�적을 생성하는 함수
+      |                                   [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:36:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\244[m[K’ in program
+   79 | / Sine 파형으로 연속적인 �[01;31m[K�[m[K적을 생성하는 함수
+      |                                    [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:37:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤[01;31m[K�[m[K��을 생성하는 함수
+      |                                     [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:38:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\240[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤�[01;31m[K�[m[K�을 생성하는 함수
+      |                                      [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:39:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\201[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤�[01;31m[K�[m[K을 생성하는 함수
+      |                                       [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:40:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적[01;31m[K�[m[K�� 생성하는 함수
+      |                                        [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:41:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\235[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적�[01;31m[K�[m[K� 생성하는 함수
+      |                                         [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:42:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\204[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적�[01;31m[K�[m[K 생성하는 함수
+      |                                          [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:44:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 [01;31m[K�[m[K��성하는 함수
+      |                                            [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:45:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\203[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 �[01;31m[K�[m[K�성하는 함수
+      |                                             [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:46:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\235[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 �[01;31m[K�[m[K성하는 함수
+      |                                              [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:47:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생[01;31m[K�[m[K��하는 함수
+      |                                               [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:48:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\204[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생�[01;31m[K�[m[K�하는 함수
+      |                                                [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:49:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\261[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생�[01;31m[K�[m[K하는 함수
+      |                                                 [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:50:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\355[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성[01;31m[K�[m[K��는 함수
+      |                                                  [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:51:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\225[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성�[01;31m[K�[m[K�는 함수
+      |                                                   [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:52:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\230[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성�[01;31m[K�[m[K는 함수
+      |                                                    [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:53:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\353[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성하[01;31m[K�[m[K�� 함수
+      |                                                     [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:54:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\212[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성하�[01;31m[K�[m[K� 함수
+      |                                                      [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:55:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\224[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성하�[01;31m[K�[m[K 함수
+      |                                                       [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:57:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\355[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성하는 [01;31m[K�[m[K��수
+      |                                                         [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:58:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\225[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성하는 �[01;31m[K�[m[K�수
+      |                                                          [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:59:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\250[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성하는 �[01;31m[K�[m[K수
+      |                                                           [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:60:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성하는 함[01;31m[K�[m[K��
+      |                                                            [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:61:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\210[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성하는 함�[01;31m[K�[m[K�
+      |                                                             [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:62:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\230[m[K’ in program
+   79 | / Sine 파형으로 연속적인 궤적을 생성하는 함�[01;31m[K�[m[K
+      |                                                              [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Squating()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:184:112:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kgo2_controller::Sinusoidal_Task(ros::Time&, double&, Eigen::Vector3d&, Eigen::Vector3d&)[m[K’
+  184 |     TrajectoryPoint fl_target = Sinusoidal_Task(motion_start_time_, motion_period, stand_pose_fl, squat_pose_fl[01;31m[K)[m[K;
+      |                                                                                                                [01;31m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:101:21:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KEigen::Vector3d go2_controller::Sinusoidal_Task()[m[K’
+  101 |     Eigen::Vector3d [01;36m[KSinusoidal_Task[m[K();
+      |                     [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:101:21:[m[K [01;36m[Knote: [m[K  candidate expects 0 arguments, 4 provided
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:79:1:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K/[m[K’ token
+   79 | [01;31m[K/[m[K Sine 파형으로 연속적인 궤적을 생성하는 함수
+      | [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:[m[K In member function ‘[01m[KEigen::VectorXd go2_controller::Sinusoidal_Joint()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:170:5:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+  170 |     [01;35m[K}[m[K
+      |     [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:[m[K In member function ‘[01m[KEigen::Vector3d go2_controller::Quintic_Task(ros::Time&, double, Eigen::Vector3d&, Eigen::Vector3d&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/Trajectories.cpp:77:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+   77 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:149: CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2
