@@ -37,6 +37,14 @@
 #include "Eigen/Dense"
 #include "Eigen/Geometry"
 
+enum Axis
+{
+    X,
+    Y,
+    Z,
+    NUM_AXIS = 3,
+};
+
 enum Joint
 {
     HR,
@@ -84,6 +92,7 @@ public:
 
     void Init();
     void Run();
+    void PlotRun();
 
 
 private:
@@ -95,10 +104,12 @@ private:
     void StateLegCallback(const sensor_msgs::JointState &state);
     void SendCommandsToRobot();
     void Forward_Kinematics(const Eigen::VectorXd& q, const Eigen::VectorXd& dq);
+    void Forward_Kinematics_ME(const Eigen::VectorXd& q, const Eigen::VectorXd& dq);
     void geometrical_IK();
     void Jacobians_URDF(const Eigen::VectorXd& q);
     void Create_Jacobian(const Eigen::VectorXd& q);
     void TaskSpacePDControl(double Kp, double Kd);
+    void DataStream();
 
 
     // Trajectory 관련 함수들
@@ -112,6 +123,7 @@ private:
     ros::Subscriber sub_leg_state_;
 
     ros::Publisher pub_leg_cmd_;
+    ros::Publisher pub_TH_;
 
     const std::string go2_topic_leg_state_, go2_topic_leg_command_;
 
@@ -171,6 +183,8 @@ private:
     TrajectoryPoint Sinusoidal_Task(ros::Time& start_time, double period, 
                                     const Eigen::Vector3d& stand_pose, 
                                     const Eigen::Vector3d& squat_pose);
+
+    
 
 };
 

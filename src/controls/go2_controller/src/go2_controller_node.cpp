@@ -6,6 +6,11 @@ void MainThreadRun(go2_controller &controller)
     controller.Run();
 }
 
+void PlotThreadRun(go2_controller &controller)
+{
+    controller.PlotRun();
+}
+
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "go2_node"); // ros에 go2_node라고 연결함.
@@ -31,8 +36,10 @@ int main(int argc, char **argv)
     go2_controller go2_controller(nh, go2_topic_leg_state, go2_topic_leg_command, freq); // 객체 생성
 
     std::thread main_thread(MainThreadRun, std::ref(go2_controller));
+    std::thread plot_thread(PlotThreadRun, std::ref(go2_controller));
 
     main_thread.join();
+    plot_thread.join();
 
     return 0;
 }

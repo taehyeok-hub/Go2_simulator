@@ -15,7 +15,7 @@ void go2_controller::Init()
     sub_leg_state_ = nh_.subscribe(go2_topic_leg_state_, queue_size, &go2_controller::StateLegCallback, this, ros::TransportHints().reliable().tcpNoDelay());
     // leg_state(다리상태)를 go2의 legstate를 구독함.
     /* StateLegCallback 함수는 코드상에서 직접 호출되는 부분이 없으며, ROS 시스템에 의해 특정 이벤트가 발생했을 때 자동으로 호출되도록 등록되어 있습니다. */
-
+    pub_TH_ = nh_.advertise<std_msgs::Float64MultiArray>("TH", queue_size);
     pub_leg_cmd_ = nh_.advertise<std_msgs::Float64MultiArray>(go2_topic_leg_command_, queue_size);
 
     controlmode = INIT;
@@ -34,7 +34,9 @@ void go2_controller::Command(bool flag)
     {
         Forward_Kinematics(q_, dq_);
         Jacobians_URDF(q_);
-        
+        // Forward_Kinematics_ME(q_, dq_);
+        // Create_Jacobian(q_);
+
         switch (controlmode)
         {
         case INIT:
@@ -47,15 +49,15 @@ void go2_controller::Command(bool flag)
         }
         case HOMING:
         {
-          Homing();
-          //torque_(0) = -50; 
-          
-          if ((ros::Time::now() - Homing_Time).toSec() >= 2.0)
-          {
-            is_motion_started_ = false;
-            controlmode = SQUATING;
-          }
-          break;
+            Homing();
+            // torque_(0) = -50;
+
+            if ((ros::Time::now() - Homing_Time).toSec() >= 2.0)
+            {
+                is_motion_started_ = false;
+                controlmode = SQUATING;
+            }
+            break;
         }
         case SQUATING:
         {
@@ -71,7 +73,7 @@ void go2_controller::Command(bool flag)
 void go2_controller::Homing() // 초기자세 설정 하는 코드
 {
     // 성민이형 스타일
-    // if(Homing_Time == 1000) 
+    // if(Homing_Time == 1000)
     // {
     //     Homing_Time = 1000;
     // }
@@ -80,7 +82,7 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
     //     Homing_Time++;
     // }
 
-    // // quintic trajectory 
+    // // quintic trajectory
     ros::Time Current_Time = ros::Time::now();
     double t = (Current_Time - Homing_Time).toSec(); // toSec() 적으세요
     double T = 2.0;
@@ -88,21 +90,21 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
     q_final << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
 
     Eigen::Matrix<double, 6, 6> M; // double 요소의 6x6 행렬 선언
-    double T2 = T*T;
-    double T3 = T2*T; 
-    double T4 = T3*T; 
-    double T5 = T4*T;
+    double T2 = T * T;
+    double T3 = T2 * T;
+    double T4 = T3 * T;
+    double T5 = T4 * T;
 
     M << 1, 0, 0, 0, 0, 0,
-         0, 1, 0, 0, 0, 0,
-         0, 0, 2, 0, 0, 0,
-         1, T, T2, T3, T4, T5,
-         0, 1, 2*T, 3*T2, 4*T3, 5*T4,
-         0, 0, 2, 6*T, 12*T2, 20*T3;
+        0, 1, 0, 0, 0, 0,
+        0, 0, 2, 0, 0, 0,
+        1, T, T2, T3, T4, T5,
+        0, 1, 2 * T, 3 * T2, 4 * T3, 5 * T4,
+        0, 0, 2, 6 * T, 12 * T2, 20 * T3;
 
     Eigen::Matrix<double, 6, 6> M_inv = M.inverse(); // M의 역행렬을 구함
 
-    Eigen::Matrix<double, 6, 12> B; // 12개의 관절들의 초기 (위치, 속도, 가속도), 최종 (위치, 속도, 가속도) 구하기 
+    Eigen::Matrix<double, 6, 12> B;   // 12개의 관절들의 초기 (위치, 속도, 가속도), 최종 (위치, 속도, 가속도) 구하기
     B.row(0) = q_current.transpose(); // current를 받으면서 바로 초기화
     B.row(1) = Eigen::RowVectorXd::Zero(12);
     B.row(2) = Eigen::RowVectorXd::Zero(12);
@@ -116,12 +118,12 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
     {
         q_desired = q_final;
     }
-    else 
+    else
     {
         // q(t) = a0 + a1*t + a2*t^2 + a3*t^3 + a4*t^4 + a5*t^5 이므로
-        double t2 = t * t; 
-        double t3 = t2 * t; 
-        double t4 = t3 * t; 
+        double t2 = t * t;
+        double t3 = t2 * t;
+        double t4 = t3 * t;
         double t5 = t4 * t;
         Eigen::Matrix<double, 1, 6> T_vec;
         T_vec << 1, t, t2, t3, t4, t5;
@@ -138,144 +140,142 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
 
 void go2_controller::Squating()
 {
-    double motion_duration = 5.0; // 앉았다 일어서는 데 총 3초
-
-    if (is_motion_started_)
-    {
-        double t = (ros::Time::now() - motion_start_time_).toSec();
-
-        if (t > motion_duration)
-        {
-            is_motion_started_ = false;
-        }            
-    }
-    else
-    {
-        motion_start_time_ = ros::Time::now();
-        
-     
-        EE_Pose_FL_start << 0.20, 0.13, -0.30; // 0.19, 0.1425, -0.30
-        EE_Pose_FR_start << 0.20, -0.13, -0.30; // 0.19, -0.1425, -0.30
-        EE_Pose_RL_start << -0.18, 0.13, -0.30; // -0.19, 0.1425, -0.30
-        EE_Pose_RR_start << -0.18, -0.13, -0.30; // -0.19, -0.1425, -0.3
-       
-        
-        EE_Pose_FL_final << 0.20, 0.13, -0.22; // 0.19, 0.1425, -0.22
-        EE_Pose_FR_final << 0.20, -0.13, -0.22; // 0.19, -0.1425, -0.22
-        EE_Pose_RL_final << -0.18, 0.13, -0.22; // -0.19, 0.1425, -0.22
-        EE_Pose_RR_final << -0.18, -0.13, -0.22; // -0.19, -0.1425, -0.22
-      
-        is_motion_started_ = true;
-    }
-
-    TrajectoryPoint fl_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
-    TrajectoryPoint fr_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
-    TrajectoryPoint rl_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
-    TrajectoryPoint rr_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
-
-    EE_Pose_FL_desired = fl_target.position;
-    EE_Vel_FL_desired  = fl_target.velocity; 
-
-    EE_Pose_FR_desired = fr_target.position;
-    EE_Vel_FR_desired  = fr_target.velocity; 
-
-    EE_Pose_RL_desired = rl_target.position;
-    EE_Vel_RL_desired  = rl_target.velocity; 
-
-    EE_Pose_RR_desired = rr_target.position;
-    EE_Vel_RR_desired  = rr_target.velocity; 
-
-    TaskSpacePDControl(80.0, 3.0);
-
-
-    // Quintic_task (단일 이동)
-    // double motion_duration = 2.5;
+    // Sinusoidal_rotate
+    // double motion_duration = 5.0; // 앉았다 일어서는 데 총 3초
 
     // if (is_motion_started_)
     // {
-    //     // 작동 시간 판단 및 mode 변환 squating(앉기 / 일어나기)
     //     double t = (ros::Time::now() - motion_start_time_).toSec();
-        
+
     //     if (t > motion_duration)
     //     {
-    //         is_going_down_ = !is_going_down_;
     //         is_motion_started_ = false;
     //     }
     // }
-
     // else
     // {
     //     motion_start_time_ = ros::Time::now();
 
-    //     // 모션의 시작점 설정
-    //     // EE_Pose_FL_start = EE_Pose_FL;
-    //     // EE_Pose_FR_start = EE_Pose_FR;
-    //     // EE_Pose_RL_start = EE_Pose_RL;
-    //     // EE_Pose_RR_start = EE_Pose_RR;
+    //     EE_Pose_FL_start << 0.20, 0.13, -0.30;   // 0.19, 0.1425, -0.30
+    //     EE_Pose_FR_start << 0.20, -0.13, -0.30;  // 0.19, -0.1425, -0.30
+    //     EE_Pose_RL_start << -0.18, 0.13, -0.30;  // -0.19, 0.1425, -0.30
+    //     EE_Pose_RR_start << -0.18, -0.13, -0.30; // -0.19, -0.1425, -0.3
 
-    //     if (is_going_down_)
-    //     {
-    //         if (squat_count == 0)
-    //         {
-    //             EE_Pose_FL_start << 0.20, 0.13, -0.31;
-    //             EE_Pose_FR_start << 0.20, -0.13, -0.31;
-    //             EE_Pose_RL_start << -0.18, 0.13, -0.31;
-    //             EE_Pose_RR_start << -0.18, -0.13, -0.31;
-    //         }
-    //         else
-    //         {
-    //             EE_Pose_FL_start << 0.20, 0.13, -0.38;
-    //             EE_Pose_FR_start << 0.20, -0.13, -0.38;
-    //             EE_Pose_RL_start << -0.18, 0.13, -0.38;
-    //             EE_Pose_RR_start << -0.18, -0.13, -0.38;
-    //         }
+    //     EE_Pose_FL_final << 0.20, 0.13, -0.22;   // 0.19, 0.1425, -0.22
+    //     EE_Pose_FR_final << 0.20, -0.13, -0.22;  // 0.19, -0.1425, -0.22
+    //     EE_Pose_RL_final << -0.18, 0.13, -0.22;  // -0.19, 0.1425, -0.22
+    //     EE_Pose_RR_final << -0.18, -0.13, -0.22; // -0.19, -0.1425, -0.22
 
-    //         // 모션의 최종 목표점 설정
-    //         EE_Pose_FL_final << 0.20, 0.13, -0.25;
-    //         EE_Pose_FR_final << 0.20, -0.13, -0.25;
-    //         EE_Pose_RL_final << -0.18, 0.13, -0.25;
-    //         EE_Pose_RR_final << -0.18, -0.13, -0.25;
-
-    //         squat_count++;
-           
-    //     }
-    //     else // 올라오기
-    //     {
-    //         EE_Pose_FL_start << 0.20, 0.13, -0.25;
-    //         EE_Pose_FR_start <<0.20, -0.13, -0.25;
-    //         EE_Pose_RL_start <<-0.18, 0.13, -0.25;
-    //         EE_Pose_RR_start << -0.18, -0.13, -0.25;
-
-    //         // 모션의 최종 목표점 설정
-    //         EE_Pose_FL_final << 0.20, 0.13, -0.38;
-    //         EE_Pose_FR_final << 0.20, -0.13, -0.38;
-    //         EE_Pose_RL_final << -0.18, 0.13, -0.38;
-    //         EE_Pose_RR_final << -0.18, -0.13, -0.38;
-    //     }
-        
     //     is_motion_started_ = true;
     // }
 
-    // // trajectory planning 설정 값, desired 값 설정
-    // EE_Pose_FL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
-    // EE_Pose_FR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
-    // EE_Pose_RL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
-    // EE_Pose_RR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
+    // TrajectoryPoint fl_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
+    // TrajectoryPoint fr_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
+    // TrajectoryPoint rl_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
+    // TrajectoryPoint rr_target = Sinusoidal_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
 
-    // // 초기 설정 속도
-    // EE_Vel_FL_desired.setZero();
-    // EE_Vel_FR_desired.setZero();
-    // EE_Vel_RL_desired.setZero();
-    // EE_Vel_RR_desired.setZero();
+    // EE_Pose_FL_desired = fl_target.position;
+    // EE_Vel_FL_desired = fl_target.velocity;
 
-    // TaskSpacePDControl(100.0, 3.0);
+    // EE_Pose_FR_desired = fr_target.position;
+    // EE_Vel_FR_desired = fr_target.velocity;
+
+    // EE_Pose_RL_desired = rl_target.position;
+    // EE_Vel_RL_desired = rl_target.velocity;
+
+    // EE_Pose_RR_desired = rr_target.position;
+    // EE_Vel_RR_desired = rr_target.velocity;
+
+    // TaskSpacePDControl(80.0, 3.0);
+
+    // Quintic_task (단일 이동)
+    double motion_duration = 2.5;
+
+    if (is_motion_started_)
+    {
+        // 작동 시간 판단 및 mode 변환 squating(앉기 / 일어나기)
+        double t = (ros::Time::now() - motion_start_time_).toSec();
+
+        if (t > motion_duration)
+        {
+            is_going_down_ = !is_going_down_;
+            is_motion_started_ = false;
+        }
+    }
+
+    else
+    {
+        motion_start_time_ = ros::Time::now();
+
+        // 모션의 시작점 설정
+        // EE_Pose_FL_start = EE_Pose_FL;
+        // EE_Pose_FR_start = EE_Pose_FR;
+        // EE_Pose_RL_start = EE_Pose_RL;
+        // EE_Pose_RR_start = EE_Pose_RR;
+
+        if (is_going_down_)
+        {
+            if (squat_count == 0)
+            {
+                EE_Pose_FL_start << 0.20, 0.13, -0.31;
+                EE_Pose_FR_start << 0.20, -0.13, -0.31;
+                EE_Pose_RL_start << -0.18, 0.13, -0.31;
+                EE_Pose_RR_start << -0.18, -0.13, -0.31;
+            }
+            else
+            {
+                EE_Pose_FL_start << 0.20, 0.13, -0.38;
+                EE_Pose_FR_start << 0.20, -0.13, -0.38;
+                EE_Pose_RL_start << -0.18, 0.13, -0.38;
+                EE_Pose_RR_start << -0.18, -0.13, -0.38;
+            }
+
+            // 모션의 최종 목표점 설정
+            EE_Pose_FL_final << 0.20, 0.13, -0.25;
+            EE_Pose_FR_final << 0.20, -0.13, -0.25;
+            EE_Pose_RL_final << -0.18, 0.13, -0.25;
+            EE_Pose_RR_final << -0.18, -0.13, -0.25;
+
+            squat_count++;
+
+        }
+        else // 올라오기
+        {
+            EE_Pose_FL_start << 0.20, 0.13, -0.25;
+            EE_Pose_FR_start <<0.20, -0.13, -0.25;
+            EE_Pose_RL_start <<-0.18, 0.13, -0.25;
+            EE_Pose_RR_start << -0.18, -0.13, -0.25;
+
+            // 모션의 최종 목표점 설정
+            EE_Pose_FL_final << 0.20, 0.13, -0.38;
+            EE_Pose_FR_final << 0.20, -0.13, -0.38;
+            EE_Pose_RL_final << -0.18, 0.13, -0.38;
+            EE_Pose_RR_final << -0.18, -0.13, -0.38;
+        }
+
+        is_motion_started_ = true;
+    }
+
+    // trajectory planning 설정 값, desired 값 설정
+    EE_Pose_FL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
+    EE_Pose_FR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
+    EE_Pose_RL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
+    EE_Pose_RR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
+
+    // 초기 설정 속도
+    EE_Vel_FL_desired.setZero();
+    EE_Vel_FR_desired.setZero();
+    EE_Vel_RL_desired.setZero();
+    EE_Vel_RR_desired.setZero();
+
+    TaskSpacePDControl(100.0, 3.0);
 }
 
 void go2_controller::Run()
 {
     ROS_INFO("Running the torque control loop .................");
 
-    const ros::Duration control_period_(1.0 / 500.0); //500hz
+    const ros::Duration control_period_(1.0 / 500.0); // 500hz
 
     ros::AsyncSpinner spinner(4); // 4자유도인거랑은 별개임 스레드 4개 사용해서 더 잘 처리한다는 뜻
     spinner.start();
@@ -294,6 +294,39 @@ void go2_controller::Run()
             last_control_time = current_time;
 
             Command(Recieved_Joint_State);
+
+            ros::Duration sleep_time = control_period_ - elapsed_time;
+            if (sleep_time > ros::Duration(0))
+            {
+                sleep_time.sleep();
+            }
+        }
+    }
+}
+
+void go2_controller::PlotRun()
+{
+    ROS_INFO("Running the torque control loop .................");
+
+    const ros::Duration control_period_(1.0 / 500.0); // 500hz
+
+    ros::AsyncSpinner spinner(4); // 4자유도인거랑은 별개임 스레드 4개 사용해서 더 잘 처리한다는 뜻
+    spinner.start();
+
+    ros::Time start_time = ros::Time::now();
+    ros::Time last_control_time = start_time;
+
+    while (ros::ok())
+    {
+        ros::Time current_time = ros::Time::now();
+
+        ros::Duration elapsed_time = current_time - last_control_time;
+
+        if (elapsed_time >= control_period_)
+        {
+            last_control_time = current_time;
+
+            DataStream();
 
             ros::Duration sleep_time = control_period_ - elapsed_time;
             if (sleep_time > ros::Duration(0))
@@ -353,4 +386,29 @@ void go2_controller::SendCommandsToRobot()
     pub_leg_cmd_.publish(msg);
 
     msg.data.clear();
+}
+
+void go2_controller::DataStream()
+{
+
+    // PLOT---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    std_msgs::Float64MultiArray TH_msg;
+
+    TH_msg.data.push_back(EE_Pose_FL(0));
+    TH_msg.data.push_back(EE_Pose_FL(1));
+    TH_msg.data.push_back(EE_Pose_FL(2));
+
+    TH_msg.data.push_back(EE_Pose_FL_desired(X));
+    TH_msg.data.push_back(EE_Pose_FL_desired(Y));
+    TH_msg.data.push_back(EE_Pose_FL_desired(Z));
+
+
+    pub_TH_.publish(TH_msg);
+
+    // PLOT---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // LOGDATA------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // LOGDATA------------------------------------------------------------------------------------------------------------------------------------------------------
 }
