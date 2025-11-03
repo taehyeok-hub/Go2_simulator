@@ -66,8 +66,10 @@ enum ControlMode
 {
     INIT,
     HOMING,
-    SQUATING,
-    NUM_MODE = 3,
+    SQUAT_START,
+    SQUAT_UP,
+    SQUAT_DOWN,
+    NUM_MODE = 5,
 };
 
 // 궤적의 결과를 담을 구조체

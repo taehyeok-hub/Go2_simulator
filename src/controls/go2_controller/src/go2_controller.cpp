@@ -15,6 +15,8 @@ void go2_controller::Init()
     sub_leg_state_ = nh_.subscribe(go2_topic_leg_state_, queue_size, &go2_controller::StateLegCallback, this, ros::TransportHints().reliable().tcpNoDelay());
     // leg_state(다리상태)를 go2의 legstate를 구독함.
     /* StateLegCallback 함수는 코드상에서 직접 호출되는 부분이 없으며, ROS 시스템에 의해 특정 이벤트가 발생했을 때 자동으로 호출되도록 등록되어 있습니다. */
+
+    // pub_TH : plotjuggler로 Float의 형태로 본인의 상태를 발행하는거임.
     pub_TH_ = nh_.advertise<std_msgs::Float64MultiArray>("TH", queue_size);
     pub_leg_cmd_ = nh_.advertise<std_msgs::Float64MultiArray>(go2_topic_leg_command_, queue_size);
 
@@ -37,6 +39,8 @@ void go2_controller::Command(bool flag)
         // Forward_Kinematics_ME(q_, dq_);
         // Create_Jacobian(q_);
 
+        const double squat_duration = 2.5;
+
         switch (controlmode)
         {
         case INIT:
@@ -54,16 +58,90 @@ void go2_controller::Command(bool flag)
 
             if ((ros::Time::now() - Homing_Time).toSec() >= 2.0)
             {
-                is_motion_started_ = false;
-                controlmode = SQUATING;
+                controlmode = SQUAT_START;
             }
             break;
         }
-        case SQUATING:
+        case SQUAT_START: // [수정됨] SQUATING_INIT 대신 사용
         {
-            Squating();
+            // 이 케이스는 단 1틱만 실행됩니다.
+            motion_start_time_ = ros::Time::now();
+            squat_count = 0;
+
+            // [Jerk 해결] Homing 직후의 '실제' 발 위치를 스쿼트의 '시작' 위치로 설정
+            EE_Pose_FL_start = EE_Pose_FL;
+            EE_Pose_FR_start = EE_Pose_FR;
+            EE_Pose_RL_start = EE_Pose_RL;
+            EE_Pose_RR_start = EE_Pose_RR;
+
+            // 첫 번째 목표 지점 (내려가기) 설정
+            EE_Pose_FL_final << 0.20, 0.13, -0.38; // 더 깊은 스쿼트
+            EE_Pose_FR_final << 0.20, -0.13, -0.38;
+            EE_Pose_RL_final << -0.18, 0.13, -0.38;
+            EE_Pose_RR_final << -0.18, -0.13, -0.38;
+
+            controlmode = SQUAT_DOWN; // 다음 틱부터 SQUAT_DOWN 실행
+            
+            // [Graph Drop 해결] 첫 틱의 궤적을 즉시 계산하고 제어기에 전달
+            Squating(); 
             break;
         }
+        case SQUAT_DOWN:
+        {
+            Squating(); // "내려가기" 궤적 계산 및 제어
+
+            // 궤적 종료 검사
+            if ((ros::Time::now() - motion_start_time_).toSec() > squat_duration)
+            {
+                // [재초기화] 다음 동작(올라가기)을 위해 상태 재설정
+                motion_start_time_ = ros::Time::now(); // 타이머 리셋
+                
+                EE_Pose_FL_start = EE_Pose_FL_final;
+                EE_Pose_FR_start = EE_Pose_FR_final;
+                EE_Pose_RL_start = EE_Pose_RL_final;
+                EE_Pose_RR_start = EE_Pose_RR_final;
+
+                // 새 목표점(올라가기) 설정 (Homing 자세)
+                EE_Pose_FL_final << 0.20, 0.13, -0.25;
+                EE_Pose_FR_final << 0.20, -0.13, -0.25;
+                EE_Pose_RL_final << -0.18, 0.13, -0.25;
+                EE_Pose_RR_final << -0.18, -0.13, -0.25;
+
+                controlmode = SQUAT_UP; // 상태 변경
+            }
+            break;
+        }
+        case SQUAT_UP:
+        {
+            Squating(); // "올라가기" 궤적 계산 및 제어
+
+            // 궤적 종료 검사
+            if ((ros::Time::now() - motion_start_time_).toSec() > squat_duration)
+            {
+                // [재초기화] 다음 동작(내려가기)을 위해 상태 재설정
+                motion_start_time_ = ros::Time::now(); // 타이머 리셋
+                squat_count++;
+
+                EE_Pose_FL_start = EE_Pose_FL_final;
+                EE_Pose_FR_start = EE_Pose_FR_final;
+                EE_Pose_RL_start = EE_Pose_RL_final;
+                EE_Pose_RR_start = EE_Pose_RR_final;
+
+                // 새 목표점(내려가기) 설정
+                EE_Pose_FL_final << 0.20, 0.13, -0.38;
+                EE_Pose_FR_final << 0.20, -0.13, -0.38;
+                EE_Pose_RL_final << -0.18, 0.13, -0.38;
+                EE_Pose_RR_final << -0.18, -0.13, -0.38;
+
+                controlmode = SQUAT_DOWN; // 상태 변경 (무한 반복)
+            }
+            break;
+        }
+        // case SQUATING:
+        // {
+        //     Squating();
+        //     break;
+        // }
         }
 
         SendCommandsToRobot();
@@ -188,75 +266,14 @@ void go2_controller::Squating()
 
     // TaskSpacePDControl(80.0, 3.0);
 
+
     // Quintic_task (단일 이동)
+    // [수정됨] 이 함수는 'SQUAT_START', 'SQUAT_DOWN', 'SQUAT_UP' 상태에서
+    // 매 틱 호출됩니다. 모든 상태 관리 로직을 제거합니다.
+
     double motion_duration = 2.5;
 
-    if (is_motion_started_)
-    {
-        // 작동 시간 판단 및 mode 변환 squating(앉기 / 일어나기)
-        double t = (ros::Time::now() - motion_start_time_).toSec();
-
-        if (t > motion_duration)
-        {
-            is_going_down_ = !is_going_down_;
-            is_motion_started_ = false;
-        }
-    }
-
-    else
-    {
-        motion_start_time_ = ros::Time::now();
-
-        // 모션의 시작점 설정
-        // EE_Pose_FL_start = EE_Pose_FL;
-        // EE_Pose_FR_start = EE_Pose_FR;
-        // EE_Pose_RL_start = EE_Pose_RL;
-        // EE_Pose_RR_start = EE_Pose_RR;
-
-        if (is_going_down_)
-        {
-            if (squat_count == 0)
-            {
-                EE_Pose_FL_start << 0.20, 0.13, -0.31;
-                EE_Pose_FR_start << 0.20, -0.13, -0.31;
-                EE_Pose_RL_start << -0.18, 0.13, -0.31;
-                EE_Pose_RR_start << -0.18, -0.13, -0.31;
-            }
-            else
-            {
-                EE_Pose_FL_start << 0.20, 0.13, -0.38;
-                EE_Pose_FR_start << 0.20, -0.13, -0.38;
-                EE_Pose_RL_start << -0.18, 0.13, -0.38;
-                EE_Pose_RR_start << -0.18, -0.13, -0.38;
-            }
-
-            // 모션의 최종 목표점 설정
-            EE_Pose_FL_final << 0.20, 0.13, -0.25;
-            EE_Pose_FR_final << 0.20, -0.13, -0.25;
-            EE_Pose_RL_final << -0.18, 0.13, -0.25;
-            EE_Pose_RR_final << -0.18, -0.13, -0.25;
-
-            squat_count++;
-
-        }
-        else // 올라오기
-        {
-            EE_Pose_FL_start << 0.20, 0.13, -0.25;
-            EE_Pose_FR_start <<0.20, -0.13, -0.25;
-            EE_Pose_RL_start <<-0.18, 0.13, -0.25;
-            EE_Pose_RR_start << -0.18, -0.13, -0.25;
-
-            // 모션의 최종 목표점 설정
-            EE_Pose_FL_final << 0.20, 0.13, -0.38;
-            EE_Pose_FR_final << 0.20, -0.13, -0.38;
-            EE_Pose_RL_final << -0.18, 0.13, -0.38;
-            EE_Pose_RR_final << -0.18, -0.13, -0.38;
-        }
-
-        is_motion_started_ = true;
-    }
-
-    // trajectory planning 설정 값, desired 값 설정
+    // Command() 함수에서 설정한 _start, _final 값에 따라 궤적 생성
     EE_Pose_FL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
     EE_Pose_FR_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
     EE_Pose_RL_desired = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
@@ -268,7 +285,14 @@ void go2_controller::Squating()
     EE_Vel_RL_desired.setZero();
     EE_Vel_RR_desired.setZero();
 
-    TaskSpacePDControl(100.0, 3.0);
+    // [중요] TaskSpacePDControl은 중력 보상을 포함하지 않습니다.
+    // Homing (Joint PD)은 오차로 중력을 버텼지만, Task PD는 오차가 0이면
+    // 중력을 버틸 토크를 생성하지 않아 무너집니다.
+    // 우선은 TaskSpacePDControl을 호출합니다.
+    TaskSpacePDControl(100.0, 3.0); 
+
+    // 만약 이래도 무너진다면, TaskSpacePDControl.cpp에 
+    // 중력 보상 토크(G(q))를 추가해야 합니다. (이것이 근본적인 해결책입니다)
 }
 
 void go2_controller::Run()
@@ -395,14 +419,15 @@ void go2_controller::DataStream()
 
     std_msgs::Float64MultiArray TH_msg;
 
-    TH_msg.data.push_back(EE_Pose_FL(0));
-    TH_msg.data.push_back(EE_Pose_FL(1));
-    TH_msg.data.push_back(EE_Pose_FL(2));
+    // TH_msg 메세지의 형태로 data를 발행함.
+    // ex) EE_Pose_FL은 x, y, z의 형태로 되어 있으니까, EE_Pose_FL
+    TH_msg.data.push_back(EE_Pose_FL(X));
+    TH_msg.data.push_back(EE_Pose_FL(Y));
+    TH_msg.data.push_back(EE_Pose_FL(Z));
 
     TH_msg.data.push_back(EE_Pose_FL_desired(X));
     TH_msg.data.push_back(EE_Pose_FL_desired(Y));
     TH_msg.data.push_back(EE_Pose_FL_desired(Z));
-
 
     pub_TH_.publish(TH_msg);
 
