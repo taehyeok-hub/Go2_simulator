@@ -36,6 +36,7 @@
 
 #include "Eigen/Dense"
 #include "Eigen/Geometry"
+#include "SingleRigidBody.h"
 
 enum Axis
 {
@@ -66,9 +67,8 @@ enum ControlMode
 {
     INIT,
     HOMING,
-    SQUAT_START,
-    SQUAT_UP,
-    SQUAT_DOWN,
+    SQUATING,
+    SRBM,
     NUM_MODE = 5,
 };
 
@@ -96,9 +96,11 @@ public:
     void Run();
     void PlotRun();
 
-
 private:
     // FUNCTION---------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // 합성되는 다른 클래스의 객체
+    SingleRigidBody SRBM;
 
     void Command(bool flag);
     void Homing();
@@ -111,16 +113,19 @@ private:
     void Jacobians_URDF(const Eigen::VectorXd& q);
     void Create_Jacobian(const Eigen::VectorXd& q);
     void TaskSpacePDControl(double Kp, double Kd);
+    void SRBMControl();
     void DataStream();
+    
 
 
     // Trajectory 관련 함수들
-    Eigen::Vector3d Quintic_Task(ros::Time& start_time, double motion_time, Eigen::Vector3d& x_current, Eigen::Vector3d& x_final);
+    TrajectoryPoint Quintic_Task(ros::Time& start_time, double motion_time, Eigen::Vector3d& x_current, Eigen::Vector3d& x_final);
     Eigen::VectorXd Quintic_Joint(ros::Time& start_time, double motion_time, Eigen::VectorXd& q, Eigen::VectorXd& qf);  
     //Eigen::Vector3d Sinusoidal_Task();
     //Eigen::VectorXd Sinusoidal_Joint();     
 
 
+    // ros에서 노드 핸들러와 구독자, 발행자
     ros::NodeHandle nh_;
     ros::Subscriber sub_leg_state_;
 
@@ -185,8 +190,6 @@ private:
     TrajectoryPoint Sinusoidal_Task(ros::Time& start_time, double period, 
                                     const Eigen::Vector3d& stand_pose, 
                                     const Eigen::Vector3d& squat_pose);
-
-    
 
 };
 

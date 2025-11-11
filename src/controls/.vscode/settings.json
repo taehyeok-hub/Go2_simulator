@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "regex": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "iostream": "cpp",
+        "core": "cpp",
+        "specialfunctions": "cpp"
+    }
+}
