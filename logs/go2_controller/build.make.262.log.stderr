@@ -1,0 +1,18 @@
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.hpp:44:21:[m[K [01;31m[Kerror: [m[Kextra qualification ‘[01m[KTrajectories::[m[K’ on member ‘[01m[KQuintic_Joint[m[K’ [[01;31m[K-fpermissive[m[K]
+   44 |     Eigen::VectorXd [01;31m[KTrajectories[m[K::Quintic_Joint(double t, double motion_time, const Eigen::VectorXd &q_start, const Eigen::VectorXd &q_final);
+      |                     [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:[m[K In member function ‘[01m[KEigen::VectorXd Trajectories::Quintic_Joint(double, double, const VectorXd&, const VectorXd&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:156:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kq[m[K’ was not declared in this scope
+  156 |         q_desired = [01;31m[Kq[m[K;
+      |                     [01;31m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.hpp:44:21:[m[K [01;31m[Kerror: [m[Kextra qualification ‘[01m[KTrajectories::[m[K’ on member ‘[01m[KQuintic_Joint[m[K’ [[01;31m[K-fpermissive[m[K]
+   44 |     Eigen::VectorXd [01;31m[KTrajectories[m[K::Quintic_Joint(double t, double motion_time, const Eigen::VectorXd &q_start, const Eigen::VectorXd &q_final);
+      |                     [01;31m[K^~~~~~~~~~~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:107: include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:121: include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

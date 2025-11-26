@@ -1,0 +1,15 @@
+/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -S/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl -B/home/pth/pth/model/Go2_simulator/build/hpp-fcl --check-build-system CMakeFiles/Makefile.cmake 0
+/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_progress_start /home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles /home/pth/pth/model/Go2_simulator/build/hpp-fcl//CMakeFiles/progress.marks
+/usr/bin/make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/hpp-fcl'
+/usr/bin/make  -f src/CMakeFiles/hpp-fcl.dir/build.make src/CMakeFiles/hpp-fcl.dir/depend
+make[2]: Entering directory '/home/pth/pth/model/Go2_simulator/build/hpp-fcl'
+cd /home/pth/pth/model/Go2_simulator/build/hpp-fcl && /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_depends "Unix Makefiles" /home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl /home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src /home/pth/pth/model/Go2_simulator/build/hpp-fcl /home/pth/pth/model/Go2_simulator/build/hpp-fcl/src /home/pth/pth/model/Go2_simulator/build/hpp-fcl/src/CMakeFiles/hpp-fcl.dir/DependInfo.cmake "--color="
+make[2]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/hpp-fcl'
+/usr/bin/make  -f src/CMakeFiles/hpp-fcl.dir/build.make src/CMakeFiles/hpp-fcl.dir/build
+make[2]: Entering directory '/home/pth/pth/model/Go2_simulator/build/hpp-fcl'
+make[2]: Nothing to be done for 'src/CMakeFiles/hpp-fcl.dir/build'.
+make[2]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/hpp-fcl'
+[100%] [0mBuilt target hpp-fcl[0m
+make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/hpp-fcl'
+/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_progress_start /home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles 0

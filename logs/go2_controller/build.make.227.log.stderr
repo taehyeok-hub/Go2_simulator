@@ -1,0 +1,8 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:[m[K In member function ‘[01m[KEigen::VectorXd Trajectories::Sinusoidal_Joint()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:180:5:[m[K [01;31m[Kerror: [m[Kreturn-statement with no value, in function returning ‘[01m[KEigen::VectorXd[m[K’ {aka ‘[01m[KEigen::Matrix<double, -1, 1>[m[K’} [[01;31m[K-fpermissive[m[K]
+  180 |     [01;31m[Kreturn[m[K;
+      |     [01;31m[K^~~~~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:107: include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

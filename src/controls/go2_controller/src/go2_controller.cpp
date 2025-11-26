@@ -12,10 +12,12 @@ void go2_controller::Init()
     uint32_t queue_size = 10;
 
     // Subscribers
+    sub_body_states_ = nh_.subscribe("/gazebo/model_states", queue_size, &go2_controller::StateBodyCallback, this, ros::TransportHints().reliable().tcpNoDelay());
     sub_leg_state_ = nh_.subscribe(go2_topic_leg_state_, queue_size, &go2_controller::StateLegCallback, this, ros::TransportHints().reliable().tcpNoDelay());
     // leg_state(다리상태)를 go2의 legstate를 구독함.
     /* StateLegCallback 함수는 코드상에서 직접 호출되는 부분이 없으며, ROS 시스템에 의해 특정 이벤트가 발생했을 때 자동으로 호출되도록 등록되어 있습니다. */
 
+    // Publishers
     // pub_TH : plotjuggler로 Float의 형태로 본인의 상태를 발행하는거임.
     pub_TH_ = nh_.advertise<std_msgs::Float64MultiArray>("TH", queue_size);
     pub_leg_cmd_ = nh_.advertise<std_msgs::Float64MultiArray>(go2_topic_leg_command_, queue_size);
@@ -27,6 +29,12 @@ void go2_controller::Init()
     dq_.setZero(12);
     torque_.setZero(12);
 
+    gazebo_body_pos.setZero(NUM_AXIS);
+    gazebo_body_vel.setZero(NUM_AXIS);
+    gazebo_quat.setZero(4);
+    gazebo_rpy.setZero(NUM_AXIS);
+    gazebo_rpy_dot.setZero(NUM_AXIS);
+
     // Joint Space PD 제어(Homing) : 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40
 }
 
@@ -34,8 +42,8 @@ void go2_controller::Command(bool flag)
 {
     if (Recieved_Joint_State)
     {
-        Forward_Kinematics(q_, dq_);
-        Jacobians_URDF(q_);
+        KINE.Forward_Kinematics(q_, dq_);
+        KINE.Jacobian(q_);
         // Forward_Kinematics_ME(q_, dq_);
         // Create_Jacobian(q_);
 
@@ -45,25 +53,30 @@ void go2_controller::Command(bool flag)
         {
             // Homing 시작 시 초기 상태 저장
             q_current = q_;
-            Homing_Time = ros::Time::now();
+            Moving_Time = ros::Time::now();
             controlmode = HOMING;
             break;
         }
         case HOMING:
         {
             Homing();
-            // torque_(0) = -50;
-
-            if ((ros::Time::now() - Homing_Time).toSec() >= 2.0)
+            if ((ros::Time::now() - Moving_Time).toSec() >= 4.0)
             {
                 is_motion_started_ = false;
-                controlmode = SQUATING;
+                // controlmode = SQUATING; ----> 이거 풀으면 다시 SQUATING 합니다.
+                controlmode = SRBM_CONTROL;
             }
             break;
         }
         case SQUATING:
         {
             Squating();
+            break;
+        }
+        case SRBM_CONTROL:
+        {
+            Body_Pos = gazebo_body_pos;
+            SRBMControl();
             break;
         }
         }
@@ -74,67 +87,24 @@ void go2_controller::Command(bool flag)
 
 void go2_controller::Homing() // 초기자세 설정 하는 코드
 {
-    // 성민이형 스타일
-    // if(Homing_Time == 1000)
-    // {
-    //     Homing_Time = 1000;
-    // }
-    // else if (Homing_Time < 1000)
-    // {
-    //     Homing_Time++;
-    // }
-
-    // // quintic trajectory
     ros::Time Current_Time = ros::Time::now();
-    double t = (Current_Time - Homing_Time).toSec(); // toSec() 적으세요
-    double T = 2.0;
+    
+    double t = (Current_Time - Moving_Time).toSec(); // toSec() 적으세요
+    double T;
 
+    T = 1.0;
+    q_final << 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60;
+    Eigen::VectorXd q_desired = TRAJ.Quintic_Joint(t, T, q_current, q_final);
+    double Kp = 100.0, Kd = 0.8;
+    torque_ = Kp * (q_desired - q_) - Kd * dq_;
+
+    T = 3.0;
+    q_current = q_final;
     q_final << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
+    q_desired = TRAJ.Quintic_Joint(t, T, q_current, q_final);
+    Kp = 100.0, Kd = 0.8;
 
-    Eigen::Matrix<double, 6, 6> M; // double 요소의 6x6 행렬 선언
-    double T2 = T * T;
-    double T3 = T2 * T;
-    double T4 = T3 * T;
-    double T5 = T4 * T;
-
-    M << 1, 0, 0, 0, 0, 0,
-        0, 1, 0, 0, 0, 0,
-        0, 0, 2, 0, 0, 0,
-        1, T, T2, T3, T4, T5,
-        0, 1, 2 * T, 3 * T2, 4 * T3, 5 * T4,
-        0, 0, 2, 6 * T, 12 * T2, 20 * T3;
-
-    Eigen::Matrix<double, 6, 6> M_inv = M.inverse(); // M의 역행렬을 구함
-
-    Eigen::Matrix<double, 6, 12> B;   // 12개의 관절들의 초기 (위치, 속도, 가속도), 최종 (위치, 속도, 가속도) 구하기
-    B.row(0) = q_current.transpose(); // current를 받으면서 바로 초기화
-    B.row(1) = Eigen::RowVectorXd::Zero(12);
-    B.row(2) = Eigen::RowVectorXd::Zero(12);
-    B.row(3) = q_final.transpose();
-    B.row(4) = Eigen::RowVectorXd::Zero(12);
-    B.row(5) = Eigen::RowVectorXd::Zero(12);
-
-    Eigen::Matrix<double, 6, 12> A = M_inv * B; // 계수행렬을 구합니다.
-
-    if (t >= T)
-    {
-        q_desired = q_final;
-    }
-
-    // q(t) = a0 + a1*t + a2*t^2 + a3*t^3 + a4*t^4 + a5*t^5 이므로
-    double t2 = t * t;
-    double t3 = t2 * t;
-    double t4 = t3 * t;
-    double t5 = t4 * t;
-    Eigen::Matrix<double, 1, 6> T_vec;
-    T_vec << 1, t, t2, t3, t4, t5;
-
-    q_desired = (T_vec * A).transpose(); // 12 x 1 열벡터가 된다.
-
-    double K_p = 30.0;
-    double K_d = 1.0;
-
-    torque_ = K_p * (q_desired - q_) - K_d * dq_; // q_와 dq_는 계속 StateLegCallback 함수로 인해 실시간으로 값을 할당받는중임.
+    torque_ = Kp * (q_desired - q_) - Kd * dq_; // q_와 dq_는 계속 StateLegCallback 함수로 인해 실시간으로 값을 할당받는중임.
     // 0.1925, 0.145, -0.31
 }
 
@@ -217,10 +187,11 @@ void go2_controller::Squating()
         {
             if (squat_count == 0)
             {
-                EE_Pose_FL_start = EE_Pose_FL;
-                EE_Pose_FR_start = EE_Pose_FR;
-                EE_Pose_RL_start = EE_Pose_RL;
-                EE_Pose_RR_start = EE_Pose_RR;
+                std::array<Eigen::Vector3d, 4> ee_pose = KINE.Get_EE_Pose();
+                EE_Pose_FL_start = ee_pose[0];
+                EE_Pose_FR_start = ee_pose[1];
+                EE_Pose_RL_start = ee_pose[2];
+                EE_Pose_RR_start = ee_pose[3];
             }
             else
             {
@@ -255,10 +226,10 @@ void go2_controller::Squating()
         is_motion_started_ = true;
     }
 
-    TrajectoryPoint FL_target = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
-    TrajectoryPoint FR_target = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
-    TrajectoryPoint RL_target = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
-    TrajectoryPoint RR_target = Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
+    TrajectoryPoint FL_target = TRAJ.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
+    TrajectoryPoint FR_target = TRAJ.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
+    TrajectoryPoint RL_target = TRAJ.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
+    TrajectoryPoint RR_target = TRAJ.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
 
     // trajectory planning 설정 값, desired 값 설정
     EE_Pose_FL_desired = FL_target.position;
@@ -275,11 +246,56 @@ void go2_controller::Squating()
     TaskSpacePDControl(100.0, 10.0);
 }
 
+void go2_controller::SRBMControl()
+{
+    // 1. 로봇 몸통 상태 받아오기
+    SRBM.SetRobotState(gazebo_body_pos, gazebo_body_vel, gazebo_quat, gazebo_rpy, gazebo_rpy_dot);
+
+    // 2. KINE로부터 현재 발 좌표 받아오기 
+    std::array<Eigen::Vector3d, 4> feet_pos = KINE.Get_EE_Pose();
+    SRBM.SetFootPosition(feet_pos, gazebo_body_pos);
+
+    // 3. AF=B의 A Matrix 계산 
+    SRBM.Update_A_Matrix();
+
+    // 4. 로봇이 있길 원하는 자세인 x_des 설정하기
+    Eigen::Vector3d x_des;
+    x_des << 0, 0, 0.3;
+
+    // 5. 계산 결과에 따른 
+    Eigen::Matrix3d R_des = Eigen::Matrix3d::Identity();
+    double Kp_lin = 100.0; double Kd_lin = 5.0;
+    double Kp_rot = 100.0; double Kd_rot = 5.0;
+    SRBM.Compute_b_Vector(Body_Pos, R_des, Kp_lin, Kd_lin, Kp_rot, Kd_rot);
+
+    // 6. 
+    SRBM.Solve_QP();
+    Eigen::VectorXd Force_world = SRBM.Get_Force();
+    Eigen::Quaterniond q_curr(gazebo_quat(3), gazebo_quat(0), gazebo_quat(1), gazebo_quat(2));
+    Eigen::Matrix3d R_world_to_body_ = q_curr.toRotationMatrix().transpose();
+
+    Eigen::VectorXd Force_body = R_world_to_body_ * Force_world;
+
+    Eigen::Matrix<double,6,12> J = KINE.Get_Jacobian();
+    std::array<Eigen::Vector3d, 4> Input_torque;
+
+    for (int i = 0; i < NUM_LEG; i++)
+    {
+        Input_torque[i] = J.block<3,3>(0, 3 * i).transpose() * Force_body.segment<3>(3 * i);
+    }
+
+    torque_.segment<3>(0) = Input_torque[0];
+    torque_.segment<3>(3) = Input_torque[1];
+    torque_.segment<3>(6) = Input_torque[2];
+    torque_.segment<3>(9) = Input_torque[3];
+    
+}
+
 void go2_controller::Run()
 {
     ROS_INFO("Running the torque control loop .................");
 
-    const ros::Duration control_period_(1.0 / 500.0); // 500hz
+    const ros::Duration control_period_(1.0 / 200.0); // 500hz
 
     ros::AsyncSpinner spinner(4); // 4자유도인거랑은 별개임 스레드 4개 사용해서 더 잘 처리한다는 뜻
     spinner.start();
@@ -312,7 +328,7 @@ void go2_controller::PlotRun()
 {
     ROS_INFO("Running the torque control loop .................");
 
-    const ros::Duration control_period_(1.0 / 500.0); // 500hz
+    const ros::Duration control_period_(1.0 / 200.0); // 500hz
 
     ros::AsyncSpinner spinner(4); // 4자유도인거랑은 별개임 스레드 4개 사용해서 더 잘 처리한다는 뜻
     spinner.start();
@@ -338,6 +354,50 @@ void go2_controller::PlotRun()
                 sleep_time.sleep();
             }
         }
+    }
+}
+
+void go2_controller::StateBodyCallback(const gazebo_msgs::ModelStates::ConstPtr &body)
+{
+    std::vector<std::string>::const_iterator iter = std::find(body->name.begin(), body->name.end(), "go2");
+    if (iter != body->name.end())
+    {
+        int index = iter - body->name.begin();
+
+        geometry_msgs::Point position = body->pose[index].position; // position
+        geometry_msgs::Quaternion orientation = body->pose[index].orientation;
+        geometry_msgs::Vector3 velocity = body->twist[index].linear;          // velocity
+        geometry_msgs::Vector3 angular_velocity = body->twist[index].angular; // angular velocity
+
+        tf::Quaternion q(
+            body->pose[index].orientation.x, // (*body).pose와 동일
+            body->pose[index].orientation.y,
+            body->pose[index].orientation.z,
+            body->pose[index].orientation.w);
+        tf::Matrix3x3 m(q);
+        double roll, pitch, yaw;
+        m.getRPY(roll, pitch, yaw);
+
+        gazebo_body_pos(X) = position.x;
+        gazebo_body_pos(Y) = position.y;
+        gazebo_body_pos(Z) = position.z;
+
+        gazebo_body_vel(X) = velocity.x;
+        gazebo_body_vel(Y) = velocity.y;
+        gazebo_body_vel(Z) = velocity.z;
+
+        gazebo_quat(0) = orientation.x;
+        gazebo_quat(1) = orientation.y;
+        gazebo_quat(2) = orientation.z;
+        gazebo_quat(3) = orientation.w;
+
+        gazebo_rpy(0) = roll;
+        gazebo_rpy(1) = pitch;
+        gazebo_rpy(2) = yaw;
+
+        gazebo_rpy_dot(0) = angular_velocity.x;
+        gazebo_rpy_dot(1) = angular_velocity.y;
+        gazebo_rpy_dot(2) = angular_velocity.z;
     }
 }
 
@@ -401,9 +461,10 @@ void go2_controller::DataStream()
 
     // TH_msg 메세지의 형태로 data를 발행함.
     // ex) EE_Pose_FL은 x, y, z의 형태로 되어 있으니까, EE_Pose_FL
-    TH_msg.data.push_back(EE_Pose_FL(X));
-    TH_msg.data.push_back(EE_Pose_FL(Y));
-    TH_msg.data.push_back(EE_Pose_FL(Z));
+    
+    // TH_msg.data.push_back();
+    // TH_msg.data.push_back();
+    // TH_msg.data.push_back();
 
     TH_msg.data.push_back(EE_Pose_FL_desired(X));
     TH_msg.data.push_back(EE_Pose_FL_desired(Y));

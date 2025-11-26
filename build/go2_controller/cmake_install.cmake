@@ -173,6 +173,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/pth/pth/model/Go2_simulator/build/go2_controller/gtest/cmake_install.cmake")
+  include("/home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools/cmake_install.cmake")
 
 endif()
 

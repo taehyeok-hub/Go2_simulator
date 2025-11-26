@@ -63,6 +63,10 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "core": "cpp",
-        "specialfunctions": "cpp"
+        "specialfunctions": "cpp",
+        "unordered_set": "cpp",
+        "list": "cpp",
+        "cfenv": "cpp",
+        "hash_map": "cpp"
     }
 }

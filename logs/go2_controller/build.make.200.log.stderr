@@ -1,0 +1,17 @@
+/usr/bin/ld: CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: in function `go2_controller::~go2_controller()':
+go2_controller_node.cpp:(.text._ZN14go2_controllerD2Ev[_ZN14go2_controllerD5Ev]+0x1fc): undefined reference to `OsqpEigen::Data::~Data()'
+/usr/bin/ld: go2_controller_node.cpp:(.text._ZN14go2_controllerD2Ev[_ZN14go2_controllerD5Ev]+0x21d): undefined reference to `OsqpEigen::Settings::~Settings()'
+/usr/bin/ld: CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: in function `SingleRigidBody::~SingleRigidBody()':
+go2_controller_node.cpp:(.text._ZN15SingleRigidBodyD2Ev[_ZN15SingleRigidBodyD5Ev]+0xf6): undefined reference to `OsqpEigen::Data::~Data()'
+/usr/bin/ld: go2_controller_node.cpp:(.text._ZN15SingleRigidBodyD2Ev[_ZN15SingleRigidBodyD5Ev]+0x117): undefined reference to `OsqpEigen::Settings::~Settings()'
+/usr/bin/ld: CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: in function `go2_controller::go2_controller(ros::NodeHandle&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double)':
+go2_controller_node.cpp:(.text._ZN14go2_controllerC2ERN3ros10NodeHandleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_d[_ZN14go2_controllerC5ERN3ros10NodeHandleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_d]+0x30): undefined reference to `SingleRigidBody::SingleRigidBody()'
+/usr/bin/ld: go2_controller_node.cpp:(.text._ZN14go2_controllerC2ERN3ros10NodeHandleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_d[_ZN14go2_controllerC5ERN3ros10NodeHandleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_d]+0x3c): undefined reference to `Kinematics::Kinematics()'
+/usr/bin/ld: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: undefined reference to `Kinematics::Forward_Kinematics(Eigen::Matrix<double, -1, 1, 0, -1, 1> const&, Eigen::Matrix<double, -1, 1, 0, -1, 1> const&)'
+/usr/bin/ld: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: undefined reference to `Kinematics::Jacobian(Eigen::Matrix<double, -1, 1, 0, -1, 1> const&)'
+/usr/bin/ld: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: undefined reference to `go2_controller::Quintic_Task(ros::Time&, double, Eigen::Matrix<double, 3, 1, 0, 3, 1>&, Eigen::Matrix<double, 3, 1, 0, 3, 1>&)'
+/usr/bin/ld: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: undefined reference to `go2_controller::TaskSpacePDControl(double, double)'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/go2_node.dir/build.make:241: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2833: CMakeFiles/go2_node.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

@@ -1263,125 +1263,31 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-src/Inverse_Kinematics.o: src/Inverse_Kinematics.cpp.o
-.PHONY : src/Inverse_Kinematics.o
+#=============================================================================
+# Target rules for targets named Tools
 
-# target to build an object file
-src/Inverse_Kinematics.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.o
-.PHONY : src/Inverse_Kinematics.cpp.o
+# Build rule for target.
+Tools: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tools
+.PHONY : Tools
 
-src/Inverse_Kinematics.i: src/Inverse_Kinematics.cpp.i
-.PHONY : src/Inverse_Kinematics.i
+# fast build rule for target.
+Tools/fast:
+	$(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/build
+.PHONY : Tools/fast
 
-# target to preprocess a source file
-src/Inverse_Kinematics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.i
-.PHONY : src/Inverse_Kinematics.cpp.i
+#=============================================================================
+# Target rules for targets named osqpeigen
 
-src/Inverse_Kinematics.s: src/Inverse_Kinematics.cpp.s
-.PHONY : src/Inverse_Kinematics.s
+# Build rule for target.
+osqpeigen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 osqpeigen
+.PHONY : osqpeigen
 
-# target to generate assembly for a file
-src/Inverse_Kinematics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Inverse_Kinematics.cpp.s
-.PHONY : src/Inverse_Kinematics.cpp.s
-
-src/Jacobians.o: src/Jacobians.cpp.o
-.PHONY : src/Jacobians.o
-
-# target to build an object file
-src/Jacobians.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Jacobians.cpp.o
-.PHONY : src/Jacobians.cpp.o
-
-src/Jacobians.i: src/Jacobians.cpp.i
-.PHONY : src/Jacobians.i
-
-# target to preprocess a source file
-src/Jacobians.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Jacobians.cpp.i
-.PHONY : src/Jacobians.cpp.i
-
-src/Jacobians.s: src/Jacobians.cpp.s
-.PHONY : src/Jacobians.s
-
-# target to generate assembly for a file
-src/Jacobians.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Jacobians.cpp.s
-.PHONY : src/Jacobians.cpp.s
-
-src/Kinematics.o: src/Kinematics.cpp.o
-.PHONY : src/Kinematics.o
-
-# target to build an object file
-src/Kinematics.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Kinematics.cpp.o
-.PHONY : src/Kinematics.cpp.o
-
-src/Kinematics.i: src/Kinematics.cpp.i
-.PHONY : src/Kinematics.i
-
-# target to preprocess a source file
-src/Kinematics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Kinematics.cpp.i
-.PHONY : src/Kinematics.cpp.i
-
-src/Kinematics.s: src/Kinematics.cpp.s
-.PHONY : src/Kinematics.s
-
-# target to generate assembly for a file
-src/Kinematics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Kinematics.cpp.s
-.PHONY : src/Kinematics.cpp.s
-
-src/TaskSpacePDControl.o: src/TaskSpacePDControl.cpp.o
-.PHONY : src/TaskSpacePDControl.o
-
-# target to build an object file
-src/TaskSpacePDControl.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.o
-.PHONY : src/TaskSpacePDControl.cpp.o
-
-src/TaskSpacePDControl.i: src/TaskSpacePDControl.cpp.i
-.PHONY : src/TaskSpacePDControl.i
-
-# target to preprocess a source file
-src/TaskSpacePDControl.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.i
-.PHONY : src/TaskSpacePDControl.cpp.i
-
-src/TaskSpacePDControl.s: src/TaskSpacePDControl.cpp.s
-.PHONY : src/TaskSpacePDControl.s
-
-# target to generate assembly for a file
-src/TaskSpacePDControl.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/TaskSpacePDControl.cpp.s
-.PHONY : src/TaskSpacePDControl.cpp.s
-
-src/Trajectories.o: src/Trajectories.cpp.o
-.PHONY : src/Trajectories.o
-
-# target to build an object file
-src/Trajectories.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Trajectories.cpp.o
-.PHONY : src/Trajectories.cpp.o
-
-src/Trajectories.i: src/Trajectories.cpp.i
-.PHONY : src/Trajectories.i
-
-# target to preprocess a source file
-src/Trajectories.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Trajectories.cpp.i
-.PHONY : src/Trajectories.cpp.i
-
-src/Trajectories.s: src/Trajectories.cpp.s
-.PHONY : src/Trajectories.s
-
-# target to generate assembly for a file
-src/Trajectories.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/go2_controller.dir/build.make CMakeFiles/go2_controller.dir/src/Trajectories.cpp.s
-.PHONY : src/Trajectories.cpp.s
+# fast build rule for target.
+osqpeigen/fast:
+	$(MAKE) $(MAKESILENT) -f include/Tools/OsqpEigen/CMakeFiles/osqpeigen.dir/build.make include/Tools/OsqpEigen/CMakeFiles/osqpeigen.dir/build
+.PHONY : osqpeigen/fast
 
 src/go2_controller.o: src/go2_controller.cpp.o
 .PHONY : src/go2_controller.o
@@ -1522,27 +1428,14 @@ help:
 	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... trajectory_msgs_generate_messages_py"
+	@echo "... Tools"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... go2_controller"
 	@echo "... go2_node"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... src/Inverse_Kinematics.o"
-	@echo "... src/Inverse_Kinematics.i"
-	@echo "... src/Inverse_Kinematics.s"
-	@echo "... src/Jacobians.o"
-	@echo "... src/Jacobians.i"
-	@echo "... src/Jacobians.s"
-	@echo "... src/Kinematics.o"
-	@echo "... src/Kinematics.i"
-	@echo "... src/Kinematics.s"
-	@echo "... src/TaskSpacePDControl.o"
-	@echo "... src/TaskSpacePDControl.i"
-	@echo "... src/TaskSpacePDControl.s"
-	@echo "... src/Trajectories.o"
-	@echo "... src/Trajectories.i"
-	@echo "... src/Trajectories.s"
+	@echo "... osqpeigen"
 	@echo "... src/go2_controller.o"
 	@echo "... src/go2_controller.i"
 	@echo "... src/go2_controller.s"

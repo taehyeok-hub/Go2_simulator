@@ -236,6 +236,8 @@ go2_node_EXTERNAL_OBJECTS =
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node: /usr/lib/x86_64-linux-gnu/libignition-common3.so.3.17.0
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node: /usr/lib/x86_64-linux-gnu/libuuid.so
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node: /usr/lib/x86_64-linux-gnu/libuuid.so
+/home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so
+/home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libosqpeigen.so
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node: CMakeFiles/go2_node.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/go2_node.dir/link.txt --verbose=$(VERBOSE)

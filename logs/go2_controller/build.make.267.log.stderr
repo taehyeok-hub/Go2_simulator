@@ -1,0 +1,12 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:[m[K In member function ‘[01m[Kvoid SingleRigidBody::Solve_QP()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:110:66:[m[K [01;31m[Kerror: [m[K‘[01m[KQ[m[K’ was not declared in this scope
+  110 |     Eigen::MatrixXd H_dense = 2.0 * (A_mat.transpose() * A_mat + [01;31m[KQ[m[K);
+      |                                                                  [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:[m[K In member function ‘[01m[Kvoid SingleRigidBody::Compute_LinearMatrix(double)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:151:21:[m[K [01;31m[Kerror: [m[Kqualified-id in declaration before ‘[01m[KQ[m[K’
+  151 |     Eigen::MatrixXd [01;31m[KQ[m[K = alpha * Eigen::MatrixXd::Identity(12, 12);
+      |                     [01;31m[K^[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:79: include/Tools/CMakeFiles/Tools.dir/SingleRigidBody.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

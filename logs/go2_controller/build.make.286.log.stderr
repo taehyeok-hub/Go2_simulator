@@ -1,0 +1,12 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:78:17:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[KEigen::Matrix3d SingleRigidBody::RPYRotationMatrix(double, double, double)[m[K’
+   78 | Eigen::Matrix3d [01;31m[KSingleRigidBody[m[K::RPYRotationMatrix(double roll, double pitch, double yaw)
+      |                 [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:78:17:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[KEigen::Matrix3d SingleRigidBody::RPYRotationMatrix(double, double, double)[m[K’
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:14:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass SingleRigidBody[m[K’ defined here
+   14 | class [01;36m[KSingleRigidBody[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:79: include/Tools/CMakeFiles/Tools.dir/SingleRigidBody.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

@@ -9,13 +9,13 @@
   <xacro:property name="damping"  value="0.1"/>
   <xacro:property name="friction" value="0.1"/>
 
-  <link name="world"/>
+  <!-- <link name="world"/>
 
     <joint name="world_fixed" type="fixed">
       <parent link="world" />
       <child link="base" />
       <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
-    </joint>
+    </joint> -->
 
 
   <link name="base">
@@ -175,7 +175,7 @@
     <parent link="FL_hip" />
     <child link="FL_thigh" />
     <axis xyz="0 1 0" />
-    <limit lower="-1.5708" upper="3.4907" effort="23.7" velocity="30.1" />
+    <limit lower="-1.5708" upper="1.5707" effort="23.7" velocity="30.1" />
   </joint>
 
   <link name="FL_thigh_rotor">
@@ -392,7 +392,7 @@
     <parent link="FR_hip" />
     <child link="FR_thigh" />
     <axis xyz="0 1 0" />
-    <limit lower="-1.5708" upper="3.4907" effort="23.7" velocity="30.1" />
+    <limit lower="-1.5708" upper="1.5707" effort="23.7" velocity="30.1" />
   </joint>
 
   <link name="FR_thigh_rotor">
@@ -597,7 +597,7 @@
     <parent link="RL_hip" />
     <child link="RL_thigh" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.5236" upper="4.5379" effort="23.7" velocity="30.1" />
+    <limit lower="-1.5708" upper="1.5707" effort="23.7" velocity="30.1" />
   </joint>
 
   <link name="RL_thigh_rotor">
@@ -802,7 +802,7 @@
     <parent link="RR_hip" />
     <child link="RR_thigh" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.5236" upper="4.5379" effort="23.7" velocity="30.1" />
+    <limit lower="-1.5708" upper="1.5707" effort="23.7" velocity="30.1" />
   </joint>
 
   <link name="RR_thigh_rotor">
@@ -1005,6 +1005,86 @@
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/go2</robotNamespace>
     </plugin>
+  </gazebo>
+
+  <gazebo reference="FL_foot">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+    <kp value="1000000.0"/>
+    <kd value="10.0"/>
+    <sensor name='FL_foot_contact' type='contact'>
+      <always_on>true</always_on>
+      <update_rate>1000</update_rate>
+      <contact>
+        <collision>FL_calf_fixed_joint_lump__FL_foot_collision_1</collision>
+      </contact>
+      <plugin name="FL_contact_plugin" filename="libgazebo_ros_bumper.so">
+        <bumperTopicName>FL_contactsensor_state</bumperTopicName>
+        <frameName>world</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="FR_foot">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+    <kp value="1000000.0"/>
+    <kd value="10.0"/>
+    <sensor name='FR_foot_contact' type='contact'>
+      <always_on>true</always_on>
+      <update_rate>1000</update_rate>
+      <contact>
+        <collision>FR_calf_fixed_joint_lump__FR_foot_collision_1</collision>
+      </contact>
+      <plugin name="FR_contact_plugin" filename="libgazebo_ros_bumper.so">
+        <bumperTopicName>FR_contactsensor_state</bumperTopicName>
+        <frameName>world</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="RL_foot">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+    <kp value="1000000.0"/>
+    <kd value="10.0"/>
+    <sensor name='RL_foot_contact' type='contact'>
+      <always_on>true</always_on>
+      <update_rate>1000</update_rate>
+      <contact>
+        <collision>RL_calf_fixed_joint_lump__RL_foot_collision_1</collision>
+      </contact>
+      <plugin name="RL_contact_plugin" filename="libgazebo_ros_bumper.so">
+        <bumperTopicName>RL_contactsensor_state</bumperTopicName>
+        <frameName>world</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="RR_foot">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+    <kp value="1000000.0"/>
+    <kd value="10.0"/>
+    <sensor name='RR_foot_contact' type='contact'>
+      <always_on>true</always_on>
+      <update_rate>1000</update_rate>
+      <contact>
+        <collision>RR_calf_fixed_joint_lump__RR_foot_collision_1</collision>
+      </contact>
+      <plugin name="RR_contact_plugin" filename="libgazebo_ros_bumper.so">
+        <bumperTopicName>RR_contactsensor_state</bumperTopicName>
+        <frameName>world</frameName>
+      </plugin>
+    </sensor>
   </gazebo>
 
 </robot>

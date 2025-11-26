@@ -31,7 +31,7 @@ catkin_package(
   DEPENDS gazebo_ros roscpp rospy std_msgs Boost
 )
 
-set(PINOCCHIO_DIR )
+# set(PINOCCHIO_DIR )
 include_directories(
   include
   include/Tools
@@ -39,7 +39,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
   ${GAZEBO_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIR}
-  ${pinocchio_INCLUDE_DIR}
+  # ${pinocchio_INCLUDE_DIR}
 )
 
 link_directories(
@@ -47,23 +47,18 @@ link_directories(
   ${pinocchio_LIBRARY_DIRS}
 )
 
-# add_subdirectory(include/Tools)
+add_subdirectory(include/Tools)
 
 add_library(${PROJECT_NAME}
-  include/go2_controller.h
+  # include/go2_controller.h
   src/go2_controller.cpp
-  src/Kinematics.cpp
-  src/Inverse_Kinematics.cpp
-  src/Jacobians.cpp
-  src/TaskSpacePDControl.cpp
-  src/Trajectories.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
   ${pinocchio_LIBRARIES_DIRS}
   ${GAZEBO_LIBRARIES}
-  # Tools
+  Tools
 )
 
 add_executable(go2_node src/go2_controller_node.cpp)

@@ -4,7 +4,9 @@
 		"/home/pth/pth/model/Go2_simulator/build/go2_controller/cmake_install.cmake",
 		"/home/pth/pth/model/Go2_simulator/build/go2_controller/gtest/cmake_install.cmake",
 		"/home/pth/pth/model/Go2_simulator/build/go2_controller/gtest/googlemock/cmake_install.cmake",
-		"/home/pth/pth/model/Go2_simulator/build/go2_controller/gtest/googletest/cmake_install.cmake"
+		"/home/pth/pth/model/Go2_simulator/build/go2_controller/gtest/googletest/cmake_install.cmake",
+		"/home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools/cmake_install.cmake",
+		"/home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools/OsqpEigen/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

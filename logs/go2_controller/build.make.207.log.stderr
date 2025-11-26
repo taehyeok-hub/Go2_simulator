@@ -1,0 +1,214 @@
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.hpp:9:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kros[m[K’ does not name a type; did you mean ‘[01m[Kcos[m[K’?
+    9 |     [01;31m[Kros[m[K::Time motion_start_time_;
+      |     [01;31m[K^~~[m[K
+      |     [32m[Kcos[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.hpp:20:5:[m[K [01;31m[Kerror: [m[K‘[01m[KTrajectoryPoint[m[K’ does not name a type; did you mean ‘[01m[KTrajectories[m[K’?
+   20 |     [01;31m[KTrajectoryPoint[m[K Quintic_Task(ros::Time &start_time, double motion_time, Eigen::Vector3d &x_current,
+      |     [01;31m[K^~~~~~~~~~~~~~~[m[K
+      |     [32m[KTrajectories[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:3:17:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[KTrajectories[m[K’
+    3 | TrajectoryPoint [01;31m[KTrajectories[m[K::Quintic_Task(ros::Time &start_time, double motion_time, Eigen::Vector3d &x_current,
+      |                 [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:97:1:[m[K [01;31m[Kerror: [m[K‘[01m[KTrajectoryPoint[m[K’ does not name a type; did you mean ‘[01m[KTrajectories[m[K’?
+   97 | [01;31m[KTrajectoryPoint[m[K go2_controller::Sinusoidal_Task(ros::Time &start_time, double period,
+      | [01;31m[K^~~~~~~~~~~~~~~[m[K
+      | [32m[KTrajectories[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:122:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kgo2_controller[m[K’ has not been declared
+  122 | Eigen::VectorXd [01;31m[Kgo2_controller[m[K::Quintic_Joint(ros::Time &start_time, double motion_time, Eigen::VectorXd &q,
+      |                 [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:122:47:[m[K [01;31m[Kerror: [m[K‘[01m[Kros[m[K’ has not been declared
+  122 | Eigen::VectorXd go2_controller::Quintic_Joint([01;31m[Kros[m[K::Time &start_time, double motion_time, Eigen::VectorXd &q,
+      |                                               [01;31m[K^~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:122:58:[m[K [01;31m[Kerror: [m[K‘[01m[Kstart_time[m[K’ was not declared in this scope; did you mean ‘[01m[Kstrptime[m[K’?
+  122 | Eigen::VectorXd go2_controller::Quintic_Joint(ros::Time &[01;31m[Kstart_time[m[K, double motion_time, Eigen::VectorXd &q,
+      |                                                          [01;31m[K^~~~~~~~~~[m[K
+      |                                                          [32m[Kstrptime[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:122:70:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[Kdouble[m[K’
+  122 | Eigen::VectorXd go2_controller::Quintic_Joint(ros::Time &start_time, [01;31m[Kdouble[m[K motion_time, Eigen::VectorXd &q,
+      |                                                                      [01;31m[K^~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:122:106:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K&[m[K’ token
+  122 | Eigen::VectorXd go2_controller::Quintic_Joint(ros::Time &start_time, double motion_time, Eigen::VectorXd [01;31m[K&[m[Kq,
+      |                                                                                                          [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:122:107:[m[K [01;31m[Kerror: [m[K‘[01m[Kq[m[K’ was not declared in this scope
+  122 | Eigen::VectorXd go2_controller::Quintic_Joint(ros::Time &start_time, double motion_time, Eigen::VectorXd &[01;31m[Kq[m[K,
+      |                                                                                                           [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:123:63:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K&[m[K’ token
+  123 |                                               Eigen::VectorXd [01;31m[K&[m[Kqf)
+      |                                                               [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:123:64:[m[K [01;31m[Kerror: [m[K‘[01m[Kqf[m[K’ was not declared in this scope
+  123 |                                               Eigen::VectorXd &[01;31m[Kqf[m[K)
+      |                                                                [01;31m[K^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:124:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[K{[m[K’ token
+  124 | [01;31m[K{[m[K
+      | [01;31m[K^[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:107: include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:[m[K In member function ‘[01m[Kvoid SingleRigidBody::SetRobotState(const VectorXd&, const VectorXd&, const Quaterniond&, const VectorXd&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:27:53:[m[K [01;31m[Kerror: [m[Kpassing ‘[01m[Kconst Quaterniond[m[K’ {aka ‘[01m[Kconst Eigen::Quaternion<double>[m[K’} as ‘[01m[Kthis[m[K’ argument discards qualifiers [[01;31m[K-fpermissive[m[K]
+   27 |     quat_world = quat.Eigen::Quaterniond::normalize([01;31m[K)[m[K;
+      |                                                     [01;31m[K^[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:42[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Dense:6[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:5[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:129:33:[m[K [01;36m[Knote: [m[K  in call to ‘[01m[Kvoid Eigen::QuaternionBase<Derived>::normalize() [with Derived = Eigen::Quaternion<double>][m[K’
+  129 |   EIGEN_DEVICE_FUNC inline void [01;36m[Knormalize[m[K() { coeffs().normalize(); }
+      |                                 [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:27:53:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[KEigen::Quaterniond[m[K’ {aka ‘[01m[KEigen::Quaternion<double>[m[K’} and ‘[01m[Kvoid[m[K’)
+   27 |     quat_world = quat.Eigen::Quaterniond::normalize([01;31m[K)[m[K;
+      |                                                     [01;31m[K^[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Core:88[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Dense:1[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:5[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/Core/util/Macros.h:830:52:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KEigen::Quaternion<Scalar, Options>& Eigen::Quaternion<Scalar, Options>::operator=(const Eigen::Quaternion<Scalar, Options>&) [with _Scalar = double; int _Options = 0][m[K’
+  830 |     EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE Derived& [01;36m[Koperator[m[K=(const Derived& other) \
+      |                                                    [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Core/util/Macros.h:857:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KEIGEN_INHERIT_ASSIGNMENT_EQUAL_OPERATOR[m[K’
+  857 |     [01;36m[KEIGEN_INHERIT_ASSIGNMENT_EQUAL_OPERATOR[m[K(Derived) \
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:243:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KEIGEN_INHERIT_ASSIGNMENT_OPERATORS[m[K’
+  243 |   [01;36m[KEIGEN_INHERIT_ASSIGNMENT_OPERATORS[m[K(Quaternion)
+      |   [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Core/util/Macros.h:830:77:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kvoid[m[K’ to ‘[01m[Kconst Eigen::Quaternion<double>&[m[K’
+  830 |     EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE Derived& operator=([01;36m[Kconst Derived& other[m[K) \
+      |                                                              [01;36m[K~~~~~~~~~~~~~~~^~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Core/util/Macros.h:857:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KEIGEN_INHERIT_ASSIGNMENT_EQUAL_OPERATOR[m[K’
+  857 |     [01;36m[KEIGEN_INHERIT_ASSIGNMENT_EQUAL_OPERATOR[m[K(Derived) \
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:243:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KEIGEN_INHERIT_ASSIGNMENT_OPERATORS[m[K’
+  243 |   [01;36m[KEIGEN_INHERIT_ASSIGNMENT_OPERATORS[m[K(Quaternion)
+      |   [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:42[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Dense:6[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:5[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:106:59:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class OtherDerived> Derived& Eigen::QuaternionBase<Derived>::operator=(const Eigen::MatrixBase<OtherDerived>&) [with OtherDerived = MatrixDerived; Derived = Eigen::Quaternion<double>][m[K’
+  106 |   template<class OtherDerived> EIGEN_DEVICE_FUNC Derived& [01;36m[Koperator[m[K=(const MatrixBase<OtherDerived>& m);
+      |                                                           [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:106:59:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:27:53:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst Eigen::MatrixBase<Derived>[m[K’ and ‘[01m[Kvoid[m[K’
+   27 |     quat_world = quat.Eigen::Quaterniond::normalize([01;36m[K)[m[K;
+      |                                                     [01;36m[K^[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:42[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Dense:6[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:5[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:508:48:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KDerived& Eigen::QuaternionBase<Derived>::operator=(const AngleAxisType&) [with Derived = Eigen::Quaternion<double>; Eigen::QuaternionBase<Derived>::AngleAxisType = Eigen::AngleAxis<double>; typename Eigen::internal::traits<T>::Scalar = double][m[K’
+  508 | EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE Derived& [01;36m[KQuaternionBase<Derived>[m[K::operator=(const AngleAxisType& aa)
+      |                                                [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:508:104:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kvoid[m[K’ to ‘[01m[Kconst AngleAxisType&[m[K’ {aka ‘[01m[Kconst Eigen::AngleAxis<double>&[m[K’}
+  508 | EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE Derived& QuaternionBase<Derived>::operator=([01;36m[Kconst AngleAxisType& aa[m[K)
+      |                                                                                   [01;36m[K~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:96:79:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class OtherDerived> Derived& Eigen::QuaternionBase<Derived>::operator=(const Eigen::QuaternionBase<OtherDerived>&) [with OtherDerived = OtherDerived; Derived = Eigen::Quaternion<double>][m[K’
+   96 |   template<class OtherDerived> EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE Derived& [01;36m[Koperator[m[K=(const QuaternionBase<OtherDerived>& other);
+      |                                                                               [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:96:79:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:27:53:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst Eigen::QuaternionBase<Derived>[m[K’ and ‘[01m[Kvoid[m[K’
+   27 |     quat_world = quat.Eigen::Quaterniond::normalize([01;36m[K)[m[K;
+      |                                                     [01;36m[K^[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:42[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Dense:6[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:5[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:491:64:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KEigen::QuaternionBase<Derived>& Eigen::QuaternionBase<Derived>::operator=(const Eigen::QuaternionBase<Derived>&) [with Derived = Eigen::Quaternion<double>][m[K’
+  491 | EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE QuaternionBase<Derived>& [01;36m[KQuaternionBase<Derived>[m[K::operator=(const QuaternionBase<Derived>& other)
+      |                                                                [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:491:130:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kvoid[m[K’ to ‘[01m[Kconst Eigen::QuaternionBase<Eigen::Quaternion<double> >&[m[K’
+  491 | EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE QuaternionBase<Derived>& QuaternionBase<Derived>::operator=([01;36m[Kconst QuaternionBase<Derived>& other[m[K)
+      |                                                                                                   [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:[m[K At global scope:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:35:96:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before ‘[01m[Kconst[m[K’
+   35 |                                       const Eigen::Vector3d &p_rl, const Eigen::Vector3d &p_rr [01;31m[Kconst[m[K Eigen::Vector3d &p_com)
+      |                                                                                                [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:34:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid SingleRigidBody::SetFootPosition(const Vector3d&, const Vector3d&, const Vector3d&, const Vector3d&)[m[K’
+   34 | void [01;31m[KSingleRigidBody[m[K::SetFootPosition(const Eigen::Vector3d &p_fl, const Eigen::Vector3d &p_fr,
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:65:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid SingleRigidBody::SetFootPosition(const Vector3d&, const Vector3d&, const Vector3d&, const Vector3d&, const Vector3d&)[m[K’
+   65 |     void [01;36m[KSetFootPosition[m[K(const Eigen::Vector3d &p_fl, const Eigen::Vector3d &p_fr,
+      |          [01;36m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:10:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass SingleRigidBody[m[K’ defined here
+   10 | class [01;36m[KSingleRigidBody[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:49:8:[m[K [01;31m[Kerror: [m[K‘[01m[KMatirx3d[m[K’ in namespace ‘[01m[KEigen[m[K’ does not name a type; did you mean ‘[01m[KMatrix3d[m[K’?
+   49 | Eigen::[01;31m[KMatirx3d[m[K SingleRigidBody::MakeCross2Skew(const Eigen::Vector3d &p)
+      |        [01;31m[K^~~~~~~~[m[K
+      |        [32m[KMatrix3d[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:58:17:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[KEigen::Vector3d SingleRigidBody::MakeMatrix2Skew(Eigen::Matrix3d&, Eigen::Matrix3d&)[m[K’
+   58 | Eigen::Vector3d [01;31m[KSingleRigidBody[m[K::MakeMatrix2Skew(Eigen::Matrix3d &R1, Eigen::Matrix3d &R2)
+      |                 [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:52:21:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[KEigen::Matrix3d SingleRigidBody::MakeMatrix2Skew(Eigen::Matrix3d&, Eigen::Matrix3d&)[m[K’
+   52 |     Eigen::Matrix3d [01;36m[KMakeMatrix2Skew[m[K(Eigen::Matrix3d &R1, Eigen::Matrix3d &R2);
+      |                     [01;36m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:10:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass SingleRigidBody[m[K’ defined here
+   10 | class [01;36m[KSingleRigidBody[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:[m[K In member function ‘[01m[Kvoid SingleRigidBody::Update_A_Matrix()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:72:12:[m[K [01;31m[Kerror: [m[K‘[01m[KMatirx3d[m[K’ is not a member of ‘[01m[KEigen[m[K’; did you mean ‘[01m[KMatrix3d[m[K’?
+   72 |     Eigen::[01;31m[KMatirx3d[m[K I_3x3 = Eigen::Matrix3d::Identity();
+      |            [01;31m[K^~~~~~~~[m[K
+      |            [32m[KMatrix3d[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:81:40:[m[K [01;31m[Kerror: [m[K‘[01m[KI_3x3[m[K’ was not declared in this scope
+   81 |         A_body.block<3, 3>(0, 3 * i) = [01;31m[KI_3x3[m[K;
+      |                                        [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:[m[K In member function ‘[01m[Kvoid SingleRigidBody::Compute_b_Vector(const Vector3d&, const Matrix3d&, double, double, double, double)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:94:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kref_p_com[m[K’ was not declared in this scope
+   94 |     Eigen::Vector3d p_des_body = R_world_to_body * [01;31m[Kref_p_com[m[K;
+      |                                                    [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:96:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kb[m[K’ was not declared in this scope
+   96 |     [01;31m[Kb[m[K.segment<3>(0) = (-1) * M * g_body + (Kp_f * (p_des_body - p_com_body) - Kd_f * v_com_body);
+      |     [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:97:73:[m[K [01;31m[Kerror: [m[Kbinding reference of type ‘[01m[KEigen::Matrix3d&[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 3>&[m[K’} to ‘[01m[Kconst Matrix3d[m[K’ {aka ‘[01m[Kconst Eigen::Matrix<double, 3, 3>[m[K’} discards qualifiers
+   97 |     b.segment<3>(3) = I_body * (Kp_w * MakeMatrix2Skew(R_world_to_body, [01;31m[KR_des_world[m[K) - Kd_w * omega_body);
+      |                                                                         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:52:75:[m[K [01;36m[Knote: [m[K  initializing argument 2 of ‘[01m[KEigen::Matrix3d SingleRigidBody::MakeMatrix2Skew(Eigen::Matrix3d&, Eigen::Matrix3d&)[m[K’
+   52 |     Eigen::Matrix3d MakeMatrix2Skew(Eigen::Matrix3d &R1, [01;36m[KEigen::Matrix3d &R2[m[K);
+      |                                                          [01;36m[K~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:[m[K At global scope:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:101:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid SingleRigidBody::Solve_QP(double, const Vector3d&)[m[K’
+  101 | void [01;31m[KSingleRigidBody[m[K::Solve_QP(double mu, const Eigen::Vector3d& vertical_force)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:72:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid SingleRigidBody::Solve_QP(const Vector3d&, double)[m[K’
+   72 |     void [01;36m[KSolve_QP[m[K(const Eigen::Vector3d &f_z, const double mu);
+      |          [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:10:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass SingleRigidBody[m[K’ defined here
+   10 | class [01;36m[KSingleRigidBody[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:135:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid SingleRigidBody::Compute_LinearMatrix()[m[K’
+  135 | void [01;31m[KSingleRigidBody[m[K::Compute_LinearMatrix()
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:135:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid SingleRigidBody::Compute_LinearMatrix()[m[K’
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:10:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass SingleRigidBody[m[K’ defined here
+   10 | class [01;36m[KSingleRigidBody[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:151:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid SingleRigidBody::Compute_Constraint()[m[K’
+  151 | void [01;31m[KSingleRigidBody[m[K::Compute_Constraint()
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:151:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid SingleRigidBody::Compute_Constraint()[m[K’
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:10:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass SingleRigidBody[m[K’ defined here
+   10 | class [01;36m[KSingleRigidBody[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:156:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid SingleRigidBody::Solve_Force(double, const Vector3d&)[m[K’
+  156 | void [01;31m[KSingleRigidBody[m[K::Solve_Force(double mu, const Eigen::Vector3d& vertical_force)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:71:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid SingleRigidBody::Solve_Force()[m[K’
+   71 |     void [01;36m[KSolve_Force[m[K();
+      |          [01;36m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:10:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass SingleRigidBody[m[K’ defined here
+   10 | class [01;36m[KSingleRigidBody[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:79: include/Tools/CMakeFiles/Tools.dir/SingleRigidBody.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2
