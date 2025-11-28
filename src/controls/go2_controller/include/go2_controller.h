@@ -129,7 +129,7 @@ private:
 
     Eigen::Vector3d Body_Pos;
     Eigen::Matrix3d Body_Rot;
-    Eigen::VectorXd Body_Ref_;
+    Eigen::Vector3d Body_Ref_;
 
     // (in Task Space) 동작의 시작 xyz값 (담아두는 용도)
     Eigen::Vector3d EE_Pose_FL_start, EE_Pose_FR_start, EE_Pose_RL_start, EE_Pose_RR_start;

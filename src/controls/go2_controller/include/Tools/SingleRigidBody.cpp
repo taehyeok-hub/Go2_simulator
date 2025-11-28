@@ -22,16 +22,16 @@ SingleRigidBody::SingleRigidBody()
     
     // b vector 제어 Gain값
     Kp_Pos.setIdentity();
-    Kp_Pos.diagonal() << 100.0, 100.0, 100.0;
+    Kp_Pos.diagonal() << 100.0, 50.0, 100.0;
 
     Kd_Pos.setIdentity();
-    Kd_Pos.diagonal() << 1.0, 1.0, 1.0;
+    Kd_Pos.diagonal() << 1.0, 0.50, 1.0;
 
     Kp_Ori.setIdentity();
-    Kp_Ori.diagonal() << 0.0, 0.0, 0.0;
+    Kp_Ori.diagonal() << 80.0, 100.0, 100.0;
 
     Kd_Ori.setIdentity();
-    Kd_Ori.diagonal() << 0.0, 0.0, 0.0;
+    Kd_Ori.diagonal() << 0.80, 1.0, 1.0;
 
     // QP 초기조건
     Hessian.resize(NUM_LEG * NUM_AXIS, NUM_LEG * NUM_AXIS);
@@ -63,7 +63,7 @@ void SingleRigidBody::SetRobotState(const Eigen::VectorXd &p, const Eigen::Vecto
     R_world_to_body = R_body_to_world.transpose();   // world -> body
 
     gravity_body = R_world_to_body * gravity;
-    
+
     std::cout << "p_com_world = " << p_com_world << std::endl;
     std::cout << "v_com_world = " << v_com_world << std::endl;
     std::cout << "rpy_world = " << rpy_world << std::endl;
@@ -81,10 +81,10 @@ void SingleRigidBody::SetFootPosition(const std::array<Eigen::Vector3d, 4> &feet
     {
         p_foot_world[i] = R_body_to_world * feet_pos_body[i];
     }
-    std::cout << "p_foot_world[0] = " << p_foot_world[0].transpose() << std::endl;
-    std::cout << "p_foot_world[1] = " << p_foot_world[1].transpose() << std::endl;
-    std::cout << "p_foot_world[2] = " << p_foot_world[2].transpose() << std::endl;
-    std::cout << "p_foot_world[3] = " << p_foot_world[3].transpose() << std::endl;
+    std::cout << "FL_foot_world = " << p_foot_world[0].transpose() << std::endl;
+    std::cout << "FR_foot_world = " << p_foot_world[1].transpose() << std::endl;
+    std::cout << "RL_foot_world = " << p_foot_world[2].transpose() << std::endl;
+    std::cout << "RR_foot_world = " << p_foot_world[3].transpose() << std::endl;
 }
 
 Eigen::Matrix3d SingleRigidBody::MakeCross2Skew(const Eigen::Vector3d &p)
@@ -105,6 +105,8 @@ Eigen::Vector3d SingleRigidBody::MakeMatrix2Skew(const Eigen::Matrix3d &R1, cons
     Error_Vec << S(2, 1) - S(1, 2), S(0, 2) - S(2, 0), S(1, 0) - S(0, 1);
 
     return 0.5 * Error_Vec;
+
+    std::cout << "Error_vec_body = " << 0.5 * Error_Vec.transpose() << std::endl;
 
     // 성민이 형
     // Eigen::Vector3d E_r;
@@ -154,19 +156,19 @@ void SingleRigidBody::Update_A_Matrix()
     std::cout << "A = " << A_mat << std::endl;
 }
 
-void SingleRigidBody::Compute_b_Vector(const Eigen::Vector3d &p_des_world, const Eigen::Matrix3d &R_des_body) // Wrench 는 힘과 토크를 하나로 묶어 부르는 용어임.
+void SingleRigidBody::Compute_b_Vector(const Eigen::Vector3d &p_des_world, const Eigen::Matrix3d &R_des_body, Eigen::Vector3d rpy_des_error_world) // Wrench 는 힘과 토크를 하나로 묶어 부르는 용어임.
 {
     Eigen::Vector3d p_des_err_world = p_des_world - p_com_world;
     Eigen::Vector3d p_des_err_body = R_world_to_body * p_des_err_world;
+    Eigen::Vector3d rpy_des_error_body = R_world_to_body * rpy_des_error_world;
+
     Eigen::Vector3d v_com_body = R_world_to_body * v_com_world;
     Eigen::Vector3d rpy_dot_body = R_world_to_body * rpy_dot_world;
 
     b_vec.segment<3>(0) = -M * gravity_body + (Kp_Pos * p_des_err_body - Kd_Pos * v_com_body);
     b_vec.segment<3>(3) = I_body * (Kp_Ori * MakeMatrix2Skew(R_world_to_body, R_des_body) - Kd_Ori * rpy_dot_body);
-
-    std::cout << "p_com_world = "<< p_com_world << std::endl;
+        
     std::cout << "p_des_err_world = "<< p_des_err_world << std::endl;
-    std::cout << "R_world_to_body = "<< R_world_to_body << std::endl;
     std::cout << "p_des_err_body = "<< p_des_err_body << std::endl;
     // std::cout << "b = " << b_vec << std::endl;
 }
@@ -179,9 +181,9 @@ void SingleRigidBody::Set_CostFunction()
 
     std::cout << "Hessian = " << std::endl << Hessian << std::endl;
     std::cout << "Gradient = " << std::endl << Gradient << std::endl;
-    std::cout << "LinearMatrix = " << std::endl << LinearMatrix << std::endl;
-    std::cout << "LowerBound = " << std::endl << LowerBound << std::endl;
-    std::cout << "UpperBound = " << std::endl << UpperBound << std::endl;
+    // std::cout << "LinearMatrix = " << std::endl << LinearMatrix << std::endl;
+    // std::cout << "LowerBound = " << std::endl << LowerBound << std::endl;
+    // std::cout << "UpperBound = " << std::endl << UpperBound << std::endl;
 }
 
 void SingleRigidBody::Solve_QP()

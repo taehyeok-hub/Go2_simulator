@@ -78,7 +78,7 @@ public:
     void SetRobotState(const Eigen::VectorXd &p, const Eigen::VectorXd &p_dot, const Eigen::VectorXd &quat, const Eigen::VectorXd &rpy, const Eigen::VectorXd &rpy_dot);
     void SetFootPosition(const std::array<Eigen::Vector3d, 4> &feet_pos);
     void Update_A_Matrix();
-    void Compute_b_Vector(const Eigen::Vector3d &p_des_world, const Eigen::Matrix3d &R_des_body);     
+    void Compute_b_Vector(const Eigen::Vector3d &p_des_world, const Eigen::Matrix3d &R_des_body, Eigen::Vector3d rpy_des_error_body);     
     void Set_CostFunction();
     void Compute_LinearMatrix(double friction_mu = 0.2);
     void Compute_Constraint(double f_z_max = 150);

@@ -253,6 +253,7 @@ void go2_controller::Squating()
 
 void go2_controller::SRBMControl()
 {
+    Body_Ref_ << 0, 0, 0.34;
     // CENT.Set_BodyState(gazebo_body_pos, gazebo_body_vel, gazebo_rpy, gazebo_rpy_dot, gazebo_quat);
     // std::array<Eigen::Vector3d, 4> feet_pos = KINE.Get_EE_Pose();
     // CENT.SetFootPosition_(feet_pos);
@@ -284,7 +285,9 @@ void go2_controller::SRBMControl()
     //     sin(yaw), cos(yaw), 0,
     //     0, 0, 1;
     Eigen::Matrix3d R_des_ = Eigen::Matrix3d::Identity();
-    SRBM.Compute_b_Vector(gazebo_body_pos, R_des_);
+    Eigen::Vector3d rpy_error;
+    rpy_error << -gazebo_rpy(0), -gazebo_rpy(1), -gazebo_rpy(2);
+    SRBM.Compute_b_Vector(Body_Ref_, R_des_, rpy_error);
 
     SRBM.Solve_QP();
     Force_ = SRBM.Get_Force();
@@ -488,11 +491,13 @@ void go2_controller::DataStream()
 
     // TH_msg 메세지의 형태로 data를 발행함.
     // ex) EE_Pose_FL은 x, y, z의 형태로 되어 있으니까, EE_Pose_FL
-
+    
+    // 몸통 des 좌표
     TH_msg.data.push_back(Body_Pos(X));
     TH_msg.data.push_back(Body_Pos(Y));
     TH_msg.data.push_back(Body_Pos(Z));
 
+    // SRBM 추출 힘
     TH_msg.data.push_back(Force_FL(X));
     TH_msg.data.push_back(Force_FL(Y));
     TH_msg.data.push_back(Force_FL(Z));
@@ -508,6 +513,10 @@ void go2_controller::DataStream()
     TH_msg.data.push_back(Force_RR(X));
     TH_msg.data.push_back(Force_RR(Y));
     TH_msg.data.push_back(Force_RR(Z));
+
+    TH_msg.data.push_back(Body_Pos(X));
+    TH_msg.data.push_back(Body_Pos(Y));
+    TH_msg.data.push_back(Body_Pos(Z));
 
     pub_TH_.publish(TH_msg);
 
