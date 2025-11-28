@@ -8,6 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/pth/pth/model/Go2_simulator/devel/.private/catkin_tools_prebuild:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH='/opt/ros/noetic/lib'
+export PKG_CONFIG_PATH='/opt/ros/noetic/lib/pkgconfig'
 export PWD='/home/pth/pth/model/Go2_simulator/build/catkin_tools_prebuild'
-export ROSLISP_PACKAGE_DIRECTORIES='/home/pth/pth/model/Go2_simulator/devel/.private/catkin_tools_prebuild/share/common-lisp'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/pth/pth/model/Go2_simulator/devel/.private/catkin_tools_prebuild/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/pth/pth/model/Go2_simulator/build/catkin_tools_prebuild:$ROS_PACKAGE_PATH"

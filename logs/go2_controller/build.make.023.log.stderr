@@ -1,0 +1,68 @@
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:109:19:[m[K [01;31m[Kerror: [m[K‘[01m[KNUM_LEG[m[K’ was not declared in this scope
+  109 |     int GaitPhase[[01;31m[KNUM_LEG[m[K] = {0, 0, 0, 0};
+      |                   [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In constructor ‘[01m[KCentroidalDynamics::CentroidalDynamics()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:5:19:[m[K [01;31m[Kerror: [m[K‘[01m[KNUM_AXIS[m[K’ was not declared in this scope
+    5 |     A.setZero(2 * [01;31m[KNUM_AXIS[m[K, NUM_LEG * NUM_AXIS);
+      |                   [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:5:29:[m[K [01;31m[Kerror: [m[K‘[01m[KNUM_LEG[m[K’ was not declared in this scope
+    5 |     A.setZero(2 * NUM_AXIS, [01;31m[KNUM_LEG[m[K * NUM_AXIS);
+      |                             [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In member function ‘[01m[Kvoid CentroidalDynamics::Set_BodyState(Eigen::VectorXd, Eigen::VectorXd, Eigen::VectorXd, Eigen::VectorXd, Eigen::VectorXd)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:80:14:[m[K [01;31m[Kerror: [m[K‘[01m[KX[m[K’ was not declared in this scope
+   80 |     Body_Err([01;31m[KX[m[K) = Body_Pos(X);
+      |              [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:81:14:[m[K [01;31m[Kerror: [m[K‘[01m[KY[m[K’ was not declared in this scope
+   81 |     Body_Err([01;31m[KY[m[K) = Body_Pos(Y);
+      |              [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:82:14:[m[K [01;31m[Kerror: [m[K‘[01m[KZ[m[K’ was not declared in this scope
+   82 |     Body_Err([01;31m[KZ[m[K) = Body_Pos(Z);
+      |              [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In member function ‘[01m[Kvoid CentroidalDynamics::SetFootPosition_(const std::array<Eigen::Matrix<double, 3, 1>, 4>&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:100:27:[m[K [01;31m[Kerror: [m[K‘[01m[KR_body_to_world[m[K’ was not declared in this scope
+  100 |         p_foot_world[i] = [01;31m[KR_body_to_world[m[K * feet_pos_body[i];
+      |                           [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In member function ‘[01m[Kvoid CentroidalDynamics::Set_GaitPhase(int*)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:120:5:[m[K [01;31m[Kerror: [m[K‘[01m[KGaitPhase[m[K’ was not declared in this scope; did you mean ‘[01m[KSet_GaitPhase[m[K’?
+  120 |     [01;31m[KGaitPhase[m[K[F1] = Phase[F1];
+      |     [01;31m[K^~~~~~~~~[m[K
+      |     [32m[KSet_GaitPhase[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:120:15:[m[K [01;31m[Kerror: [m[K‘[01m[KF1[m[K’ was not declared in this scope; did you mean ‘[01m[Ky1[m[K’?
+  120 |     GaitPhase[[01;31m[KF1[m[K] = Phase[F1];
+      |               [01;31m[K^~[m[K
+      |               [32m[Ky1[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:121:15:[m[K [01;31m[Kerror: [m[K‘[01m[KF2[m[K’ was not declared in this scope
+  121 |     GaitPhase[[01;31m[KF2[m[K] = Phase[F2];
+      |               [01;31m[K^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:122:15:[m[K [01;31m[Kerror: [m[K‘[01m[KH1[m[K’ was not declared in this scope; did you mean ‘[01m[Ky1[m[K’?
+  122 |     GaitPhase[[01;31m[KH1[m[K] = Phase[H1];
+      |               [01;31m[K^~[m[K
+      |               [32m[Ky1[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:123:15:[m[K [01;31m[Kerror: [m[K‘[01m[KH2[m[K’ was not declared in this scope
+  123 |     GaitPhase[[01;31m[KH2[m[K] = Phase[H2];
+      |               [01;31m[K^~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In member function ‘[01m[Kvoid CentroidalDynamics::Compute_Constraint()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:191:29:[m[K [01;31m[Kerror: [m[K‘[01m[KNUM_LEG[m[K’ was not declared in this scope
+  191 |     for (int leg = 0; leg < [01;31m[KNUM_LEG[m[K; ++leg)
+      |                             [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:193:13:[m[K [01;31m[Kerror: [m[K‘[01m[KGaitPhase[m[K’ was not declared in this scope; did you mean ‘[01m[KSet_GaitPhase[m[K’?
+  193 |         if ([01;31m[KGaitPhase[m[K[leg] == 1)
+      |             [01;31m[K^~~~~~~~~[m[K
+      |             [32m[KSet_GaitPhase[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In member function ‘[01m[Kvoid CentroidalDynamics::Solve_QP()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:216:45:[m[K [01;31m[Kerror: [m[K‘[01m[KNUM_LEG[m[K’ was not declared in this scope
+  216 |         solver.data()->setNumberOfVariables([01;31m[KNUM_LEG[m[K * NUM_AXIS);
+      |                                             [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:216:55:[m[K [01;31m[Kerror: [m[K‘[01m[KNUM_AXIS[m[K’ was not declared in this scope
+  216 |         solver.data()->setNumberOfVariables(NUM_LEG * [01;31m[KNUM_AXIS[m[K);
+      |                                                       [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:236:28:[m[K [01;31m[Kerror: [m[K‘[01m[KNUM_LEG[m[K’ was not declared in this scope
+  236 |     for (size_t i = 0; i < [01;31m[KNUM_LEG[m[K * NUM_AXIS; i++)
+      |                            [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:236:38:[m[K [01;31m[Kerror: [m[K‘[01m[KNUM_AXIS[m[K’ was not declared in this scope
+  236 |     for (size_t i = 0; i < NUM_LEG * [01;31m[KNUM_AXIS[m[K; i++)
+      |                                      [01;31m[K^~~~~~~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:135: include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

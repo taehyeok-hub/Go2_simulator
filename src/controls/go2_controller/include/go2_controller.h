@@ -39,7 +39,7 @@
 #include "SingleRigidBody.hpp"
 #include "Kinematics.hpp"
 #include "Trajectories.hpp"
-#include "Centroidal_Dynamics.hpp"
+// #include "Centroidal_Dynamics.hpp"
 #include "Enum_Shared.hpp"
 
 enum ControlMode
@@ -98,7 +98,7 @@ private:
     Kinematics KINE;
     Trajectories TRAJ;
     SingleRigidBody SRBM;
-    CentroidalDynamics CENT;
+    // CentroidalDynamics CENT;
     
 
     // VARIABLE---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -128,6 +128,8 @@ private:
     // Eigen::VectorXd q_desired{Eigen::VectorXd::Zero(12)}; // trajectory가 들어갈 곳
 
     Eigen::Vector3d Body_Pos;
+    Eigen::Matrix3d Body_Rot;
+    Eigen::VectorXd Body_Ref_;
 
     // (in Task Space) 동작의 시작 xyz값 (담아두는 용도)
     Eigen::Vector3d EE_Pose_FL_start, EE_Pose_FR_start, EE_Pose_RL_start, EE_Pose_RR_start;
@@ -150,6 +152,13 @@ private:
     Eigen::Matrix<double, 6, 3> J_RL{Eigen::Matrix<double, 6, 3>::Zero()};
     Eigen::Matrix<double, 6, 3> J_RR{Eigen::Matrix<double, 6, 3>::Zero()};
     Eigen::Matrix<double, 6, 12> J{Eigen::Matrix<double, 6, 12>::Zero()};
+
+    Eigen::Matrix3d R_world_to_body_;
+    Eigen::VectorXd Force_;
+    Eigen::Vector3d Force_FL;
+    Eigen::Vector3d Force_FR;
+    Eigen::Vector3d Force_RL;
+    Eigen::Vector3d Force_RR;
 
     // 동작 상태 관리
     ros::Time motion_start_time_;

@@ -59,6 +59,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/hpp-fcl/doxygen-html" TYPE FILE FILES "/home/pth/pth/model/Go2_simulator/build/hpp-fcl/doc/hpp-fcl.doxytag")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/hpp-fcl" TYPE DIRECTORY FILES "/home/pth/pth/model/Go2_simulator/build/hpp-fcl/doc/doxygen-html")
 endif()
 

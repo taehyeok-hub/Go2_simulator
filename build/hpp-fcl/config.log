@@ -16,6 +16,8 @@ generator = Unix Makefiles
 PATH /opt/ros/noetic/bin
 PATH /home/pth/.local/bin
 PATH /home/pth/.local/bin
+PATH /home/pth/.local/bin
+PATH /home/pth/.local/bin
 PATH /usr/local/sbin
 PATH /usr/local/bin
 PATH /usr/sbin
@@ -113,7 +115,7 @@ DOXYGEN_DOT_EXECUTABLE = /usr/bin/dot
 DOXYGEN_DOT_FOUND = YES
 DOXYGEN_DOT_PATH = /usr/bin
 DOXYGEN_DOT_IMAGE_FORMAT = undefined
-DOXYGEN_USE_MATHJAX = YES
+DOXYGEN_USE_MATHJAX = undefined
 DOXYGEN_USE_TEMPLATE_CSS = TRUE
 ## ---------------- ##
 ## Watched targets. ##

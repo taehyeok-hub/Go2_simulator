@@ -290,7 +290,7 @@ DOXYGEN_DOT_EXECUTABLE:FILEPATH=/usr/bin/dot
 DOXYGEN_EXECUTABLE:FILEPATH=/usr/bin/doxygen
 
 //DVI to PostScript converter
-DVIPS:FILEPATH=DVIPS-NOTFOUND
+DVIPS:FILEPATH=/usr/bin/dvips
 
 //Set CMAKE_CXX_STANDARD if a dependency require it
 ENFORCE_MINIMAL_CXX_STANDARD:BOOL=OFF
@@ -332,7 +332,7 @@ INSTALL_GENERATED_HEADERS:BOOL=ON
 INSTALL_PKG_CONFIG_FILE:BOOL=ON
 
 //LaTeX compiler
-LATEX:FILEPATH=LATEX-NOTFOUND
+LATEX:FILEPATH=/usr/bin/latex
 
 //Command to build the project
 MAKECOMMAND:STRING=/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"

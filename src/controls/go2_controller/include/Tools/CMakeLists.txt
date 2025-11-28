@@ -6,6 +6,7 @@ add_library(Tools
     Kinematics.cpp
     Trajectories.cpp
     TaskSpacePDControl.cpp
+    # Centroidal_Dynamics.cpp
 
 )
 

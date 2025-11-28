@@ -6,12 +6,13 @@
 #include <iostream>
 #include <stdio.h>
 #include <cmath>
+#include <array>
 #include "Eigen/Dense"
 #include "Eigen/Eigenvalues"
 #include "Eigen/Sparse"
 #include "Eigen/Geometry"
 #include "OsqpEigen/OsqpEigen.h"
-#include "uuq_Enum.h"
+
 
 class CentroidalDynamics
 {
@@ -24,6 +25,7 @@ public:
     void Set_FootPosition(Eigen::VectorXd Pino_F1_, Eigen::VectorXd Pino_F2_, Eigen::VectorXd Pino_H1_, Eigen::VectorXd Pino_H2_);
     void Set_LegJacobian(Eigen::MatrixXd F1_J_, Eigen::MatrixXd F2_J_, Eigen::MatrixXd H1_J_, Eigen::MatrixXd H2_J_);
     void Set_GaitPhase(int Phase[]);
+    void SetFootPosition_(const std::array<Eigen::Vector3d, 4> &feet_pos_body);
     void Set_A_Matrix();
     void Set_B_Matrix();
     void Compute_CostFunction();

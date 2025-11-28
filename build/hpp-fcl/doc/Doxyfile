@@ -17,7 +17,6 @@ HTML_HEADER = /home/pth/pth/model/Go2_simulator/build/hpp-fcl/doc/header.html
 HTML_FOOTER = /home/pth/pth/model/Go2_simulator/build/hpp-fcl/doc/footer.html
 HTML_STYLESHEET = /home/pth/pth/model/Go2_simulator/build/hpp-fcl/doc/doxygen.css
 GENERATE_TREEVIEW = YES
-USE_MATHJAX = YES
 GENERATE_LATEX = NO
 LATEX_OUTPUT = doxygen-latex
 EXTRA_PACKAGES = amssymb,amsmath

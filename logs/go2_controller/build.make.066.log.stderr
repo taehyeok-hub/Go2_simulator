@@ -1,32 +1,4 @@
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Squating()[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:180:68:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kdouble[m[K’ to non-scalar type ‘[01m[Kros::Time[m[K’ requested
-  180 |         ros::Time t = [01;31m[K(ros::Time::now() - motion_start_time_).toSec()[m[K;
-      |                       [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:182:15:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator>[m[K’ (operand types are ‘[01m[Kros::Time[m[K’ and ‘[01m[Kdouble[m[K’)
-  182 |         if ([32m[Kt[m[K [01;31m[K>[m[K [34m[Kmotion_duration[m[K)
-      |             [32m[K~[m[K [01;31m[K^[m[K [34m[K~~~~~~~~~~~~~~~[m[K
-      |             [32m[K|[m[K   [34m[K|[m[K
-      |             [32m[K|[m[K   [34m[Kdouble[m[K
-      |             [32m[Kros::Time[m[K
-In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:38[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
-[01m[K/opt/ros/noetic/include/ros/time.h:148:10:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::TimeBase<T, D>::operator>(const T&) const [with T = ros::Time; D = ros::Duration][m[K’
-  148 |     bool [01;36m[Koperator[m[K>(const T &rhs) const;
-      |          [01;36m[K^~~~~~~~[m[K
-[01m[K/opt/ros/noetic/include/ros/time.h:148:29:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kdouble[m[K’ to ‘[01m[Kconst ros::Time&[m[K’
-  148 |     bool operator>([01;36m[Kconst T &rhs[m[K) const;
-      |                    [01;36m[K~~~~~~~~~^~~[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:226:32:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[KEE_Vel_FR_desired[m[K’
-  226 |     EE_Vel_FL_desired.setZero()
-      |                                [01;31m[K^[m[K
-      |                                [32m[K;[m[K
-  227 |     [32m[KEE_Vel_FR_desired[m[K.setZero()
-      |     [32m[K~~~~~~~~~~~~~~~~~[m[K           
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
     6 |     [01;35m[Ksystem("clear")[m[K;
       |     [01;35m[K~~~~~~^~~~~~~~~[m[K
-make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
-make: *** [Makefile:146: all] Error 2

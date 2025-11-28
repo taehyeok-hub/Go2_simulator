@@ -17,13 +17,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX","output/HTML-CSS"],
-});
-</script>
-<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -569,12 +562,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The distance computed by <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html" title="class for GJK algorithm">GJK</a>. The possible values are</p><ul>
-<li>\( d = - R - 1 \) when a collision is detected and <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html" title="class for GJK algorithm">GJK</a> cannot compute penetration informations.</li>
-<li>\( - R \le d \le 0 \) when a collision is detected and <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html" title="class for GJK algorithm">GJK</a> can compute penetration informations.</li>
-<li>\( 0 &lt; d \le d_{ub} \) when there is no collision and <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html" title="class for GJK algorithm">GJK</a> can compute the closest points.</li>
-<li>\( d_{ub} &lt; d \) when there is no collision and <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html" title="class for GJK algorithm">GJK</a> cannot compute the closest points.</li>
+<li><img class="formulaInl" alt="$ d = - R - 1 $" src="form_1.png"/> when a collision is detected and <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html" title="class for GJK algorithm">GJK</a> cannot compute penetration informations.</li>
+<li><img class="formulaInl" alt="$ - R \le d \le 0 $" src="form_2.png"/> when a collision is detected and <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html" title="class for GJK algorithm">GJK</a> can compute penetration informations.</li>
+<li><img class="formulaInl" alt="$ 0 &lt; d \le d_{ub} $" src="form_3.png"/> when there is no collision and <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html" title="class for GJK algorithm">GJK</a> can compute the closest points.</li>
+<li><img class="formulaInl" alt="$ d_{ub} &lt; d $" src="form_4.png"/> when there is no collision and <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html" title="class for GJK algorithm">GJK</a> cannot compute the closest points.</li>
 </ul>
-<p>where \( d \) is the <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html#a9f7db3d3c530f90e2dc701d3e89bc79d">GJK::distance</a>, \( R \) is the sum of the <code>shape</code> <a class="el" href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#ac7c45285a4a885fb68833d0f5b2cd8bf" title="The radius of the sphere swepted volume. The 2 values correspond to the inflation of shape 0 and shap...">MinkowskiDiff::inflation</a> and \( d_{ub} \) is the GJK::distance_upper_bound. </p>
+<p>where <img class="formulaInl" alt="$ d $" src="form_5.png"/> is the <a class="el" href="structhpp_1_1fcl_1_1details_1_1GJK.html#a9f7db3d3c530f90e2dc701d3e89bc79d">GJK::distance</a>, <img class="formulaInl" alt="$ R $" src="form_6.png"/> is the sum of the <code>shape</code> <a class="el" href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#ac7c45285a4a885fb68833d0f5b2cd8bf" title="The radius of the sphere swepted volume. The 2 values correspond to the inflation of shape 0 and shap...">MinkowskiDiff::inflation</a> and <img class="formulaInl" alt="$ d_{ub} $" src="form_7.png"/> is the GJK::distance_upper_bound. </p>
 
 </div>
 </div>

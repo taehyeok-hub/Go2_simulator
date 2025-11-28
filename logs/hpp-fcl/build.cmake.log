@@ -47,8 +47,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [36m--[0m Found Boost: /usr/include (found version "1.71.0")
 [36m--[0m FCL uses Octomap
 [36m--[0m Found asset importer library: /usr/lib/x86_64-linux-gnu/libassimp.so
-[36m--[0m Failed to find latex/dvips/gs, will use MathJax backend.
-[36m--[0m Doxygen rendering: using MathJax backend
-[36m--[0m Configuring done (1.0s)
-[36m--[0m Generating done (0.0s)
+[36m--[0m Doxygen rendering: using LaTeX backend
+[36m--[0m Configuring done (3.8s)
+[36m--[0m Generating done (0.1s)
 [36m--[0m Build files have been written to: /home/pth/pth/model/Go2_simulator/build/hpp-fcl

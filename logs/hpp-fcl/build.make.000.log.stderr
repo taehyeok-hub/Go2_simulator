@@ -1,10 +1,14 @@
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_object.cpp:38[m[K:
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:46[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/internal/traversal_node_base.h:45[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/../src/collision_node.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_node.cpp:39[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
   171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
       |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_object.cpp:38[m[K:
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/internal/traversal_node_base.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/../src/collision_node.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_node.cpp:39[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
@@ -20,18 +24,46 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:46[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/AABB.cpp:41[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:46[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/AABB.cpp:41[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/internal/traversal_node_base.h:45[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/../src/collision_node.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_node.cpp:39[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:494:68:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  494 | {return static_cast<CollisionRequestFlag>(~static_cast<const int>(a[01;35m[K)[m[K);}
+      |                                                                    [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator|(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K | static_cast<const int>(b));}
+      |                                                                   [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) | static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                                               [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator&(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K & static_cast<const int>(b));}
+      |                                                                   [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) & static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                                               [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator^(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K ^ static_cast<const int>(b));}
+      |                                                                   [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) ^ static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                                               [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator|=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:506:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  506 | {return (CollisionRequestFlag&)((int&)(a) |= static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                      [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator&=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:509:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  509 | {return (CollisionRequestFlag&)((int&)(a) &= static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                      [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator^=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                      [01;35m[K^[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_data.cpp:38[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:494:68:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
@@ -70,6 +102,18 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
   512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
       |                                                                      [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:46[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/AABB.cpp:41[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:46[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/AABB.cpp:41[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/AABB.cpp:41[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:494:68:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
@@ -108,6 +152,16 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
   512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
       |                                                                      [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_object.cpp:38[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_object.cpp:38[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision.h:43[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision.cpp:39[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
@@ -117,20 +171,6 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision.h:43[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision.cpp:39[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/kIOS.cpp:39[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/kIOS.cpp:39[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
@@ -146,17 +186,17 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:46[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/internal/traversal_node_base.h:45[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/../src/collision_node.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_node.cpp:39[m[K:
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/RSS.cpp:39[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
   171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
       |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/internal/traversal_node_base.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/../src/collision_node.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_node.cpp:39[m[K:
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/RSS.cpp:39[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
@@ -238,60 +278,6 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
   512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
       |                                                                      [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/internal/traversal_node_base.h:45[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/../src/collision_node.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_node.cpp:39[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:494:68:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  494 | {return static_cast<CollisionRequestFlag>(~static_cast<const int>(a[01;35m[K)[m[K);}
-      |                                                                    [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator|(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K | static_cast<const int>(b));}
-      |                                                                   [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) | static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                                               [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator&(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K & static_cast<const int>(b));}
-      |                                                                   [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) & static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                                               [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator^(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K ^ static_cast<const int>(b));}
-      |                                                                   [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) ^ static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                                               [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator|=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:506:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  506 | {return (CollisionRequestFlag&)((int&)(a) |= static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                      [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator&=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:509:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  509 | {return (CollisionRequestFlag&)((int&)(a) &= static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                      [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator^=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                      [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/RSS.cpp:39[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/RSS.cpp:39[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
 /home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance_func_matrix.cpp: In instantiation of ‘[01m[Kstatic hpp::fcl::FCL_REAL hpp::fcl::BVHShapeDistancer<T_BVH, T_SH>::distance(const hpp::fcl::CollisionGeometry*, const hpp::fcl::Transform3f&, const hpp::fcl::CollisionGeometry*, const hpp::fcl::Transform3f&, const hpp::fcl::GJKSolver*, const hpp::fcl::DistanceRequest&, hpp::fcl::DistanceResult&) [with T_BVH = hpp::fcl::OBB; T_SH = hpp::fcl::Box; hpp::fcl::FCL_REAL = double][m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance_func_matrix.cpp:321:69:[m[K   required from here
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance_func_matrix.cpp:95:17:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
@@ -474,6 +460,20 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
       |                                                                      [01;35m[K^[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/kIOS.cpp:39[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/kIOS.cpp:39[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/OBB.cpp:39[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
@@ -483,6 +483,22 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BV/OBB.cpp:39[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/narrowphase/gjk.h:43[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/narrowphase/narrowphase.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/narrowphase/narrowphase.cpp:38[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/narrowphase/gjk.h:43[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/narrowphase/narrowphase.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/narrowphase/narrowphase.cpp:38[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
@@ -524,36 +540,6 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
   512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
       |                                                                      [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/narrowphase/gjk.h:43[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/narrowphase/narrowphase.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/narrowphase/narrowphase.cpp:38[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/narrowphase/gjk.h:43[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/narrowphase/narrowphase.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/narrowphase/narrowphase.cpp:38[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/convex.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/shape/convex.cpp:1[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/convex.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/shape/convex.cpp:1[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/internal/traversal_node_bvhs.h:43[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/internal/traversal_node_setup.h:44[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/narrowphase/details.h:41[m[K,
@@ -606,6 +592,20 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/narrowphase/gjk.h:43[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/narrowphase/gjk.cpp:38[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/convex.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/shape/convex.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/convex.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/shape/convex.cpp:1[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
@@ -711,55 +711,6 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
   512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
       |                                                                      [01;35m[K^[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/box_plane.cpp:42[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/box_plane.cpp:41[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/../distance_func_matrix.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/box_plane.cpp:44[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:494:68:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  494 | {return static_cast<CollisionRequestFlag>(~static_cast<const int>(a[01;35m[K)[m[K);}
-      |                                                                    [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator|(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K | static_cast<const int>(b));}
-      |                                                                   [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) | static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                                               [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator&(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K & static_cast<const int>(b));}
-      |                                                                   [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) & static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                                               [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator^(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K ^ static_cast<const int>(b));}
-      |                                                                   [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) ^ static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                                               [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator|=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:506:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  506 | {return (CollisionRequestFlag&)((int&)(a) |= static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                      [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator&=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:509:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  509 | {return (CollisionRequestFlag&)((int&)(a) &= static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                      [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator^=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                      [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/box_sphere.cpp:42[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
@@ -809,6 +760,16 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
   512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
       |                                                                      [01;35m[K^[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/box_plane.cpp:42[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/box_plane.cpp:41[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/capsule_capsule.cpp:37[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
@@ -818,6 +779,45 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/../distance_func_matrix.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/box_plane.cpp:44[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:494:68:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  494 | {return static_cast<CollisionRequestFlag>(~static_cast<const int>(a[01;35m[K)[m[K);}
+      |                                                                    [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator|(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K | static_cast<const int>(b));}
+      |                                                                   [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) | static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                                               [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator&(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K & static_cast<const int>(b));}
+      |                                                                   [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) & static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                                               [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator^(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K ^ static_cast<const int>(b));}
+      |                                                                   [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) ^ static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                                               [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator|=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:506:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  506 | {return (CollisionRequestFlag&)((int&)(a) |= static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                      [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator&=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:509:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  509 | {return (CollisionRequestFlag&)((int&)(a) &= static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                      [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator^=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                      [01;35m[K^[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/../src/distance_func_matrix.h:42[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/capsule_capsule.cpp:38[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
@@ -1014,16 +1014,6 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/cylinder_halfspace.cpp:42[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/cylinder_halfspace.cpp:41[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/../distance_func_matrix.h:42[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/cone_plane.cpp:44[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
@@ -1063,6 +1053,16 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
   512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
       |                                                                      [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/cylinder_halfspace.cpp:42[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/cylinder_halfspace.cpp:41[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/../distance_func_matrix.h:42[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/cylinder_halfspace.cpp:44[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
@@ -1259,6 +1259,16 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/sphere_plane.cpp:42[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/sphere_plane.cpp:41[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/../distance_func_matrix.h:42[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/sphere_halfspace.cpp:44[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
@@ -1298,16 +1308,6 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
   512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
       |                                                                      [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/shape/geometric_shapes.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/sphere_plane.cpp:42[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/sphere_plane.cpp:41[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/../distance_func_matrix.h:42[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance/sphere_plane.cpp:44[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
@@ -1503,57 +1503,18 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
   512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
       |                                                                      [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/distance.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance.cpp:38[m[K:
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_model.cpp:38[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
   171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
       |                                             [01;35m[K^[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/distance.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance.cpp:38[m[K:
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_model.cpp:38[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/distance.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance.cpp:38[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:494:68:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  494 | {return static_cast<CollisionRequestFlag>(~static_cast<const int>(a[01;35m[K)[m[K);}
-      |                                                                    [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator|(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K | static_cast<const int>(b));}
-      |                                                                   [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) | static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                                               [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator&(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K & static_cast<const int>(b));}
-      |                                                                   [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) & static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                                               [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator^(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K ^ static_cast<const int>(b));}
-      |                                                                   [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) ^ static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                                               [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator|=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:506:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  506 | {return (CollisionRequestFlag&)((int&)(a) |= static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                      [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator&=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:509:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  509 | {return (CollisionRequestFlag&)((int&)(a) &= static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                      [01;35m[K^[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator^=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
-  512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
-      |                                                                      [01;35m[K^[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_utility.cpp:39[m[K:
@@ -1565,32 +1526,6 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_utility.cpp:39[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BV_fitter.cpp:39[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BV_fitter.cpp:39[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_model.cpp:38[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_model.cpp:38[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
@@ -1619,6 +1554,18 @@ In file included from [01m[K/usr/include/eigen3/Eigen/Core:458[m[K,
 [01m[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:178:7:[m[K [01;36m[Knote: [m[K‘[01m[Khpp::fcl::Vec3f[m[K’ {aka ‘[01m[Kclass Eigen::Matrix<double, 3, 1>[m[K’} declared here
   178 | class [01;36m[KMatrix[m[K
       |       [01;36m[K^~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/distance.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance.cpp:38[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/distance.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance.cpp:38[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_model.cpp:[m[K In member function ‘[01m[Kvoid hpp::fcl::BVHModelBase::buildConvexRepresentation(bool)[m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_model.cpp:94:60:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid* memcpy(void*, const void*, size_t)[m[K’ writing to an object of type ‘[01m[Khpp::fcl::Vec3f[m[K’ {aka ‘[01m[Kclass Eigen::Matrix<double, 3, 1>[m[K’} with no trivial copy-assignment; use copy-assignment or copy-initialization instead [[01;35m[K-Wclass-memaccess[m[K]
    94 |       memcpy(points, vertices, sizeof(Vec3f) * num_vertices[01;35m[K)[m[K;
@@ -1697,6 +1644,45 @@ In file included from [01m[K/usr/include/eigen3/Eigen/Core:458[m[K,
 [01m[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:178:7:[m[K [01;36m[Knote: [m[K‘[01m[Khpp::fcl::Vec3f[m[K’ {aka ‘[01m[Kclass Eigen::Matrix<double, 3, 1>[m[K’} declared here
   178 | class [01;36m[KMatrix[m[K
       |       [01;36m[K^~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/distance.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/distance.cpp:38[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator~(hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:494:68:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  494 | {return static_cast<CollisionRequestFlag>(~static_cast<const int>(a[01;35m[K)[m[K);}
+      |                                                                    [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator|(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K | static_cast<const int>(b));}
+      |                                                                   [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:497:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  497 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) | static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                                               [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator&(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K & static_cast<const int>(b));}
+      |                                                                   [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:500:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  500 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) & static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                                               [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag hpp::fcl::operator^(hpp::fcl::CollisionRequestFlag, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:67:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a[01;35m[K)[m[K ^ static_cast<const int>(b));}
+      |                                                                   [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:503:95:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  503 | {return static_cast<CollisionRequestFlag>(static_cast<const int>(a) ^ static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                                               [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator|=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:506:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  506 | {return (CollisionRequestFlag&)((int&)(a) |= static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                      [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator&=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:509:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  509 | {return (CollisionRequestFlag&)((int&)(a) &= static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                      [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:[m[K In function ‘[01m[Khpp::fcl::CollisionRequestFlag& hpp::fcl::operator^=(hpp::fcl::CollisionRequestFlag&, hpp::fcl::CollisionRequestFlag)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_data.h:512:70:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+  512 | {return (CollisionRequestFlag&)((int&)(a) ^= static_cast<const int>(b[01;35m[K)[m[K);}
+      |                                                                      [01;35m[K^[m[K
 /home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_model.cpp: In instantiation of ‘[01m[Khpp::fcl::BVHModel<BV>::BVHModel(const hpp::fcl::BVHModel<BV>&) [with BV = hpp::fcl::KDOP<16>][m[K’:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_model.cpp:1046:16:[m[K   required from here
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BVH_model.cpp:141:11:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid* memcpy(void*, const void*, size_t)[m[K’ writing to an object of type ‘[01m[Kstruct hpp::fcl::BVNode<hpp::fcl::KDOP<16> >[m[K’ with no trivial copy-assignment; use copy-assignment or copy-initialization instead [[01;35m[K-Wclass-memaccess[m[K]
@@ -1777,6 +1763,20 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BV/BV_node.h:87:23:[m[K [01;36m[Knote: [m[K‘[01m[Kstruct hpp::fcl::BVNode<hpp::fcl::OBBRSS>[m[K’ declared here
    87 | struct HPP_FCL_DLLAPI [01;36m[KBVNode[m[K : public BVNodeBase
       |                       [01;36m[K^~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BV_fitter.cpp:39[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_model.h:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/BVH/BVH_utility.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/BVH/BV_fitter.cpp:39[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_func_matrix.h:43[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_func_matrix.cpp:39[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
@@ -1837,6 +1837,18 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_utility.h:20[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_utility.cpp:17[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
+  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
+      |                [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/mesh_loader/loader.h:45[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/mesh_loader/loader.cpp:37[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/mesh_loader/loader.h:45[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/mesh_loader/loader.cpp:37[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K
@@ -2724,18 +2736,6 @@ In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp
 In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_func_matrix.h:43[m[K,
                  from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/collision_func_matrix.cpp:39[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
-  105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
-      |                [01;36m[K^~~~~~~~[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/mesh_loader/loader.h:45[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/mesh_loader/loader.cpp:37[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:[m[K In constructor ‘[01m[Khpp::fcl::CollisionObject::CollisionObject(const boost::shared_ptr<hpp::fcl::CollisionGeometry>&, const hpp::fcl::Transform3f&)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:171:45:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Khpp::fcl::Transform3f::Transform3f(const hpp::fcl::Transform3f&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
-  171 |     cgeom(cgeom_), cgeom_const(cgeom_), t(tf[01;35m[K)[m[K
-      |                                             [01;35m[K^[m[K
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/collision_object.h:44[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/mesh_loader/loader.h:45[m[K,
-                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/src/mesh_loader/loader.cpp:37[m[K:
 [01m[K/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl/include/hpp/fcl/math/transform.h:105:16:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Khpp::fcl::Transform3f[m[K’ has user-provided ‘[01m[Khpp::fcl::Transform3f& hpp::fcl::Transform3f::operator=(const hpp::fcl::Transform3f&)[m[K’
   105 |   Transform3f& [01;36m[Koperator[m[K = (const Transform3f& tf)
       |                [01;36m[K^~~~~~~~[m[K

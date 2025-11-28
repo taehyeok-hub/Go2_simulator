@@ -1,12 +1,11 @@
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Command(bool)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:42:9:[m[K [01;31m[Kerror: [m[K‘[01m[KCreate_Jacobian[m[K’ was not declared in this scope
-   42 |         [01;31m[KCreate_Jacobian[m[K(q_);
-      |         [01;31m[K^~~~~~~~~~~~~~~[m[K
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
-    6 |     [01;35m[Ksystem("clear")[m[K;
-      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
-make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
+/usr/bin/ld: CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: in function `go2_controller::~go2_controller()':
+go2_controller_node.cpp:(.text._ZN14go2_controllerD2Ev[_ZN14go2_controllerD5Ev]+0xfe): undefined reference to `CentroidalDynamics::~CentroidalDynamics()'
+/usr/bin/ld: CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: in function `go2_controller::~go2_controller()':
+go2_controller_node.cpp:(.text._ZN14go2_controllerD0Ev[_ZN14go2_controllerD5Ev]+0xfe): undefined reference to `CentroidalDynamics::~CentroidalDynamics()'
+/usr/bin/ld: CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: in function `go2_controller::go2_controller(ros::NodeHandle&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double)':
+go2_controller_node.cpp:(.text._ZN14go2_controllerC2ERN3ros10NodeHandleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_d[_ZN14go2_controllerC5ERN3ros10NodeHandleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_d]+0x5a): undefined reference to `CentroidalDynamics::CentroidalDynamics()'
+/usr/bin/ld: go2_controller_node.cpp:(.text._ZN14go2_controllerC2ERN3ros10NodeHandleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_d[_ZN14go2_controllerC5ERN3ros10NodeHandleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_d]+0x603): undefined reference to `CentroidalDynamics::~CentroidalDynamics()'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/go2_node.dir/build.make:243: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2881: CMakeFiles/go2_node.dir/all] Error 2
 make: *** [Makefile:146: all] Error 2

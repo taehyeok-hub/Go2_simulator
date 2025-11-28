@@ -93,6 +93,6 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [0mWARNING: package 'gazebo_msgs' is deprecated (This package has been deprecated as of January 2025 with Gazebo classic 11 reaching
       end-of-life. Users are highly encouraged to migrate to the new Gazebo
       using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration))[0m
-[36m--[0m Configuring done (1.6s)
-[36m--[0m Generating done (0.0s)
+[36m--[0m Configuring done (4.9s)
+[36m--[0m Generating done (0.2s)
 [36m--[0m Build files have been written to: /home/pth/pth/model/Go2_simulator/build/go2_gazebo

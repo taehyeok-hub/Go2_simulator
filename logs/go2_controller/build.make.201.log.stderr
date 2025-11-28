@@ -1,8 +1,0 @@
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Kgo2_controller.h: No such file or directory
-    1 | #include [01;31m[K"go2_controller.h"[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:2729: CMakeFiles/go2_controller.dir/all] Error 2
-make[1]: *** Waiting for unfinished jobs....
-make: *** [Makefile:146: all] Error 2

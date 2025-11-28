@@ -32,7 +32,7 @@ private:
     Eigen::Vector3d v_com_world;
     Eigen::Quaterniond quat_world;
     Eigen::Vector3d rpy_world;
-    Eigen::Vector3d omega_world;     // CoM 각속도 (바디 기준, IMU 센서 값)
+    Eigen::Vector3d rpy_dot_world;     // CoM 각속도 (바디 기준, IMU 센서 값)
     Eigen::Matrix3d R_world_to_body; // 자세 (월드 -> 바디)
     Eigen::Matrix3d R_body_to_world; // 자세 (바디 -> 월드)
 
@@ -46,7 +46,7 @@ private:
     // AF = b
     Eigen::Matrix<double, 6, 12> A_mat;
     Eigen::VectorXd b_vec; // (6x1)
-    Eigen::VectorXd F_world; // (12x1)
+    Eigen::VectorXd Force; // (12x1)
 
     // QP
     Eigen::SparseMatrix<double> Hessian;
@@ -54,17 +54,17 @@ private:
     Eigen::SparseMatrix<double> LinearMatrix;
     Eigen::VectorXd LowerBound;
     Eigen::VectorXd UpperBound;
-    
     Eigen::VectorXd QP_Solution;
     
     Eigen::Matrix3d Kp_Pos, Kd_Pos, Kp_Ori, Kd_Ori;
-    Eigen::Matrix<double, 12, 12> Q; // 내부 변수
+    Eigen::MatrixXd Q; // 내부 변수
 
     // 4. 내부 헬퍼 함수 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     Eigen::Matrix3d MakeCross2Skew(const Eigen::Vector3d &p);
     Eigen::Vector3d MakeMatrix2Skew(const Eigen::Matrix3d &R1, const Eigen::Matrix3d &R2);
     Eigen::Matrix3d RPYRotationMatrix(double roll, double pitch, double yaw);
+    
 
     // 5. 사용 클래스 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -76,20 +76,16 @@ public:
 
     // 외부(go2_controller)에서 이 함수들을 호출해 상태를 주입함.
     void SetRobotState(const Eigen::VectorXd &p, const Eigen::VectorXd &p_dot, const Eigen::VectorXd &quat, const Eigen::VectorXd &rpy, const Eigen::VectorXd &rpy_dot);
-
-    void SetFootPosition(const std::array<Eigen::Vector3d, 4> &feet_pos, Eigen::VectorXd &p_com);
-
+    void SetFootPosition(const std::array<Eigen::Vector3d, 4> &feet_pos);
     void Update_A_Matrix();
-    void Compute_b_Vector(const Eigen::Vector3d &p_des_world, const Eigen::Matrix3d &R_des_body,
-                          double Kp_pos, double Kd_pos, double Kp_ori, double Kd_ori);
-                          
-    void Compute_LinearMatrix(double friction_mu = 0.7);
-    void Compute_Constraint(double f_z_max = 200);
-    void Solve_Force();
+    void Compute_b_Vector(const Eigen::Vector3d &p_des_world, const Eigen::Matrix3d &R_des_body);     
+    void Set_CostFunction();
+    void Compute_LinearMatrix(double friction_mu = 0.2);
+    void Compute_Constraint(double f_z_max = 150);
     void Solve_QP();
 
     // 외부에서 계산된 힘 결과를 가져감
-    Eigen::VectorXd Get_Force() { return F_world; }
+    Eigen::VectorXd Get_Force() { return Force; }
 };
 
 #endif

@@ -17,13 +17,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX","output/HTML-CSS"],
-});
-</script>
-<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -157,10 +150,10 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:ab591833b4a575f307b7c55af74a8a3d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store temporary data for the computation of the support point for each shape.  <a href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#ab591833b4a575f307b7c55af74a8a3d3">More...</a><br /></td></tr>
 <tr class="separator:ab591833b4a575f307b7c55af74a8a3d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a765f60edfc717cc7230935821d0c6d74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacehpp_1_1fcl.html#a0290ba47d50e32cb9ec7fe9919b34dc1">Matrix3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#a765f60edfc717cc7230935821d0c6d74">oR1</a></td></tr>
-<tr class="memdesc:a765f60edfc717cc7230935821d0c6d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">rotation from shape1 to shape0 such that \( p_in_0 = oR1 * p_in_1 + ot1 \).  <a href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#a765f60edfc717cc7230935821d0c6d74">More...</a><br /></td></tr>
+<tr class="memdesc:a765f60edfc717cc7230935821d0c6d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">rotation from shape1 to shape0 such that <img class="formulaInl" alt="$ p_in_0 = oR1 * p_in_1 + ot1 $" src="form_0.png"/>.  <a href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#a765f60edfc717cc7230935821d0c6d74">More...</a><br /></td></tr>
 <tr class="separator:a765f60edfc717cc7230935821d0c6d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a142fe081cd8b16340a2efdd7bb060f12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacehpp_1_1fcl.html#a2c54f23d974b75093503b78c52ebf26c">Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#a142fe081cd8b16340a2efdd7bb060f12">ot1</a></td></tr>
-<tr class="memdesc:a142fe081cd8b16340a2efdd7bb060f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">translation from shape1 to shape0 such that \( p_in_0 = oR1 * p_in_1 + ot1 \).  <a href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#a142fe081cd8b16340a2efdd7bb060f12">More...</a><br /></td></tr>
+<tr class="memdesc:a142fe081cd8b16340a2efdd7bb060f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">translation from shape1 to shape0 such that <img class="formulaInl" alt="$ p_in_0 = oR1 * p_in_1 + ot1 $" src="form_0.png"/>.  <a href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#a142fe081cd8b16340a2efdd7bb060f12">More...</a><br /></td></tr>
 <tr class="separator:a142fe081cd8b16340a2efdd7bb060f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7c45285a4a885fb68833d0f5b2cd8bf"><td class="memItemLeft" align="right" valign="top">Eigen::Array&lt; <a class="el" href="namespacehpp_1_1fcl.html#adea4a7b8739d4b402df24c8f813f9167">FCL_REAL</a>, 1, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#ac7c45285a4a885fb68833d0f5b2cd8bf">inflation</a></td></tr>
 <tr class="memdesc:ac7c45285a4a885fb68833d0f5b2cd8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The radius of the sphere swepted volume. The 2 values correspond to the inflation of shape 0 and shape 1.  <a href="structhpp_1_1fcl_1_1details_1_1MinkowskiDiff.html#ac7c45285a4a885fb68833d0f5b2cd8bf">More...</a><br /></td></tr>
@@ -507,7 +500,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>rotation from shape1 to shape0 such that \( p_in_0 = oR1 * p_in_1 + ot1 \). </p>
+<p>rotation from shape1 to shape0 such that <img class="formulaInl" alt="$ p_in_0 = oR1 * p_in_1 + ot1 $" src="form_0.png"/>. </p>
 
 </div>
 </div>
@@ -523,7 +516,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>translation from shape1 to shape0 such that \( p_in_0 = oR1 * p_in_1 + ot1 \). </p>
+<p>translation from shape1 to shape0 such that <img class="formulaInl" alt="$ p_in_0 = oR1 * p_in_1 + ot1 $" src="form_0.png"/>. </p>
 
 </div>
 </div>

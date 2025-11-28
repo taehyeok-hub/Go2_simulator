@@ -90,6 +90,23 @@ void CentroidalDynamics::Set_FootPosition(Eigen::VectorXd Pino_F1_, Eigen::Vecto
     Pino_H2 = Pino_H2_;
 }
 
+void CentroidalDynamics::SetFootPosition_(const std::array<Eigen::Vector3d, 4> &feet_pos_body)
+{
+    // parameter로 들어올 변수 -> EE_Pose_FL, EE_Pose_FR, EE_Pose_RL, EE_Pose_RR --> FK 결과 (body)
+    // p_com --> IMU 센서로 들여옴.
+    std::array<Eigen::Vector3d, 4> p_foot_world;
+    for (int i = 0; i < 4; i++)
+    {
+        p_foot_world[i] = R_body_to_world * feet_pos_body[i];
+    }
+    Pino_F1 = p_foot_world[0];
+    Pino_F2 = p_foot_world[1];
+    Pino_H1 = p_foot_world[2];
+    Pino_H2 = p_foot_world[3];
+}
+
+
+
 void CentroidalDynamics::Set_LegJacobian(Eigen::MatrixXd F1_J_, Eigen::MatrixXd F2_J_, Eigen::MatrixXd H1_J_, Eigen::MatrixXd H2_J_)
 {
     F1_J = F1_J_;
@@ -110,7 +127,7 @@ void CentroidalDynamics::Set_Reference(Eigen::VectorXd Body_Ref_)
 {
     Body_Ref = Body_Ref_;
 
-    Eigen::Vector3d P_Ref = Body_Ref.head<3>();
+    Eigen::Vector3d P_Ref = Body_Ref.head<3>(); // 앞의 3개 요소 받아오기
     Eigen::Matrix3d R_Ref = RPYToRotationMatrix(Body_Ref(3), Body_Ref(4), Body_Ref(5));
     Eigen::Matrix3d R_Act = RPYToRotationMatrix(Body_RPY(0), Body_RPY(1), Body_RPY(2));
     Eigen::Matrix3d R_Err = R_Act.transpose() * R_Ref;

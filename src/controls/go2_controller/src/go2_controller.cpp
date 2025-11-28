@@ -44,6 +44,7 @@ void go2_controller::Command(bool flag)
     {
         KINE.Forward_Kinematics(q_, dq_);
         KINE.Jacobian(q_);
+        std::cout << "몸통 좌표 : x = " << gazebo_body_pos(0) << " y = " << gazebo_body_pos(1) << " z = " << gazebo_body_pos(2) << std::endl;
         // Forward_Kinematics_ME(q_, dq_);
         // Create_Jacobian(q_);
 
@@ -75,7 +76,11 @@ void go2_controller::Command(bool flag)
         }
         case SRBM_CONTROL:
         {
-            Body_Pos = gazebo_body_pos;
+            // double alpha = 0.02;
+            // Body_Pos.setZero();
+            // Body_Rot.setZero();
+            // Body_Pos = (1 - alpha) * Body_Pos + alpha * gazebo_body_pos;
+            // Body_Rot = SRBM.RPYRotationMatrix(gazebo_rpy(0), gazebo_rpy(1), gazebo_rpy(2));
             SRBMControl();
             break;
         }
@@ -88,7 +93,7 @@ void go2_controller::Command(bool flag)
 void go2_controller::Homing() // 초기자세 설정 하는 코드
 {
     ros::Time Current_Time = ros::Time::now();
-    
+
     double t = (Current_Time - Moving_Time).toSec(); // toSec() 적으세요
     double T;
 
@@ -248,47 +253,69 @@ void go2_controller::Squating()
 
 void go2_controller::SRBMControl()
 {
+    // CENT.Set_BodyState(gazebo_body_pos, gazebo_body_vel, gazebo_rpy, gazebo_rpy_dot, gazebo_quat);
+    // std::array<Eigen::Vector3d, 4> feet_pos = KINE.Get_EE_Pose();
+    // CENT.SetFootPosition_(feet_pos);
+
+    // Eigen::Matrix<double, 6, 12> J = KINE.Get_Jacobian();
+    // Eigen::MatrixXd F1_J_ = J.block<3,3>(0,0);
+    // Eigen::MatrixXd F2_J_ = J.block<3,3>(0,3);
+    // Eigen::MatrixXd H1_J_ = J.block<3,3>(0,6);
+    // Eigen::MatrixXd H2_J_ = J.block<3,3>(0,9);
+    // CENT.Set_LegJacobian(F1_J_, F2_J_, H1_J_, H2_J);
+
+    // Body_Ref_ << 0, 0, 0.34, 0, 0, 0, gazebo_rpy(0), gazebo_rpy(1), gazebo_rpy(2),
+    // CENT.Set_Reference(Body_Ref_);
+
     // 1. 로봇 몸통 상태 받아오기
     SRBM.SetRobotState(gazebo_body_pos, gazebo_body_vel, gazebo_quat, gazebo_rpy, gazebo_rpy_dot);
-
-    // 2. KINE로부터 현재 발 좌표 받아오기 
     std::array<Eigen::Vector3d, 4> feet_pos = KINE.Get_EE_Pose();
-    SRBM.SetFootPosition(feet_pos, gazebo_body_pos);
+    SRBM.SetFootPosition(feet_pos);
 
-    // 3. AF=B의 A Matrix 계산 
     SRBM.Update_A_Matrix();
-
-    // 4. 로봇이 있길 원하는 자세인 x_des 설정하기
-    Eigen::Vector3d x_des;
-    x_des << 0, 0, 0.3;
-
-    // 5. 계산 결과에 따른 
-    Eigen::Matrix3d R_des = Eigen::Matrix3d::Identity();
-    double Kp_lin = 100.0; double Kd_lin = 5.0;
-    double Kp_rot = 100.0; double Kd_rot = 5.0;
-    SRBM.Compute_b_Vector(Body_Pos, R_des, Kp_lin, Kd_lin, Kp_rot, Kd_rot);
-
-    // 6. 
-    SRBM.Solve_QP();
-    Eigen::VectorXd Force_world = SRBM.Get_Force();
     Eigen::Quaterniond q_curr(gazebo_quat(3), gazebo_quat(0), gazebo_quat(1), gazebo_quat(2));
-    Eigen::Matrix3d R_world_to_body_ = q_curr.toRotationMatrix().transpose();
+    Eigen::Matrix3d R_w2b = q_curr.toRotationMatrix().transpose();
 
-    Eigen::VectorXd Force_body = R_world_to_body_ * Force_world;
+    // 5. 계산 결과에 따른
+    // double yaw = gazebo_rpy(2); // 현재 yaw (rad)
 
-    Eigen::Matrix<double,6,12> J = KINE.Get_Jacobian();
+    // Eigen::Matrix3d R_yaw_only;
+    // R_yaw_only << cos(yaw), -sin(yaw), 0,
+    //     sin(yaw), cos(yaw), 0,
+    //     0, 0, 1;
+    Eigen::Matrix3d R_des_ = Eigen::Matrix3d::Identity();
+    SRBM.Compute_b_Vector(gazebo_body_pos, R_des_);
+
+    SRBM.Solve_QP();
+    Force_ = SRBM.Get_Force();
+    Force_FL = Force_.segment<3>(0);
+    Force_FR = Force_.segment<3>(3);
+    Force_RL = Force_.segment<3>(6);
+    Force_RR = Force_.segment<3>(9);
+
+    Eigen::Matrix<double, 6, 12> J = KINE.Get_Jacobian();
     std::array<Eigen::Vector3d, 4> Input_torque;
 
-    for (int i = 0; i < NUM_LEG; i++)
-    {
-        Input_torque[i] = J.block<3,3>(0, 3 * i).transpose() * Force_body.segment<3>(3 * i);
-    }
+    Input_torque[0] = J.block<3, 3>(0, 0).transpose() * (-1) * Force_FL;
+    Input_torque[1] = J.block<3, 3>(0, 3).transpose() * (-1) * Force_FR;
+    Input_torque[2] = J.block<3, 3>(0, 6).transpose() * (-1) * Force_RL;
+    Input_torque[3] = J.block<3, 3>(0, 9).transpose() * (-1) * Force_RR;
 
     torque_.segment<3>(0) = Input_torque[0];
     torque_.segment<3>(3) = Input_torque[1];
     torque_.segment<3>(6) = Input_torque[2];
     torque_.segment<3>(9) = Input_torque[3];
-    
+
+    std::cout << "SRBM_Force = " << std::endl
+              << Force_ << std::endl;
+    std::cout << "SRBM_Torque[0] = " << std::endl
+              << Input_torque[0] << std::endl;
+    std::cout << "SRBM_Torque[1] = " << std::endl
+              << Input_torque[1] << std::endl;
+    std::cout << "SRBM_Torque[2] = " << std::endl
+              << Input_torque[2] << std::endl;
+    std::cout << "SRBM_Torque[3] = " << std::endl
+              << Input_torque[3] << std::endl;
 }
 
 void go2_controller::Run()
@@ -461,14 +488,26 @@ void go2_controller::DataStream()
 
     // TH_msg 메세지의 형태로 data를 발행함.
     // ex) EE_Pose_FL은 x, y, z의 형태로 되어 있으니까, EE_Pose_FL
-    
-    // TH_msg.data.push_back();
-    // TH_msg.data.push_back();
-    // TH_msg.data.push_back();
 
-    TH_msg.data.push_back(EE_Pose_FL_desired(X));
-    TH_msg.data.push_back(EE_Pose_FL_desired(Y));
-    TH_msg.data.push_back(EE_Pose_FL_desired(Z));
+    TH_msg.data.push_back(Body_Pos(X));
+    TH_msg.data.push_back(Body_Pos(Y));
+    TH_msg.data.push_back(Body_Pos(Z));
+
+    TH_msg.data.push_back(Force_FL(X));
+    TH_msg.data.push_back(Force_FL(Y));
+    TH_msg.data.push_back(Force_FL(Z));
+    
+    TH_msg.data.push_back(Force_FR(X));
+    TH_msg.data.push_back(Force_FR(Y));
+    TH_msg.data.push_back(Force_FR(Z));
+
+    TH_msg.data.push_back(Force_RL(X));
+    TH_msg.data.push_back(Force_RL(Y));
+    TH_msg.data.push_back(Force_RL(Z));
+
+    TH_msg.data.push_back(Force_RR(X));
+    TH_msg.data.push_back(Force_RR(Y));
+    TH_msg.data.push_back(Force_RR(Z));
 
     pub_TH_.publish(TH_msg);
 
