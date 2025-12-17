@@ -1,220 +1,135 @@
 #include "Centroidal_Dynamics.hpp"
 
-CentroidalDynamics::CentroidalDynamics()
+Centroidal_Dynamics::Centroidal_Dynamics()
 {
-    A.setZero(2 * NUM_AXIS, NUM_LEG * NUM_AXIS);
-    B.setZero(2 * NUM_AXIS);
-
-    Hessian.resize(NUM_LEG * NUM_AXIS, NUM_LEG * NUM_AXIS);
-    Gradient.resize(NUM_LEG * NUM_AXIS);
-    LinearMatrix.resize(3*NUM_LEG, 12);
-    LowerBound.resize(3*NUM_LEG);
-    UpperBound.resize(3*NUM_LEG);
-    QPSolution.resize(NUM_LEG * NUM_AXIS);
-    force.resize(NUM_LEG * NUM_AXIS);
-
-    Hessian.setZero();
-    Gradient.setZero();
-    LinearMatrix.setZero();
-    LowerBound.setZero();
-    UpperBound.setZero();
-    QPSolution.setZero();
-    force.setZero();
+    mass = 15.0;
+    mu = 0.7;
+    gravity << 0, 0, -9.81;
+    I_body << 0.02448, 0.00012166, 0.0014849, 0.00012166, 0.098077, -3.12E-05, 0.0014849, -3.12E-05, 0.107;
 
     Kp_Pos.setIdentity();
-    Kp_Pos.diagonal() << 30000.0, 30000.0, 30000.0;
+    Kp_Pos.diagonal() << 100.0, 100.0, 100.0;
 
     Kd_Pos.setIdentity();
-    Kd_Pos.diagonal() << 300.0, 300.0, 500.0;
+    Kd_Pos.diagonal() << 1.0, 1.0, 1.0;
 
     Kp_Ori.setIdentity();
-    Kp_Ori.diagonal() << 10000.0, 10000.0, 10000.0;
+    Kp_Ori.diagonal() << 100.0, 100.0, 100.0;
 
     Kd_Ori.setIdentity();
-    Kd_Ori.diagonal() << 100.0, 100.0, 100.0;
+    Kd_Ori.diagonal() << 1.0, 1.0, 1.0;
 
-    Body_I << 11.689, -0.00455, 1.525, -0.00455, 9.8551, -0.09272, 1.525, -0.09272, 17.845;
-    gravity << 0, 0, -9.81;
-
-    Q = Eigen::MatrixXd::Identity(6, 6);
-
-    // for (int i = 0; i < NUM_LEG; ++i)
-    // {
-    //     LinearMatrix.insert(0 + 5 * i, 0 + 3 * i) = 1;
-    //     LinearMatrix.insert(1 + 5 * i, 0 + 3 * i) = 1;
-    //     LinearMatrix.insert(2 + 5 * i, 1 + 3 * i) = 1;
-    //     LinearMatrix.insert(3 + 5 * i, 1 + 3 * i) = 1;
-    //     LinearMatrix.insert(4 + 5 * i, 2 + 3 * i) = 1;
-
-    //     LinearMatrix.insert(0 + 5 * i, 2 + 3 * i) = mu;
-    //     LinearMatrix.insert(1 + 5 * i, 2 + 3 * i) = -mu;
-    //     LinearMatrix.insert(2 + 5 * i, 2 + 3 * i) = mu;
-    //     LinearMatrix.insert(3 + 5 * i, 2 + 3 * i) = -mu;
-    // }
-
-    for (int i = 0; i < NUM_LEG; ++i)
-    {
-        LinearMatrix.insert(0 + 3 * i, 0 + 3 * i) = 1;
-        LinearMatrix.insert(1 + 3 * i, 1 + 3 * i) = 1;
-        LinearMatrix.insert(2 + 3 * i, 2 + 3 * i) = 1;
-    }
+    Hessian.resize(num_of_variables, num_of_variables);
+    Gradient.resize(num_of_variables);
+    LinearMatrix.resize(num_of_constraints, num_of_variables);
+    LowerBound.resize(num_of_constraints);
+    UpperBound.resize(num_of_constraints);
 }
 
-CentroidalDynamics::~CentroidalDynamics() {}
+Centroidal_Dynamics::~Centroidal_Dynamics() {}
 
-void CentroidalDynamics::Set_BodyState(Eigen::VectorXd Body_Pos_, Eigen::VectorXd Body_Vel_, Eigen::VectorXd Body_RPY_, Eigen::VectorXd Body_RPY_Dot_, Eigen::VectorXd Body_Quat_)
+void Centroidal_Dynamics::Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_rpy_, Eigen::VectorXd COM_rpy_dot_)
 {
-    Body_Pos = Body_Pos_; //world
-    Body_Vel = Body_Vel_; //world
-    Body_RPY = Body_RPY_; //world
-    Body_RPY_Dot = Body_RPY_Dot_; //world
+    COM_Pose = COM_Pose_;
+    COM_Vel = COM_Vel_;
+    COM_Quat = COM_Quat_;
+    COM_rpy = COM_rpy_;
+    COM_rpy_dot = COM_rpy_dot_;
 
-    Body_Quat = Eigen::Quaterniond(Body_Quat_(0), Body_Quat_(1), Body_Quat_(2), Body_Quat_(3));
-    Body_Quat.normalize();
-    Rz = Body_Quat.toRotationMatrix();
-
-    Local_gravity = Rz.transpose() * gravity;
-
-    std::cout << Local_gravity.transpose() << std::endl;
-
-    Body_Err(X) = Body_Pos(X);
-    Body_Err(Y) = Body_Pos(Y);
-    Body_Err(Z) = Body_Pos(Z);
+    Set_QuatRotationMatrix(COM_Quat);
 }
 
-void CentroidalDynamics::Set_FootPosition(Eigen::VectorXd Pino_F1_, Eigen::VectorXd Pino_F2_, Eigen::VectorXd Pino_H1_, Eigen::VectorXd Pino_H2_)
+void Centroidal_Dynamics::Set_FootPosition(std::array<Eigen::Vector3d, 4> EE_Pose)
 {
-    Pino_F1 = Pino_F1_;
-    Pino_F2 = Pino_F2_;
-    Pino_H1 = Pino_H1_;
-    Pino_H2 = Pino_H2_;
+   EE_Pose_FL_Body = EE_Pose[FL];
+   EE_Pose_FR_Body = EE_Pose[FR];
+   EE_Pose_RL_Body = EE_Pose[RL];
+   EE_Pose_RR_Body = EE_Pose[RR];
 }
 
-void CentroidalDynamics::SetFootPosition_(const std::array<Eigen::Vector3d, 4> &feet_pos_body)
+void Centroidal_Dynamics::Compute_A_Matrix()
 {
-    // parameter로 들어올 변수 -> EE_Pose_FL, EE_Pose_FR, EE_Pose_RL, EE_Pose_RR --> FK 결과 (body)
-    // p_com --> IMU 센서로 들여옴.
-    std::array<Eigen::Vector3d, 4> p_foot_world;
+    Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
     for (int i = 0; i < 4; i++)
     {
-        p_foot_world[i] = R_body_to_world * feet_pos_body[i];
+        A_Matrix.block<3,3>(0, 3 * i) = I;
     }
-    Pino_F1 = p_foot_world[0];
-    Pino_F2 = p_foot_world[1];
-    Pino_H1 = p_foot_world[2];
-    Pino_H2 = p_foot_world[3];
+    
+    A_Matrix.block<3,3>(3,0) = Set_VecCross2Skew(EE_Pose_FL_Body);
+    A_Matrix.block<3,3>(3,3) = Set_VecCross2Skew(EE_Pose_FR_Body);
+    A_Matrix.block<3,3>(3,6) = Set_VecCross2Skew(EE_Pose_RL_Body);
+    A_Matrix.block<3,3>(3,9) = Set_VecCross2Skew(EE_Pose_RR_Body);
+
+    std::cout << "===== A_Matrix ===== \n" << A_Matrix << std::endl; 
 }
 
-
-
-void CentroidalDynamics::Set_LegJacobian(Eigen::MatrixXd F1_J_, Eigen::MatrixXd F2_J_, Eigen::MatrixXd H1_J_, Eigen::MatrixXd H2_J_)
+void Centroidal_Dynamics::Compute_B_Vector(Eigen::Vector3d des_Pos_, Eigen::Matrix3d des_Ori_)
 {
-    F1_J = F1_J_;
-    F2_J = F2_J_;
-    H1_J = H1_J_;
-    H2_J = H2_J_;
+    Eigen::Vector3d gravity_body = R_wb * gravity;
+    
+    des_Pos = des_Pos_; 
+    des_Ori = des_Ori_;
+    Err_Pos = des_Pos - COM_Pose;
+    Err_Ori = ErrOri_CrossProduct(R_bw, des_Ori);
+
+    Eigen::Vector3d COM_Acc_ref = (Kp_Pos * R_wb * (des_Pos - COM_Pose) - Kd_Pos * R_wb * COM_Vel) / mass;
+    Eigen::Vector3d COM_RPYdot_ref = (Kp_Ori * (ErrOri_CrossProduct(R_bw, des_Ori)) - Kd_Ori * COM_rpy_dot); 
+
+    B_Vector.segment<3>(0) = -mass * gravity_body + mass * COM_Acc_ref;
+    B_Vector.segment<3>(3) = I_body * COM_RPYdot_ref;
+
+    std::cout << "===== B_Matrix ===== \n" << B_Vector << std::endl; 
 }
 
-void CentroidalDynamics::Set_GaitPhase(int Phase[])
+void Centroidal_Dynamics::Set_CostFunction()
 {
-    GaitPhase[F1] = Phase[F1];
-    GaitPhase[F2] = Phase[F2];
-    GaitPhase[H1] = Phase[H1];
-    GaitPhase[H2] = Phase[H2];
+    /* sparse 행렬 활용법 : Dense한 행렬을 만들어서 여기서 계산한 다음에 sparse로 흩뿌린다. */ 
+    Eigen::MatrixXd dense_Hessian = A_Matrix.transpose() * A_Matrix;
+    Hessian = dense_Hessian.sparseView(); 
+    Gradient = (-1) * A_Matrix.transpose() * B_Vector;
 }
 
-void CentroidalDynamics::Set_Reference(Eigen::VectorXd Body_Ref_)
+void Centroidal_Dynamics::Set_LinearMatrix()
 {
-    Body_Ref = Body_Ref_;
+    LinearMatrix.setZero();
 
-    Eigen::Vector3d P_Ref = Body_Ref.head<3>(); // 앞의 3개 요소 받아오기
-    Eigen::Matrix3d R_Ref = RPYToRotationMatrix(Body_Ref(3), Body_Ref(4), Body_Ref(5));
-    Eigen::Matrix3d R_Act = RPYToRotationMatrix(Body_RPY(0), Body_RPY(1), Body_RPY(2));
-    Eigen::Matrix3d R_Err = R_Act.transpose() * R_Ref;
-
-    Eigen::Quaterniond Q_Ref(Body_Ref(3), Body_Ref(4), Body_Ref(5), Body_Ref(6));
-    Q_Ref.normalize();
-
-    // Eigen::Vector3d E_r = ComputeQuatError(Q_Ref, Body_Quat);
-
-    Eigen::Vector3d E_r = ComputeRPYError(R_Err);
-
-    Lin_Ref = (1.0 / mass) * (Kp_Pos * (P_Ref - Body_Pos) - Kd_Pos * Body_Vel);
-    Ang_Ref = Kp_Ori * E_r - Kd_Ori * Body_RPY_Dot;
-    // Ang_Ref = Kp_Ori * E_r - Kd_Ori * Body_AngVel;
-
-    // std::cout << Lin_Ref(0) << "  |  " << Lin_Ref(1) <<  "  |  " << Lin_Ref(2) << std::endl;
-    // std::cout << Ang_Ref(0) << "  |  " << Ang_Ref(1) <<  "  |  " << Ang_Ref(2) << std::endl;
-}
-
-void CentroidalDynamics::Set_A_Matrix()
-{
-    Eigen::Matrix3d F1_cross = SkewSymmetricMatrix(Pino_F1);
-    Eigen::Matrix3d F2_cross = SkewSymmetricMatrix(Pino_F2);
-    Eigen::Matrix3d H1_cross = SkewSymmetricMatrix(Pino_H1);
-    Eigen::Matrix3d H2_cross = SkewSymmetricMatrix(Pino_H2);
-
-    A.block<3, 3>(0, 0) = Eigen::Matrix3d::Identity();
-    A.block<3, 3>(0, 3) = Eigen::Matrix3d::Identity();
-    A.block<3, 3>(0, 6) = Eigen::Matrix3d::Identity();
-    A.block<3, 3>(0, 9) = Eigen::Matrix3d::Identity();
-
-    A.block<3, 3>(3, 0) = F1_cross;
-    A.block<3, 3>(3, 3) = F2_cross;
-    A.block<3, 3>(3, 6) = H1_cross;
-    A.block<3, 3>(3, 9) = H2_cross;
-}
-
-void CentroidalDynamics::Set_B_Matrix()
-{
-    Eigen::Vector3d linear_force = mass * (Local_gravity + Lin_Ref);
-
-    Eigen::Vector3d angular_torque = Body_I * Ang_Ref;
-
-    B.block<3, 1>(0, 0) = linear_force;
-    B.block<3, 1>(3, 0) = angular_torque;
-}
-
-void CentroidalDynamics::Compute_CostFunction()
-{
-    Eigen::MatrixXd dense_Hessian = 2 * 0.15 * A.transpose() * Q * A;
-    Hessian = dense_Hessian.sparseView();
-
-    Eigen::VectorXd dense_Gradient = -2 * 0.15 * A.transpose() * Q * B;
-    Gradient = dense_Gradient;
-}
-
-void CentroidalDynamics::Compute_Constraint()
-{
-    int gt = 0;
-
-    for (int leg = 0; leg < NUM_LEG; ++leg)
+    for (int leg = 0; leg < NUM_LEG; leg++)
     {
-        if (GaitPhase[leg] == 1)
-        {
-            gt = 0;
-        }
-        else if (GaitPhase[leg] == 0)
-        {
-            gt = 1;
-        }
+        LinearMatrix.insert(0 + 5 * leg, 0 + 3 * leg) = 1;
+        LinearMatrix.insert(1 + 5 * leg, 0 + 3 * leg) = 1;
+        LinearMatrix.insert(2 + 5 * leg, 1 + 3 * leg) = 1;
+        LinearMatrix.insert(3 + 5 * leg, 1 + 3 * leg) = 1;
+        LinearMatrix.insert(4 + 5 * leg, 2 + 3 * leg) = 1;
 
-        // LowerBound.segment<5>(leg * 5) << 0, -OsqpEigen::INFTY, 0, -OsqpEigen::INFTY, 5 * gt;
-        // UpperBound.segment<5>(leg * 5) << OsqpEigen::INFTY, 0, OsqpEigen::INFTY, 0, 2000 * gt;
-
-        LowerBound.segment<3>(3 * leg) << -800, -800, -800;
-        UpperBound.segment<3>(3 * leg) << 800, 800, 800;
+        LinearMatrix.insert(0 + 5 * leg, 2 + 3 * leg) = -mu;
+        LinearMatrix.insert(1 + 5 * leg, 2 + 3 * leg) = mu;
+        LinearMatrix.insert(2 + 5 * leg, 2 + 3 * leg) = -mu;
+        LinearMatrix.insert(3 + 5 * leg, 2 + 3 * leg) = mu;
     }
 }
 
-void CentroidalDynamics::Solve_QP()
+void Centroidal_Dynamics::Set_Constraint(double fz_max)
 {
+    const double inf = OsqpEigen::INFTY;
+    double fz_min = 1e-6;
+
+    for (int leg = 0; leg < NUM_LEG; leg++)
+    {
+        LowerBound.segment<5>(5 * leg) << -inf, 0, -inf, 0, fz_min;
+        UpperBound.segment<5>(5 * leg) << 0, inf, 0, inf, fz_max;
+    }
+}
+
+void Centroidal_Dynamics::Solve_QP()
+{
+    Set_CostFunction();
+
     if (!solver.isInitialized())
     {
-        solver.settings()->setVerbosity(false);
+        solver.settings()->setVerbosity(true);
         solver.settings()->setWarmStart(true);
         solver.data()->setNumberOfVariables(NUM_LEG * NUM_AXIS);
-        solver.data()->setNumberOfConstraints(3*NUM_LEG);
+        solver.data()->setNumberOfConstraints(num_of_constraints * NUM_LEG);
 
         solver.data()->setHessianMatrix(Hessian);
         solver.data()->setGradient(Gradient);
@@ -231,10 +146,12 @@ void CentroidalDynamics::Solve_QP()
     }
 
     solver.solveProblem();
-    QPSolution = solver.getSolution();
 
-    for (size_t i = 0; i < NUM_LEG * NUM_AXIS; i++)
+    QP_Solution = solver.getSolution();
+
+    for (int i = 0; i < num_of_variables; i++)
     {
-        force(i) = QPSolution(i);
+        F_Vector(i) = QP_Solution(i);
     }
+
 }

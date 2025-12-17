@@ -518,6 +518,22 @@ void go2_controller::DataStream()
     TH_msg.data.push_back(Body_Pos(Y));
     TH_msg.data.push_back(Body_Pos(Z));
 
+    TH_msg.data.push_back(Body_Pos(X));
+    TH_msg.data.push_back(Body_Pos(Y));
+    TH_msg.data.push_back(Body_Pos(Z));
+    
+    TH_msg.data.push_back(Body_Pos(X));
+    TH_msg.data.push_back(Body_Pos(Y));
+    TH_msg.data.push_back(Body_Pos(Z));
+
+    TH_msg.data.push_back(Body_Pos(X));
+    TH_msg.data.push_back(Body_Pos(Y));
+    TH_msg.data.push_back(Body_Pos(Z));
+
+    TH_msg.data.push_back(Body_Pos(X));
+    TH_msg.data.push_back(Body_Pos(Y));
+    TH_msg.data.push_back(Body_Pos(Z));
+
     pub_TH_.publish(TH_msg);
 
     // PLOT---------------------------------------------------------------------------------------------------------------------------------------------------------

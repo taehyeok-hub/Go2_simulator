@@ -68,5 +68,6 @@
         "list": "cpp",
         "cfenv": "cpp",
         "hash_map": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller"
 }

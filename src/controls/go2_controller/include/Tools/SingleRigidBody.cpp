@@ -164,12 +164,16 @@ void SingleRigidBody::Compute_b_Vector(const Eigen::Vector3d &p_des_world, const
 
     Eigen::Vector3d v_com_body = R_world_to_body * v_com_world;
     Eigen::Vector3d rpy_dot_body = R_world_to_body * rpy_dot_world;
+    Eigen::Vector3d skew_error = MakeMatrix2Skew(R_world_to_body, R_des_body);
 
     b_vec.segment<3>(0) = -M * gravity_body + (Kp_Pos * p_des_err_body - Kd_Pos * v_com_body);
-    b_vec.segment<3>(3) = I_body * (Kp_Ori * MakeMatrix2Skew(R_world_to_body, R_des_body) - Kd_Ori * rpy_dot_body);
+    b_vec.segment<3>(3) = I_body * (Kp_Ori * skew_error - Kd_Ori * rpy_dot_body);
         
     std::cout << "p_des_err_world = "<< p_des_err_world << std::endl;
     std::cout << "p_des_err_body = "<< p_des_err_body << std::endl;
+    std::cout << "rpy_des_error_body = " << rpy_des_error_body << std::endl; 
+    std::cout << "skew_error = " << skew_error << std::endl;
+
     // std::cout << "b = " << b_vec << std::endl;
 }
 

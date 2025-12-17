@@ -80,11 +80,14 @@ public:
     void Update_A_Matrix();
     void Compute_b_Vector(const Eigen::Vector3d &p_des_world, const Eigen::Matrix3d &R_des_body, Eigen::Vector3d rpy_des_error_body);     
     void Set_CostFunction();
-    void Compute_LinearMatrix(double friction_mu = 0.2);
+    void Compute_LinearMatrix(double friction_mu = 1.0);
     void Compute_Constraint(double f_z_max = 150);
     void Solve_QP();
 
     // 외부에서 계산된 힘 결과를 가져감
+    Eigen::VectorXd Get_Force() { return Force; }
+    Eigen::VectorXd Get_Reference() { return Force; }
+    Eigen::VectorXd Get_Force() { return Force; }
     Eigen::VectorXd Get_Force() { return Force; }
 };
 
