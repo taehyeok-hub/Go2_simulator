@@ -128,12 +128,42 @@ include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.s"
 	cd /home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp -o CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.s
 
+include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o: include/Tools/CMakeFiles/Tools.dir/flags.make
+include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o: /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp
+include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o: include/Tools/CMakeFiles/Tools.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o"
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o -MF CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o.d -o CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o -c /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp
+
+include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.i"
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp > CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.i
+
+include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.s"
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp -o CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.s
+
+include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o: include/Tools/CMakeFiles/Tools.dir/flags.make
+include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o: /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.cpp
+include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o: include/Tools/CMakeFiles/Tools.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o"
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o -MF CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o.d -o CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o -c /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.cpp
+
+include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.i"
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.cpp > CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.i
+
+include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.s"
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.cpp -o CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.s
+
 # Object files for target Tools
 Tools_OBJECTS = \
 "CMakeFiles/Tools.dir/SingleRigidBody.cpp.o" \
 "CMakeFiles/Tools.dir/Kinematics.cpp.o" \
 "CMakeFiles/Tools.dir/Trajectories.cpp.o" \
-"CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o"
+"CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o" \
+"CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o" \
+"CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o"
 
 # External object files for target Tools
 Tools_EXTERNAL_OBJECTS =
@@ -142,10 +172,12 @@ Tools_EXTERNAL_OBJECTS =
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so: include/Tools/CMakeFiles/Tools.dir/Kinematics.cpp.o
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so: include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so: include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o
+/home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so: include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o
+/home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so: include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so: include/Tools/CMakeFiles/Tools.dir/build.make
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libosqpeigen.so
 /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so: include/Tools/CMakeFiles/Tools.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pth/pth/model/Go2_simulator/build/go2_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so"
 	cd /home/pth/pth/model/Go2_simulator/build/go2_controller/include/Tools && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Tools.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

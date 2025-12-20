@@ -1,5 +1,11 @@
 #include "Centroidal_Dynamics.hpp"
 
+/*
+    오답 노트
+    1. COM_Pose 랑, COM_RPY, COM_Quat는 그냥 global로 받아도 된다. -> 움직이지 않는 것이 목적인 코드이기 때문에
+    2.
+*/
+
 Centroidal_Dynamics::Centroidal_Dynamics()
 {
     mass = 15.0;
@@ -24,27 +30,59 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     LinearMatrix.resize(num_of_constraints, num_of_variables);
     LowerBound.resize(num_of_constraints);
     UpperBound.resize(num_of_constraints);
+    QP_Solution.resize(num_of_variables);
+
+    Hessian.setZero();
+    Gradient.setZero();
+    LinearMatrix.setZero();
+    LowerBound.setZero();
+    UpperBound.setZero();
+    QP_Solution.setZero();
+
+    Q = Eigen::MatrixXd::Identity(6, 6);
+    Q(0, 0) = 0.1;
+    Q(1, 1) = 0.1;
+    Q(2, 2) = 0.1; // X축, Y축, Z축 (선형)가중치
+
+    Q(3, 3) = 0.1;
+    Q(4, 4) = 0.1;
+    Q(5, 5) = 0.1; // Roll, Pitch, Yaw 방향 가중치
+
+    Set_LinearMatrix();
+    Set_Constraint();
 }
 
 Centroidal_Dynamics::~Centroidal_Dynamics() {}
 
-void Centroidal_Dynamics::Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_rpy_, Eigen::VectorXd COM_rpy_dot_)
+void Centroidal_Dynamics::Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_RPY_, Eigen::VectorXd COM_RPY_dot_)
 {
     COM_Pose = COM_Pose_;
     COM_Vel = COM_Vel_;
     COM_Quat = COM_Quat_;
-    COM_rpy = COM_rpy_;
-    COM_rpy_dot = COM_rpy_dot_;
+    COM_RPY = COM_RPY_;
+    COM_RPY_dot = COM_RPY_dot_;
 
     Set_QuatRotationMatrix(COM_Quat);
+
+    // Err_Pos(X) = COM_Pose(X);
+    // Err_Pos(Y) = COM_Pose(Y);
+    // Err_Pos(Z) = COM_Pose(Z);
 }
 
-void Centroidal_Dynamics::Set_FootPosition(std::array<Eigen::Vector3d, 4> EE_Pose)
+void Centroidal_Dynamics::Set_FootPosition(Eigen::Vector3d Pino_FL_, Eigen::Vector3d Pino_FR_, Eigen::Vector3d Pino_RL_, Eigen::Vector3d Pino_RR_)
 {
-   EE_Pose_FL_Body = EE_Pose[FL];
-   EE_Pose_FR_Body = EE_Pose[FR];
-   EE_Pose_RL_Body = EE_Pose[RL];
-   EE_Pose_RR_Body = EE_Pose[RR];
+    EE_Pose_FL_Body = Pino_FL_;
+    EE_Pose_FR_Body = Pino_FR_;
+    EE_Pose_RL_Body = Pino_RL_;
+    EE_Pose_RR_Body = Pino_RR_;
+}
+
+void Centroidal_Dynamics::Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_Pose)
+{
+    EE_Pose_FL_Body = EE_Pose[FL];
+    EE_Pose_FR_Body = EE_Pose[FR];
+    EE_Pose_RL_Body = EE_Pose[RL];
+    EE_Pose_RR_Body = EE_Pose[RR];
 }
 
 void Centroidal_Dynamics::Compute_A_Matrix()
@@ -52,41 +90,66 @@ void Centroidal_Dynamics::Compute_A_Matrix()
     Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
     for (int i = 0; i < 4; i++)
     {
-        A_Matrix.block<3,3>(0, 3 * i) = I;
+        A_Matrix.block<3, 3>(0, 3 * i) = I;
     }
-    
-    A_Matrix.block<3,3>(3,0) = Set_VecCross2Skew(EE_Pose_FL_Body);
-    A_Matrix.block<3,3>(3,3) = Set_VecCross2Skew(EE_Pose_FR_Body);
-    A_Matrix.block<3,3>(3,6) = Set_VecCross2Skew(EE_Pose_RL_Body);
-    A_Matrix.block<3,3>(3,9) = Set_VecCross2Skew(EE_Pose_RR_Body);
 
-    std::cout << "===== A_Matrix ===== \n" << A_Matrix << std::endl; 
+    A_Matrix.block<3, 3>(3, 0) = Set_VecCross2Skew(EE_Pose_FL_Body);
+    A_Matrix.block<3, 3>(3, 3) = Set_VecCross2Skew(EE_Pose_FR_Body);
+    A_Matrix.block<3, 3>(3, 6) = Set_VecCross2Skew(EE_Pose_RL_Body);
+    A_Matrix.block<3, 3>(3, 9) = Set_VecCross2Skew(EE_Pose_RR_Body);
+
+    // std::cout << "===== A_Matrix ===== \n" << A_Matrix << std::endl;
+}
+
+void Centroidal_Dynamics::Set_Reference(Eigen::VectorXd COM_Ref_)
+{
+    des_Pos = des_Pos_;
+    des_Ori = des_Ori_;
+    Err_Pos = des_Pos - COM_Pose;
+
+    Eigen::Vector3d e_rpy = Eigen::Vector3d::Zero();
+    e_rpy(0) = Wrap2PI(0.0 - COM_RPY(0));
+    e_rpy(1) = Wrap2PI(0.0 - COM_RPY(1));
+    e_rpy(2) = Wrap2PI(0.0 - COM_RPY(2));
+
+    Err_R = e_rpy;
+
+    Eigen::Vector3d Lin_Acc_ref = (Kp_Pos * (des_Pos - COM_Pose) - Kd_Pos * R_wb * COM_Vel) / mass;
+    Eigen::Vector3d Ang_Acc_ref = (Kp_Ori * Err_R - Kd_Ori * R_wb * COM_RPY_dot);
 }
 
 void Centroidal_Dynamics::Compute_B_Vector(Eigen::Vector3d des_Pos_, Eigen::Matrix3d des_Ori_)
 {
     Eigen::Vector3d gravity_body = R_wb * gravity;
-    
-    des_Pos = des_Pos_; 
-    des_Ori = des_Ori_;
-    Err_Pos = des_Pos - COM_Pose;
-    Err_Ori = ErrOri_CrossProduct(R_bw, des_Ori);
 
-    Eigen::Vector3d COM_Acc_ref = (Kp_Pos * R_wb * (des_Pos - COM_Pose) - Kd_Pos * R_wb * COM_Vel) / mass;
-    Eigen::Vector3d COM_RPYdot_ref = (Kp_Ori * (ErrOri_CrossProduct(R_bw, des_Ori)) - Kd_Ori * COM_rpy_dot); 
+    // des_Pos = des_Pos_;
+    // des_Ori = des_Ori_;
+    // Err_Pos = des_Pos - COM_Pose;
 
-    B_Vector.segment<3>(0) = -mass * gravity_body + mass * COM_Acc_ref;
-    B_Vector.segment<3>(3) = I_body * COM_RPYdot_ref;
+    // Eigen::Vector3d e_rpy = Eigen::Vector3d::Zero();
+    // e_rpy(0) = Wrap2PI(0.0 - COM_RPY(0));
+    // e_rpy(1) = Wrap2PI(0.0 - COM_RPY(1));
+    // e_rpy(2) = Wrap2PI(0.0 - COM_RPY(2));
 
-    std::cout << "===== B_Matrix ===== \n" << B_Vector << std::endl; 
+    // Err_R = e_rpy;
+
+    // Eigen::Vector3d Lin_Acc_ref = (Kp_Pos * (des_Pos - COM_Pose) - Kd_Pos * R_wb * COM_Vel) / mass;
+    // Eigen::Vector3d Ang_Acc_ref = (Kp_Ori * Err_R - Kd_Ori * R_wb * COM_RPY_dot);
+
+    B_Vector.segment<3>(0) = -mass * gravity_body + mass * Lin_Acc_ref;
+    B_Vector.segment<3>(3) = I_body * Ang_Acc_ref;
+
+    // std::cout << "===== Error_Pose ===== \n" << Err_Pos << std::endl;
+    // std::cout << "===== Error_R(E_r) ===== \n" << Err_R << std::endl;
+    // std::cout << "===== B_Vector ===== \n" << B_Vector << std::endl;
 }
 
 void Centroidal_Dynamics::Set_CostFunction()
 {
-    /* sparse 행렬 활용법 : Dense한 행렬을 만들어서 여기서 계산한 다음에 sparse로 흩뿌린다. */ 
-    Eigen::MatrixXd dense_Hessian = A_Matrix.transpose() * A_Matrix;
-    Hessian = dense_Hessian.sparseView(); 
-    Gradient = (-1) * A_Matrix.transpose() * B_Vector;
+    /* sparse 행렬 활용법 : Dense한 행렬을 만들어서 여기서 계산한 다음에 sparse로 흩뿌린다. */
+    Eigen::MatrixXd dense_Hessian = A_Matrix.transpose() * Q * A_Matrix;
+    Hessian = dense_Hessian.sparseView();
+    Gradient = (-1) * A_Matrix.transpose() * Q * B_Vector;
 }
 
 void Centroidal_Dynamics::Set_LinearMatrix()
@@ -95,28 +158,31 @@ void Centroidal_Dynamics::Set_LinearMatrix()
 
     for (int leg = 0; leg < NUM_LEG; leg++)
     {
-        LinearMatrix.insert(0 + 5 * leg, 0 + 3 * leg) = 1;
-        LinearMatrix.insert(1 + 5 * leg, 0 + 3 * leg) = 1;
-        LinearMatrix.insert(2 + 5 * leg, 1 + 3 * leg) = 1;
-        LinearMatrix.insert(3 + 5 * leg, 1 + 3 * leg) = 1;
-        LinearMatrix.insert(4 + 5 * leg, 2 + 3 * leg) = 1;
+        int rowBase = 5 * leg;
+        int colBase = 3 * leg;
 
-        LinearMatrix.insert(0 + 5 * leg, 2 + 3 * leg) = -mu;
-        LinearMatrix.insert(1 + 5 * leg, 2 + 3 * leg) = mu;
-        LinearMatrix.insert(2 + 5 * leg, 2 + 3 * leg) = -mu;
-        LinearMatrix.insert(3 + 5 * leg, 2 + 3 * leg) = mu;
+        LinearMatrix.insert(0 + rowBase, 0 + colBase) = 1;
+        LinearMatrix.insert(1 + rowBase, 0 + colBase) = 1;
+        LinearMatrix.insert(2 + rowBase, 1 + colBase) = 1;
+        LinearMatrix.insert(3 + rowBase, 1 + colBase) = 1;
+        LinearMatrix.insert(4 + rowBase, 2 + colBase) = 1;
+
+        LinearMatrix.insert(0 + rowBase, 2 + colBase) = mu;
+        LinearMatrix.insert(1 + rowBase, 2 + colBase) = -mu;
+        LinearMatrix.insert(2 + rowBase, 2 + colBase) = mu;
+        LinearMatrix.insert(3 + rowBase, 2 + colBase) = -mu;
     }
 }
 
 void Centroidal_Dynamics::Set_Constraint(double fz_max)
 {
     const double inf = OsqpEigen::INFTY;
-    double fz_min = 1e-6;
+    double fz_min = 0;
 
     for (int leg = 0; leg < NUM_LEG; leg++)
     {
-        LowerBound.segment<5>(5 * leg) << -inf, 0, -inf, 0, fz_min;
-        UpperBound.segment<5>(5 * leg) << 0, inf, 0, inf, fz_max;
+        LowerBound.segment<5>(5 * leg) << 0, -inf, 0, -inf, fz_min;
+        UpperBound.segment<5>(5 * leg) << inf, 0, inf, 0, fz_max;
     }
 }
 
@@ -126,10 +192,10 @@ void Centroidal_Dynamics::Solve_QP()
 
     if (!solver.isInitialized())
     {
-        solver.settings()->setVerbosity(true);
+        solver.settings()->setVerbosity(false);
         solver.settings()->setWarmStart(true);
-        solver.data()->setNumberOfVariables(NUM_LEG * NUM_AXIS);
-        solver.data()->setNumberOfConstraints(num_of_constraints * NUM_LEG);
+        solver.data()->setNumberOfVariables(num_of_variables);
+        solver.data()->setNumberOfConstraints(num_of_constraints);
 
         solver.data()->setHessianMatrix(Hessian);
         solver.data()->setGradient(Gradient);
@@ -154,4 +220,5 @@ void Centroidal_Dynamics::Solve_QP()
         F_Vector(i) = QP_Solution(i);
     }
 
+    // std::cout << "===== Force_Vector ===== \n" << F_Vector << std::endl;
 }

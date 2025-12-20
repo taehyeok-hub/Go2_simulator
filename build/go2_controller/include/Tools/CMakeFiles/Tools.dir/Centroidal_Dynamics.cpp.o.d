@@ -439,6 +439,8 @@ include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o: \
  /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
  /usr/include/c++/9/bits/allocated_ptr.h /usr/include/c++/9/bits/list.tcc \
  /usr/include/eigen3/Eigen/Geometry \
+ /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Kinematics.hpp \
+ /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp \
  /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/OsqpEigen.h \
  /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/Constants.hpp \
  /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/osqp.h \

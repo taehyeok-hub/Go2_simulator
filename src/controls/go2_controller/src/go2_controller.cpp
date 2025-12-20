@@ -18,9 +18,10 @@ void go2_controller::Init()
     /* StateLegCallback 함수는 코드상에서 직접 호출되는 부분이 없으며, ROS 시스템에 의해 특정 이벤트가 발생했을 때 자동으로 호출되도록 등록되어 있습니다. */
 
     // Publishers
-    // pub_TH : plotjuggler로 Float의 형태로 본인의 상태를 발행하는거임.
+    /* pub_TH : plotjuggler로 Float의 형태로 본인의 상태를 발행하는거임.
+    // pub_leg_cmd_ : gazebo로 로봇의 발위치 구독 */
     pub_TH_ = nh_.advertise<std_msgs::Float64MultiArray>("TH", queue_size);
-    pub_leg_cmd_ = nh_.advertise<std_msgs::Float64MultiArray>(go2_topic_leg_command_, queue_size);
+    pub_leg_cmd_ = nh_.advertise<std_msgs::Float64MultiArray>(go2_topic_leg_command_, queue_size); 
 
     controlmode = INIT;
     Recieved_Joint_State = false;
@@ -28,6 +29,11 @@ void go2_controller::Init()
     q_.setZero(12);
     dq_.setZero(12);
     torque_.setZero(12);
+    q_start.setZero(12);
+    q_final.setZero(12);
+    q_desired.setZero(12);
+    Start_Position.setZero(12);
+    Homing_Position.setZero(12);
 
     gazebo_body_pos.setZero(NUM_AXIS);
     gazebo_body_vel.setZero(NUM_AXIS);
@@ -35,16 +41,18 @@ void go2_controller::Init()
     gazebo_rpy.setZero(NUM_AXIS);
     gazebo_rpy_dot.setZero(NUM_AXIS);
 
-    // Joint Space PD 제어(Homing) : 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40
+    Start_Position << 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60;
+    Homing_Position << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
 }
 
 void go2_controller::Command(bool flag)
 {
+    KINE.Forward_Kinematics(q_, dq_);
+    KINE.Jacobian(q_);
+
     if (Recieved_Joint_State)
     {
-        KINE.Forward_Kinematics(q_, dq_);
-        KINE.Jacobian(q_);
-        std::cout << "몸통 좌표 : x = " << gazebo_body_pos(0) << " y = " << gazebo_body_pos(1) << " z = " << gazebo_body_pos(2) << std::endl;
+        // std::cout << "몸통 좌표 : x = " << gazebo_body_pos(0) << " y = " << gazebo_body_pos(1) << " z = " << gazebo_body_pos(2) << std::endl;
         // Forward_Kinematics_ME(q_, dq_);
         // Create_Jacobian(q_);
 
@@ -52,9 +60,6 @@ void go2_controller::Command(bool flag)
         {
         case INIT:
         {
-            // Homing 시작 시 초기 상태 저장
-            q_current = q_;
-            Moving_Time = ros::Time::now();
             controlmode = HOMING;
             break;
         }
@@ -76,12 +81,13 @@ void go2_controller::Command(bool flag)
         }
         case SRBM_CONTROL:
         {
+            Body_Ref = gazebo_body_pos;
             // double alpha = 0.02;
             // Body_Pos.setZero();
             // Body_Rot.setZero();
             // Body_Pos = (1 - alpha) * Body_Pos + alpha * gazebo_body_pos;
             // Body_Rot = SRBM.RPYRotationMatrix(gazebo_rpy(0), gazebo_rpy(1), gazebo_rpy(2));
-            SRBMControl();
+            // Body_Pos_ = gazebo_body_pos;
             break;
         }
         }
@@ -92,24 +98,45 @@ void go2_controller::Command(bool flag)
 
 void go2_controller::Homing() // 초기자세 설정 하는 코드
 {
-    ros::Time Current_Time = ros::Time::now();
+    double t = (Current_Time - Moving_Time).toSec();
 
-    double t = (Current_Time - Moving_Time).toSec(); // toSec() 적으세요
-    double T;
+    if (Start_Flag == 0) // Homing 시작 시 초기 상태 저장
+    {
+        Start_Flag = 1;
+        q_start = q_;
+        q_final = Start_Position;
+        Current_Time = ros::Time::now();
+    }
 
-    T = 1.0;
-    q_final << 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60;
-    Eigen::VectorXd q_desired = TRAJ.Quintic_Joint(t, T, q_current, q_final);
-    double Kp = 100.0, Kd = 0.8;
-    torque_ = Kp * (q_desired - q_) - Kd * dq_;
+    if (Start_Flag == 1)
+    {
+        Start_Flag = 2;
 
-    T = 3.0;
-    q_current = q_final;
-    q_final << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
-    q_desired = TRAJ.Quintic_Joint(t, T, q_current, q_final);
-    Kp = 100.0, Kd = 0.8;
+        Motion_Time = 1.0;
+        double t = Trajectory::Set_TimeVariable(Current_Time, Motion_Time); // static 메서드
+        q_desired = PLAN.Quintic_Joint(t, Motion_Time, q_start, q_final);
 
-    torque_ = Kp * (q_desired - q_) - Kd * dq_; // q_와 dq_는 계속 StateLegCallback 함수로 인해 실시간으로 값을 할당받는중임.
+        torque_ = 100.0 * (q_desired - q_) - 1.0 * dq_;
+    }
+
+    if (Start_Flag == 3)
+    {
+        Start_Flag = 4;
+        q_start = q_; // q_start = q_final; 로 해도 상관 X
+        q_final = Homing_Position;
+        Current_Time = ros::Time::now();
+    }
+
+    if (Start_Flag == 4)
+    {
+        double t = Trajectory::Set_TimeVariable(Current_Time, Motion_Time);
+        Motion_Time = 3.0;
+        q_desired = PLAN.Quintic_Joint(t, Motion_Time, q_start, q_final);
+
+        torque_ = 100.0 * (q_desired - q_) - 1.0 * dq_;
+    }
+
+    // q_와 dq_는 계속 StateLegCallback 함수로 인해 실시간으로 값을 할당받는중임.
     // 0.1925, 0.145, -0.31
 }
 
@@ -231,10 +258,10 @@ void go2_controller::Squating()
         is_motion_started_ = true;
     }
 
-    TrajectoryPoint FL_target = TRAJ.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
-    TrajectoryPoint FR_target = TRAJ.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
-    TrajectoryPoint RL_target = TRAJ.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
-    TrajectoryPoint RR_target = TRAJ.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
+    TrajectoryPoint FL_target = PLAN.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FL_start, EE_Pose_FL_final);
+    TrajectoryPoint FR_target = PLAN.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_FR_start, EE_Pose_FR_final);
+    TrajectoryPoint RL_target = PLAN.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RL_start, EE_Pose_RL_final);
+    TrajectoryPoint RR_target = PLAN.Quintic_Task(motion_start_time_, motion_duration, EE_Pose_RR_start, EE_Pose_RR_final);
 
     // trajectory planning 설정 값, desired 값 설정
     EE_Pose_FL_desired = FL_target.position;
@@ -253,72 +280,71 @@ void go2_controller::Squating()
 
 void go2_controller::SRBMControl()
 {
-    Body_Ref_ << 0, 0, 0.34;
-    // CENT.Set_BodyState(gazebo_body_pos, gazebo_body_vel, gazebo_rpy, gazebo_rpy_dot, gazebo_quat);
-    // std::array<Eigen::Vector3d, 4> feet_pos = KINE.Get_EE_Pose();
-    // CENT.SetFootPosition_(feet_pos);
+    // Eigen::Matrix3d Des_Rot = Eigen::Matrix3d::Identity(); // Orientation (Identity)
 
-    // Eigen::Matrix<double, 6, 12> J = KINE.Get_Jacobian();
-    // Eigen::MatrixXd F1_J_ = J.block<3,3>(0,0);
-    // Eigen::MatrixXd F2_J_ = J.block<3,3>(0,3);
-    // Eigen::MatrixXd H1_J_ = J.block<3,3>(0,6);
-    // Eigen::MatrixXd H2_J_ = J.block<3,3>(0,9);
-    // CENT.Set_LegJacobian(F1_J_, F2_J_, H1_J_, H2_J);
+    // // 2. FK 및 Jacobian 업데이트 (현재 상태)
+    // std::array<Eigen::Vector3d, 4> EE_Pose_Body = KINE.Get_EE_Pose(); // Body Frame 발 위치
 
-    // Body_Ref_ << 0, 0, 0.34, 0, 0, 0, gazebo_rpy(0), gazebo_rpy(1), gazebo_rpy(2),
-    // CENT.Set_Reference(Body_Ref_);
+    // // 3. Centroidal Dynamics 업데이트
+    // // 로봇 상태 설정 (World Frame States)
+    // CENT.Set_RobotState(gazebo_body_pos, gazebo_body_vel, gazebo_quat, gazebo_rpy, gazebo_rpy_dot);
 
-    // 1. 로봇 몸통 상태 받아오기
-    SRBM.SetRobotState(gazebo_body_pos, gazebo_body_vel, gazebo_quat, gazebo_rpy, gazebo_rpy_dot);
-    std::array<Eigen::Vector3d, 4> feet_pos = KINE.Get_EE_Pose();
-    SRBM.SetFootPosition(feet_pos);
+    // // 발 위치 설정 (Body Frame 값을 넘겨주면 내부에서 World Frame으로 변환됨)
+    // CENT.Set_FootPosition(EE_Pose_Body);
 
-    SRBM.Update_A_Matrix();
-    Eigen::Quaterniond q_curr(gazebo_quat(3), gazebo_quat(0), gazebo_quat(1), gazebo_quat(2));
-    Eigen::Matrix3d R_w2b = q_curr.toRotationMatrix().transpose();
+    // // A Matrix 계산 (World Frame Lever arms)
+    // CENT.Compute_A_Matrix();
 
-    // 5. 계산 결과에 따른
-    // double yaw = gazebo_rpy(2); // 현재 yaw (rad)
+    // // B Vector 계산 (Desired Dynamics in World Frame)
+    // CENT.Compute_B_Vector(Body_Ref_, Des_Rot);
 
-    // Eigen::Matrix3d R_yaw_only;
-    // R_yaw_only << cos(yaw), -sin(yaw), 0,
-    //     sin(yaw), cos(yaw), 0,
-    //     0, 0, 1;
-    Eigen::Matrix3d R_des_ = Eigen::Matrix3d::Identity();
-    Eigen::Vector3d rpy_error;
-    rpy_error << -gazebo_rpy(0), -gazebo_rpy(1), -gazebo_rpy(2);
-    SRBM.Compute_b_Vector(Body_Ref_, R_des_, rpy_error);
+    // // QP 풀기
+    // // CENT.Set_Constraint(200.0); // 필요시 최대 힘 조절
+    // CENT.Solve_QP();
 
-    SRBM.Solve_QP();
-    Force_ = SRBM.Get_Force();
-    Force_FL = Force_.segment<3>(0);
-    Force_FR = Force_.segment<3>(3);
-    Force_RL = Force_.segment<3>(6);
-    Force_RR = Force_.segment<3>(9);
+    // // 4. 토크 계산
+    // // QP 결과: F_world (World Frame Force)
+    // Eigen::VectorXd F_world = CENT.Get_Force_World();
 
+    // // Jacobian: J_body (Body Frame Velocity -> Joint Velocity 관계)
+    // Eigen::Matrix<double, 6, 12> J_body = KINE.Get_Jacobian();
+
+    // // Rotation Matrix (Body to World)
+    // Eigen::Matrix3d R_bw = CENT.Get_R_body_to_world();
+    // Eigen::Matrix3d R_wb = R_bw.transpose(); // World to Body
+
+    // for (int i = 0; i < 4; i++)
+    // {
+    //     Eigen::Vector3d F_leg_world = F_world.segment<3>(3 * i);
+
+    //     // [중요] World Force를 Body Force로 변환
+    //     // 로봇이 지면을 미는 힘(QP 결과) -> Body Frame으로 표현
+    //     Eigen::Vector3d F_leg_body = R_wb * F_leg_world;
+
+    //     // [중요] Torque = J^T * F_ext
+    //     // F_ext는 로봇 발끝에 작용하는 힘 (지면 반력).
+    //     // 부호: (-1) 제거. 지면 반력 방향 그대로 토크로 변환되어야 중력을 이김.
+    //     torque_.segment<3>(3 * i) = J_body.block<3, 3>(0, 3 * i).transpose() * (-1) * F_leg_body;
+    // }
+
+    std::array<Eigen::Vector3d, 4> EE_Pose_ = KINE.Get_EE_Pose();
+    Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
+
+    // 1. gazebo에서 world 좌표계 기준 com 받아오기, CENT 저장
+    CENT.Set_RobotState(gazebo_body_pos, gazebo_body_vel, gazebo_quat, gazebo_rpy, gazebo_rpy_dot);
+    CENT.Set_FKFootPosition(EE_Pose_);
+    CENT.Compute_A_Matrix();
+    CENT.Compute_B_Vector(Body_Ref, I);
+
+    // CENT.Set_Reference();
+    CENT.Solve_QP();
+    Force = CENT.Get_Force();
     Eigen::Matrix<double, 6, 12> J = KINE.Get_Jacobian();
-    std::array<Eigen::Vector3d, 4> Input_torque;
 
-    Input_torque[0] = J.block<3, 3>(0, 0).transpose() * (-1) * Force_FL;
-    Input_torque[1] = J.block<3, 3>(0, 3).transpose() * (-1) * Force_FR;
-    Input_torque[2] = J.block<3, 3>(0, 6).transpose() * (-1) * Force_RL;
-    Input_torque[3] = J.block<3, 3>(0, 9).transpose() * (-1) * Force_RR;
-
-    torque_.segment<3>(0) = Input_torque[0];
-    torque_.segment<3>(3) = Input_torque[1];
-    torque_.segment<3>(6) = Input_torque[2];
-    torque_.segment<3>(9) = Input_torque[3];
-
-    std::cout << "SRBM_Force = " << std::endl
-              << Force_ << std::endl;
-    std::cout << "SRBM_Torque[0] = " << std::endl
-              << Input_torque[0] << std::endl;
-    std::cout << "SRBM_Torque[1] = " << std::endl
-              << Input_torque[1] << std::endl;
-    std::cout << "SRBM_Torque[2] = " << std::endl
-              << Input_torque[2] << std::endl;
-    std::cout << "SRBM_Torque[3] = " << std::endl
-              << Input_torque[3] << std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        torque_.segment<3>(3 * i) = J.block<3, 3>(0, 3 * i).transpose() * (-1) * Force.segment<3>(3 * i);
+    }
 }
 
 void go2_controller::Run()
@@ -344,6 +370,39 @@ void go2_controller::Run()
             last_control_time = current_time;
 
             Command(Recieved_Joint_State);
+
+            ros::Duration sleep_time = control_period_ - elapsed_time;
+            if (sleep_time > ros::Duration(0))
+            {
+                sleep_time.sleep();
+            }
+        }
+    }
+}
+
+void go2_controller::CentRun()
+{
+    ROS_INFO("Running the torque control loop .................");
+
+    const ros::Duration control_period_(1.0 / 200.0); // 500hz
+
+    ros::AsyncSpinner spinner(4); // 4자유도인거랑은 별개임 스레드 4개 사용해서 더 잘 처리한다는 뜻
+    spinner.start();
+
+    ros::Time start_time = ros::Time::now();
+    ros::Time last_control_time = start_time;
+
+    while (ros::ok())
+    {
+        ros::Time current_time = ros::Time::now();
+
+        ros::Duration elapsed_time = current_time - last_control_time;
+
+        if (elapsed_time >= control_period_)
+        {
+            last_control_time = current_time;
+
+            SRBMControl();
 
             ros::Duration sleep_time = control_period_ - elapsed_time;
             if (sleep_time > ros::Duration(0))
@@ -491,48 +550,27 @@ void go2_controller::DataStream()
 
     // TH_msg 메세지의 형태로 data를 발행함.
     // ex) EE_Pose_FL은 x, y, z의 형태로 되어 있으니까, EE_Pose_FL
-    
+
     // 몸통 des 좌표
     TH_msg.data.push_back(Body_Pos(X));
     TH_msg.data.push_back(Body_Pos(Y));
     TH_msg.data.push_back(Body_Pos(Z));
 
+    Eigen::Vector3d Err_Pos_ = CENT.Get_Error_Pose();
+    Eigen::Vector3d Err_Ori_ = CENT.Get_Error_R();
+
     // SRBM 추출 힘
-    TH_msg.data.push_back(Force_FL(X));
-    TH_msg.data.push_back(Force_FL(Y));
-    TH_msg.data.push_back(Force_FL(Z));
-    
-    TH_msg.data.push_back(Force_FR(X));
-    TH_msg.data.push_back(Force_FR(Y));
-    TH_msg.data.push_back(Force_FR(Z));
+    TH_msg.data.push_back(Err_Pos_(X));
+    TH_msg.data.push_back(Err_Pos_(Y));
+    TH_msg.data.push_back(Err_Pos_(Z));
 
-    TH_msg.data.push_back(Force_RL(X));
-    TH_msg.data.push_back(Force_RL(Y));
-    TH_msg.data.push_back(Force_RL(Z));
+    TH_msg.data.push_back(Err_Ori_(X));
+    TH_msg.data.push_back(Err_Ori_(Y));
+    TH_msg.data.push_back(Err_Ori_(Z));
 
-    TH_msg.data.push_back(Force_RR(X));
-    TH_msg.data.push_back(Force_RR(Y));
-    TH_msg.data.push_back(Force_RR(Z));
+    count += 1;
 
-    TH_msg.data.push_back(Body_Pos(X));
-    TH_msg.data.push_back(Body_Pos(Y));
-    TH_msg.data.push_back(Body_Pos(Z));
-
-    TH_msg.data.push_back(Body_Pos(X));
-    TH_msg.data.push_back(Body_Pos(Y));
-    TH_msg.data.push_back(Body_Pos(Z));
-    
-    TH_msg.data.push_back(Body_Pos(X));
-    TH_msg.data.push_back(Body_Pos(Y));
-    TH_msg.data.push_back(Body_Pos(Z));
-
-    TH_msg.data.push_back(Body_Pos(X));
-    TH_msg.data.push_back(Body_Pos(Y));
-    TH_msg.data.push_back(Body_Pos(Z));
-
-    TH_msg.data.push_back(Body_Pos(X));
-    TH_msg.data.push_back(Body_Pos(Y));
-    TH_msg.data.push_back(Body_Pos(Z));
+    TH_msg.data.push_back(count);
 
     pub_TH_.publish(TH_msg);
 

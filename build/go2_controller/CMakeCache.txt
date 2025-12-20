@@ -861,7 +861,7 @@ go2_controller_BINARY_DIR:STATIC=/home/pth/pth/model/Go2_simulator/build/go2_con
 go2_controller_IS_TOP_LEVEL:STATIC=ON
 
 //Dependencies for the target
-go2_controller_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/liburdf.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_world.so;general;/opt/ros/noetic/lib/librosconsole_bridge.so;general;/opt/ros/noetic/lib/libtf_conversions.so;general;/opt/ros/noetic/lib/libkdl_conversions.so;general;/opt/ros/noetic/lib/libgazebo_ros_api_plugin.so;general;/opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/noetic/lib/libtf.so;general;/opt/ros/noetic/lib/libtf2_ros.so;general;/opt/ros/noetic/lib/libactionlib.so;general;/opt/ros/noetic/lib/libmessage_filters.so;general;/opt/ros/noetic/lib/libtf2.so;general;/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/noetic/lib/libcontroller_manager.so;general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/libeigen_conversions.so;general;/usr/lib/liborocos-kdl.so;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;BulletSoftBody;general;BulletDynamics;general;BulletCollision;general;LinearMath;general;SimTKcommon;general;SimTKmath;general;SimTKsimbody;general;dart;general;dart;general;dart;general;dart;general;/usr/lib/x86_64-linux-gnu/libgazebo.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_client.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_gui.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_sensors.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_rendering.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_physics.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_ode.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_transport.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_msgs.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_util.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_common.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_gimpact.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_opcode.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_opende_ou.so;general;Boost::thread;general;Boost::system;general;Boost::filesystem;general;Boost::program_options;general;Boost::regex;general;Boost::iostreams;general;Boost::date_time;general;/usr/lib/x86_64-linux-gnu/libprotobuf.so;general;-lpthread;general;sdformat9::sdformat9;optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so;general;Boost::thread;general;Boost::date_time;optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;general;ignition-common3::ignition-common3-graphics;general;Tools;
+go2_controller_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/liburdf.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_world.so;general;/opt/ros/noetic/lib/librosconsole_bridge.so;general;/opt/ros/noetic/lib/libtf_conversions.so;general;/opt/ros/noetic/lib/libkdl_conversions.so;general;/opt/ros/noetic/lib/libgazebo_ros_api_plugin.so;general;/opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/noetic/lib/libtf.so;general;/opt/ros/noetic/lib/libtf2_ros.so;general;/opt/ros/noetic/lib/libactionlib.so;general;/opt/ros/noetic/lib/libmessage_filters.so;general;/opt/ros/noetic/lib/libtf2.so;general;/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/noetic/lib/libcontroller_manager.so;general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/libeigen_conversions.so;general;/usr/lib/liborocos-kdl.so;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;pinocchio_default;general;pinocchio_parsers;general;boost_filesystem;general;urdfdom_sensor;general;urdfdom_model_state;general;urdfdom_model;general;urdfdom_world;general;console_bridge;general;BulletSoftBody;general;BulletDynamics;general;BulletCollision;general;LinearMath;general;SimTKcommon;general;SimTKmath;general;SimTKsimbody;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;dart;general;/usr/lib/x86_64-linux-gnu/libgazebo.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_client.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_gui.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_sensors.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_rendering.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_physics.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_ode.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_transport.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_msgs.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_util.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_common.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_gimpact.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_opcode.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_opende_ou.so;general;Boost::thread;general;Boost::system;general;Boost::filesystem;general;Boost::program_options;general;Boost::regex;general;Boost::iostreams;general;Boost::date_time;general;/usr/lib/x86_64-linux-gnu/libprotobuf.so;general;-lpthread;general;sdformat9::sdformat9;optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so;general;Boost::thread;general;Boost::date_time;optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;general;ignition-common3::ignition-common3-graphics;general;Tools;
 
 //Value Computed by CMake
 go2_controller_SOURCE_DIR:STATIC=/home/pth/pth/model/Go2_simulator/src/controls/go2_controller
@@ -1001,6 +1001,30 @@ pkgcfg_lib_ZIP_zip:FILEPATH=/usr/lib/x86_64-linux-gnu/libzip.so
 
 //Path to a library.
 pkgcfg_lib_ZeroMQ_zmq:FILEPATH=/usr/lib/x86_64-linux-gnu/libzmq.so
+
+//Path to a library.
+pkgcfg_lib_pinocchio_boost_filesystem:FILEPATH=/usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+
+//Path to a library.
+pkgcfg_lib_pinocchio_console_bridge:FILEPATH=/usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+
+//Path to a library.
+pkgcfg_lib_pinocchio_pinocchio_default:FILEPATH=/usr/local/lib/libpinocchio_default.so
+
+//Path to a library.
+pkgcfg_lib_pinocchio_pinocchio_parsers:FILEPATH=/usr/local/lib/libpinocchio_parsers.so
+
+//Path to a library.
+pkgcfg_lib_pinocchio_urdfdom_model:FILEPATH=/usr/lib/x86_64-linux-gnu/liburdfdom_model.so
+
+//Path to a library.
+pkgcfg_lib_pinocchio_urdfdom_model_state:FILEPATH=/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
+
+//Path to a library.
+pkgcfg_lib_pinocchio_urdfdom_sensor:FILEPATH=/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
+
+//Path to a library.
+pkgcfg_lib_pinocchio_urdfdom_world:FILEPATH=/usr/lib/x86_64-linux-gnu/liburdfdom_world.so
 
 //The directory containing a CMake configuration file for pluginlib.
 pluginlib_DIR:PATH=/opt/ros/noetic/share/pluginlib/cmake
@@ -1325,7 +1349,7 @@ CURL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 CURL_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 DART_DEFINITIONS:INTERNAL=
 DART_INCLUDE_DIRS:INTERNAL=/usr/include
-DART_LIBRARIES:INTERNAL=dart;dart;dart;dart
+DART_LIBRARIES:INTERNAL=dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart
 //Boost min version requirement
 DART_MIN_BOOST_VERSION:INTERNAL=1.58.0
 DART_dart_DEFINITIONS:INTERNAL=
@@ -1342,7 +1366,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boo
 //Details about finding CURL
 FIND_PACKAGE_MESSAGE_DETAILS_CURL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcurl.so][/usr/include/x86_64-linux-gnu][ ][v7.68.0()]
 //Details about finding DART
-FIND_PACKAGE_MESSAGE_DETAILS_DART:INTERNAL=[/usr/include][dart;dart;dart;dart][found components: dart ][v(6.6)]
+FIND_PACKAGE_MESSAGE_DETAILS_DART:INTERNAL=[/usr/include][dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart;dart][found components: dart ][v(6.6)]
 //Details about finding DL
 FIND_PACKAGE_MESSAGE_DETAILS_DL:INTERNAL=[true][v()]
 //Details about finding JSONCPP
@@ -1974,6 +1998,7 @@ __pkg_config_arguments_UUID:INTERNAL=uuid
 __pkg_config_arguments_YAML:INTERNAL=yaml-0.1
 __pkg_config_arguments_ZIP:INTERNAL=libzip
 __pkg_config_arguments_ZeroMQ:INTERNAL=libzmq >= 4
+__pkg_config_arguments_pinocchio:INTERNAL=REQUIRED;pinocchio
 __pkg_config_checked_BULLET:INTERNAL=1
 __pkg_config_checked_JSONCPP:INTERNAL=1
 __pkg_config_checked_OGRE_PKGC:INTERNAL=1
@@ -1986,6 +2011,7 @@ __pkg_config_checked_UUID:INTERNAL=1
 __pkg_config_checked_YAML:INTERNAL=1
 __pkg_config_checked_ZIP:INTERNAL=1
 __pkg_config_checked_ZeroMQ:INTERNAL=1
+__pkg_config_checked_pinocchio:INTERNAL=1
 //ADVANCED property for variable: boost_atomic_DIR
 boost_atomic_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: boost_date_time_DIR
@@ -2016,6 +2042,41 @@ gtest_disable_pthreads-ADVANCED:INTERNAL=1
 gtest_force_shared_crt-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gtest_hide_internal_symbols
 gtest_hide_internal_symbols-ADVANCED:INTERNAL=1
+pinocchio_CFLAGS:INTERNAL=-DPINOCCHIO_WITH_URDFDOM;-DPINOCCHIO_ENABLE_TEMPLATE_INSTANTIATION;-I/usr/local/lib/pkgconfig/../../include;-I/usr/include;-I/usr/include/eigen3
+pinocchio_CFLAGS_I:INTERNAL=
+pinocchio_CFLAGS_OTHER:INTERNAL=-DPINOCCHIO_WITH_URDFDOM;-DPINOCCHIO_ENABLE_TEMPLATE_INSTANTIATION
+pinocchio_FOUND:INTERNAL=1
+pinocchio_INCLUDEDIR:INTERNAL=/usr/local/lib/pkgconfig/../../include
+pinocchio_INCLUDE_DIRS:INTERNAL=/usr/local/lib/pkgconfig/../../include;/usr/include;/usr/include/eigen3
+pinocchio_LDFLAGS:INTERNAL=-L/usr/local/lib/pkgconfig/../../lib;-L/usr/lib/x86_64-linux-gnu;-lpinocchio_default;-lpinocchio_parsers;-lboost_filesystem;-lurdfdom_sensor;-lurdfdom_model_state;-lurdfdom_model;-lurdfdom_world;-lconsole_bridge
+pinocchio_LDFLAGS_OTHER:INTERNAL=
+pinocchio_LIBDIR:INTERNAL=/usr/local/lib/pkgconfig/../../lib
+pinocchio_LIBRARIES:INTERNAL=pinocchio_default;pinocchio_parsers;boost_filesystem;urdfdom_sensor;urdfdom_model_state;urdfdom_model;urdfdom_world;console_bridge
+pinocchio_LIBRARY_DIRS:INTERNAL=/usr/local/lib/pkgconfig/../../lib;/usr/lib/x86_64-linux-gnu
+pinocchio_LIBS:INTERNAL=
+pinocchio_LIBS_L:INTERNAL=
+pinocchio_LIBS_OTHER:INTERNAL=
+pinocchio_LIBS_PATHS:INTERNAL=
+pinocchio_MODULE_NAME:INTERNAL=pinocchio
+pinocchio_PREFIX:INTERNAL=/usr/local/lib/pkgconfig/../..
+pinocchio_STATIC_CFLAGS:INTERNAL=-DPINOCCHIO_WITH_URDFDOM;-DPINOCCHIO_ENABLE_TEMPLATE_INSTANTIATION;-I/usr/local/lib/pkgconfig/../../include;-I/usr/include;-I/usr/include/eigen3
+pinocchio_STATIC_CFLAGS_I:INTERNAL=
+pinocchio_STATIC_CFLAGS_OTHER:INTERNAL=-DPINOCCHIO_WITH_URDFDOM;-DPINOCCHIO_ENABLE_TEMPLATE_INSTANTIATION
+pinocchio_STATIC_INCLUDE_DIRS:INTERNAL=/usr/local/lib/pkgconfig/../../include;/usr/include;/usr/include/eigen3
+pinocchio_STATIC_LDFLAGS:INTERNAL=-L/usr/local/lib/pkgconfig/../../lib;-L/usr/lib/x86_64-linux-gnu;-lpinocchio_default;-lpinocchio_parsers;-lboost_filesystem;-lurdfdom_sensor;-lurdfdom_model_state;-lurdfdom_model;-lurdfdom_world;-lconsole_bridge
+pinocchio_STATIC_LDFLAGS_OTHER:INTERNAL=
+pinocchio_STATIC_LIBDIR:INTERNAL=
+pinocchio_STATIC_LIBRARIES:INTERNAL=pinocchio_default;pinocchio_parsers;boost_filesystem;urdfdom_sensor;urdfdom_model_state;urdfdom_model;urdfdom_world;console_bridge
+pinocchio_STATIC_LIBRARY_DIRS:INTERNAL=/usr/local/lib/pkgconfig/../../lib;/usr/lib/x86_64-linux-gnu
+pinocchio_STATIC_LIBS:INTERNAL=
+pinocchio_STATIC_LIBS_L:INTERNAL=
+pinocchio_STATIC_LIBS_OTHER:INTERNAL=
+pinocchio_STATIC_LIBS_PATHS:INTERNAL=
+pinocchio_VERSION:INTERNAL=3.8.0
+pinocchio_pinocchio_INCLUDEDIR:INTERNAL=
+pinocchio_pinocchio_LIBDIR:INTERNAL=
+pinocchio_pinocchio_PREFIX:INTERNAL=
+pinocchio_pinocchio_VERSION:INTERNAL=
 //ADVANCED property for variable: pkgcfg_lib_BULLET_BulletCollision
 pkgcfg_lib_BULLET_BulletCollision-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_BULLET_BulletDynamics
@@ -2050,5 +2111,21 @@ pkgcfg_lib_YAML_yaml-ADVANCED:INTERNAL=1
 pkgcfg_lib_ZIP_zip-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_ZeroMQ_zmq
 pkgcfg_lib_ZeroMQ_zmq-ADVANCED:INTERNAL=1
-prefix_result:INTERNAL=/usr//usr/lib/x86_64-linux-gnu
+//ADVANCED property for variable: pkgcfg_lib_pinocchio_boost_filesystem
+pkgcfg_lib_pinocchio_boost_filesystem-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_pinocchio_console_bridge
+pkgcfg_lib_pinocchio_console_bridge-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_pinocchio_pinocchio_default
+pkgcfg_lib_pinocchio_pinocchio_default-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_pinocchio_pinocchio_parsers
+pkgcfg_lib_pinocchio_pinocchio_parsers-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_pinocchio_urdfdom_model
+pkgcfg_lib_pinocchio_urdfdom_model-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_pinocchio_urdfdom_model_state
+pkgcfg_lib_pinocchio_urdfdom_model_state-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_pinocchio_urdfdom_sensor
+pkgcfg_lib_pinocchio_urdfdom_sensor-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_pinocchio_urdfdom_world
+pkgcfg_lib_pinocchio_urdfdom_world-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/usr/local/lib/pkgconfig/../../lib
 

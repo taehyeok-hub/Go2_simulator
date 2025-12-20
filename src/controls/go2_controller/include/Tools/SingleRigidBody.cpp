@@ -140,14 +140,7 @@ void SingleRigidBody::Update_A_Matrix()
 
     for (int i = 0; i < 4; i++)
     {
-        // r_leg_w = p_leg_w[i] - p_com_w  -----> r_leg_b = R * r_leg_w
-        Eigen::Vector3d r_foot_world = p_foot_world[i] - p_com_world;
-        Eigen::Vector3d r_foot_body = R_world_to_body * r_foot_world;
-
-        // std::cout << "r_foot_world = " << r_foot_world << std::endl;
-        // std::cout << "r_foot_body = " << r_foot_body << std::endl;
-
-        P_skew_foot[i] = MakeCross2Skew(r_foot_body);
+        P_skew_foot[i] = MakeCross2Skew(p_foot_world[i]);
 
         A_mat.block<3, 3>(0, 3 * i) = I_3x3;
         A_mat.block<3, 3>(3, 3 * i) = P_skew_foot[i];

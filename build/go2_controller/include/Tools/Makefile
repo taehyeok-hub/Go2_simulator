@@ -185,6 +185,30 @@ Tools/fast:
 	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/build
 .PHONY : Tools/fast
 
+Centroidal_Dynamics.o: Centroidal_Dynamics.cpp.o
+.PHONY : Centroidal_Dynamics.o
+
+# target to build an object file
+Centroidal_Dynamics.cpp.o:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o
+.PHONY : Centroidal_Dynamics.cpp.o
+
+Centroidal_Dynamics.i: Centroidal_Dynamics.cpp.i
+.PHONY : Centroidal_Dynamics.i
+
+# target to preprocess a source file
+Centroidal_Dynamics.cpp.i:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.i
+.PHONY : Centroidal_Dynamics.cpp.i
+
+Centroidal_Dynamics.s: Centroidal_Dynamics.cpp.s
+.PHONY : Centroidal_Dynamics.s
+
+# target to generate assembly for a file
+Centroidal_Dynamics.cpp.s:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.s
+.PHONY : Centroidal_Dynamics.cpp.s
+
 Kinematics.o: Kinematics.cpp.o
 .PHONY : Kinematics.o
 
@@ -208,6 +232,30 @@ Kinematics.s: Kinematics.cpp.s
 Kinematics.cpp.s:
 	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Kinematics.cpp.s
 .PHONY : Kinematics.cpp.s
+
+Pinocchio_Interface.o: Pinocchio_Interface.cpp.o
+.PHONY : Pinocchio_Interface.o
+
+# target to build an object file
+Pinocchio_Interface.cpp.o:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o
+.PHONY : Pinocchio_Interface.cpp.o
+
+Pinocchio_Interface.i: Pinocchio_Interface.cpp.i
+.PHONY : Pinocchio_Interface.i
+
+# target to preprocess a source file
+Pinocchio_Interface.cpp.i:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.i
+.PHONY : Pinocchio_Interface.cpp.i
+
+Pinocchio_Interface.s: Pinocchio_Interface.cpp.s
+.PHONY : Pinocchio_Interface.s
+
+# target to generate assembly for a file
+Pinocchio_Interface.cpp.s:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.s
+.PHONY : Pinocchio_Interface.cpp.s
 
 SingleRigidBody.o: SingleRigidBody.cpp.o
 .PHONY : SingleRigidBody.o
@@ -295,9 +343,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... Tools"
+	@echo "... Centroidal_Dynamics.o"
+	@echo "... Centroidal_Dynamics.i"
+	@echo "... Centroidal_Dynamics.s"
 	@echo "... Kinematics.o"
 	@echo "... Kinematics.i"
 	@echo "... Kinematics.s"
+	@echo "... Pinocchio_Interface.o"
+	@echo "... Pinocchio_Interface.i"
+	@echo "... Pinocchio_Interface.s"
 	@echo "... SingleRigidBody.o"
 	@echo "... SingleRigidBody.i"
 	@echo "... SingleRigidBody.s"

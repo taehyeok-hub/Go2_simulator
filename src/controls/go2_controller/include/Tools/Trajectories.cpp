@@ -1,6 +1,20 @@
 #include "Trajectories.hpp"
 
-Trajectories::Trajectories() {}
+/*
+    관계 변수 : Current_Time, Motion_Time (go2_controller.cpp) 
+    double t = (Current_Time - Motion_Time).toSec();
+
+    Motion_Time : 동작하는 목표 시간.
+    Current_Time : Trajectory Planning 을 진행하기 이전 시간을 마련하는것임. 
+*/
+
+
+Trajectories::Trajectories() 
+{
+    
+
+
+}
 
 TrajectoryPoint Trajectories::Quintic_Task(ros::Time &start_time, double motion_time, const Eigen::Vector3d &x_current,
                                            const Eigen::Vector3d &x_final)
@@ -120,6 +134,9 @@ TrajectoryPoint Trajectories::Sinusoidal_Task(ros::Time &start_time, double peri
 
     return target;
 }
+
+void Set_AMatrix_QuinticJoint(double t, Eigen::VectorXd q_start_, Eigen::VectorXd q_final_);
+
 
 Eigen::VectorXd Trajectories::Quintic_Joint(double t, double motion_time, const Eigen::VectorXd &q_start, const Eigen::VectorXd &q_final)
 {

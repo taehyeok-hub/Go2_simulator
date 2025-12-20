@@ -87,8 +87,8 @@ public:
     // 외부에서 계산된 힘 결과를 가져감
     Eigen::VectorXd Get_Force() { return Force; }
     Eigen::VectorXd Get_Reference() { return Force; }
-    Eigen::VectorXd Get_Force() { return Force; }
-    Eigen::VectorXd Get_Force() { return Force; }
+    // Eigen::VectorXd Get_Force() { return Force; }
+    // Eigen::VectorXd Get_Force() { return Force; }
 };
 
 #endif

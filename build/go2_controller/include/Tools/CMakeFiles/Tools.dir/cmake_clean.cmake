@@ -1,8 +1,12 @@
 file(REMOVE_RECURSE
   "/home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.pdb"
   "/home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so"
+  "CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o"
+  "CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o.d"
   "CMakeFiles/Tools.dir/Kinematics.cpp.o"
   "CMakeFiles/Tools.dir/Kinematics.cpp.o.d"
+  "CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o"
+  "CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o.d"
   "CMakeFiles/Tools.dir/SingleRigidBody.cpp.o"
   "CMakeFiles/Tools.dir/SingleRigidBody.cpp.o.d"
   "CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o"

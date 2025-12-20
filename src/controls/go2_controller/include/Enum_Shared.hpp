@@ -28,4 +28,12 @@ enum Leg_Num
     NUM_LEG = 4,
 };
 
+enum RPY
+{
+    ROLL,
+    PITCH,
+    YAW,
+    NUM_RPY = 3,
+};
+
 #endif

@@ -7,7 +7,9 @@ add_library(Tools
     Trajectories.cpp
     TaskSpacePDControl.cpp
     Centroidal_Dynamics.cpp
-
+    # Centt.cpp
+    Pinocchio_Interface.cpp
+    
 )
 
 target_link_libraries(Tools osqpeigen)

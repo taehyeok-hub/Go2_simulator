@@ -1,0 +1,60 @@
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:76:67:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+   76 |     void Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_Pose[01;31m[K)[m[K
+      |                                                                   [01;31m[K^[m[K
+      |                                                                    [32m[K;[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:[m[K In member function ‘[01m[KEigen::Vector3d Centroidal_Dynamics::Get_Error_Ori()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:148:46:[m[K [01;31m[Kerror: [m[K‘[01m[KErr_Ori[m[K’ was not declared in this scope
+  148 |     Eigen::Vector3d Get_Error_Ori() { return [01;31m[KErr_Ori[m[K; };
+      |                                              [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In member function ‘[01m[Kvoid Centroidal_Dynamics::Set_RobotState(Eigen::VectorXd, Eigen::VectorXd, Eigen::VectorXd, Eigen::VectorXd, Eigen::VectorXd)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:62:15:[m[K [01;31m[Kerror: [m[K‘[01m[KCOM_rpy_[m[K’ was not declared in this scope
+   62 |     COM_RPY = [01;31m[KCOM_rpy_[m[K;
+      |               [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In member function ‘[01m[Kvoid Centroidal_Dynamics::Compute_B_Vector(Eigen::Vector3d, Eigen::Matrix3d)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:111:5:[m[K [01;31m[Kerror: [m[K‘[01m[KErr_Ori[m[K’ was not declared in this scope
+  111 |     [01;31m[KErr_Ori[m[K(0) = Wrap2PI(0.0 - COM_RPY(0));
+      |     [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:119:74:[m[K [01;31m[Kerror: [m[K‘[01m[KCOM_rpy_dot[m[K’ was not declared in this scope; did you mean ‘[01m[KCOM_RPY_dot[m[K’?
+  119 |     Eigen::Vector3d COM_RPYdot_ref = (Kp_Ori * Err_Ori - Kd_Ori * R_wb * [01;31m[KCOM_rpy_dot[m[K);
+      |                                                                          [01;31m[K^~~~~~~~~~~[m[K
+      |                                                                          [32m[KCOM_RPY_dot[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In member function ‘[01m[Kvoid Centroidal_Dynamics::Set_LinearMatrix()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:141:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kleg[m[K’ was not declared in this scope; did you mean ‘[01m[Klog[m[K’?
+  141 |     int rowBase = 5 * [01;31m[Kleg[m[K;
+      |                       [01;31m[K^~~[m[K
+      |                       [32m[Klog[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:135: include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:76:67:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+   76 |     void Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_Pose[01;31m[K)[m[K
+      |                                                                   [01;31m[K^[m[K
+      |                                                                    [32m[K;[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:[m[K In member function ‘[01m[KEigen::Vector3d Centroidal_Dynamics::Get_Error_Ori()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:148:46:[m[K [01;31m[Kerror: [m[K‘[01m[KErr_Ori[m[K’ was not declared in this scope
+  148 |     Eigen::Vector3d Get_Error_Ori() { return [01;31m[KErr_Ori[m[K; };
+      |                                              [01;31m[K^~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:43[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centt.hpp:[m[K At global scope:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centt.hpp:19:7:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kclass Centroidal_Dynamics[m[K’
+   19 | class [01;31m[KCentroidal_Dynamics[m[K
+      |       [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:42[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:19:7:[m[K [01;36m[Knote: [m[Kprevious definition of ‘[01m[Kclass Centroidal_Dynamics[m[K’
+   19 | class [01;36m[KCentroidal_Dynamics[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:58:1:[m[K [01;31m[Kerror: [m[K‘[01m[KPinocchioInterface[m[K’ does not name a type
+   58 | [01;31m[KPinocchioInterface[m[K PINO(urdf_path_, foot_name_);
+      | [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:109:5:[m[K [01;31m[Kerror: [m[K‘[01m[KCentt[m[K’ does not name a type
+  109 |     [01;31m[KCentt[m[K CENT;
+      |     [01;31m[K^~~~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:121: include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

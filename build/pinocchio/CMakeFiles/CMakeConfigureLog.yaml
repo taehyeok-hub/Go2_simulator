@@ -1,0 +1,3406 @@
+
+---
+events:
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:39 (find_package)"
+    name: "jrl-cmakemodules"
+    configs:
+      -
+        filename: "jrl-cmakemodulesConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "jrl-cmakemodules-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "optional"
+      quiet: true
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "jrl-cmakemodules"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/pkgRedirects/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/pkgRedirects/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/pth/model/Go2_simulator/devel/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/pth/model/Go2_simulator/devel/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/ros/noetic/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/ros/noetic/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/.local/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/.local/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/games/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/games/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/games/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/games/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/snap/jrl-cmakemodulesConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/snap/jrl-cmakemodules-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+    found: null
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FindGit.cmake:86 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FetchContent.cmake:1874 (find_package)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FetchContent.cmake:1609 (__FetchContent_populateSubbuild)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FetchContent.cmake:2145:EVAL:2 (__FetchContent_doPopulation)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FetchContent.cmake:2145 (cmake_language)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FetchContent.cmake:2384 (__FetchContent_Populate)"
+      - "CMakeLists.txt:51 (FetchContent_MakeAvailable)"
+    mode: "program"
+    variable: "GIT_EXECUTABLE"
+    description: "Git command line client"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "git"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/git"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/git"
+      - "/home/pth/pth/model/Go2_simulator/devel/git"
+      - "/opt/ros/noetic/bin/git"
+      - "/opt/ros/noetic/sbin/git"
+      - "/opt/ros/noetic/git"
+      - "/opt/ros/noetic/bin/git"
+      - "/home/pth/.local/bin/git"
+      - "/usr/local/sbin/git"
+      - "/usr/local/bin/git"
+      - "/usr/sbin/git"
+    found: "/usr/bin/git"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/uname"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/uname"
+      - "/home/pth/pth/model/Go2_simulator/devel/uname"
+      - "/opt/ros/noetic/bin/uname"
+      - "/opt/ros/noetic/sbin/uname"
+      - "/opt/ros/noetic/uname"
+      - "/opt/ros/noetic/bin/uname"
+      - "/home/pth/.local/bin/uname"
+      - "/usr/local/sbin/uname"
+      - "/usr/local/bin/uname"
+      - "/usr/sbin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    message: |
+      The system is: Linux - 5.15.0-139-generic - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/gmake"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/gmake"
+      - "/home/pth/pth/model/Go2_simulator/devel/gmake"
+      - "/opt/ros/noetic/bin/gmake"
+      - "/opt/ros/noetic/sbin/gmake"
+      - "/opt/ros/noetic/gmake"
+      - "/opt/ros/noetic/bin/gmake"
+      - "/home/pth/.local/bin/gmake"
+      - "/usr/local/sbin/gmake"
+      - "/usr/local/bin/gmake"
+      - "/usr/sbin/gmake"
+      - "/usr/bin/gmake"
+      - "/sbin/gmake"
+      - "/bin/gmake"
+      - "/usr/games/gmake"
+      - "/usr/local/games/gmake"
+      - "/snap/bin/gmake"
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/make"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/make"
+      - "/home/pth/pth/model/Go2_simulator/devel/make"
+      - "/opt/ros/noetic/bin/make"
+      - "/opt/ros/noetic/sbin/make"
+      - "/opt/ros/noetic/make"
+      - "/opt/ros/noetic/bin/make"
+      - "/home/pth/.local/bin/make"
+      - "/usr/local/sbin/make"
+      - "/usr/local/bin/make"
+      - "/usr/sbin/make"
+    found: "/usr/bin/make"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER"
+    description: "CXX compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "c++"
+      - "CC"
+      - "g++"
+      - "aCC"
+      - "cl"
+      - "bcc"
+      - "xlC"
+      - "icpx"
+      - "icx"
+      - "clang++"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/c++"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/c++"
+      - "/home/pth/pth/model/Go2_simulator/devel/c++"
+      - "/opt/ros/noetic/bin/c++"
+      - "/opt/ros/noetic/sbin/c++"
+      - "/opt/ros/noetic/c++"
+      - "/opt/ros/noetic/bin/c++"
+      - "/home/pth/.local/bin/c++"
+      - "/usr/local/sbin/c++"
+      - "/usr/local/bin/c++"
+      - "/usr/sbin/c++"
+    found: "/usr/bin/c++"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/"
+    found: "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/4.1.0/CompilerIdCXX/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    found: "/usr/bin/ar"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    found: "/usr/bin/ranlib"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    found: "/usr/bin/strip"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    found: "/usr/bin/ld"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    found: "/usr/bin/nm"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    found: "/usr/bin/objdump"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    found: "/usr/bin/objcopy"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    found: "/usr/bin/readelf"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    searched_directories:
+      - "/usr/bin/dlltool"
+      - "/opt/ros/noetic/bin/dlltool"
+      - "/home/pth/.local/bin/dlltool"
+      - "/usr/local/sbin/dlltool"
+      - "/usr/local/bin/dlltool"
+      - "/usr/sbin/dlltool"
+      - "/sbin/dlltool"
+      - "/bin/dlltool"
+      - "/usr/games/dlltool"
+      - "/usr/local/games/dlltool"
+      - "/snap/bin/dlltool"
+    found: false
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    found: "/usr/bin/addr2line"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    searched_directories:
+      - "/usr/bin/tapi"
+      - "/opt/ros/noetic/bin/tapi"
+      - "/home/pth/.local/bin/tapi"
+      - "/usr/local/sbin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/usr/sbin/tapi"
+      - "/sbin/tapi"
+      - "/bin/tapi"
+      - "/usr/games/tapi"
+      - "/usr/local/games/tapi"
+      - "/snap/bin/tapi"
+    found: false
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-9.4"
+      - "gcc-ar-9"
+      - "gcc-ar9"
+      - "gcc-ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ar-9.4"
+      - "/opt/ros/noetic/bin/gcc-ar-9.4"
+      - "/home/pth/.local/bin/gcc-ar-9.4"
+      - "/usr/local/sbin/gcc-ar-9.4"
+      - "/usr/local/bin/gcc-ar-9.4"
+      - "/usr/sbin/gcc-ar-9.4"
+      - "/sbin/gcc-ar-9.4"
+      - "/bin/gcc-ar-9.4"
+      - "/usr/games/gcc-ar-9.4"
+      - "/usr/local/games/gcc-ar-9.4"
+      - "/snap/bin/gcc-ar-9.4"
+    found: "/usr/bin/gcc-ar-9"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-9.4"
+      - "gcc-ranlib-9"
+      - "gcc-ranlib9"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ranlib-9.4"
+      - "/opt/ros/noetic/bin/gcc-ranlib-9.4"
+      - "/home/pth/.local/bin/gcc-ranlib-9.4"
+      - "/usr/local/sbin/gcc-ranlib-9.4"
+      - "/usr/local/bin/gcc-ranlib-9.4"
+      - "/usr/sbin/gcc-ranlib-9.4"
+      - "/sbin/gcc-ranlib-9.4"
+      - "/bin/gcc-ranlib-9.4"
+      - "/usr/games/gcc-ranlib-9.4"
+      - "/usr/local/games/gcc-ranlib-9.4"
+      - "/snap/bin/gcc-ranlib-9.4"
+    found: "/usr/bin/gcc-ranlib-9"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-qR1Olp"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-qR1Olp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-qR1Olp'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9d29a/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_9d29a.dir/build.make CMakeFiles/cmTC_9d29a.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-qR1Olp'
+        Building CXX object CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o -c /home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        OFFLOAD_TARGET_NAMES=nvptx-none:hsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccfIvqAV.s
+        GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/9"
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/include/c++/9
+         /usr/include/x86_64-linux-gnu/c++/9
+         /usr/include/c++/9/backward
+         /usr/lib/gcc/x86_64-linux-gnu/9/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 3d1eba838554fa2348dba760e4770469
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccfIvqAV.s
+        GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        Linking CXX executable cmTC_9d29a
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d29a.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:hsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9d29a' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLlSYgn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9d29a /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        collect2 version 9.4.0
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLlSYgn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9d29a /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        GNU ld (GNU Binutils for Ubuntu) 2.34
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9d29a' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_9d29a
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-qR1Olp'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/include/c++/9]
+          add: [/usr/include/x86_64-linux-gnu/c++/9]
+          add: [/usr/include/c++/9/backward]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/9/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/include/c++/9] ==> [/usr/include/c++/9]
+        collapse include dir [/usr/include/x86_64-linux-gnu/c++/9] ==> [/usr/include/x86_64-linux-gnu/c++/9]
+        collapse include dir [/usr/include/c++/9/backward] ==> [/usr/include/c++/9/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/9/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/9/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/9;/usr/include/x86_64-linux-gnu/c++/9;/usr/include/c++/9/backward;/usr/lib/gcc/x86_64-linux-gnu/9/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-qR1Olp']
+        ignore line: []
+        ignore line: [Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9d29a/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_9d29a.dir/build.make CMakeFiles/cmTC_9d29a.dir/build]
+        ignore line: [make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-qR1Olp']
+        ignore line: [Building CXX object CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o -c /home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccfIvqAV.s]
+        ignore line: [GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/9"]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/include/c++/9]
+        ignore line: [ /usr/include/x86_64-linux-gnu/c++/9]
+        ignore line: [ /usr/include/c++/9/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 3d1eba838554fa2348dba760e4770469]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccfIvqAV.s]
+        ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking CXX executable cmTC_9d29a]
+        ignore line: [/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d29a.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9d29a' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLlSYgn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9d29a /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccLlSYgn.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_9d29a] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [collect2 version 9.4.0]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLlSYgn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9d29a /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_9d29a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        linker tool for 'CXX': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9] ==> [/usr/lib/gcc/x86_64-linux-gnu/9]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> [/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/9;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/CMakeLists.txt:7 (project)"
+    message: |
+      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils for Ubuntu) 2.34
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FindPkgConfig.cmake:69 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/pkg-config.cmake:18 (find_package)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:12 (include)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "PKG_CONFIG_EXECUTABLE"
+    description: "pkg-config executable"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "pkg-config"
+      - "pkgconf"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/pkg-config"
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/pkgconf"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/pkg-config"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/pkgconf"
+      - "/home/pth/pth/model/Go2_simulator/devel/pkg-config"
+      - "/home/pth/pth/model/Go2_simulator/devel/pkgconf"
+      - "/opt/ros/noetic/bin/pkg-config"
+      - "/opt/ros/noetic/bin/pkgconf"
+      - "/opt/ros/noetic/sbin/pkg-config"
+      - "/opt/ros/noetic/sbin/pkgconf"
+      - "/opt/ros/noetic/pkg-config"
+      - "/opt/ros/noetic/pkgconf"
+      - "/opt/ros/noetic/bin/pkg-config"
+      - "/opt/ros/noetic/bin/pkgconf"
+      - "/home/pth/.local/bin/pkg-config"
+      - "/home/pth/.local/bin/pkgconf"
+      - "/usr/local/sbin/pkg-config"
+      - "/usr/local/sbin/pkgconf"
+      - "/usr/local/bin/pkg-config"
+      - "/usr/local/bin/pkgconf"
+      - "/usr/sbin/pkg-config"
+      - "/usr/sbin/pkgconf"
+    found: "/usr/bin/pkg-config"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CTest.cmake:171 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:81 (include)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "GITCOMMAND"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "git"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/git"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/git"
+      - "/home/pth/pth/model/Go2_simulator/devel/git"
+      - "/opt/ros/noetic/bin/git"
+      - "/opt/ros/noetic/sbin/git"
+      - "/opt/ros/noetic/git"
+      - "/opt/ros/noetic/bin/git"
+      - "/home/pth/.local/bin/git"
+      - "/usr/local/sbin/git"
+      - "/usr/local/bin/git"
+      - "/usr/sbin/git"
+    found: "/usr/bin/git"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CTest.cmake:188 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:81 (include)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "MEMORYCHECK_COMMAND"
+    description: "Path to the memory checking command, used for memory error detection."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "purify"
+      - "valgrind"
+      - "boundscheck"
+      - "drmemory"
+      - "cuda-memcheck"
+      - "compute-sanitizer"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/purify"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/purify"
+      - "/home/pth/pth/model/Go2_simulator/devel/purify"
+      - "/opt/ros/noetic/bin/purify"
+      - "/opt/ros/noetic/sbin/purify"
+      - "/opt/ros/noetic/purify"
+      - "/opt/ros/noetic/bin/purify"
+      - "/home/pth/.local/bin/purify"
+      - "/usr/local/sbin/purify"
+      - "/usr/local/bin/purify"
+      - "/usr/sbin/purify"
+      - "/usr/bin/purify"
+      - "/sbin/purify"
+      - "/bin/purify"
+      - "/usr/games/purify"
+      - "/usr/local/games/purify"
+      - "/snap/bin/purify"
+      - "/usr/local/bin/purify"
+      - "/usr/local/sbin/purify"
+      - "/usr/local/purify"
+      - "/usr/bin/purify"
+      - "/usr/sbin/purify"
+      - "/usr/purify"
+      - "/bin/purify"
+      - "/sbin/purify"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/purify"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/purify"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/purify"
+      - "/usr/X11R6/bin/purify"
+      - "/usr/X11R6/sbin/purify"
+      - "/usr/X11R6/purify"
+      - "/usr/pkg/bin/purify"
+      - "/usr/pkg/sbin/purify"
+      - "/usr/pkg/purify"
+      - "/opt/bin/purify"
+      - "/opt/sbin/purify"
+      - "/opt/purify"
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/valgrind"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/valgrind"
+      - "/home/pth/pth/model/Go2_simulator/devel/valgrind"
+      - "/opt/ros/noetic/bin/valgrind"
+      - "/opt/ros/noetic/sbin/valgrind"
+      - "/opt/ros/noetic/valgrind"
+      - "/opt/ros/noetic/bin/valgrind"
+      - "/home/pth/.local/bin/valgrind"
+      - "/usr/local/sbin/valgrind"
+      - "/usr/local/bin/valgrind"
+      - "/usr/sbin/valgrind"
+      - "/usr/bin/valgrind"
+      - "/sbin/valgrind"
+      - "/bin/valgrind"
+      - "/usr/games/valgrind"
+      - "/usr/local/games/valgrind"
+      - "/snap/bin/valgrind"
+      - "/usr/local/bin/valgrind"
+      - "/usr/local/sbin/valgrind"
+      - "/usr/local/valgrind"
+      - "/usr/bin/valgrind"
+      - "/usr/sbin/valgrind"
+      - "/usr/valgrind"
+      - "/bin/valgrind"
+      - "/sbin/valgrind"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/valgrind"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/valgrind"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/valgrind"
+      - "/usr/X11R6/bin/valgrind"
+      - "/usr/X11R6/sbin/valgrind"
+      - "/usr/X11R6/valgrind"
+      - "/usr/pkg/bin/valgrind"
+      - "/usr/pkg/sbin/valgrind"
+      - "/usr/pkg/valgrind"
+      - "/opt/bin/valgrind"
+      - "/opt/sbin/valgrind"
+      - "/opt/valgrind"
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/boundscheck"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/boundscheck"
+      - "/home/pth/pth/model/Go2_simulator/devel/boundscheck"
+      - "/opt/ros/noetic/bin/boundscheck"
+      - "/opt/ros/noetic/sbin/boundscheck"
+      - "/opt/ros/noetic/boundscheck"
+      - "/opt/ros/noetic/bin/boundscheck"
+      - "/home/pth/.local/bin/boundscheck"
+      - "/usr/local/sbin/boundscheck"
+      - "/usr/local/bin/boundscheck"
+      - "/usr/sbin/boundscheck"
+      - "/usr/bin/boundscheck"
+      - "/sbin/boundscheck"
+      - "/bin/boundscheck"
+      - "/usr/games/boundscheck"
+      - "/usr/local/games/boundscheck"
+      - "/snap/bin/boundscheck"
+      - "/usr/local/bin/boundscheck"
+      - "/usr/local/sbin/boundscheck"
+      - "/usr/local/boundscheck"
+      - "/usr/bin/boundscheck"
+      - "/usr/sbin/boundscheck"
+      - "/usr/boundscheck"
+      - "/bin/boundscheck"
+      - "/sbin/boundscheck"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/boundscheck"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/boundscheck"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/boundscheck"
+      - "/usr/X11R6/bin/boundscheck"
+      - "/usr/X11R6/sbin/boundscheck"
+      - "/usr/X11R6/boundscheck"
+      - "/usr/pkg/bin/boundscheck"
+      - "/usr/pkg/sbin/boundscheck"
+      - "/usr/pkg/boundscheck"
+      - "/opt/bin/boundscheck"
+      - "/opt/sbin/boundscheck"
+      - "/opt/boundscheck"
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/drmemory"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/drmemory"
+      - "/home/pth/pth/model/Go2_simulator/devel/drmemory"
+      - "/opt/ros/noetic/bin/drmemory"
+      - "/opt/ros/noetic/sbin/drmemory"
+      - "/opt/ros/noetic/drmemory"
+      - "/opt/ros/noetic/bin/drmemory"
+      - "/home/pth/.local/bin/drmemory"
+      - "/usr/local/sbin/drmemory"
+      - "/usr/local/bin/drmemory"
+      - "/usr/sbin/drmemory"
+      - "/usr/bin/drmemory"
+      - "/sbin/drmemory"
+      - "/bin/drmemory"
+      - "/usr/games/drmemory"
+      - "/usr/local/games/drmemory"
+      - "/snap/bin/drmemory"
+      - "/usr/local/bin/drmemory"
+      - "/usr/local/sbin/drmemory"
+      - "/usr/local/drmemory"
+      - "/usr/bin/drmemory"
+      - "/usr/sbin/drmemory"
+      - "/usr/drmemory"
+      - "/bin/drmemory"
+      - "/sbin/drmemory"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/drmemory"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/drmemory"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/drmemory"
+      - "/usr/X11R6/bin/drmemory"
+      - "/usr/X11R6/sbin/drmemory"
+      - "/usr/X11R6/drmemory"
+      - "/usr/pkg/bin/drmemory"
+      - "/usr/pkg/sbin/drmemory"
+      - "/usr/pkg/drmemory"
+      - "/opt/bin/drmemory"
+      - "/opt/sbin/drmemory"
+      - "/opt/drmemory"
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/cuda-memcheck"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/cuda-memcheck"
+      - "/home/pth/pth/model/Go2_simulator/devel/cuda-memcheck"
+      - "/opt/ros/noetic/bin/cuda-memcheck"
+      - "/opt/ros/noetic/sbin/cuda-memcheck"
+      - "/opt/ros/noetic/cuda-memcheck"
+      - "/opt/ros/noetic/bin/cuda-memcheck"
+      - "/home/pth/.local/bin/cuda-memcheck"
+      - "/usr/local/sbin/cuda-memcheck"
+      - "/usr/local/bin/cuda-memcheck"
+      - "/usr/sbin/cuda-memcheck"
+      - "/usr/bin/cuda-memcheck"
+      - "/sbin/cuda-memcheck"
+      - "/bin/cuda-memcheck"
+      - "/usr/games/cuda-memcheck"
+      - "/usr/local/games/cuda-memcheck"
+      - "/snap/bin/cuda-memcheck"
+      - "/usr/local/bin/cuda-memcheck"
+      - "/usr/local/sbin/cuda-memcheck"
+      - "/usr/local/cuda-memcheck"
+      - "/usr/bin/cuda-memcheck"
+      - "/usr/sbin/cuda-memcheck"
+      - "/usr/cuda-memcheck"
+      - "/bin/cuda-memcheck"
+      - "/sbin/cuda-memcheck"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cuda-memcheck"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/cuda-memcheck"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/cuda-memcheck"
+      - "/usr/X11R6/bin/cuda-memcheck"
+      - "/usr/X11R6/sbin/cuda-memcheck"
+      - "/usr/X11R6/cuda-memcheck"
+      - "/usr/pkg/bin/cuda-memcheck"
+      - "/usr/pkg/sbin/cuda-memcheck"
+      - "/usr/pkg/cuda-memcheck"
+      - "/opt/bin/cuda-memcheck"
+      - "/opt/sbin/cuda-memcheck"
+      - "/opt/cuda-memcheck"
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/compute-sanitizer"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/compute-sanitizer"
+      - "/home/pth/pth/model/Go2_simulator/devel/compute-sanitizer"
+      - "/opt/ros/noetic/bin/compute-sanitizer"
+      - "/opt/ros/noetic/sbin/compute-sanitizer"
+      - "/opt/ros/noetic/compute-sanitizer"
+      - "/opt/ros/noetic/bin/compute-sanitizer"
+      - "/home/pth/.local/bin/compute-sanitizer"
+      - "/usr/local/sbin/compute-sanitizer"
+      - "/usr/local/bin/compute-sanitizer"
+      - "/usr/sbin/compute-sanitizer"
+      - "/usr/bin/compute-sanitizer"
+      - "/sbin/compute-sanitizer"
+      - "/bin/compute-sanitizer"
+      - "/usr/games/compute-sanitizer"
+      - "/usr/local/games/compute-sanitizer"
+      - "/snap/bin/compute-sanitizer"
+      - "/usr/local/bin/compute-sanitizer"
+      - "/usr/local/sbin/compute-sanitizer"
+      - "/usr/local/compute-sanitizer"
+      - "/usr/bin/compute-sanitizer"
+      - "/usr/sbin/compute-sanitizer"
+      - "/usr/compute-sanitizer"
+      - "/bin/compute-sanitizer"
+      - "/sbin/compute-sanitizer"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/compute-sanitizer"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/compute-sanitizer"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/compute-sanitizer"
+      - "/usr/X11R6/bin/compute-sanitizer"
+      - "/usr/X11R6/sbin/compute-sanitizer"
+      - "/usr/X11R6/compute-sanitizer"
+      - "/usr/pkg/bin/compute-sanitizer"
+      - "/usr/pkg/sbin/compute-sanitizer"
+      - "/usr/pkg/compute-sanitizer"
+      - "/opt/bin/compute-sanitizer"
+      - "/opt/sbin/compute-sanitizer"
+      - "/opt/compute-sanitizer"
+    found: false
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CTest.cmake:196 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:81 (include)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "COVERAGE_COMMAND"
+    description: "Path to the coverage program that CTest uses for performing coverage inspection"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcov"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/gcov"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/gcov"
+      - "/home/pth/pth/model/Go2_simulator/devel/gcov"
+      - "/opt/ros/noetic/bin/gcov"
+      - "/opt/ros/noetic/sbin/gcov"
+      - "/opt/ros/noetic/gcov"
+      - "/opt/ros/noetic/bin/gcov"
+      - "/home/pth/.local/bin/gcov"
+      - "/usr/local/sbin/gcov"
+      - "/usr/local/bin/gcov"
+      - "/usr/sbin/gcov"
+    found: "/usr/bin/gcov"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:159 (check_cxx_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:62 (CXX_FLAGS_BY_COMPILER_FRONTEND)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:90 (_SETUP_PROJECT_WARNINGS)"
+      - "CMakeLists.txt:83 (project)"
+    checks:
+      - "Performing Test res_-pedantic"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-GhKcuo"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-GhKcuo"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "res_-pedantic"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-GhKcuo'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f7216/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_f7216.dir/build.make CMakeFiles/cmTC_f7216.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-GhKcuo'
+        Building CXX object CMakeFiles/cmTC_f7216.dir/src.cxx.o
+        /usr/bin/c++   -Dres_-pedantic -pedantic -o CMakeFiles/cmTC_f7216.dir/src.cxx.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-GhKcuo/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        Linking CXX executable cmTC_f7216
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f7216.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_f7216.dir/src.cxx.o -o cmTC_f7216
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-GhKcuo'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:159 (check_cxx_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:62 (CXX_FLAGS_BY_COMPILER_FRONTEND)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:90 (_SETUP_PROJECT_WARNINGS)"
+      - "CMakeLists.txt:83 (project)"
+    checks:
+      - "Performing Test res_-Wno-long-long"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-NKLRVo"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-NKLRVo"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "res_-Wno-long-long"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-NKLRVo'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_267f9/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_267f9.dir/build.make CMakeFiles/cmTC_267f9.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-NKLRVo'
+        Building CXX object CMakeFiles/cmTC_267f9.dir/src.cxx.o
+        /usr/bin/c++   -Dres_-Wno-long-long -Wno-long-long -o CMakeFiles/cmTC_267f9.dir/src.cxx.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-NKLRVo/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        Linking CXX executable cmTC_267f9
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_267f9.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_267f9.dir/src.cxx.o -o cmTC_267f9
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-NKLRVo'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:159 (check_cxx_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:62 (CXX_FLAGS_BY_COMPILER_FRONTEND)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:90 (_SETUP_PROJECT_WARNINGS)"
+      - "CMakeLists.txt:83 (project)"
+    checks:
+      - "Performing Test res_-Wall"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-rlgfco"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-rlgfco"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "res_-Wall"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-rlgfco'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_41d01/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_41d01.dir/build.make CMakeFiles/cmTC_41d01.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-rlgfco'
+        Building CXX object CMakeFiles/cmTC_41d01.dir/src.cxx.o
+        /usr/bin/c++   -Dres_-Wall -Wall -o CMakeFiles/cmTC_41d01.dir/src.cxx.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-rlgfco/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        Linking CXX executable cmTC_41d01
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41d01.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_41d01.dir/src.cxx.o -o cmTC_41d01
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-rlgfco'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:159 (check_cxx_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:62 (CXX_FLAGS_BY_COMPILER_FRONTEND)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:90 (_SETUP_PROJECT_WARNINGS)"
+      - "CMakeLists.txt:83 (project)"
+    checks:
+      - "Performing Test res_-Wextra"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mvl9Aq"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mvl9Aq"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "res_-Wextra"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mvl9Aq'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8867c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_8867c.dir/build.make CMakeFiles/cmTC_8867c.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mvl9Aq'
+        Building CXX object CMakeFiles/cmTC_8867c.dir/src.cxx.o
+        /usr/bin/c++   -Dres_-Wextra -Wextra -o CMakeFiles/cmTC_8867c.dir/src.cxx.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mvl9Aq/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        Linking CXX executable cmTC_8867c
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8867c.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_8867c.dir/src.cxx.o -o cmTC_8867c
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mvl9Aq'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:159 (check_cxx_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:62 (CXX_FLAGS_BY_COMPILER_FRONTEND)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:90 (_SETUP_PROJECT_WARNINGS)"
+      - "CMakeLists.txt:83 (project)"
+    checks:
+      - "Performing Test res_-Wcast-align"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-nG5Rwn"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-nG5Rwn"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "res_-Wcast-align"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-nG5Rwn'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8d543/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_8d543.dir/build.make CMakeFiles/cmTC_8d543.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-nG5Rwn'
+        Building CXX object CMakeFiles/cmTC_8d543.dir/src.cxx.o
+        /usr/bin/c++   -Dres_-Wcast-align -Wcast-align -o CMakeFiles/cmTC_8d543.dir/src.cxx.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-nG5Rwn/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        Linking CXX executable cmTC_8d543
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8d543.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_8d543.dir/src.cxx.o -o cmTC_8d543
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-nG5Rwn'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:159 (check_cxx_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:62 (CXX_FLAGS_BY_COMPILER_FRONTEND)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:90 (_SETUP_PROJECT_WARNINGS)"
+      - "CMakeLists.txt:83 (project)"
+    checks:
+      - "Performing Test res_-Wcast-qual"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-FJOYmr"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-FJOYmr"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "res_-Wcast-qual"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-FJOYmr'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2aa44/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_2aa44.dir/build.make CMakeFiles/cmTC_2aa44.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-FJOYmr'
+        Building CXX object CMakeFiles/cmTC_2aa44.dir/src.cxx.o
+        /usr/bin/c++   -Dres_-Wcast-qual -Wcast-qual -o CMakeFiles/cmTC_2aa44.dir/src.cxx.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-FJOYmr/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        Linking CXX executable cmTC_2aa44
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2aa44.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_2aa44.dir/src.cxx.o -o cmTC_2aa44
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-FJOYmr'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:159 (check_cxx_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:62 (CXX_FLAGS_BY_COMPILER_FRONTEND)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:90 (_SETUP_PROJECT_WARNINGS)"
+      - "CMakeLists.txt:83 (project)"
+    checks:
+      - "Performing Test res_-Wformat"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-p4ZJZq"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-p4ZJZq"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "res_-Wformat"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-p4ZJZq'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_64609/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_64609.dir/build.make CMakeFiles/cmTC_64609.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-p4ZJZq'
+        Building CXX object CMakeFiles/cmTC_64609.dir/src.cxx.o
+        /usr/bin/c++   -Dres_-Wformat -Wformat -o CMakeFiles/cmTC_64609.dir/src.cxx.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-p4ZJZq/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        Linking CXX executable cmTC_64609
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64609.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_64609.dir/src.cxx.o -o cmTC_64609
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-p4ZJZq'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:159 (check_cxx_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:62 (CXX_FLAGS_BY_COMPILER_FRONTEND)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:90 (_SETUP_PROJECT_WARNINGS)"
+      - "CMakeLists.txt:83 (project)"
+    checks:
+      - "Performing Test res_-Wwrite-strings"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mGp8xp"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mGp8xp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "res_-Wwrite-strings"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mGp8xp'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_baf51/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_baf51.dir/build.make CMakeFiles/cmTC_baf51.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mGp8xp'
+        Building CXX object CMakeFiles/cmTC_baf51.dir/src.cxx.o
+        /usr/bin/c++   -Dres_-Wwrite-strings -Wwrite-strings -o CMakeFiles/cmTC_baf51.dir/src.cxx.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mGp8xp/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        Linking CXX executable cmTC_baf51
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_baf51.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_baf51.dir/src.cxx.o -o cmTC_baf51
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-mGp8xp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:159 (check_cxx_compiler_flag)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/compiler.cmake:62 (CXX_FLAGS_BY_COMPILER_FRONTEND)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:90 (_SETUP_PROJECT_WARNINGS)"
+      - "CMakeLists.txt:83 (project)"
+    checks:
+      - "Performing Test res_-Wconversion"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-j4mgzr"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-j4mgzr"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "res_-Wconversion"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-j4mgzr'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e5d99/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_e5d99.dir/build.make CMakeFiles/cmTC_e5d99.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-j4mgzr'
+        Building CXX object CMakeFiles/cmTC_e5d99.dir/src.cxx.o
+        /usr/bin/c++   -Dres_-Wconversion -Wconversion -o CMakeFiles/cmTC_e5d99.dir/src.cxx.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-j4mgzr/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        Linking CXX executable cmTC_e5d99
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e5d99.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_e5d99.dir/src.cxx.o -o cmTC_e5d99
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeScratch/TryCompile-j4mgzr'
+        
+      exitCode: 0
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/dist.cmake:28 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:92 (_SETUP_PROJECT_DIST)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "TAR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tar"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/tar"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/tar"
+      - "/home/pth/pth/model/Go2_simulator/devel/tar"
+      - "/opt/ros/noetic/bin/tar"
+      - "/opt/ros/noetic/sbin/tar"
+      - "/opt/ros/noetic/tar"
+      - "/opt/ros/noetic/bin/tar"
+      - "/home/pth/.local/bin/tar"
+      - "/usr/local/sbin/tar"
+      - "/usr/local/bin/tar"
+      - "/usr/sbin/tar"
+    found: "/usr/bin/tar"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/dist.cmake:29 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:92 (_SETUP_PROJECT_DIST)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "GPG"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gpg"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/gpg"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/gpg"
+      - "/home/pth/pth/model/Go2_simulator/devel/gpg"
+      - "/opt/ros/noetic/bin/gpg"
+      - "/opt/ros/noetic/sbin/gpg"
+      - "/opt/ros/noetic/gpg"
+      - "/opt/ros/noetic/bin/gpg"
+      - "/home/pth/.local/bin/gpg"
+      - "/usr/local/sbin/gpg"
+      - "/usr/local/bin/gpg"
+      - "/usr/sbin/gpg"
+    found: "/usr/bin/gpg"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/distcheck.cmake:40 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:93 (DISTCHECK_SETUP)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "SED"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "sed"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/sed"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/sed"
+      - "/home/pth/pth/model/Go2_simulator/devel/sed"
+      - "/opt/ros/noetic/bin/sed"
+      - "/opt/ros/noetic/sbin/sed"
+      - "/opt/ros/noetic/sed"
+      - "/opt/ros/noetic/bin/sed"
+      - "/home/pth/.local/bin/sed"
+      - "/usr/local/sbin/sed"
+      - "/usr/local/bin/sed"
+      - "/usr/sbin/sed"
+    found: "/usr/bin/sed"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/release.cmake:51 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:94 (RELEASE_SETUP)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "GIT"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "git"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/git"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/git"
+      - "/home/pth/pth/model/Go2_simulator/devel/git"
+      - "/opt/ros/noetic/bin/git"
+      - "/opt/ros/noetic/sbin/git"
+      - "/opt/ros/noetic/git"
+      - "/opt/ros/noetic/bin/git"
+      - "/home/pth/.local/bin/git"
+      - "/usr/local/sbin/git"
+      - "/usr/local/bin/git"
+      - "/usr/sbin/git"
+    found: "/usr/bin/git"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/release.cmake:52 (find_program)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:94 (RELEASE_SETUP)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "PIXI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "pixi"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/pixi"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/pixi"
+      - "/home/pth/pth/model/Go2_simulator/devel/pixi"
+      - "/opt/ros/noetic/bin/pixi"
+      - "/opt/ros/noetic/sbin/pixi"
+      - "/opt/ros/noetic/pixi"
+      - "/opt/ros/noetic/bin/pixi"
+      - "/home/pth/.local/bin/pixi"
+      - "/usr/local/sbin/pixi"
+      - "/usr/local/bin/pixi"
+      - "/usr/sbin/pixi"
+      - "/usr/bin/pixi"
+      - "/sbin/pixi"
+      - "/bin/pixi"
+      - "/usr/games/pixi"
+      - "/usr/local/games/pixi"
+      - "/snap/bin/pixi"
+      - "/usr/local/bin/pixi"
+      - "/usr/local/sbin/pixi"
+      - "/usr/local/pixi"
+      - "/usr/bin/pixi"
+      - "/usr/sbin/pixi"
+      - "/usr/pixi"
+      - "/bin/pixi"
+      - "/sbin/pixi"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/pixi"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/pixi"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/pixi"
+      - "/usr/X11R6/bin/pixi"
+      - "/usr/X11R6/sbin/pixi"
+      - "/usr/X11R6/pixi"
+      - "/usr/pkg/bin/pixi"
+      - "/usr/pkg/sbin/pixi"
+      - "/usr/pkg/pixi"
+      - "/opt/bin/pixi"
+      - "/opt/sbin/pixi"
+      - "/opt/pixi"
+    found: false
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FindDoxygen.cmake:753 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FindDoxygen.cmake:937 (_Doxygen_find_doxygen)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/doxygen.cmake:537 (find_package)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:99 (_SETUP_PROJECT_DOCUMENTATION)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "DOXYGEN_EXECUTABLE"
+    description: "Doxygen documentation generation tool (https://www.doxygen.nl)"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "doxygen"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+      - "/Applications/Doxygen.app/Contents/Resources/"
+      - "/Applications/Doxygen.app/Contents/MacOS/"
+      - "/Applications/Utilities/Doxygen.app/Contents/Resources/"
+      - "/Applications/Utilities/Doxygen.app/Contents/MacOS/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/doxygen"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/doxygen"
+      - "/home/pth/pth/model/Go2_simulator/devel/doxygen"
+      - "/opt/ros/noetic/bin/doxygen"
+      - "/opt/ros/noetic/sbin/doxygen"
+      - "/opt/ros/noetic/doxygen"
+      - "/opt/ros/noetic/bin/doxygen"
+      - "/home/pth/.local/bin/doxygen"
+      - "/usr/local/sbin/doxygen"
+      - "/usr/local/bin/doxygen"
+      - "/usr/sbin/doxygen"
+    found: "/usr/bin/doxygen"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FindDoxygen.cmake:840 (find_program)"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/share/cmake-4.1/Modules/FindDoxygen.cmake:941 (_Doxygen_find_dot)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/doxygen.cmake:537 (find_package)"
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/post-project.cmake:99 (_SETUP_PROJECT_DOCUMENTATION)"
+      - "CMakeLists.txt:83 (project)"
+    mode: "program"
+    variable: "DOXYGEN_DOT_EXECUTABLE"
+    description: "Dot tool for use with Doxygen"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dot"
+    candidate_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/"
+      - "/home/pth/pth/model/Go2_simulator/devel/"
+      - "/opt/ros/noetic/bin/"
+      - "/opt/ros/noetic/sbin/"
+      - "/opt/ros/noetic/"
+      - "/opt/ros/noetic/bin/"
+      - "/home/pth/.local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/snap/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/sbin/"
+      - "/home/pth/.local/lib/python3.8/site-packages/cmake/data/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+      - "/ATT/Graphviz/bin/"
+      - "C:/Program Files/ATT/Graphviz/bin/"
+      - "/Applications/Graphviz.app/Contents/MacOS/"
+      - "/Applications/Utilities/Graphviz.app/Contents/MacOS/"
+      - "/Applications/Doxygen.app/Contents/Resources/"
+      - "/Applications/Doxygen.app/Contents/MacOS/"
+      - "/Applications/Utilities/Doxygen.app/Contents/Resources/"
+      - "/Applications/Utilities/Doxygen.app/Contents/MacOS/"
+    searched_directories:
+      - "/home/pth/pth/model/Go2_simulator/devel/bin/dot"
+      - "/home/pth/pth/model/Go2_simulator/devel/sbin/dot"
+      - "/home/pth/pth/model/Go2_simulator/devel/dot"
+      - "/opt/ros/noetic/bin/dot"
+      - "/opt/ros/noetic/sbin/dot"
+      - "/opt/ros/noetic/dot"
+      - "/opt/ros/noetic/bin/dot"
+      - "/home/pth/.local/bin/dot"
+      - "/usr/local/sbin/dot"
+      - "/usr/local/bin/dot"
+      - "/usr/sbin/dot"
+    found: "/usr/bin/dot"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-src/cxx-standard.cmake:62 (try_run)"
+      - "CMakeLists.txt:95 (check_minimal_cxx_standard)"
+    directories:
+      source: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeTmp"
+      binary: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-pedantic -Wno-long-long -Wall -Wextra -Wcast-align -Wcast-qual -Wformat -Wwrite-strings -Wconversion "
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a8630/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_a8630.dir/build.make CMakeFiles/cmTC_a8630.dir/build
+        make[1]: Entering directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_a8630.dir/tmp-cxx-standard.cpp.o
+        /usr/bin/c++   -pedantic -Wno-long-long -Wall -Wextra -Wcast-align -Wcast-qual -Wformat -Wwrite-strings -Wconversion   -o CMakeFiles/cmTC_a8630.dir/tmp-cxx-standard.cpp.o -c /home/pth/pth/model/Go2_simulator/build/pinocchio/cmake/tmp-cxx-standard.cpp
+        Linking CXX executable cmTC_a8630
+        /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8630.dir/link.txt --verbose=1
+        /usr/bin/c++ -pedantic -Wno-long-long -Wall -Wextra -Wcast-align -Wcast-qual -Wformat -Wwrite-strings -Wconversion   "CMakeFiles/cmTC_a8630.dir/tmp-cxx-standard.cpp.o" -o cmTC_a8630
+        make[1]: Leaving directory '/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:161 (find_package)"
+    name: "example-robot-data"
+    configs:
+      -
+        filename: "example-robot-dataConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "example-robot-data-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "example-robot-data"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/pkgRedirects/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/pth/model/Go2_simulator/build/pinocchio/CMakeFiles/pkgRedirects/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/pth/model/Go2_simulator/devel/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/pth/model/Go2_simulator/devel/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/ros/noetic/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/ros/noetic/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/.local/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/.local/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/games/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/games/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/games/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/usr/local/games/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/snap/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/snap/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/.local/lib/python3.8/site-packages/cmake/data/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/pth/.local/lib/python3.8/site-packages/cmake/data/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/example-robot-dataConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/opt/example-robot-data-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+    found: null
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/opt/ros/noetic"
+      ENV{PATH}:
+        - "/opt/ros/noetic/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/home/pth/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/snap/bin"
+      CMAKE_INSTALL_PREFIX: "/home/pth/pth/model/Go2_simulator/devel"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/pth/.local/lib/python3.8/site-packages/cmake/data"
+        - "/home/pth/pth/model/Go2_simulator/devel"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+...

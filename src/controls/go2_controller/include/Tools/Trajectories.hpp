@@ -25,6 +25,10 @@ private:
 
     Eigen::VectorXd q_desired;
     Eigen::VectorXd dq_desired;
+    
+    Eigen::MatrixXd M_Matirx;
+    Eigen::MatrixXd A_Matrix;
+    Eigen::MatrixXd B_Vector;
 
     // Serve Function ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -33,6 +37,9 @@ private:
 public:
     // Constructor
     Trajectories();
+    ~Trajectories();
+    
+    Eigen::MatrixXd Set_Coefficient_QuinticJoint()
 
     // Public Variables
     
@@ -48,4 +55,12 @@ public:
     
     // Eigen::VectorXd Sinusoidal_Joint();
 
+
+    static inline double Set_TimeVariable(ros::Time Current_Time_, ros::Time Motion_Time)
+    {
+        double t = (Current_Time_ - Motion_Time_).toSec();
+        return t;
+    }; 
+
+    Eigen::MatrixXd(double Motion_Time_, )
 };

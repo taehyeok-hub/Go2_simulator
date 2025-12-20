@@ -9,6 +9,8 @@
   <xacro:property name="damping"  value="0.1"/>
   <xacro:property name="friction" value="0.1"/>
 
+
+  <!-- 로봇의 공중부양을 도와주는 코드 (link name이 "world"이기 때문)-->
   <!-- <link name="world"/>
 
     <joint name="world_fixed" type="fixed">
@@ -16,6 +18,17 @@
       <child link="base" />
       <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
     </joint> -->
+
+  <!--
+  pinocchio를 사용할 때, "로봇 트리의 가장 첫 번째 링크(Root)는 질량과 관성 정보가 없어야 한다." 라는 
+  KDL 규칙을 지키기 위해서 가상의 관성 정보가 0인 Base_Link를 만든거임.
+  -->
+  <link name="base_link"/>
+
+  <joint name="base_link_to_base" type="fixed">
+    <parent link="base_link"/>
+    <child link="base"/>
+  </joint>
 
 
   <link name="base">
