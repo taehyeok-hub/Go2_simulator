@@ -1,0 +1,8 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:11:1:[m[K [01;31m[Kerror: [m[K‘[01m[KTrajector[m[K’ does not name a type; did you mean ‘[01m[KTrajectories[m[K’?
+   11 | [01;31m[KTrajector[m[K
+      | [01;31m[K^~~~~~~~~[m[K
+      | [32m[KTrajectories[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:107: include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

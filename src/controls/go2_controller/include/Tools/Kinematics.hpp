@@ -35,8 +35,8 @@ private:
 
     Eigen::VectorXd IK_results  {Eigen::VectorXd::Zero(12)};
 
-    Eigen::Matrix<double, 6, 3> J_FL, J_FR, J_RL, J_RR;
-    Eigen::Matrix<double, 6, 12> J  {Eigen::Matrix<double, 6, 12>::Zero()};
+    Eigen::Matrix<double, 6, 3> J[NUM_LEG];
+    Eigen::Matrix<double, 6, 12> J_Matrix = Eigen::Matrix<double, 6, 12>::Zero();
 
     // Sub Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
@@ -49,6 +49,7 @@ private:
 public:
     // Constructor
     Kinematics();
+    ~Kinematics();
 
     // Main Function
     void Forward_Kinematics(const Eigen::VectorXd& q, const Eigen::VectorXd& dq);
@@ -57,7 +58,7 @@ public:
 
     // Getter Function
     std::array<Eigen::Vector3d, 4> Get_EE_Pose() const { return EE_Pose; }
-    Eigen::Matrix<double, 6, 12> Get_Jacobian() const { return J; }
+    Eigen::Matrix<double, 6, 12> Get_Jacobian() const { return J_Matrix; }
 
 };
 

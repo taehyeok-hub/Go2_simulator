@@ -24,13 +24,15 @@ private:
     double mu;
     Eigen::Vector3d gravity;
     Eigen::Matrix3d I_body;
+    Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
 
     // Variable ------------------------------------------------------------------------------------------------------------------------------------------------------------------
     // 1. 로봇 발끝 위치 (바로 저장하는 값) - FK 저장 (body 좌표계)
     Eigen::Vector3d EE_Pose_FL_Body, EE_Pose_FR_Body, EE_Pose_RL_Body, EE_Pose_RR_Body;
 
     // 2. 로봇 몸통 위치/속도/오일러각/각속도/쿼터니언 - World 좌표계
-    Eigen::VectorXd COM_Pose, COM_Vel, COM_Quat, COM_RPY, COM_RPY_dot;
+    Eigen::VectorXd COM_Pose, COM_Vel, COM_RPY, COM_RPY_dot;
+    Eigen::VectorXd COM_Quat;
 
     // 3. 로봇 몸통의 desired / actual / error
     Eigen::Vector3d des_Pos, des_Vel, des_Ori_dot, act_Ori_dot;
@@ -80,9 +82,9 @@ public:
     void Set_CostFunction();
     void Set_Reference(Eigen::VectorXd COM_Ref_);
     void Set_LinearMatrix();
-    void Set_Constraint(double fz_max = 150);
+    void Set_Constraint(double fz_min = 2, double fz_max = 200);
     void Compute_A_Matrix();
-    void Compute_B_Vector(Eigen::Vector3d des_Pos_, Eigen::Matrix3d des_Ori_);
+    void Compute_B_Vector();
 
     void Set_QuatRotationMatrix(Eigen::VectorXd &quat)
     {
@@ -112,7 +114,7 @@ public:
     {
         // (p - pcom)X 을 Skew Symmetric으로 바꾸는 함수
         Eigen::Matrix3d SkewMat;
-        SkewMat << 0, -vec(2), vec(1), vec(2), 0, vec(0), -vec(1), vec(0), 0;
+        SkewMat << 0, -vec(2), vec(1), vec(2), 0, -vec(0), -vec(1), vec(0), 0;
 
         return SkewMat;
     };
@@ -124,7 +126,7 @@ public:
         cross2 = R_act.block<3, 1>(0, 1).cross(R_des.block<3, 1>(0, 1));
         cross3 = R_act.block<3, 1>(0, 2).cross(R_des.block<3, 1>(0, 2));
 
-        return cross1 + cross2 + cross3;
+        return 0.5 * (cross1 + cross2 + cross3);
     };
 
     Eigen::Vector3d ErrOri_so3(Eigen::Matrix3d R_act, Eigen::Matrix3d R_des)

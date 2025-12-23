@@ -1,23 +1,14 @@
 #include "Trajectories.hpp"
 
-/*
-    관계 변수 : Current_Time, Motion_Time (go2_controller.cpp) 
-    double t = (Current_Time - Motion_Time).toSec();
-
-    Motion_Time : 동작하는 목표 시간.
-    Current_Time : Trajectory Planning 을 진행하기 이전 시간을 마련하는것임. 
-*/
-
-
-Trajectories::Trajectories() 
+Trajectories::Trajectories()
 {
-    
-
 
 }
 
-TrajectoryPoint Trajectories::Quintic_Task(ros::Time &start_time, double motion_time, const Eigen::Vector3d &x_current,
-                                           const Eigen::Vector3d &x_final)
+Trajectories::~Trajectories() {}
+
+
+TrajectoryPoint Trajectories::Quintic_Task(ros::Time &start_time, double motion_time, const Eigen::Vector3d &x_current, const Eigen::Vector3d &x_final)
 {
     /*
     parameter 정리
@@ -26,8 +17,6 @@ TrajectoryPoint Trajectories::Quintic_Task(ros::Time &start_time, double motion_
     3. x_current : 현재 발 끝 위치 (EE_Pose_FL,FR,RL,RR) (trajectory의 시작이 될 지점(x_start))
     4. x_final : 목표 발 끝 위치
     */
-
-    TrajectoryPoint Desired;
 
     Eigen::Vector3d x_ref = Eigen::Vector3d::Zero();
 
@@ -110,115 +99,3 @@ TrajectoryPoint Trajectories::Quintic_Task(ros::Time &start_time, double motion_
     return Desired;
 }
 
-TrajectoryPoint Trajectories::Sinusoidal_Task(ros::Time &start_time, double period,
-                                              const Eigen::Vector3d &stand_pose,
-                                              const Eigen::Vector3d &squat_pose)
-{
-    double t = (ros::Time::now() - start_time).toSec();
-    double T = period;
-
-    // 1. Z축에 대한 파라미터 계산
-    double z_stand = stand_pose.z();
-    double z_squat = squat_pose.z();
-    double z_amplitude = (z_stand - z_squat) / 2.0;
-    double z_center = (z_stand + z_squat) / 2.0;
-
-    // 2. 시간에 따른 목표(not 최종 목표) (desired) 위치, 속도 식
-    double z_desired = z_center + z_amplitude * cos(2 * M_PI * t / T);
-    double z_vel_desired = -z_amplitude * (2 * M_PI / T) * sin(2 * M_PI * t / T);
-
-    // 3. X, Y는 고정되어있음.
-    TrajectoryPoint target;
-    target.position << stand_pose.x(), stand_pose.y(), z_desired;
-    target.velocity << 0, 0, z_vel_desired;
-
-    return target;
-}
-
-void Set_AMatrix_QuinticJoint(double t, Eigen::VectorXd q_start_, Eigen::VectorXd q_final_);
-
-
-Eigen::VectorXd Trajectories::Quintic_Joint(double t, double motion_time, const Eigen::VectorXd &q_start, const Eigen::VectorXd &q_final)
-{
-    double T = motion_time; // 궤적 시간
-    double T2 = T * T, T3 = T2 * T, T4 = T3 * T, T5 = T4 * T;
-
-    // quintic trajectory : q = a0 + a1*t + a2*t^2 + a3*t^3 + a4*t^4 + a5*t^5
-    // M 행렬 에서 t에 관여
-    // 초기 시간(t=0) : 위치, 속도, 가속도 (+) 도착 시간(t=T) : 위치, 속도, 가속도
-
-    // MA=B 에서 A 구하기
-    Eigen::Matrix<double, 6, 6> M;
-    M << 1, 0, 0, 0, 0, 0,
-        0, 1, 0, 0, 0, 0,
-        0, 0, 2, 0, 0, 0,
-        1, T, T2, T3, T4, T5,
-        0, 1, 2 * T, 3 * T2, 4 * T3, 5 * T4,
-        0, 0, 2, 6 * T, 12 * T2, 20 * T3;
-
-    Eigen::Matrix<double, 6, 6> M_inv = M.inverse(); // M의 역행렬을 구함
-
-    Eigen::Matrix<double, 6, 12> B; // 12개의 관절들의 초기 (위치, 속도, 가속도), 최종 (위치, 속도, 가속도) 구하기
-    B.row(0) = q_start.transpose(); // current를 받으면서 바로 초기화
-    B.row(1) = Eigen::RowVectorXd::Zero(12);
-    B.row(2) = Eigen::RowVectorXd::Zero(12);
-    B.row(3) = q_final.transpose();
-    B.row(4) = Eigen::RowVectorXd::Zero(12);
-    B.row(5) = Eigen::RowVectorXd::Zero(12);
-
-    Eigen::Matrix<double, 6, 12> A = M_inv * B; // 계수행렬을 구합니다.
-
-    if (t >= T)
-    {
-        q_desired = q_final;
-        return q_desired;
-    }
-
-    // q(t) = a0 + a1*t + a2*t^2 + a3*t^3 + a4*t^4 + a5*t^5 이므로
-    double t2 = t * t;
-    double t3 = t2 * t;
-    double t4 = t3 * t;
-    double t5 = t4 * t;
-    Eigen::Matrix<double, 1, 6> T_vec;
-    T_vec << 1, t, t2, t3, t4, t5;
-
-    q_desired = (T_vec * A).transpose(); // 12 x 1 열벡터가 된다.
-
-    return q_desired;
-}
-
-// Eigen::VectorXd Trajectories::Sinusoidal_Joint()
-// {
-//     return ;
-// }
-
-// quintic trajectory in joint space
-// ros::Time Current_Time = ros::Time::now();
-// double t = (Current_Time - Homing_Time).toSec(); // toSec() 적으세요
-// double T = 2.0;
-// double time_ratio = t/T;
-// double time_ratio_3 = time_ratio * time_ratio * time_ratio;
-// double time_ratio_4 = time_ratio_3 * time_ratio;
-// double time_ratio_5 = time_ratio_4 * time_ratio;
-
-// if (t >= T)
-// {
-//     q_desired = q_final;
-// }
-// else if (t< T)
-// {
-//     q_desired = q_current + (q_final - q_current) * (10 * time_ratio_3 - 15 * time_ratio_4 + 6 * time_ratio_5);
-// }
-
-// sinusoidal trajectory
-// ros::Time Current_Time = ros::Time::now();
-// double t = (Current_Time - Homing_Time).toSec(); // 계산해야하므로 ros::Time이 아닌 double로 받음.
-// double T = 2; // 계산해야하므로 ros::Time이 아닌 double로 받음.
-// if (t< T) // trajectory 추정중
-// {
-// q_desired = q_current + (q_final - q_current) * 0.5 * (1 - cos(3.14 / T * t));
-// }
-// else if (t == T)
-// {
-// q_desired = q_final;
-// }

@@ -21,7 +21,7 @@ void go2_controller::Init()
     /* pub_TH : plotjuggler로 Float의 형태로 본인의 상태를 발행하는거임.
     // pub_leg_cmd_ : gazebo로 로봇의 발위치 구독 */
     pub_TH_ = nh_.advertise<std_msgs::Float64MultiArray>("TH", queue_size);
-    pub_leg_cmd_ = nh_.advertise<std_msgs::Float64MultiArray>(go2_topic_leg_command_, queue_size); 
+    pub_leg_cmd_ = nh_.advertise<std_msgs::Float64MultiArray>(go2_topic_leg_command_, queue_size);
 
     controlmode = INIT;
     Recieved_Joint_State = false;
@@ -32,6 +32,7 @@ void go2_controller::Init()
     q_start.setZero(12);
     q_final.setZero(12);
     q_desired.setZero(12);
+
     Start_Position.setZero(12);
     Homing_Position.setZero(12);
 
@@ -41,6 +42,16 @@ void go2_controller::Init()
     gazebo_rpy.setZero(NUM_AXIS);
     gazebo_rpy_dot.setZero(NUM_AXIS);
 
+    COM_Ref.setZero(NUM_LEG * NUM_AXIS);
+
+    for (size_t i = 0; i < 4; ++i)
+    {
+        Foot_Pos[i].setZero(NUM_JOINT);
+        Foot_Vel[i].setZero(NUM_JOINT);
+        Foot_J[i].setZero(NUM_JOINT, NUM_JOINT);
+        Torque[i].setZero(NUM_JOINT);
+    }
+
     Start_Position << 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60;
     Homing_Position << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
 }
@@ -49,6 +60,8 @@ void go2_controller::Command(bool flag)
 {
     KINE.Forward_Kinematics(q_, dq_);
     KINE.Jacobian(q_);
+    Reference_Generator();
+    Set_Kinematics();
 
     if (Recieved_Joint_State)
     {
@@ -66,12 +79,6 @@ void go2_controller::Command(bool flag)
         case HOMING:
         {
             Homing();
-            if ((ros::Time::now() - Moving_Time).toSec() >= 4.0)
-            {
-                is_motion_started_ = false;
-                // controlmode = SQUATING; ----> 이거 풀으면 다시 SQUATING 합니다.
-                controlmode = SRBM_CONTROL;
-            }
             break;
         }
         case SQUATING:
@@ -79,17 +86,16 @@ void go2_controller::Command(bool flag)
             Squating();
             break;
         }
-        case SRBM_CONTROL:
+        case POSTURE:
         {
-            Body_Ref = gazebo_body_pos;
-            // double alpha = 0.02;
-            // Body_Pos.setZero();
-            // Body_Rot.setZero();
-            // Body_Pos = (1 - alpha) * Body_Pos + alpha * gazebo_body_pos;
-            // Body_Rot = SRBM.RPYRotationMatrix(gazebo_rpy(0), gazebo_rpy(1), gazebo_rpy(2));
-            // Body_Pos_ = gazebo_body_pos;
+            Posture_Control();
             break;
         }
+        // case SRBM_CONTROL:
+        // {
+        //     Body_Ref = gazebo_body_pos;
+        //     break;
+        // }
         }
 
         SendCommandsToRobot();
@@ -98,42 +104,62 @@ void go2_controller::Command(bool flag)
 
 void go2_controller::Homing() // 초기자세 설정 하는 코드
 {
-    double t = (Current_Time - Moving_Time).toSec();
+    /*  double dt = 1.0 / frequency;
+        double t = tick * dt;        */
 
-    if (Start_Flag == 0) // Homing 시작 시 초기 상태 저장
+    if (Start_Flag == 0)
     {
         Start_Flag = 1;
         q_start = q_;
         q_final = Start_Position;
-        Current_Time = ros::Time::now();
     }
 
     if (Start_Flag == 1)
     {
-        Start_Flag = 2;
-
-        Motion_Time = 1.0;
-        double t = Trajectory::Set_TimeVariable(Current_Time, Motion_Time); // static 메서드
-        q_desired = PLAN.Quintic_Joint(t, Motion_Time, q_start, q_final);
-
+        double period = 250;
+        q_desired = q_start + (q_final - q_start) * 0.5 * (1 - cos(3.14 * Init_Time / period));
         torque_ = 100.0 * (q_desired - q_) - 1.0 * dq_;
+        
+        if (Init_Time < period)
+        {
+            Init_Time++;
+        }
+        else if (Init_Time == period)
+        {
+            Init_Time = 0;
+            Start_Flag = 2;
+        }
+    }
+
+    if (Start_Flag == 2)
+    {
+        Start_Flag = 3;
+        q_start = q_;
+        q_final = Homing_Position;
     }
 
     if (Start_Flag == 3)
     {
-        Start_Flag = 4;
-        q_start = q_; // q_start = q_final; 로 해도 상관 X
-        q_final = Homing_Position;
-        Current_Time = ros::Time::now();
-    }
-
-    if (Start_Flag == 4)
-    {
-        double t = Trajectory::Set_TimeVariable(Current_Time, Motion_Time);
-        Motion_Time = 3.0;
-        q_desired = PLAN.Quintic_Joint(t, Motion_Time, q_start, q_final);
-
+        double period = 750;
+        q_desired = q_start + (q_final - q_start) * 0.5 * (1 - cos(3.14 * Init_Time / period));
         torque_ = 100.0 * (q_desired - q_) - 1.0 * dq_;
+
+        if (Init_Time < period)
+        {
+            Init_Time++;
+        }
+        else if (Init_Time == period)
+        {
+            Init_Time = 1000;
+            Start_Flag = 0;
+            Pos_Command[X] = gazebo_body_pos(X);
+            Pos_Command[Y] = gazebo_body_pos(Y);
+            Pos_Command[Z] = gazebo_body_pos(Z);
+            RPY_Command[ROLL] = 0.0;
+            RPY_Command[PITCH] = 0.0;
+            RPY_Command[YAW] = 0.0;
+            controlmode = POSTURE;
+        }
     }
 
     // q_와 dq_는 계속 StateLegCallback 함수로 인해 실시간으로 값을 할당받는중임.
@@ -280,71 +306,38 @@ void go2_controller::Squating()
 
 void go2_controller::SRBMControl()
 {
-    // Eigen::Matrix3d Des_Rot = Eigen::Matrix3d::Identity(); // Orientation (Identity)
-
-    // // 2. FK 및 Jacobian 업데이트 (현재 상태)
-    // std::array<Eigen::Vector3d, 4> EE_Pose_Body = KINE.Get_EE_Pose(); // Body Frame 발 위치
-
-    // // 3. Centroidal Dynamics 업데이트
-    // // 로봇 상태 설정 (World Frame States)
-    // CENT.Set_RobotState(gazebo_body_pos, gazebo_body_vel, gazebo_quat, gazebo_rpy, gazebo_rpy_dot);
-
-    // // 발 위치 설정 (Body Frame 값을 넘겨주면 내부에서 World Frame으로 변환됨)
-    // CENT.Set_FootPosition(EE_Pose_Body);
-
-    // // A Matrix 계산 (World Frame Lever arms)
-    // CENT.Compute_A_Matrix();
-
-    // // B Vector 계산 (Desired Dynamics in World Frame)
-    // CENT.Compute_B_Vector(Body_Ref_, Des_Rot);
-
-    // // QP 풀기
-    // // CENT.Set_Constraint(200.0); // 필요시 최대 힘 조절
-    // CENT.Solve_QP();
-
-    // // 4. 토크 계산
-    // // QP 결과: F_world (World Frame Force)
-    // Eigen::VectorXd F_world = CENT.Get_Force_World();
-
-    // // Jacobian: J_body (Body Frame Velocity -> Joint Velocity 관계)
-    // Eigen::Matrix<double, 6, 12> J_body = KINE.Get_Jacobian();
-
-    // // Rotation Matrix (Body to World)
-    // Eigen::Matrix3d R_bw = CENT.Get_R_body_to_world();
-    // Eigen::Matrix3d R_wb = R_bw.transpose(); // World to Body
-
-    // for (int i = 0; i < 4; i++)
-    // {
-    //     Eigen::Vector3d F_leg_world = F_world.segment<3>(3 * i);
-
-    //     // [중요] World Force를 Body Force로 변환
-    //     // 로봇이 지면을 미는 힘(QP 결과) -> Body Frame으로 표현
-    //     Eigen::Vector3d F_leg_body = R_wb * F_leg_world;
-
-    //     // [중요] Torque = J^T * F_ext
-    //     // F_ext는 로봇 발끝에 작용하는 힘 (지면 반력).
-    //     // 부호: (-1) 제거. 지면 반력 방향 그대로 토크로 변환되어야 중력을 이김.
-    //     torque_.segment<3>(3 * i) = J_body.block<3, 3>(0, 3 * i).transpose() * (-1) * F_leg_body;
-    // }
-
     std::array<Eigen::Vector3d, 4> EE_Pose_ = KINE.Get_EE_Pose();
     Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
 
     // 1. gazebo에서 world 좌표계 기준 com 받아오기, CENT 저장
     CENT.Set_RobotState(gazebo_body_pos, gazebo_body_vel, gazebo_quat, gazebo_rpy, gazebo_rpy_dot);
     CENT.Set_FKFootPosition(EE_Pose_);
+    // CENT.Set_FootPosition(PINO.GetPos(FL), PINO.GetPos(FR), PINO.GetPos(RL), PINO.GetPos(RR));
+    CENT.Set_Reference(COM_Ref);
     CENT.Compute_A_Matrix();
-    CENT.Compute_B_Vector(Body_Ref, I);
+    CENT.Compute_B_Vector();
+    CENT.Set_CostFunction();
+    CENT.Solve_QP();   
+}
 
-    // CENT.Set_Reference();
-    CENT.Solve_QP();
-    Force = CENT.Get_Force();
+void go2_controller::Posture_Control()
+{
+    GRF = CENT.Get_Force(); // 지면반발력
     Eigen::Matrix<double, 6, 12> J = KINE.Get_Jacobian();
 
     for (int i = 0; i < 4; i++)
     {
-        torque_.segment<3>(3 * i) = J.block<3, 3>(0, 3 * i).transpose() * (-1) * Force.segment<3>(3 * i);
+        // torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했을 경우)
+        torque_.segment<3>(3 * i) = J.block<3,3>(0, 3 * i).transpose() * (-1) * GRF.segment<3>(3 * i); // (FK를 사용했을 경우)
     }
+    std::cout << "=== Torque === \n" << torque_.transpose() << std::endl;
+}
+
+void go2_controller::Reference_Generator() 
+{
+    /* reference 를 한군데에다가 모아서 한 번에 전달. */ 
+    COM_Ref << Pos_Command[X], Pos_Command[Y], Pos_Command[Z], Vel_Command[X], Vel_Command[Y], Vel_Command[Z],
+               RPY_Command[X], RPY_Command[Y], RPY_Command[Z], ANG_Command[X], ANG_Command[Y], ANG_Command[Z]; 
 }
 
 void go2_controller::Run()
@@ -551,22 +544,17 @@ void go2_controller::DataStream()
     // TH_msg 메세지의 형태로 data를 발행함.
     // ex) EE_Pose_FL은 x, y, z의 형태로 되어 있으니까, EE_Pose_FL
 
-    // 몸통 des 좌표
-    TH_msg.data.push_back(Body_Pos(X));
-    TH_msg.data.push_back(Body_Pos(Y));
-    TH_msg.data.push_back(Body_Pos(Z));
-
     Eigen::Vector3d Err_Pos_ = CENT.Get_Error_Pose();
     Eigen::Vector3d Err_Ori_ = CENT.Get_Error_R();
 
     // SRBM 추출 힘
-    TH_msg.data.push_back(Err_Pos_(X));
-    TH_msg.data.push_back(Err_Pos_(Y));
-    TH_msg.data.push_back(Err_Pos_(Z));
+    TH_msg.data.push_back(Pos_Command[X]);
+    TH_msg.data.push_back(Pos_Command[Y]);
+    TH_msg.data.push_back(Pos_Command[Z]);
 
-    TH_msg.data.push_back(Err_Ori_(X));
-    TH_msg.data.push_back(Err_Ori_(Y));
-    TH_msg.data.push_back(Err_Ori_(Z));
+    TH_msg.data.push_back(gazebo_body_pos(X));
+    TH_msg.data.push_back(gazebo_body_pos(Y));
+    TH_msg.data.push_back(gazebo_body_pos(Z));
 
     count += 1;
 
@@ -579,4 +567,40 @@ void go2_controller::DataStream()
     // LOGDATA------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // LOGDATA------------------------------------------------------------------------------------------------------------------------------------------------------
+}
+
+void go2_controller::Set_Kinematics()
+{
+    PINO.SetRobotParameter(q_, dq_);
+
+    for (size_t i = 0; i < NUM_LEG; i++)
+    {
+        PINO.SetKinematics(i);
+        Foot_J[i] = PINO.GetJacobian(i);
+        Foot_Pos[i] = PINO.GetPos(i);
+        Foot_Vel[i] = PINO.GetVel(i);
+    }
+
+    // int stance_count = Contact[FL] + Contact[FR] + Contact[RL] + Contact[RR];
+
+    // if (stance_count > 0)
+    // {
+    //     double inv_stance_count = 1.0 / (double)stance_count;
+    //     Local_body_pos(X) = -(Foot_Pos[FL](X) * Contact[FL] + Foot_Pos[FR](X) * Contact[FR] +
+    //                           Foot_Pos[RL](X) * Contact[RL] + Foot_Pos[RR](X) * Contact[RR]) *
+    //                         inv_stance_count;
+
+    //     Local_body_pos(Y) = -(Foot_Pos[FL](Y) * Contact[FL] + Foot_Pos[FR](Y) * Contact[FR] +
+    //                           Foot_Pos[RL](Y) * Contact[RL] + Foot_Pos[RR](Y) * Contact[RR]) *
+    //                         inv_stance_count;
+
+    //     Local_body_pos(Z) = -(Foot_Pos[FL](Z) * Contact[FL] + Foot_Pos[FR](Z) * Contact[FR] +
+    //                           Foot_Pos[RL](Z) * Contact[RL] + Foot_Pos[RR](Z) * Contact[RR]) *
+    //                         inv_stance_count;
+    // }
+
+    // Local_body_pos(Z) = Body_Height;
+
+    // Local_body_vel = Rz_.transpose() * gazebo_body_vel;
+    // Local_rpy_dot = Rz_.transpose() * gazebo_rpy_dot;
 }

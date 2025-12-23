@@ -32,6 +32,7 @@
 
 #include <cmath>
 #include <thread>
+#include <vector>
 #include <array>
 #include <chrono>
 #include <iostream>
@@ -42,7 +43,7 @@
 #include "Kinematics.hpp"
 #include "Trajectories.hpp"
 #include "Centroidal_Dynamics.hpp"
-#include "Centt.hpp"
+// #include "Centt.hpp"
 #include "Enum_Shared.hpp"
 
 enum ControlMode
@@ -50,7 +51,7 @@ enum ControlMode
     INIT,
     HOMING,
     SQUATING,
-    SRBM_CONTROL,
+    POSTURE,
     NUM_MODE = 5,
 };
 
@@ -82,19 +83,21 @@ private:
     // FUNCTION---------------------------------------------------------------------------------------------------------------------------------------------------
 
     void Command(bool flag);
-    void Homing();
-    void Squating();
     void StateBodyCallback(const gazebo_msgs::ModelStates::ConstPtr &body);
     void StateLegCallback(const sensor_msgs::JointState &state);
     void SendCommandsToRobot();
+    void DataStream();
+
+    void Homing();
+    void Squating();
+    void SRBMControl();
+    void Reference_Generator();
+    void Posture_Control();
     void Forward_Kinematics(const Eigen::VectorXd &q, const Eigen::VectorXd &dq);
     void Forward_Kinematics_ME(const Eigen::VectorXd &q, const Eigen::VectorXd &dq);
-    void geometrical_IK();
-    void Jacobians_URDF(const Eigen::VectorXd &q);
-    void Create_Jacobian(const Eigen::VectorXd &q);
     void TaskSpacePDControl(double Kp, double Kd);
-    void SRBMControl();
-    void DataStream();
+    void Set_Kinematics();
+
 
     // Trajectory 관련 함수들
     TrajectoryPoint Quintic_Task(ros::Time &start_time, double motion_time, Eigen::Vector3d &x_current, Eigen::Vector3d &x_final);
@@ -105,7 +108,7 @@ private:
     // CLASS---------------------------------------------------------------------------------------------------------------------------------------------------
 
     Kinematics KINE;
-    Trajectories TRAJ;
+    Trajectories PLAN;
     SingleRigidBody SRBM;
     Centroidal_Dynamics CENT;
     // Centt CENT;
@@ -134,16 +137,29 @@ private:
 
     // Joint space 변수들 (quintic)
     int Start_Flag = 0;
-    Eigen::VectorXd q_start;
+    int Init_Time = 0;
+    Eigen::VectorXd q_start;    
     Eigen::VectorXd q_final;
+    Eigen::VectorXd q_desired; // Planning 에서 Trajectory 받아오는 곳.
     Eigen::VectorXd Start_Position, Homing_Position;
     // Eigen::VectorXd q_desired{Eigen::VectorXd::Zero(12)}; // trajectory가 들어갈 곳
 
-    Eigen::Vector3d Body_Pos;
-    Eigen::Matrix3d Body_Rot;
-    Eigen::Vector3d Body_Ref;
+    // Eigen::Vector3d Body_Pos;
+    // Eigen::Matrix3d Body_Rot;
+    // Eigen::Vector3d Body_Ref;
 
     Eigen::VectorXd COM_Ref; // Reference 값 넣어두는 용도
+    
+    // Reference Generator
+    double Pos_Command[NUM_AXIS] = {0.0, 0.0, 0.0};
+    double Vel_Command[NUM_AXIS] = {0.0, 0.0, 0.0};
+    double RPY_Command[NUM_AXIS] = {0.0, 0.0, 0.0};
+    double ANG_Command[NUM_AXIS] = {0.0, 0.0, 0.0};
+
+    Eigen::MatrixXd Foot_J[NUM_LEG];
+    Eigen::VectorXd Foot_Pos[NUM_LEG], Foot_Vel[NUM_LEG];
+    Eigen::VectorXd Torque[NUM_LEG];
+
 
     // (in Task Space) 동작의 시작 xyz값 (담아두는 용도)
     Eigen::Vector3d EE_Pose_FL_start, EE_Pose_FR_start, EE_Pose_RL_start, EE_Pose_RR_start;
@@ -166,13 +182,11 @@ private:
     Eigen::Matrix<double, 6, 3> J_RL{Eigen::Matrix<double, 6, 3>::Zero()};
     Eigen::Matrix<double, 6, 3> J_RR{Eigen::Matrix<double, 6, 3>::Zero()};
     Eigen::Matrix<double, 6, 12> J{Eigen::Matrix<double, 6, 12>::Zero()};
+    Eigen::Matrix<double, 6, 3> Jacobian[NUM_LEG];
 
     Eigen::Matrix3d R_bw_;
-    Eigen::VectorXd Force;
-    Eigen::Vector3d Force_FL;
-    Eigen::Vector3d Force_FR;
-    Eigen::Vector3d Force_RL;
-    Eigen::Vector3d Force_RR;
+    Eigen::VectorXd GRF;
+    Eigen::Vector3d Force_[NUM_LEG];
 
     // 동작 상태 관리
     ros::Time motion_start_time_;

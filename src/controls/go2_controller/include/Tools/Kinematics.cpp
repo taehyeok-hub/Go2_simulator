@@ -1,11 +1,8 @@
 #include "Kinematics.hpp"
 
 
-Kinematics::Kinematics()
-{
-
-}
-
+Kinematics::Kinematics() {}
+Kinematics::~Kinematics() {}
 
 // 참조에 의한 전달, Pass-by-Reference : 함수 안에서 axis를 변경하면 그 값이 반영된다.
 // (단순 회전 행렬) 
@@ -236,14 +233,14 @@ void Kinematics::Jacobian(const Eigen::VectorXd& q)
     Eigen::Vector3d z_calf_FL  = T_base_calf_FL.block<3, 3>(0, 0) * calf_axis;
 
     // 선속도 부분
-    J_FL.block<3,1>(0,0)  = z_hip_FL.cross(o_ee_FL - o_hip_joint_FL);
-    J_FL.block<3, 1>(0, 1) = z_thigh_FL.cross(o_ee_FL - o_thigh_joint_FL);
-    J_FL.block<3, 1>(0, 2) = z_calf_FL.cross(o_ee_FL - o_calf_joint_FL);
+    J[FL].block<3,1>(0,0)  = z_hip_FL.cross(o_ee_FL - o_hip_joint_FL);
+    J[FL].block<3, 1>(0, 1) = z_thigh_FL.cross(o_ee_FL - o_thigh_joint_FL);
+    J[FL].block<3, 1>(0, 2) = z_calf_FL.cross(o_ee_FL - o_calf_joint_FL);
 
     // 각속도 부분: z_i
-    J_FL.block<3, 1>(3, 0) = z_hip_FL;
-    J_FL.block<3, 1>(3, 1) = z_thigh_FL;
-    J_FL.block<3, 1>(3, 2) = z_calf_FL;
+    J[FL].block<3, 1>(3, 0) = z_hip_FL;
+    J[FL].block<3, 1>(3, 1) = z_thigh_FL;
+    J[FL].block<3, 1>(3, 2) = z_calf_FL;
 
     // =========================================================================
     // --- 앞 오른쪽 다리 (Front Right, FR) ---
@@ -267,12 +264,12 @@ void Kinematics::Jacobian(const Eigen::VectorXd& q)
     Eigen::Vector3d z_thigh_FR = T_base_thigh_FR.block<3, 3>(0, 0) * thigh_axis;
     Eigen::Vector3d z_calf_FR  = T_base_calf_FR.block<3, 3>(0, 0) * calf_axis;
 
-    J_FR.block<3, 1>(0, 0) = z_hip_FR.cross(o_ee_FR - o_hip_joint_FR);
-    J_FR.block<3, 1>(0, 1) = z_thigh_FR.cross(o_ee_FR - o_thigh_joint_FR);
-    J_FR.block<3, 1>(0, 2) = z_calf_FR.cross(o_ee_FR - o_calf_joint_FR);
-    J_FR.block<3, 1>(3, 0) = z_hip_FR;
-    J_FR.block<3, 1>(3, 1) = z_thigh_FR;
-    J_FR.block<3, 1>(3, 2) = z_calf_FR;
+    J[FR].block<3, 1>(0, 0) = z_hip_FR.cross(o_ee_FR - o_hip_joint_FR);
+    J[FR].block<3, 1>(0, 1) = z_thigh_FR.cross(o_ee_FR - o_thigh_joint_FR);
+    J[FR].block<3, 1>(0, 2) = z_calf_FR.cross(o_ee_FR - o_calf_joint_FR);
+    J[FR].block<3, 1>(3, 0) = z_hip_FR;
+    J[FR].block<3, 1>(3, 1) = z_thigh_FR;
+    J[FR].block<3, 1>(3, 2) = z_calf_FR;
 
     // =========================================================================
     // --- 뒤 왼쪽 다리 (Rear Left, RL) ---
@@ -296,12 +293,12 @@ void Kinematics::Jacobian(const Eigen::VectorXd& q)
     Eigen::Vector3d z_thigh_RL = T_base_thigh_RL.block<3, 3>(0, 0) * thigh_axis;
     Eigen::Vector3d z_calf_RL  = T_base_calf_RL.block<3, 3>(0, 0) * calf_axis;
 
-    J_RL.block<3, 1>(0, 0) = z_hip_RL.cross(o_ee_RL - o_hip_joint_RL);
-    J_RL.block<3, 1>(0, 1) = z_thigh_RL.cross(o_ee_RL - o_thigh_joint_RL);
-    J_RL.block<3, 1>(0, 2) = z_calf_RL.cross(o_ee_RL - o_calf_joint_RL);
-    J_RL.block<3, 1>(3, 0) = z_hip_RL;
-    J_RL.block<3, 1>(3, 1) = z_thigh_RL;
-    J_RL.block<3, 1>(3, 2) = z_calf_RL;
+    J[RL].block<3, 1>(0, 0) = z_hip_RL.cross(o_ee_RL - o_hip_joint_RL);
+    J[RL].block<3, 1>(0, 1) = z_thigh_RL.cross(o_ee_RL - o_thigh_joint_RL);
+    J[RL].block<3, 1>(0, 2) = z_calf_RL.cross(o_ee_RL - o_calf_joint_RL);
+    J[RL].block<3, 1>(3, 0) = z_hip_RL;
+    J[RL].block<3, 1>(3, 1) = z_thigh_RL;
+    J[RL].block<3, 1>(3, 2) = z_calf_RL;
 
     // =========================================================================
     // --- 뒤 오른쪽 다리 (Rear Right, RR) ---
@@ -325,18 +322,18 @@ void Kinematics::Jacobian(const Eigen::VectorXd& q)
     Eigen::Vector3d z_thigh_RR = T_base_thigh_RR.block<3, 3>(0, 0) * thigh_axis;
     Eigen::Vector3d z_calf_RR  = T_base_calf_RR.block<3, 3>(0, 0) * calf_axis;
 
-    J_RR.block<3, 1>(0, 0) = z_hip_RR.cross(o_ee_RR - o_hip_joint_RR);
-    J_RR.block<3, 1>(0, 1) = z_thigh_RR.cross(o_ee_RR - o_thigh_joint_RR);
-    J_RR.block<3, 1>(0, 2) = z_calf_RR.cross(o_ee_RR - o_calf_joint_RR);
-    J_RR.block<3, 1>(3, 0) = z_hip_RR;
-    J_RR.block<3, 1>(3, 1) = z_thigh_RR;
-    J_RR.block<3, 1>(3, 2) = z_calf_RR;
+    J[RR].block<3, 1>(0, 0) = z_hip_RR.cross(o_ee_RR - o_hip_joint_RR);
+    J[RR].block<3, 1>(0, 1) = z_thigh_RR.cross(o_ee_RR - o_thigh_joint_RR);
+    J[RR].block<3, 1>(0, 2) = z_calf_RR.cross(o_ee_RR - o_calf_joint_RR);
+    J[RR].block<3, 1>(3, 0) = z_hip_RR;
+    J[RR].block<3, 1>(3, 1) = z_thigh_RR;
+    J[RR].block<3, 1>(3, 2) = z_calf_RR;
 
 
-    J.block<6,3>(0,0) = J_FL;
-    J.block<6,3>(0,3) = J_FR;
-    J.block<6,3>(0,6) = J_RL;
-    J.block<6,3>(0,9) = J_RR;
+    J_Matrix.block<6,3>(0,0) = J[FL];
+    J_Matrix.block<6,3>(0,3) = J[FR];
+    J_Matrix.block<6,3>(0,6) = J[RL];
+    J_Matrix.block<6,3>(0,9) = J[RR];
 
     // std::cout << J << std::endl;
 }

@@ -1,0 +1,13 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In member function ‘[01m[Kvoid Centroidal_Dynamics::Set_Reference(Eigen::VectorXd)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:106:15:[m[K [01;31m[Kerror: [m[K‘[01m[Kdes_Pos_[m[K’ was not declared in this scope; did you mean ‘[01m[Kdes_Pos[m[K’?
+  106 |     des_Pos = [01;31m[Kdes_Pos_[m[K;
+      |               [01;31m[K^~~~~~~~[m[K
+      |               [32m[Kdes_Pos[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:107:15:[m[K [01;31m[Kerror: [m[K‘[01m[Kdes_Ori_[m[K’ was not declared in this scope; did you mean ‘[01m[Kdes_Ori[m[K’?
+  107 |     des_Ori = [01;31m[Kdes_Ori_[m[K;
+      |               [01;31m[K^~~~~~~~[m[K
+      |               [32m[Kdes_Ori[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:135: include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

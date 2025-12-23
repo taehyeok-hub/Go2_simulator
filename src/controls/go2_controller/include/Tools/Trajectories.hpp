@@ -6,7 +6,14 @@
 
 #include "Kinematics.hpp"
 
-// 궤적의 결과를 담을 구조체
+enum Control
+{
+    JOINT,
+    TASK,
+    NUM_CONTROL=2,
+};
+
+// 궤적의 결과를 담을 구조체 (여러개의 값을 반환하고 싶을 때 사용함.)
 struct TrajectoryPoint
 {
     Eigen::Vector3d position;
@@ -20,31 +27,28 @@ class Trajectories
 private:
     // Constant ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    double frequency;
 
     // Variables ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+    
+    double period;
+    bool Is_Planned = false;
     Eigen::VectorXd q_desired;
     Eigen::VectorXd dq_desired;
     
-    Eigen::MatrixXd M_Matirx;
+    Eigen::MatrixXd M_Matrix;
     Eigen::MatrixXd A_Matrix;
     Eigen::MatrixXd B_Vector;
 
     // Serve Function ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    
+    TrajectoryPoint Desired;
 
 public:
     // Constructor
     Trajectories();
     ~Trajectories();
-    
-    Eigen::MatrixXd Set_Coefficient_QuinticJoint()
 
-    // Public Variables
-    
-    
-    
     // Public Function ------------------------------------------------------------------------------------------------------------------------------------------------------------------
     TrajectoryPoint Quintic_Task(ros::Time &start_time, double motion_time, const Eigen::Vector3d &x_current, const Eigen::Vector3d &x_final);
     
@@ -53,14 +57,8 @@ public:
     TrajectoryPoint Sinusoidal_Task(ros::Time &start_time, double period,
                                     const Eigen::Vector3d &stand_pose, const Eigen::Vector3d &squat_pose);
     
-    // Eigen::VectorXd Sinusoidal_Joint();
 
 
-    static inline double Set_TimeVariable(ros::Time Current_Time_, ros::Time Motion_Time)
-    {
-        double t = (Current_Time_ - Motion_Time_).toSec();
-        return t;
-    }; 
-
-    Eigen::MatrixXd(double Motion_Time_, )
+    // Get 함수
+    Eigen::MatrixXd Get_Coefficient_Matrix() {return A_Matrix; };
 };
