@@ -2612,4 +2612,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: \
  /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.hpp \
  /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Kinematics.hpp \
  /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp \
+ /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.hpp \
+ /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp \
  /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp

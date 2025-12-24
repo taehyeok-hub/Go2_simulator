@@ -209,6 +209,30 @@ Centroidal_Dynamics.cpp.s:
 	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.s
 .PHONY : Centroidal_Dynamics.cpp.s
 
+Gait_Generator.o: Gait_Generator.cpp.o
+.PHONY : Gait_Generator.o
+
+# target to build an object file
+Gait_Generator.cpp.o:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Gait_Generator.cpp.o
+.PHONY : Gait_Generator.cpp.o
+
+Gait_Generator.i: Gait_Generator.cpp.i
+.PHONY : Gait_Generator.i
+
+# target to preprocess a source file
+Gait_Generator.cpp.i:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Gait_Generator.cpp.i
+.PHONY : Gait_Generator.cpp.i
+
+Gait_Generator.s: Gait_Generator.cpp.s
+.PHONY : Gait_Generator.s
+
+# target to generate assembly for a file
+Gait_Generator.cpp.s:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Gait_Generator.cpp.s
+.PHONY : Gait_Generator.cpp.s
+
 Kinematics.o: Kinematics.cpp.o
 .PHONY : Kinematics.o
 
@@ -346,6 +370,9 @@ help:
 	@echo "... Centroidal_Dynamics.o"
 	@echo "... Centroidal_Dynamics.i"
 	@echo "... Centroidal_Dynamics.s"
+	@echo "... Gait_Generator.o"
+	@echo "... Gait_Generator.i"
+	@echo "... Gait_Generator.s"
 	@echo "... Kinematics.o"
 	@echo "... Kinematics.i"
 	@echo "... Kinematics.s"

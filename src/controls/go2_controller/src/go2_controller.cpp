@@ -54,6 +54,7 @@ void go2_controller::Init()
 
     Start_Position << 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60;
     Homing_Position << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
+    Trot_Pattern << 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0;
 }
 
 void go2_controller::Command(bool flag)
@@ -62,6 +63,7 @@ void go2_controller::Command(bool flag)
     KINE.Jacobian(q_);
     Reference_Generator();
     Set_Kinematics();
+    Gait_Generator();
 
     if (Recieved_Joint_State)
     {
@@ -314,9 +316,11 @@ void go2_controller::SRBMControl()
     CENT.Set_FKFootPosition(EE_Pose_);
     // CENT.Set_FootPosition(PINO.GetPos(FL), PINO.GetPos(FR), PINO.GetPos(RL), PINO.GetPos(RR));
     CENT.Set_Reference(COM_Ref);
+    CENT.Set_GaitPhase(Target_State);
     CENT.Compute_A_Matrix();
     CENT.Compute_B_Vector();
     CENT.Set_CostFunction();
+    CENT.Set_Constraint();
     CENT.Solve_QP();   
 }
 
@@ -330,7 +334,7 @@ void go2_controller::Posture_Control()
         // torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했을 경우)
         torque_.segment<3>(3 * i) = J.block<3,3>(0, 3 * i).transpose() * (-1) * GRF.segment<3>(3 * i); // (FK를 사용했을 경우)
     }
-    std::cout << "=== Torque === \n" << torque_.transpose() << std::endl;
+    // std::cout << "=== Torque === \n" << torque_.transpose() << std::endl;
 }
 
 void go2_controller::Reference_Generator() 
@@ -338,6 +342,38 @@ void go2_controller::Reference_Generator()
     /* reference 를 한군데에다가 모아서 한 번에 전달. */ 
     COM_Ref << Pos_Command[X], Pos_Command[Y], Pos_Command[Z], Vel_Command[X], Vel_Command[Y], Vel_Command[Z],
                RPY_Command[X], RPY_Command[Y], RPY_Command[Z], ANG_Command[X], ANG_Command[Y], ANG_Command[Z]; 
+}
+
+void go2_controller::Gait_Generator()
+{
+    int period = 150;
+
+    switch (Gait_Switch) {
+    case 0:
+        Target_State = Trot_Pattern.row(0);
+        break;
+    case 1:
+        Target_State = Trot_Pattern.row(1);
+        break;
+    case 2:
+        Target_State = Trot_Pattern.row(2);
+        break;
+    case 3:
+        Target_State = Trot_Pattern.row(3);
+        break;
+    }
+
+    if (Switch_Time < period)
+    {
+        Switch_Time++;
+    }
+    else if (Switch_Time == period)
+    {
+        Switch_Time = 0;
+        Gait_Switch = (Gait_Switch + 1) % 4;
+    }
+
+    std::cout << "=== Target_State === \n FL : " << Target_State(0) << " | FR : " << Target_State(1) << " | RL : " << Target_State(2) << " | RR : " << Target_State(3) << std::endl; 
 }
 
 void go2_controller::Run()

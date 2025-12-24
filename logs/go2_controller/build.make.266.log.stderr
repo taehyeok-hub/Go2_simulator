@@ -1,0 +1,13 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:[m[K In constructor ‘[01m[KGait_Generator::Gait_Generator()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:14:5:[m[K [01;31m[Kerror: [m[K‘[01m[KState4[m[K’ was not declared in this scope; did you mean ‘[01m[KState1[m[K’?
+   14 |     [01;31m[KState4[m[K << 0.0, 1.0, 1.0, 0.0;
+      |     [01;31m[K^~~~~~[m[K
+      |     [32m[KState1[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:[m[K In member function ‘[01m[Kvoid Gait_Generator::Trot_Gait_Generator(double)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:35:24:[m[K [01;31m[Kerror: [m[K‘[01m[KState4[m[K’ was not declared in this scope; did you mean ‘[01m[KState1[m[K’?
+   35 |         Target_State = [01;31m[KState4[m[K;
+      |                        [01;31m[K^~~~~~[m[K
+      |                        [32m[KState1[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:163: include/Tools/CMakeFiles/Tools.dir/Gait_Generator.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

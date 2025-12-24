@@ -97,6 +97,7 @@ private:
     void Forward_Kinematics_ME(const Eigen::VectorXd &q, const Eigen::VectorXd &dq);
     void TaskSpacePDControl(double Kp, double Kd);
     void Set_Kinematics();
+    void Gait_Generator();
 
 
     // Trajectory 관련 함수들
@@ -160,6 +161,11 @@ private:
     Eigen::VectorXd Foot_Pos[NUM_LEG], Foot_Vel[NUM_LEG];
     Eigen::VectorXd Torque[NUM_LEG];
 
+    // 게이트 변수
+    Eigen::Matrix4d Trot_Pattern;
+    Eigen::Vector4d Target_State;
+    int Gait_Switch = 0;
+    int Switch_Time = 0;
 
     // (in Task Space) 동작의 시작 xyz값 (담아두는 용도)
     Eigen::Vector3d EE_Pose_FL_start, EE_Pose_FR_start, EE_Pose_RL_start, EE_Pose_RR_start;

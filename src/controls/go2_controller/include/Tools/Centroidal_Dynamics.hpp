@@ -13,8 +13,10 @@
 #include "Eigen/Geometry"
 
 #include "Kinematics.hpp"
+#include "Gait_Generator.hpp"
 #include "Enum_Shared.hpp"
 #include "OsqpEigen/OsqpEigen.h"
+
 
 class Centroidal_Dynamics
 {
@@ -65,8 +67,13 @@ private:
     Eigen::VectorXd UpperBound;
     Eigen::VectorXd QP_Solution;
 
+    int Leg_Gait[NUM_LEG];
+    Eigen::Vector4d Target_State;
+
     // 7. Class 객체 선언
     OsqpEigen::Solver solver;
+    Gait_Generator GAIT;
+
 
     // Function ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -79,8 +86,9 @@ public:
     void Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_rpy_, Eigen::VectorXd COM_rpy_dot_);
     void Set_FootPosition(Eigen::Vector3d Pino_FL_, Eigen::Vector3d Pino_FR_, Eigen::Vector3d Pino_RL_, Eigen::Vector3d Pino_RR_);
     void Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_Pose);
-    void Set_CostFunction();
     void Set_Reference(Eigen::VectorXd COM_Ref_);
+    void Set_GaitPhase(Eigen::Vector4d Target_State_);
+    void Set_CostFunction();
     void Set_LinearMatrix();
     void Set_Constraint(double fz_min = 2, double fz_max = 200);
     void Compute_A_Matrix();

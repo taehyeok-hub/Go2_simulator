@@ -1,0 +1,30 @@
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:87:31:[m[K [01;31m[Kerror: [m[Kexpected identifier before ‘[01m[K)[m[K’ token
+   87 |     void Set_GaitPhase(Eigen::[01;31m[K)[m[K;
+      |                               [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K In function ‘[01m[Kvoid Set_GaitPhase(Eigen::Vector4d)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:89:5:[m[K [01;31m[Kerror: [m[K‘[01m[KLeg_Gait[m[K’ was not declared in this scope
+   89 |     [01;31m[KLeg_Gait[m[K[FL] = Target_State_(0);
+      |     [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:[m[K At global scope:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:167:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid Centroidal_Dynamics::Set_Constraint(double, double, double)[m[K’
+  167 | void [01;31m[KCentroidal_Dynamics[m[K::Set_Constraint(double time, double fz_min, double fz_max)
+      |      [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:92:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid Centroidal_Dynamics::Set_Constraint(double, double)[m[K’
+   92 |     void [01;36m[KSet_Constraint[m[K(double fz_min = 2, double fz_max = 200);
+      |          [01;36m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:21:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass Centroidal_Dynamics[m[K’ defined here
+   21 | class [01;36m[KCentroidal_Dynamics[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:45[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:87:31:[m[K [01;31m[Kerror: [m[Kexpected identifier before ‘[01m[K)[m[K’ token
+   87 |     void Set_GaitPhase(Eigen::[01;31m[K)[m[K;
+      |                               [01;31m[K^[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:135: include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:121: include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

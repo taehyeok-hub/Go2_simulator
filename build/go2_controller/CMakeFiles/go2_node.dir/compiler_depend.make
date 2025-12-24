@@ -4,6 +4,7 @@
 CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller_node.cpp \
   /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp \
   /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp \
+  /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.hpp \
   /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Kinematics.hpp \
   /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/Constants.hpp \
   /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/Data.hpp \
@@ -3233,8 +3234,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorEvalTo.h:
 
-/usr/include/boost/mpl/minus.hpp:
-
 /usr/include/boost/mpl/long.hpp:
 
 /usr/include/boost/mpl/logical.hpp:
@@ -4123,10 +4122,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/boost/fusion/iterator/mpl.hpp:
 
-/usr/include/boost/archive/detail/common_iarchive.hpp:
-
-/usr/include/boost/system/detail/config.hpp:
-
 /opt/ros/noetic/include/std_msgs/Float64MultiArray.h:
 
 /usr/local/include/pinocchio/math/rpy.hpp:
@@ -4170,6 +4165,8 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 /usr/include/boost/signals2/detail/tracked_objects_visitor.hpp:
 
 /usr/include/boost/mpl/aux_/erase_impl.hpp:
+
+/usr/include/boost/fusion/iterator/deref_data.hpp:
 
 /usr/include/boost/concept/detail/concept_undef.hpp:
 
@@ -4533,16 +4530,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /opt/ros/noetic/include/geometry_msgs/Vector3Stamped.h:
 
-/usr/local/include/pinocchio/multibody/joint-motion-subspace-generic.hpp:
-
-/opt/ros/noetic/include/ros/platform.h:
-
-/usr/include/c++/9/bits/functexcept.h:
-
-/usr/include/boost/mpl/vector/aux_/clear.hpp:
-
-/usr/include/c++/9/sstream:
-
 /usr/include/boost/mpl/iterator_tags.hpp:
 
 /usr/include/boost/fusion/sequence/intrinsic/detail/segmented_begin.hpp:
@@ -4593,8 +4580,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/boost/iostreams/detail/execute.hpp:
 
-/usr/include/eigen3/Eigen/Householder:
-
 /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/Debug.hpp:
 
 /usr/include/boost/iostreams/checked_operations.hpp:
@@ -4609,35 +4594,19 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h:
 
-/usr/include/boost/preprocessor/seq/enum.hpp:
+/usr/include/boost/bind/bind_cc.hpp:
 
-/opt/ros/noetic/include/tf2/LinearMath/MinMax.h:
+/usr/include/eigen3/Eigen/src/QR/HouseholderQR.h:
 
-/usr/include/boost/date_time/c_time.hpp:
+/usr/include/boost/fusion/algorithm/transformation/remove.hpp:
 
-/usr/include/boost/predef.h:
+/opt/ros/noetic/include/controller_interface/controller.h:
 
-/usr/include/boost/mpl/aux_/static_cast.hpp:
+/usr/include/boost/assert.hpp:
 
-/opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h:
+/usr/include/boost/chrono/detail/is_evenly_divisible_by.hpp:
 
-/usr/include/eigen3/Eigen/src/Core/products/TriangularSolverMatrix.h:
-
-/usr/include/boost/optional/detail/optional_swap.hpp:
-
-/usr/include/boost/fusion/container/vector/detail/begin_impl.hpp:
-
-/usr/include/boost/move/algo/move.hpp:
-
-/usr/include/boost/limits.hpp:
-
-/usr/include/boost/iostreams/traits_fwd.hpp:
-
-/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/SparseMatrixHelper.hpp:
-
-/usr/include/boost/numeric/conversion/converter_policies.hpp:
-
-/usr/include/boost/type_traits/is_union.hpp:
+/usr/include/eigen3/Eigen/src/SparseLU/SparseLU_relax_snode.h:
 
 /usr/include/boost/chrono/clock_string.hpp:
 
@@ -4743,6 +4712,8 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/boost/mpl/aux_/has_tag.hpp:
 
+/opt/ros/noetic/include/tf2/buffer_core.h:
+
 /usr/include/boost/mpl/not.hpp:
 
 /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:
@@ -4754,6 +4725,36 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 /usr/include/boost/fusion/view/joint_view/detail/value_of_impl.hpp:
 
 /usr/include/eigen3/Eigen/src/SparseCore/SparseProduct.h:
+
+/usr/include/boost/preprocessor/seq/enum.hpp:
+
+/opt/ros/noetic/include/tf2/LinearMath/MinMax.h:
+
+/usr/include/boost/date_time/c_time.hpp:
+
+/usr/include/boost/predef.h:
+
+/usr/include/boost/mpl/aux_/static_cast.hpp:
+
+/opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h:
+
+/usr/include/eigen3/Eigen/src/Core/products/TriangularSolverMatrix.h:
+
+/usr/include/boost/optional/detail/optional_swap.hpp:
+
+/usr/include/boost/fusion/container/vector/detail/begin_impl.hpp:
+
+/usr/include/boost/move/algo/move.hpp:
+
+/usr/include/boost/limits.hpp:
+
+/usr/include/boost/iostreams/traits_fwd.hpp:
+
+/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/SparseMatrixHelper.hpp:
+
+/usr/include/boost/numeric/conversion/converter_policies.hpp:
+
+/usr/include/boost/type_traits/is_union.hpp:
 
 /usr/include/boost/variant/detail/variant_io.hpp:
 
@@ -4813,12 +4814,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h:
 
-/usr/local/include/pinocchio/math/quaternion.hpp:
-
-/usr/include/boost/chrono/detail/system.hpp:
-
-/usr/include/boost/predef/detail/test.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/9/include/mm_malloc.h:
 
 /usr/include/boost/archive/xml_iarchive.hpp:
@@ -4832,30 +4827,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 /opt/ros/noetic/include/geometry_msgs/Wrench.h:
 
 /usr/include/boost/fusion/container/list/detail/next_impl.hpp:
-
-/usr/include/boost/concept/detail/concept_def.hpp:
-
-/usr/include/boost/mpl/aux_/na_assert.hpp:
-
-/usr/include/boost/system/api_config.hpp:
-
-/usr/include/c++/9/shared_mutex:
-
-/usr/include/boost/fusion/view/zip_view/detail/at_impl.hpp:
-
-/usr/include/boost/mpl/aux_/msvc_never_true.hpp:
-
-/usr/include/boost/predef/library/c.h:
-
-/opt/ros/noetic/include/tf2/exceptions.h:
-
-/usr/include/boost/smart_ptr/detail/local_counted_base.hpp:
-
-/usr/include/boost/predef/compiler.h:
-
-/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/Solver.hpp:
-
-/usr/include/boost/thread/pthread/pthread_helpers.hpp:
 
 /usr/include/boost/archive/binary_iarchive_impl.hpp:
 
@@ -4878,18 +4849,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 /usr/include/boost/parameter/aux_/set.hpp:
 
 /usr/include/c++/9/stdlib.h:
-
-/opt/ros/noetic/include/ros/topic.h:
-
-/usr/include/boost/type_traits/detail/mp_defer.hpp:
-
-/usr/include/boost/type_traits/is_base_of.hpp:
-
-/opt/ros/noetic/include/geometry_msgs/Quaternion.h:
-
-/usr/include/ignition/math6/gz/math/Helpers.hh:
-
-/usr/include/boost/fusion/algorithm/transformation/detail/preprocessed/zip.hpp:
 
 /home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/lin_alg.h:
 
@@ -4969,10 +4928,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/boost/variant/detail/substitute.hpp:
 
-/opt/ros/noetic/include/std_msgs/Header.h:
-
-/usr/include/c++/9/tuple:
-
 /usr/include/eigen3/Eigen/src/SparseLU/SparseLU_heap_relax_snode.h:
 
 /opt/ros/noetic/include/ros/publisher.h:
@@ -4985,19 +4940,61 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/eigen3/Eigen/src/Core/ConditionEstimator.h:
 
-/usr/include/boost/bind/bind_cc.hpp:
+/usr/include/boost/concept/detail/concept_def.hpp:
 
-/usr/include/eigen3/Eigen/src/QR/HouseholderQR.h:
+/usr/include/boost/mpl/aux_/na_assert.hpp:
 
-/usr/include/boost/fusion/algorithm/transformation/remove.hpp:
+/usr/include/boost/system/api_config.hpp:
 
-/opt/ros/noetic/include/controller_interface/controller.h:
+/usr/include/c++/9/shared_mutex:
 
-/usr/include/boost/assert.hpp:
+/usr/include/boost/fusion/view/zip_view/detail/at_impl.hpp:
 
-/usr/include/boost/chrono/detail/is_evenly_divisible_by.hpp:
+/usr/include/boost/mpl/aux_/msvc_never_true.hpp:
 
-/usr/include/eigen3/Eigen/src/SparseLU/SparseLU_relax_snode.h:
+/usr/include/boost/predef/library/c.h:
+
+/opt/ros/noetic/include/tf2/exceptions.h:
+
+/usr/include/boost/smart_ptr/detail/local_counted_base.hpp:
+
+/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/Solver.hpp:
+
+/usr/include/boost/thread/pthread/pthread_helpers.hpp:
+
+/opt/ros/noetic/include/geometry_msgs/Quaternion.h:
+
+/usr/include/ignition/math6/gz/math/Helpers.hh:
+
+/usr/include/boost/fusion/algorithm/transformation/detail/preprocessed/zip.hpp:
+
+/opt/ros/noetic/include/ros/topic.h:
+
+/usr/include/boost/type_traits/detail/mp_defer.hpp:
+
+/usr/include/boost/type_traits/is_base_of.hpp:
+
+/usr/include/c++/9/tuple:
+
+/opt/ros/noetic/include/std_msgs/Header.h:
+
+/usr/include/boost/predef/compiler.h:
+
+/usr/local/include/pinocchio/multibody/joint-motion-subspace-generic.hpp:
+
+/opt/ros/noetic/include/ros/platform.h:
+
+/usr/include/c++/9/bits/functexcept.h:
+
+/usr/local/include/pinocchio/math/quaternion.hpp:
+
+/usr/include/boost/chrono/detail/system.hpp:
+
+/usr/include/boost/predef/detail/test.h:
+
+/usr/include/boost/mpl/vector/aux_/clear.hpp:
+
+/usr/include/c++/9/sstream:
 
 /usr/include/boost/fusion/mpl/back.hpp:
 
@@ -5288,6 +5285,8 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 /usr/include/boost/fusion/adapted/mpl/detail/is_view_impl.hpp:
 
 /usr/include/eigen3/Eigen/src/SparseLU/SparseLU_panel_dfs.h:
+
+/usr/include/eigen3/Eigen/Householder:
 
 /usr/local/include/pinocchio/parsers/urdf.hpp:
 
@@ -5767,8 +5766,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/boost/fusion/iterator/detail/advance.hpp:
 
-/opt/ros/noetic/include/tf2/buffer_core.h:
-
 /usr/include/boost/fusion/adapted/mpl/detail/end_impl.hpp:
 
 /opt/ros/noetic/include/gazebo_msgs/ModelStates.h:
@@ -6005,6 +6002,12 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/boost/preprocessor/repetition/enum_params_with_a_default.hpp:
 
+/usr/include/boost/system/detail/config.hpp:
+
+/usr/include/boost/archive/detail/common_iarchive.hpp:
+
+/usr/include/boost/mpl/minus.hpp:
+
 /usr/include/boost/fusion/algorithm/transformation/detail/replace.hpp:
 
 /usr/include/boost/fusion/algorithm/transformation/detail/replace_if.hpp:
@@ -6144,8 +6147,6 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 /opt/ros/noetic/include/ros/serialized_message.h:
 
 /usr/include/boost/fusion/iterator/deref.hpp:
-
-/usr/include/boost/fusion/iterator/deref_data.hpp:
 
 /usr/include/boost/mpl/multiplies.hpp:
 
@@ -6356,6 +6357,10 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 /usr/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp:
 
 /usr/include/boost/optional/optional_fwd.hpp:
+
+/usr/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDimensions.h:
+
+/usr/include/boost/serialization/void_cast_fwd.hpp:
 
 /usr/include/c++/9/bits/move.h:
 
@@ -7517,6 +7522,8 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 
 /usr/include/boost/variant/recursive_wrapper.hpp:
 
+/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.hpp:
+
 /usr/include/boost/variant/recursive_wrapper_fwd.hpp:
 
 /usr/include/eigen3/Eigen/src/SparseLU/SparseLU_Memory.h:
@@ -8200,7 +8207,3 @@ CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o: /home/pth/pth/model/Go2_s
 /usr/include/c++/9/ctime:
 
 /usr/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDimensionList.h:
-
-/usr/include/boost/serialization/void_cast_fwd.hpp:
-
-/usr/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDimensions.h:

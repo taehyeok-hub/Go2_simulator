@@ -20,10 +20,10 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     Kd_Pos.diagonal() << 200.0, 200.0, 200.0;
 
     Kp_Ori.setIdentity();
-    Kp_Ori.diagonal() << 10000.0, 10000.0, 10000.0;
+    Kp_Ori.diagonal() << 8000.0, 8000.0, 8000.0;
 
     Kd_Ori.setIdentity();
-    Kd_Ori.diagonal() << 100.0, 100.0, 100.0;
+    Kd_Ori.diagonal() << 80.0, 80.0, 80.0;
 
     Hessian.resize(num_of_variables, num_of_variables);
     Gradient.resize(num_of_variables);
@@ -49,7 +49,6 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     Q(5, 5) = 0.1; // Roll, Pitch, Yaw 방향 가중치
 
     Set_LinearMatrix();
-    Set_Constraint();
 }
 
 Centroidal_Dynamics::~Centroidal_Dynamics() {}
@@ -85,6 +84,16 @@ void Centroidal_Dynamics::Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_P
     EE_Pose_RR_Body = EE_Pose[RR];
 }
 
+void Centroidal_Dynamics::Set_GaitPhase(Eigen::Vector4d Target_State_)
+{
+    Leg_Gait[0] = Target_State_(0);
+    Leg_Gait[1] = Target_State_(1);
+    Leg_Gait[2] = Target_State_(2);
+    Leg_Gait[3] = Target_State_(3);
+
+    std::cout << "=== LEG_GAIT === \n FL : " << Leg_Gait[0] << " | FR : " << Leg_Gait[1] << " | RL : " << Leg_Gait[2] << " | RR : " << Leg_Gait[3] << std::endl;  
+}
+
 void Centroidal_Dynamics::Compute_A_Matrix()
 {
     for (int i = 0; i < 4; i++)
@@ -111,7 +120,7 @@ void Centroidal_Dynamics::Set_Reference(Eigen::VectorXd COM_Ref_)
     e_rpy(2) = Wrap2PI(0.0 - COM_RPY(2));
 
     // Err_R = e_rpy;
-    Err_R = ErrOri_so3(R_wb, I);
+    Err_R = e_rpy;
 
     Lin_Acc_ref = (Kp_Pos * (des_Pos - COM_Pose) - Kd_Pos  * R_wb * COM_Vel) / mass;
     Ang_Acc_ref = (Kp_Ori * Err_R - Kd_Ori * R_wb * COM_RPY_dot);
@@ -157,18 +166,27 @@ void Centroidal_Dynamics::Set_LinearMatrix()
     }
 }
 
-void Centroidal_Dynamics::Set_Constraint(double fz_min, double fz_max)
+void Centroidal_Dynamics::Set_Constraint(double fz_min_, double fz_max_)
 {
     const double inf = OsqpEigen::INFTY;
-
-    int gt = 1.0;
     
     for (int leg = 0; leg < NUM_LEG; leg++)
     {
-        LowerBound.segment<5>(5 * leg) << 0, -inf, 0, -inf, fz_min * gt; // fz_min = 2
-        UpperBound.segment<5>(5 * leg) << inf, 0, inf, 0, fz_max * gt; // fz_max = 200
+        double contact = Leg_Gait[leg];
+
+        double fz_min = contact * fz_min_;
+        double fz_max = contact * fz_max_;
+
+        LowerBound.segment<5>(5 * leg) << 0, -inf, 0, -inf, fz_min; // fz_min = 2
+        UpperBound.segment<5>(5 * leg) << inf, 0, inf, 0, fz_max; // fz_max = 200
     }
+
+    // std::cout << "=== LowerBound === \n" << LowerBound << std::endl;
+    // std::cout << "=== UpperBound === \n" << UpperBound << std::endl;
 }
+
+
+
 
 void Centroidal_Dynamics::Solve_QP()
 {
@@ -204,5 +222,5 @@ void Centroidal_Dynamics::Solve_QP()
         F_Vector(i) = QP_Solution(i);
     }
 
-    std::cout << "===== Force_Vector ===== \n" << F_Vector << std::endl;
+    // std::cout << "===== Force_Vector ===== \n" << F_Vector << std::endl;
 }

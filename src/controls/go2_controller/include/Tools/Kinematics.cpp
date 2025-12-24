@@ -132,10 +132,10 @@ void Kinematics::Forward_Kinematics(const Eigen::VectorXd& q,const Eigen::Vector
     EE_Pose[RL] = T_base_RL.block<3, 1>(0,3);
     EE_Pose[RR] = T_base_RR.block<3, 1>(0,3);
 
-    std::cout << "FL : x = " << EE_Pose[FL](0) << " y = " << EE_Pose[FL](1) << " z = " << EE_Pose[FL](2) << std::endl;
-    std::cout << "FR : x = " << EE_Pose[FR](0) << " y = " << EE_Pose[FR](1) << " z = " << EE_Pose[FR](2) << std::endl;
-    std::cout << "RL : x = " << EE_Pose[RL](0) << " y = " << EE_Pose[RL](1) << " z = " << EE_Pose[RL](2) << std::endl;
-    std::cout << "RR : x = " << EE_Pose[RR](0) << " y = " << EE_Pose[RR](1) << " z = " << EE_Pose[RR](2) << std::endl;
+    // std::cout << "FL : x = " << EE_Pose[FL](0) << " y = " << EE_Pose[FL](1) << " z = " << EE_Pose[FL](2) << std::endl;
+    // std::cout << "FR : x = " << EE_Pose[FR](0) << " y = " << EE_Pose[FR](1) << " z = " << EE_Pose[FR](2) << std::endl;
+    // std::cout << "RL : x = " << EE_Pose[RL](0) << " y = " << EE_Pose[RL](1) << " z = " << EE_Pose[RL](2) << std::endl;
+    // std::cout << "RR : x = " << EE_Pose[RR](0) << " y = " << EE_Pose[RR](1) << " z = " << EE_Pose[RR](2) << std::endl;
 }
 
 

@@ -9,7 +9,7 @@ add_library(Tools
     Centroidal_Dynamics.cpp
     # Centt.cpp
     Pinocchio_Interface.cpp
-    
+    Gait_Generator.cpp
 )
 
 target_link_libraries(Tools osqpeigen)
