@@ -1,0 +1,44 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:48:5:[m[K [01;31m[Kerror: [m[K‘[01m[KKp_swing[m[K’ was not declared in this scope
+   48 |     [01;31m[KKp_swing[m[K.setIdentity();
+      |     [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:49:5:[m[K [01;31m[Kerror: [m[K‘[01m[KKd_swing[m[K’ was not declared in this scope
+   49 |     [01;31m[KKd_swing[m[K.setIdentity();
+      |     [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Squating()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:316:35:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kgo2_controller::TaskSpacePDControl(double, double)[m[K’
+  316 |     TaskSpacePDControl(100.0, 10.0[01;31m[K)[m[K;
+      |                                   [01;31m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:98:10:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid go2_controller::TaskSpacePDControl(double, double, double, double, double, double)[m[K’
+   98 |     void [01;36m[KTaskSpacePDControl[m[K(double Kp_X, double Kp_Y, double Kp_Z, double Kd_X, double Kd_Y, double Kd_Z);
+      |          [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:98:10:[m[K [01;36m[Knote: [m[K  candidate expects 6 arguments, 2 provided
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K At global scope:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:398:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid go2_controller::Swing_Control(int)[m[K’
+  398 | void [01;31m[Kgo2_controller[m[K::Swing_Control(int leg)
+      |      [01;31m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:103:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid go2_controller::Swing_Control()[m[K’
+  103 |     void [01;36m[KSwing_Control[m[K();
+      |          [01;36m[K^~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:63:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass go2_controller[m[K’ defined here
+   63 | class [01;36m[Kgo2_controller[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Posture_Control()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:439:26:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kgo2_controller::Swing_Control(int&)[m[K’
+  439 |         Swing_Control(leg[01;31m[K)[m[K;
+      |                          [01;31m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:103:10:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid go2_controller::Swing_Control()[m[K’
+  103 |     void [01;36m[KSwing_Control[m[K();
+      |          [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:103:10:[m[K [01;36m[Knote: [m[K  candidate expects 0 arguments, 1 provided
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:7:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    7 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2775: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

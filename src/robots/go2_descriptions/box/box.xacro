@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot
+  name="box" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="body_height" value="0"/>
+
+    <xacro:property name="deg2rad"  value ="${(pi/180.0)}"/>
+    <xacro:property name="damping"  value="100.0"/>
+    <xacro:property name="friction" value="100.0"/>
+    <xacro:property name="roll_lower" value="${(-10.0*deg2rad)}"/>
+    <xacro:property name="roll_upper" value="${(10.0*deg2rad)}"/>
+    <xacro:property name="effort"   value="1000"/>
+    <xacro:property name="velocity" value="10.0"/>
+
+  <link name="body">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.5 0.5 0.5"/>
+      </geometry>
+      <material name="red">
+        <color rgba="0.3 0.3 0.3 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.5 0.5 0.5"/>
+      </geometry>
+      <gazebo>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.1</mu>      
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+          <bounce/>
+          <contact>
+            <ode/>
+          </contact>
+        </surface>
+      </gazebo>
+    </collision>
+    <inertial>
+      <mass value="0.2"/>
+      <inertia ixx="0.25" ixy="0.0" ixz="0.0" iyy="0.25" iyz="0.0" izz="0.25"/>
+    </inertial>
+  </link>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/box</robotNamespace>
+    </plugin>
+  </gazebo>
+
+
+</robot>

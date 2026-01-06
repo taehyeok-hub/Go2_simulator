@@ -1,0 +1,44 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:70:9:[m[K [01;31m[Kerror: [m[K‘[01m[KInit_Foot_pos[m[K’ was not declared in this scope; did you mean ‘[01m[KHor_Foot_pos[m[K’?
+   70 |         [01;31m[KInit_Foot_pos[m[K[i].setZero(NUM_JOINT);
+      |         [01;31m[K^~~~~~~~~~~~~[m[K
+      |         [32m[KHor_Foot_pos[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Homing()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:182:13:[m[K [01;31m[Kerror: [m[K‘[01m[KInit_Foot_pos[m[K’ was not declared in this scope; did you mean ‘[01m[KHor_Foot_pos[m[K’?
+  182 |             [01;31m[KInit_Foot_pos[m[K[FL] = PINO.GetPos(FL);
+      |             [01;31m[K^~~~~~~~~~~~~[m[K
+      |             [32m[KHor_Foot_pos[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::SRBMControl()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:358:22:[m[K [01;31m[Kerror: [m[K‘[01m[KTrot_gait[m[K’ was not declared in this scope
+  358 |     CENT.Set_GaitRef([01;31m[KTrot_gait[m[K);
+      |                      [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Gait_Renewal()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:407:5:[m[K [01;31m[Kerror: [m[K‘[01m[KGAIT[m[K’ was not declared in this scope
+  407 |     [01;31m[KGAIT[m[K.Gait_Update();
+      |     [01;31m[K^~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:410:9:[m[K [01;31m[Kerror: [m[K‘[01m[KTrot_gait[m[K’ was not declared in this scope
+  410 |         [01;31m[KTrot_gait[m[K[i] = GAIT.GetRefGait(i);
+      |         [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::SwingLeg_Control(int)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:446:5:[m[K [01;31m[Kerror: [m[K‘[01m[KRef_Foot_pos[m[K’ was not declared in this scope; did you mean ‘[01m[KVer_Foot_pos[m[K’?
+  446 |     [01;31m[KRef_Foot_pos[m[K[leg](X) = Hor_Foot_pos[leg](X) + (Init_Foot_pos[leg](X) - Hor_Foot_pos[leg](X)) * 0.5 * (1 - cos(M_PI * horizontal_phase));
+      |     [01;31m[K^~~~~~~~~~~~[m[K
+      |     [32m[KVer_Foot_pos[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:446:52:[m[K [01;31m[Kerror: [m[K‘[01m[KInit_Foot_pos[m[K’ was not declared in this scope; did you mean ‘[01m[KHor_Foot_pos[m[K’?
+  446 |     Ref_Foot_pos[leg](X) = Hor_Foot_pos[leg](X) + ([01;31m[KInit_Foot_pos[m[K[leg](X) - Hor_Foot_pos[leg](X)) * 0.5 * (1 - cos(M_PI * horizontal_phase));
+      |                                                    [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                    [32m[KHor_Foot_pos[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:450:5:[m[K [01;31m[Kerror: [m[K‘[01m[KRef_Foot_vel[m[K’ was not declared in this scope
+  450 |     [01;31m[KRef_Foot_vel[m[K[leg](X) = 0.0;
+      |     [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Posture_Control()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:475:13:[m[K [01;31m[Kerror: [m[K‘[01m[KTrot_gait[m[K’ was not declared in this scope
+  475 |         if ([01;31m[KTrot_gait[m[K[leg](0) == 0)
+      |             [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2775: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

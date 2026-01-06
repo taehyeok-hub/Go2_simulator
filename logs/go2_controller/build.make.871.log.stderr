@@ -1,0 +1,24 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::TaskSpacePDControl(double, double, double, double, double, double)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:18:65:[m[K [01;31m[Kerror: [m[K‘[01m[Kee_pose[m[K’ was not declared in this scope
+   18 |     Eigen::Vector3d Force_FL = Kp_Task * (EE_Pose_desired[FL] - [01;31m[Kee_pose[m[K[FL]) + Kd_Task * (EE_Vel_desired[FL] - ee_vel[FL]);
+      |                                                                 [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:18:112:[m[K [01;31m[Kerror: [m[K‘[01m[Kee_vel[m[K’ was not declared in this scope
+   18 |     Eigen::Vector3d Force_FL = Kp_Task * (EE_Pose_desired[FL] - ee_pose[FL]) + Kd_Task * (EE_Vel_desired[FL] - [01;31m[Kee_vel[m[K[FL]);
+      |                                                                                                                [01;31m[K^~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:26:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kjacobian[m[K’ was not declared in this scope
+   26 |     Eigen::Vector3d Torque_FL = [01;31m[Kjacobian[m[K.block<3,3>(0,0).transpose() * Force_FL;
+      |                                 [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::TaskPD_LegControl(int)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:44:64:[m[K [01;31m[Kerror: [m[K‘[01m[Kee_pose[m[K’ was not declared in this scope
+   44 |     Eigen::Vector3d Force_ = Kp_Task * (EE_Pose_desired[leg] - [01;31m[Kee_pose[m[K[leg]) + Kd_Task * (EE_Vel_desired[leg] - ee_vel[leg]);
+      |                                                                [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:44:113:[m[K [01;31m[Kerror: [m[K‘[01m[Kee_vel[m[K’ was not declared in this scope
+   44 |     Eigen::Vector3d Force_ = Kp_Task * (EE_Pose_desired[leg] - ee_pose[leg]) + Kd_Task * (EE_Vel_desired[leg] - [01;31m[Kee_vel[m[K[leg]);
+      |                                                                                                                 [01;31m[K^~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:45:31:[m[K [01;31m[Kerror: [m[K‘[01m[Kjacobian[m[K’ was not declared in this scope
+   45 |     Eigen::Vector3d Torque_ = [01;31m[Kjacobian[m[K.block<3,3>(0,0).transpose() * Force_;
+      |                               [01;31m[K^~~~~~~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:121: include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

@@ -1,0 +1,20 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::StanceLeg_Control(int)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:397:16:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass Centroidal_Dynamics[m[K’ has no member named ‘[01m[KGetForce[m[K’; did you mean ‘[01m[KGet_Force[m[K’?
+  397 |     GRF = CENT.[01;31m[KGetForce[m[K();
+      |                [01;31m[K^~~~~~~~[m[K
+      |                [32m[KGet_Force[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:399:5:[m[K [01;31m[Kerror: [m[K‘[01m[KLeg_force[m[K’ was not declared in this scope; did you mean ‘[01m[KLeg_Force[m[K’?
+  399 |     [01;31m[KLeg_force[m[K[leg](X) = GRF(3 * leg);
+      |     [01;31m[K^~~~~~~~~[m[K
+      |     [32m[KLeg_Force[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::SwingLeg_Control(int)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:424:55:[m[K [01;31m[Kerror: [m[K‘[01m[Kstep_height[m[K’ was not declared in this scope
+  424 |     EE_Pose_desired[leg](Z) = EE_Pose_start[leg](Z) + [01;31m[Kstep_height[m[K * 0.5 * (1 - cos(M_PI * vertical_phase));
+      |                                                       [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2775: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

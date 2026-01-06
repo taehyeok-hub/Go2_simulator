@@ -1,0 +1,43 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:68:6:[m[K [01;31m[Kerror: [m[K‘[01m[KGaitScheduler[m[K’ has not been declared
+   68 | void [01;31m[KGaitScheduler[m[K::Gait_Update()
+      |      [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:[m[K In function ‘[01m[Kvoid Gait_Update()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:70:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kgaitmode[m[K’ was not declared in this scope
+   70 |     switch ([01;31m[Kgaitmode[m[K)
+      |             [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:73:13:[m[K [01;31m[Kerror: [m[K‘[01m[KInit_Trot[m[K’ was not declared in this scope
+   73 |         if ([01;31m[KInit_Trot[m[K == false)
+      |             [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:77:17:[m[K [01;31m[Kerror: [m[K‘[01m[KGait_Timing[m[K’ was not declared in this scope
+   77 |                 [01;31m[KGait_Timing[m[K[FL](i) = STANCE;
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:85:17:[m[K [01;31m[Kerror: [m[K‘[01m[KGait_Timing[m[K’ was not declared in this scope
+   85 |                 [01;31m[KGait_Timing[m[K[FL](i) = SWING;
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:93:17:[m[K [01;31m[Kerror: [m[K‘[01m[KGait_Timing[m[K’ was not declared in this scope
+   93 |                 [01;31m[KGait_Timing[m[K[FL](i) = STANCE;
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:101:17:[m[K [01;31m[Kerror: [m[K‘[01m[KGait_Timing[m[K’ was not declared in this scope
+  101 |                 [01;31m[KGait_Timing[m[K[FL](i) = STANCE;
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:112:13:[m[K [01;31m[Kerror: [m[K‘[01m[Ktemp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmktemp[m[K’?
+  112 |             [01;31m[Ktemp[m[K[i] = Gait_Timing[i](0);
+      |             [01;31m[K^~~~[m[K
+      |             [32m[Kmktemp[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:112:23:[m[K [01;31m[Kerror: [m[K‘[01m[KGait_Timing[m[K’ was not declared in this scope
+  112 |             temp[i] = [01;31m[KGait_Timing[m[K[i](0);
+      |                       [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:116:13:[m[K [01;31m[Kerror: [m[K‘[01m[KGait_Timing[m[K’ was not declared in this scope
+  116 |             [01;31m[KGait_Timing[m[K[FL](i - 1) = Gait_Timing[FL](i);
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:123:13:[m[K [01;31m[Kerror: [m[K‘[01m[KGait_Timing[m[K’ was not declared in this scope
+  123 |             [01;31m[KGait_Timing[m[K[i](2 * TROT_T - 1) = temp[i];
+      |             [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:123:46:[m[K [01;31m[Kerror: [m[K‘[01m[Ktemp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmktemp[m[K’?
+  123 |             Gait_Timing[i](2 * TROT_T - 1) = [01;31m[Ktemp[m[K[i];
+      |                                              [01;31m[K^~~~[m[K
+      |                                              [32m[Kmktemp[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:163: include/Tools/CMakeFiles/Tools.dir/Gait_Generator.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

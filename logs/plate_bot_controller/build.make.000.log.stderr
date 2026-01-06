@@ -1,0 +1,8 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/plate_bot_controller/src/plate_bot_controller.cpp:[m[K In member function ‘[01m[Kdouble plate_bot_controller::Rotating_Command(double, Eigen::VectorXd, Eigen::VectorXd)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/plate_bot_controller/src/plate_bot_controller.cpp:206:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+  206 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/plate_bot_controller/src/plate_bot_controller.cpp:[m[K In member function ‘[01m[Kvoid plate_bot_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/plate_bot_controller/src/plate_bot_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K

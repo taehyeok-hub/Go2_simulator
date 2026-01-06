@@ -1,0 +1,1 @@
+/home/pth/pth/model/Go2_simulator/devel/.private/plate_bot_controller/share/plate_bot_controller/cmake/plate_bot_controllerConfig.cmake

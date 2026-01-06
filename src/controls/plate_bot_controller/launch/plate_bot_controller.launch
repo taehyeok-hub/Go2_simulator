@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <!-- Define topic names for plate_bot's joint states and commands -->
+  <arg name="PLATE_BOT_TOPIC_LEG_STATE" default="/plate_bot/joint_states"/>
+  <arg name="PLATE_BOT_TOPIC_LEG_COMMAND" default="/plate_bot/group_joint_effort_controller/command"/>
+
+  <!-- Set parameters for the topics, allowing easy modification if needed -->
+  <param name="plate_bot_topic_leg_state" value="$(arg PLATE_BOT_TOPIC_LEG_STATE)"/>
+  <param name="plate_bot_topic_leg_command" value="$(arg PLATE_BOT_TOPIC_LEG_COMMAND)"/>
+
+  <!-- Include the main control launch file for plate_bot -->
+  <include file="$(find go2_controls)/launch/plate_bot_control.launch"/>
+
+  <!-- Launch the custom node specific to plate_bot control -->
+  <node pkg="plate_bot_controller" name="plate_bot" type="plate_bot_node" output="screen"/>
+</launch>

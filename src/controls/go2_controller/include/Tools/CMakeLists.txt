@@ -7,7 +7,6 @@ add_library(Tools
     Trajectories.cpp
     TaskSpacePDControl.cpp
     Centroidal_Dynamics.cpp
-    # Centt.cpp
     Pinocchio_Interface.cpp
     Gait_Generator.cpp
 )

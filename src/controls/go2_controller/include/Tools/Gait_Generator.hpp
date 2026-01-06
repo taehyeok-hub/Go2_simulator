@@ -4,6 +4,8 @@
 #include <iostream>
 #include <Eigen/Dense>
 #include <Eigen/Geometry>
+#include <cmath>
+#include <functional>
 #include <vector>
 #include <array>
 
@@ -50,6 +52,17 @@ public:
     ~Gait_Generator();
 
     void Trot_Gait_Generator(double switch_time = 0.3);
+
+    void Gait_Update();
+
+    Eigen::VectorXd GetRefGait(int leg) { return Gait_Timing[leg];}
+
+    Gait gaitmode;
+
+    Eigen::VectorXd Gait_Timing[NUM_LEG];
+    int temp[NUM_LEG];
+
+    bool Init_Trot = false;
     
 
 

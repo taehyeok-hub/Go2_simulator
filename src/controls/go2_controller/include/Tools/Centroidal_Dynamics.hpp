@@ -37,7 +37,7 @@ private:
     Eigen::VectorXd COM_Quat;
 
     // 3. 로봇 몸통의 desired / actual / error
-    Eigen::Vector3d des_Pos, des_Vel, des_Ori_dot, act_Ori_dot;
+    Eigen::Vector3d Ref_Pos, Ref_Vel, des_Ori_dot, act_Ori_dot;
     Eigen::Matrix3d des_Ori;
     Eigen::Vector3d Err_Pos, Err_R;
     
@@ -67,8 +67,10 @@ private:
     Eigen::VectorXd UpperBound;
     Eigen::VectorXd QP_Solution;
 
-    int Leg_Gait[NUM_LEG];
+    double Leg_Gait[NUM_LEG];
+    int Gait_Ref[NUM_LEG] = {0, 0, 0, 0};
     Eigen::Vector4d Target_State;
+    double gt = 1.0;
 
     // 7. Class 객체 선언
     OsqpEigen::Solver solver;
@@ -83,10 +85,11 @@ public:
     ~Centroidal_Dynamics();
 
     void Solve_QP();
-    void Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_rpy_, Eigen::VectorXd COM_rpy_dot_);
+    void Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_RPY_, Eigen::VectorXd COM_RPY_dot_);
     void Set_FootPosition(Eigen::Vector3d Pino_FL_, Eigen::Vector3d Pino_FR_, Eigen::Vector3d Pino_RL_, Eigen::Vector3d Pino_RR_);
     void Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_Pose);
     void Set_Reference(Eigen::VectorXd COM_Ref_);
+    void Set_GaitRef(Eigen::VectorXd Gait_Ref[]);
     void Set_GaitPhase(Eigen::Vector4d Target_State_);
     void Set_CostFunction();
     void Set_LinearMatrix();
@@ -139,7 +142,7 @@ public:
 
     Eigen::Vector3d ErrOri_so3(Eigen::Matrix3d R_act, Eigen::Matrix3d R_des)
     {
-        Eigen::Matrix3d R_ee = R_des.transpose() * R_act;
+        Eigen::Matrix3d R_ee = R_des.transpose() * R_act; // Body Frame 기준
         Eigen::Matrix3d S = (R_ee - R_ee.transpose()) / 2.0;
         Eigen::Vector3d ErrVec;
         ErrVec << S(2, 1) - S(1, 2), S(0, 2) - S(2, 0), S(1, 0) - S(0, 1);
@@ -156,9 +159,12 @@ public:
 
     // get 함수
     Eigen::VectorXd Get_Force() { return F_Vector; };
-    Eigen::Matrix3d Get_R_body_to_world() { return R_bw; };
+    Eigen::Matrix3d Get_R_BodyToWorld() { return R_bw; };
     Eigen::Vector3d Get_Error_Pose() { return Err_Pos; };
     Eigen::Vector3d Get_Error_R() { return Err_R; };
+    Eigen::VectorXd Get_DesPos() { return Ref_Pos; };
+    Eigen::VectorXd Get_LowerBound() { return LowerBound; }; 
+    Eigen::VectorXd Get_UpperBound() { return UpperBound; }; 
 };
 
 #endif

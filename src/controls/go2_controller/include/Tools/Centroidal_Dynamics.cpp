@@ -9,21 +9,21 @@
 Centroidal_Dynamics::Centroidal_Dynamics()
 {
     mass = 15.0;
-    mu = 0.7;
+    mu = 0.3;
     gravity << 0, 0, -9.81;
     I_body << 0.02448, 0.00012166, 0.0014849, 0.00012166, 0.098077, -3.12E-05, 0.0014849, -3.12E-05, 0.107;
 
     Kp_Pos.setIdentity();
-    Kp_Pos.diagonal() << 12000.0, 12000.0, 12000.0;
+    Kp_Pos.diagonal() << 20000.0, 20000.0, 30000.0; //  10000.0, 10000.0, 10000.0
 
     Kd_Pos.setIdentity();
-    Kd_Pos.diagonal() << 200.0, 200.0, 200.0;
+    Kd_Pos.diagonal() << 200.0, 200.0, 300.0; // 200.0, 200.0, 300.0
 
     Kp_Ori.setIdentity();
-    Kp_Ori.diagonal() << 8000.0, 8000.0, 8000.0;
+    Kp_Ori.diagonal() << 30000.0, 30000.0, 15000.0; //  5000.0, 5000.0, 5000.0
 
     Kd_Ori.setIdentity();
-    Kd_Ori.diagonal() << 80.0, 80.0, 80.0;
+    Kd_Ori.diagonal() << 300.0, 300.0, 150.0; //  50.0, 50.0, 50.0
 
     Hessian.resize(num_of_variables, num_of_variables);
     Gradient.resize(num_of_variables);
@@ -39,7 +39,7 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     UpperBound.setZero();
     QP_Solution.setZero();
 
-    Q = Eigen::MatrixXd::Identity(6, 6);
+    Q = Eigen::MatrixXd::Identity(6, 6); // 아주 정밀한 Gain Tuning을 진행할 때 활용
     Q(0, 0) = 0.1;
     Q(1, 1) = 0.1;
     Q(2, 2) = 0.1; // X축, Y축, Z축 (선형)가중치
@@ -84,14 +84,22 @@ void Centroidal_Dynamics::Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_P
     EE_Pose_RR_Body = EE_Pose[RR];
 }
 
+void Centroidal_Dynamics::Set_GaitRef(Eigen::VectorXd Gait_Ref_[]) // 성민이형 거
+{
+    for (int leg = 0; leg < NUM_LEG; ++leg)
+    {
+        Gait_Ref[leg] = Gait_Ref_[leg](0);
+    }
+}
+
 void Centroidal_Dynamics::Set_GaitPhase(Eigen::Vector4d Target_State_)
 {
-    Leg_Gait[0] = Target_State_(0);
-    Leg_Gait[1] = Target_State_(1);
-    Leg_Gait[2] = Target_State_(2);
-    Leg_Gait[3] = Target_State_(3);
-
-    std::cout << "=== LEG_GAIT === \n FL : " << Leg_Gait[0] << " | FR : " << Leg_Gait[1] << " | RL : " << Leg_Gait[2] << " | RR : " << Leg_Gait[3] << std::endl;  
+    Leg_Gait[FL] = Target_State_(0);
+    Leg_Gait[FR] = Target_State_(1);
+    Leg_Gait[RL] = Target_State_(2);
+    Leg_Gait[RR] = Target_State_(3);
+    
+    std::cout << "=== CENT_LEG_GAIT === \n FL : " << Leg_Gait[0] << " | FR : " << Leg_Gait[1] << " | RL : " << Leg_Gait[2] << " | RR : " << Leg_Gait[3] << std::endl;  
 }
 
 void Centroidal_Dynamics::Compute_A_Matrix()
@@ -112,17 +120,17 @@ void Centroidal_Dynamics::Compute_A_Matrix()
 void Centroidal_Dynamics::Set_Reference(Eigen::VectorXd COM_Ref_) 
 {
     /* COM_Ref_ : Reference COM 위치 -> 속도 -> 각도(RPY) -> 각속도(RPY_dot)*/
-    des_Pos << COM_Ref_(0), COM_Ref_(1), COM_Ref_(2);
+    Ref_Pos << COM_Ref_(0), COM_Ref_(1), COM_Ref_(2);
 
     Eigen::Vector3d e_rpy = Eigen::Vector3d::Zero();
-    e_rpy(0) = Wrap2PI(0.0 - COM_RPY(0));
-    e_rpy(1) = Wrap2PI(0.0 - COM_RPY(1));
-    e_rpy(2) = Wrap2PI(0.0 - COM_RPY(2));
+    e_rpy(0) = Wrap2PI(COM_Ref_(6) - COM_RPY(0));
+    e_rpy(1) = Wrap2PI(COM_Ref_(7) - COM_RPY(1));
+    e_rpy(2) = Wrap2PI(COM_Ref_(8) - COM_RPY(2));
 
-    // Err_R = e_rpy;
     Err_R = e_rpy;
+    // Err_R = ErrOri_so3(R_wb, I);
 
-    Lin_Acc_ref = (Kp_Pos * (des_Pos - COM_Pose) - Kd_Pos  * R_wb * COM_Vel) / mass;
+    Lin_Acc_ref = (Kp_Pos * (Ref_Pos - COM_Pose) - Kd_Pos * R_wb * COM_Vel) / mass;
     Ang_Acc_ref = (Kp_Ori * Err_R - Kd_Ori * R_wb * COM_RPY_dot);
 }
 
@@ -177,6 +185,15 @@ void Centroidal_Dynamics::Set_Constraint(double fz_min_, double fz_max_)
         double fz_min = contact * fz_min_;
         double fz_max = contact * fz_max_;
 
+        // if (Gait_Ref[leg] == SWING)
+        // {
+        //     gt = 0.0;
+        // }
+        // else if (Gait_Ref[leg] == STANCE)
+        // {
+        //     gt = 1.0;
+        // }
+
         LowerBound.segment<5>(5 * leg) << 0, -inf, 0, -inf, fz_min; // fz_min = 2
         UpperBound.segment<5>(5 * leg) << inf, 0, inf, 0, fz_max; // fz_max = 200
     }
@@ -184,8 +201,6 @@ void Centroidal_Dynamics::Set_Constraint(double fz_min_, double fz_max_)
     // std::cout << "=== LowerBound === \n" << LowerBound << std::endl;
     // std::cout << "=== UpperBound === \n" << UpperBound << std::endl;
 }
-
-
 
 
 void Centroidal_Dynamics::Solve_QP()

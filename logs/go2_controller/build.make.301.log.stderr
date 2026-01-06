@@ -1,0 +1,75 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:101:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\353[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio[01;31m[K�[m[K�� 사용했을 경우)
+      |                                                                                                     [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:102:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\245[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio�[01;31m[K�[m[K� 사용했을 경우)
+      |                                                                                                      [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:103:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\274[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio�[01;31m[K�[m[K 사용했을 경우)
+      |                                                                                                       [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:105:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 [01;31m[K�[m[K��용했을 경우)
+      |                                                                                                         [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:106:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\202[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 �[01;31m[K�[m[K�용했을 경우)
+      |                                                                                                          [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:107:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\254[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 �[01;31m[K�[m[K용했을 경우)
+      |                                                                                                           [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:108:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사[01;31m[K�[m[K��했을 경우)
+      |                                                                                                            [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:109:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\232[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사�[01;31m[K�[m[K�했을 경우)
+      |                                                                                                             [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:110:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\251[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사�[01;31m[K�[m[K했을 경우)
+      |                                                                                                              [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:111:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\355[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용[01;31m[K�[m[K��을 경우)
+      |                                                                                                               [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:112:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\226[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용�[01;31m[K�[m[K�을 경우)
+      |                                                                                                                [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:113:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\210[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용�[01;31m[K�[m[K을 경우)
+      |                                                                                                                 [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:114:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했[01;31m[K�[m[K�� 경우)
+      |                                                                                                                  [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:115:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\235[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했�[01;31m[K�[m[K� 경우)
+      |                                                                                                                   [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:116:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\204[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했�[01;31m[K�[m[K 경우)
+      |                                                                                                                    [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:118:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\352[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했을 [01;31m[K�[m[K��우)
+      |                                                                                                                      [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:119:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\262[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했을 �[01;31m[K�[m[K�우)
+      |                                                                                                                       [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:120:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\275[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했을 �[01;31m[K�[m[K우)
+      |                                                                                                                        [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:121:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\354[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했을 경[01;31m[K�[m[K��)
+      |                                                                                                                         [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:122:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\232[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했을 경�[01;31m[K�[m[K�)
+      |                                                                                                                          [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:123:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K\260[m[K’ in program
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); (Pinocchio를 사용했을 경�[01;31m[K�[m[K)
+      |                                                                                                                           [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Posture_Control()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:417:92:[m[K [01;31m[Kerror: [m[K‘[01m[KPinocchio[m[K’ was not declared in this scope; did you mean ‘[01m[Kpinocchio[m[K’?
+  417 |         torque_.segment<3>(3 * i) = Foot_J[i].transpose() * (-1) * GRF.segment<3>(3 * i); ([01;31m[KPinocchio[m[K를 사용했을 경우)
+      |                                                                                            [01;31m[K^~~~~~~~~[m[K
+      |                                                                                            [32m[Kpinocchio[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2775: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

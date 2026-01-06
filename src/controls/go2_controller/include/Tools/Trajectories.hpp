@@ -14,11 +14,16 @@ enum Control
 };
 
 // 궤적의 결과를 담을 구조체 (여러개의 값을 반환하고 싶을 때 사용함.)
-struct TrajectoryPoint
+struct QuinticTask
 {
     Eigen::Vector3d position;
     Eigen::Vector3d velocity;
-    // Eigen::Vector3d acceleration;
+};
+
+struct QuinticJoint
+{
+    Eigen::VectorXd position;
+    Eigen::VectorXd velocity;
 };
 
 
@@ -36,13 +41,20 @@ private:
     Eigen::VectorXd q_desired;
     Eigen::VectorXd dq_desired;
     
-    Eigen::MatrixXd M_Matrix;
-    Eigen::MatrixXd A_Matrix;
-    Eigen::MatrixXd B_Vector;
+    Eigen::Vector3d EE_desired;
+
+    Eigen::MatrixXd M_Matrix_Joint;
+    Eigen::MatrixXd A_Matrix_Joint;
+    Eigen::MatrixXd B_Vector_Joint;
+
+    Eigen::MatrixXd M_Matrix_Task;
+    Eigen::MatrixXd A_Matrix_Task;
+    Eigen::MatrixXd B_Vector_Task;
 
     // Serve Function ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    TrajectoryPoint Desired;
+    QuinticTask Desired;
+    // QuinticJoint Desired;
 
 public:
     // Constructor
@@ -50,15 +62,20 @@ public:
     ~Trajectories();
 
     // Public Function ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    TrajectoryPoint Quintic_Task(ros::Time &start_time, double motion_time, const Eigen::Vector3d &x_current, const Eigen::Vector3d &x_final);
-    
-    Eigen::VectorXd Quintic_Joint(double t, double motion_time, const Eigen::VectorXd &q_start, const Eigen::VectorXd &q_final);
-
-    TrajectoryPoint Sinusoidal_Task(ros::Time &start_time, double period,
-                                    const Eigen::Vector3d &stand_pose, const Eigen::Vector3d &squat_pose);
-    
-
+    void SetQuinticJoint();
+    void SetQuinticTask();
+    double Sinusoidal(int tick, double start_, double final_);
+    double Sinusoidal_D(int tick, double start_, double final_);
+    Eigen::VectorXd Sinusoidal_Joint(int tick, double period, Eigen::VectorXd q_start_, Eigen::VectorXd q_final_);
+    Eigen::VectorXd Sinusoidal_Joint_D(int tick, double period, Eigen::VectorXd q_start_, Eigen::VectorXd q_final_);
+    Eigen::Vector3d Sinusoidal_Task(int tick, double period, Eigen::Vector3d EE_start_, Eigen::Vector3d EE_final_);
+    Eigen::Vector3d Sinusoidal_Task_D(int tick, double period, Eigen::Vector3d EE_start_, Eigen::Vector3d EE_final_);
+    Eigen::Vector3d Sinusoidal_Task_Rotate(int tick, double period, Eigen::VectorXd EE_start_, Eigen::VectorXd EE_final_);
+    QuinticTask Quintic_Task(int tick, double motion_time, Eigen::Vector3d EE_start_, Eigen::Vector3d EE_final_);
+    void Quintic_Joint(int tick, double motion_time, Eigen::VectorXd q_start_, Eigen::VectorXd q_final_);
+    QuinticTask Quintic_Task_rostime(ros::Time &start_time, double motion_time, const Eigen::Vector3d &x_current, const Eigen::Vector3d &x_final);
 
     // Get 함수
-    Eigen::MatrixXd Get_Coefficient_Matrix() {return A_Matrix; };
+    Eigen::VectorXd Get_Reference_Pose_QuinticJoint() { return q_desired; };
+    Eigen::VectorXd Get_Reference_Vel_QuinticJoint() { return dq_desired; };
 };

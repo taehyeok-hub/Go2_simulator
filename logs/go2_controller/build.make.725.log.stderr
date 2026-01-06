@@ -1,0 +1,44 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::SRBMControl()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:343:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmtx_state[m[K’ was not declared in this scope
+  343 |     [01;31m[Kmtx_state[m[K.lock();
+      |     [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Reference_Generator()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:375:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmtx_state[m[K’ was not declared in this scope
+  375 |     [01;31m[Kmtx_state[m[K.lock();
+      |     [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Gait_Scheduler()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:400:42:[m[K [01;31m[Kerror: [m[K‘[01m[Kmtx_state[m[K’ was not declared in this scope
+  400 |         std::lock_guard<std::mutex> lock([01;31m[Kmtx_state[m[K);
+      |                                          [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Posture_Control()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:458:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmtx_GRF[m[K’ was not declared in this scope
+  458 |     [01;31m[Kmtx_GRF[m[K.lock();
+      |     [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:483:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmtx_print[m[K’ was not declared in this scope; did you mean ‘[01m[Kc_print[m[K’?
+  483 |     [01;31m[Kmtx_print[m[K.lock();
+      |     [01;31m[K^~~~~~~~~[m[K
+      |     [32m[Kc_print[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::CentRun()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:551:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kmtx_GRF[m[K’ was not declared in this scope
+  551 |             [01;31m[Kmtx_GRF[m[K.lock();
+      |             [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::StateBodyCallback(const ConstPtr&)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:618:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kmtx_state[m[K’ was not declared in this scope
+  618 |         [01;31m[Kmtx_state[m[K.lock();
+      |         [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::DataStream()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:704:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmtx_print[m[K’ was not declared in this scope; did you mean ‘[01m[Kc_print[m[K’?
+  704 |     [01;31m[Kmtx_print[m[K.lock();
+      |     [01;31m[K^~~~~~~~~[m[K
+      |     [32m[Kc_print[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Set_FK_Kinematics()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:781:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmtx_state[m[K’ was not declared in this scope
+  781 |     [01;31m[Kmtx_state[m[K.lock();
+      |     [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:7:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    7 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2775: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

@@ -26,7 +26,7 @@ Stephen Brawner (brawner@gmail.com)
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh filename="$(find go2_description)/go2/meshes/base.dae" />
+        <mesh filename="$(find go2_descriptions)/go2/meshes/base.dae" />
       </geometry>
       <material
         name="">
@@ -139,7 +139,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/hip.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/hip.dae" />
       </geometry>
       <material
         name="">
@@ -194,7 +194,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/thigh.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/thigh.dae" />
       </geometry>
       <material
         name="">
@@ -249,7 +249,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/calf.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/calf.dae" />
       </geometry>
       <material
         name="">
@@ -348,7 +348,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/foot.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/foot.dae" />
       </geometry>
       <material
         name="">
@@ -398,7 +398,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="3.1415 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/hip.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/hip.dae" />
       </geometry>
       <material
         name="">
@@ -453,7 +453,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/thigh_mirror.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/thigh_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -508,7 +508,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/calf_mirror.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/calf_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -607,7 +607,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/foot.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/foot.dae" />
       </geometry>
       <material
         name="">
@@ -657,7 +657,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 3.1415 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/hip.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/hip.dae" />
       </geometry>
       <material
         name="">
@@ -712,7 +712,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/thigh.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/thigh.dae" />
       </geometry>
       <material
         name="">
@@ -767,7 +767,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/calf.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/calf.dae" />
       </geometry>
       <material
         name="">
@@ -866,7 +866,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/foot.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/foot.dae" />
       </geometry>
       <material
         name="">
@@ -916,7 +916,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="3.1415 3.1415 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/hip.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/hip.dae" />
       </geometry>
       <material
         name="">
@@ -971,7 +971,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/thigh_mirror.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/thigh_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -1026,7 +1026,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/calf_mirror.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/calf_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -1125,7 +1125,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="$(find go2_description)/go2/meshes/foot.dae" />
+          filename="$(find go2_descriptions)/go2/meshes/foot.dae" />
       </geometry>
       <material
         name="">

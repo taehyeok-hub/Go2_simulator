@@ -1020,9 +1020,10 @@
     </plugin>
   </gazebo>
 
+  <!-- 지면과의 마찰 및 착지 인식 알고리즘 -->
   <gazebo reference="FL_foot">
-    <mu1>0.3</mu1>
-    <mu2>0.3</mu2>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
     <self_collide>1</self_collide>
     <material>Gazebo/DarkGrey</material>
     <kp value="1000000.0"/>
@@ -1031,7 +1032,7 @@
       <always_on>true</always_on>
       <update_rate>1000</update_rate>
       <contact>
-        <collision>FL_calf_fixed_joint_lump__FL_foot_collision_1</collision>
+        <collision>FL_calf_fixed_joint_lump__FL_foot_collision_3</collision>
       </contact>
       <plugin name="FL_contact_plugin" filename="libgazebo_ros_bumper.so">
         <bumperTopicName>FL_contactsensor_state</bumperTopicName>
@@ -1041,8 +1042,8 @@
   </gazebo>
 
   <gazebo reference="FR_foot">
-    <mu1>0.3</mu1>
-    <mu2>0.3</mu2>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
     <self_collide>1</self_collide>
     <material>Gazebo/DarkGrey</material>
     <kp value="1000000.0"/>
@@ -1051,7 +1052,7 @@
       <always_on>true</always_on>
       <update_rate>1000</update_rate>
       <contact>
-        <collision>FR_calf_fixed_joint_lump__FR_foot_collision_1</collision>
+        <collision>FR_calf_fixed_joint_lump__FR_foot_collision_3</collision>
       </contact>
       <plugin name="FR_contact_plugin" filename="libgazebo_ros_bumper.so">
         <bumperTopicName>FR_contactsensor_state</bumperTopicName>
@@ -1061,8 +1062,8 @@
   </gazebo>
 
   <gazebo reference="RL_foot">
-    <mu1>0.3</mu1>
-    <mu2>0.3</mu2>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
     <self_collide>1</self_collide>
     <material>Gazebo/DarkGrey</material>
     <kp value="1000000.0"/>
@@ -1071,7 +1072,7 @@
       <always_on>true</always_on>
       <update_rate>1000</update_rate>
       <contact>
-        <collision>RL_calf_fixed_joint_lump__RL_foot_collision_1</collision>
+        <collision>RL_calf_fixed_joint_lump__RL_foot_collision_3</collision>
       </contact>
       <plugin name="RL_contact_plugin" filename="libgazebo_ros_bumper.so">
         <bumperTopicName>RL_contactsensor_state</bumperTopicName>
@@ -1081,8 +1082,8 @@
   </gazebo>
 
   <gazebo reference="RR_foot">
-    <mu1>0.3</mu1>
-    <mu2>0.3</mu2>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
     <self_collide>1</self_collide>
     <material>Gazebo/DarkGrey</material>
     <kp value="1000000.0"/>
@@ -1091,7 +1092,7 @@
       <always_on>true</always_on>
       <update_rate>1000</update_rate>
       <contact>
-        <collision>RR_calf_fixed_joint_lump__RR_foot_collision_1</collision>
+        <collision>RR_calf_fixed_joint_lump__RR_foot_collision_3</collision>
       </contact>
       <plugin name="RR_contact_plugin" filename="libgazebo_ros_bumper.so">
         <bumperTopicName>RR_contactsensor_state</bumperTopicName>

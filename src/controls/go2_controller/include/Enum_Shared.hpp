@@ -3,6 +3,32 @@
 
 #include <iostream>
 
+enum HZ_Control
+{
+    FREQUENCY = 500,
+};
+
+enum Walk_Parameter
+{
+    STANCE = 0,
+    SWING = 1,
+    
+    TROT_T = 500,
+
+    SWING_TROT = 120,
+    STANCE_TROT = 120,
+};
+
+enum Gait
+{
+    TROT,
+    J_TROT,
+    PRONK,
+    BOUND,
+    GALLOP,
+    NUM_GAIT = 5,
+};
+
 enum Axis
 {
     X,
@@ -26,6 +52,11 @@ enum Leg_Num
     RL,
     RR,
     NUM_LEG = 4,
+};
+
+enum DOF
+{
+    NUM_DOF = NUM_LEG * NUM_AXIS,
 };
 
 enum RPY

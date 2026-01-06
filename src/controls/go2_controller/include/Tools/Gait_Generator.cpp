@@ -12,6 +12,12 @@ Gait_Generator::Gait_Generator()
     State2 << 1.0, 0.0, 0.0, 1.0;
     State3 << 1.0, 1.0, 1.0, 1.0;
     State4 << 0.0, 1.0, 1.0, 0.0;
+
+    for (size_t i = 0; i < NUM_LEG; ++i)
+    {
+        Gait_Timing[i] = Eigen::VectorXd::Zero(2 * TROT_T);
+    }
+    gaitmode = TROT;
 }
 
 Gait_Generator::~Gait_Generator() {}
@@ -55,8 +61,70 @@ void Gait_Generator::Trot_Gait_Generator(double switch_time)
         Gait_Switch = (Gait_Switch + 1) % 4;  
         Switch_Time = 0;
     }
+    
+    Target_State = Trot_Pattern.row(Gait_Switch);
+}
 
+void Gait_Generator::Gait_Update()
+{
+    switch (gaitmode)
+    {
+    case TROT:
+        if (Init_Trot == false)
+        {
+            for (int i = 0; i < (TROT_T - SWING_TROT); i++) // 500 - 120 = 380 -> 0.74초
+            {
+                Gait_Timing[FL](i) = STANCE;
+                Gait_Timing[FR](i) = STANCE;
+                Gait_Timing[RL](i) = STANCE;
+                Gait_Timing[RR](i) = STANCE;
+            }
 
-    // 3. 현재 인덱스에 맞는 행을 바로 할당 (if문 4개가 한 줄로!)
-    Target_State = I.row(Gait_Switch);
+            for (int i = (TROT_T - SWING_TROT); i < TROT_T; i++) // Swing 시간 : 0.26초
+            {
+                Gait_Timing[FL](i) = SWING;
+                Gait_Timing[FR](i) = STANCE;
+                Gait_Timing[RL](i) = STANCE;
+                Gait_Timing[RR](i) = SWING;
+            }
+
+            for (int i = TROT_T; i < (TROT_T + (TROT_T - SWING_TROT)); i++) // Stance 시간 : 0.74초
+            {
+                Gait_Timing[FL](i) = STANCE;
+                Gait_Timing[FR](i) = STANCE;
+                Gait_Timing[RL](i) = STANCE;
+                Gait_Timing[RR](i) = STANCE;
+            }
+
+            for (int i = (TROT_T + (TROT_T - SWING_TROT)); i < (2 * TROT_T); i++)
+            {
+                Gait_Timing[FL](i) = STANCE;
+                Gait_Timing[FR](i) = SWING;
+                Gait_Timing[RL](i) = SWING;
+                Gait_Timing[RR](i) = STANCE;
+            }
+
+            Init_Trot = true;
+        }
+
+        for (size_t i = 0; i < NUM_LEG; i++)
+        {
+            temp[i] = Gait_Timing[i](0);
+        }
+        for (size_t i = 1; i < 2 * TROT_T; i++)
+        {
+            Gait_Timing[FL](i - 1) = Gait_Timing[FL](i);
+            Gait_Timing[FR](i - 1) = Gait_Timing[FR](i);
+            Gait_Timing[RL](i - 1) = Gait_Timing[RL](i);
+            Gait_Timing[RR](i - 1) = Gait_Timing[RR](i);
+        }
+        for (size_t i = 0; i < NUM_LEG; i++)
+        {
+            Gait_Timing[i](2 * TROT_T - 1) = temp[i];
+        }
+        break;
+
+    default:
+        break;
+    }
 }

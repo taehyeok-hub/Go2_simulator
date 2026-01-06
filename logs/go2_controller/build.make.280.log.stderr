@@ -1,0 +1,23 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Swing_Control()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:401:36:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_Start[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_start[m[K’?
+  401 |             EE_Pose_desired[leg] = [01;31m[KEE_Pose_Start[m[K[leg] + (EE_Pose_Final[leg] - EE_Pose_start[leg]) * 0.5 * (1 - cos(3.14 * Switch_Time / period));
+      |                                    [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                    [32m[KEE_Pose_start[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:401:58:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_Final[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_final[m[K’?
+  401 |             EE_Pose_desired[leg] = EE_Pose_Start[leg] + ([01;31m[KEE_Pose_Final[m[K[leg] - EE_Pose_start[leg]) * 0.5 * (1 - cos(3.14 * Switch_Time / period));
+      |                                                          [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                          [32m[KEE_Pose_final[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:403:88:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Vel_start[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_start[m[K’?
+  403 |         Force_[leg] = 100.0 * (EE_Pose_desired[leg] - EE_Pose_start[leg]) + 1.0 * (0 - [01;31m[KEE_Vel_start[m[K[leg]);
+      |                                                                                        [01;31m[K^~~~~~~~~~~~[m[K
+      |                                                                                        [32m[KEE_Pose_start[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:408:22:[m[K [01;31m[Kerror: [m[Kincompatible types in assignment of ‘[01m[Kbool[m[K’ to ‘[01m[Kbool [4][m[K’
+  408 |         is_upward = ![01;31m[Kis_upward[m[K;
+      |                      [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2775: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

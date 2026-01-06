@@ -11,7 +11,6 @@ void CentThreadRun(go2_controller &controller)
     controller.CentRun();
 }
 
-
 void PlotThreadRun(go2_controller &controller)
 {
     controller.PlotRun();
@@ -22,7 +21,7 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "go2_node"); // ros에 go2_node라고 연결함.
     ros::NodeHandle nh;
 
-    const double freq = 500;
+    const double freq = FREQUENCY;
 
     std::string go2_topic_leg_state;
     std::string go2_topic_leg_command;
@@ -40,6 +39,8 @@ int main(int argc, char **argv)
     }
 
     go2_controller go2_controller(nh, go2_topic_leg_state, go2_topic_leg_command, freq); // 객체 생성
+
+    // go2_controller.Init(); // 초기화 진행
 
     std::thread main_thread(MainThreadRun, std::ref(go2_controller));
     std::thread plot_thread(PlotThreadRun, std::ref(go2_controller));

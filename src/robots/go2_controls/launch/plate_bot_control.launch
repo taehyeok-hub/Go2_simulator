@@ -1,0 +1,16 @@
+<launch>
+
+  <rosparam file="$(find go2_controls)/config/plate_bot_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="/plate_bot" args="joint_state_controller 
+                group_joint_effort_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen">
+    <remap from="/joint_states" to="/plate_bot/joint_states" />
+  </node> -->
+
+</launch>
