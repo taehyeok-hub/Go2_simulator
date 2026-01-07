@@ -89,7 +89,7 @@ public:
     void Set_FootPosition(Eigen::Vector3d Pino_FL_, Eigen::Vector3d Pino_FR_, Eigen::Vector3d Pino_RL_, Eigen::Vector3d Pino_RR_);
     void Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_Pose);
     void Set_Reference(Eigen::VectorXd COM_Ref_);
-    void Set_GaitRef(Eigen::VectorXd Gait_Ref[]);
+    void Set_RefGait(Eigen::VectorXd Gait_Ref[]);
     void Set_GaitPhase(Eigen::Vector4d Target_State_);
     void Set_CostFunction();
     void Set_LinearMatrix();
@@ -162,7 +162,7 @@ public:
     Eigen::Matrix3d Get_R_BodyToWorld() { return R_bw; };
     Eigen::Vector3d Get_Error_Pose() { return Err_Pos; };
     Eigen::Vector3d Get_Error_R() { return Err_R; };
-    Eigen::VectorXd Get_DesPos() { return Ref_Pos; };
+    Eigen::VectorXd Get_RefPos() { return Ref_Pos; };
     Eigen::VectorXd Get_LowerBound() { return LowerBound; }; 
     Eigen::VectorXd Get_UpperBound() { return UpperBound; }; 
 };

@@ -10,13 +10,13 @@ enum HZ_Control
 
 enum Walk_Parameter
 {
-    STANCE = 0,
-    SWING = 1,
+    SWING = 0,
+    STANCE = 1,
+    NUM_STATE = 2, 
     
-    TROT_T = 500,
-
-    SWING_TROT = 120,
-    STANCE_TROT = 120,
+    T_SWING = 120,
+    T_STANCE = 380,
+    T_TROT = T_SWING + T_STANCE,
 };
 
 enum Gait

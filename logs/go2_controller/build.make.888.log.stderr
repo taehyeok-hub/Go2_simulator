@@ -1,0 +1,34 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:87:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid Centroidal_Dynamics::Set_ReferenceGait(Eigen::VectorXd*)[m[K’
+   87 | void [01;31m[KCentroidal_Dynamics[m[K::Set_ReferenceGait(Eigen::VectorXd Gait_Ref_[]) // 성민이형 거
+      |      [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:87:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid Centroidal_Dynamics::Set_ReferenceGait(Eigen::VectorXd*)[m[K’
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Centroidal_Dynamics.hpp:21:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass Centroidal_Dynamics[m[K’ defined here
+   21 | class [01;36m[KCentroidal_Dynamics[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:[m[K In constructor ‘[01m[KGait_Generator::Gait_Generator()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:14:52:[m[K [01;31m[Kerror: [m[K‘[01m[KTROT_T[m[K’ was not declared in this scope; did you mean ‘[01m[KTROT[m[K’?
+   14 |         Gait_Timing[i] = Eigen::VectorXd::Zero(2 * [01;31m[KTROT_T[m[K);
+      |                                                    [01;31m[K^~~~~~[m[K
+      |                                                    [32m[KTROT[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:[m[K In member function ‘[01m[Kvoid Gait_Generator::Trot_Gait_Generator(double)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:53:5:[m[K [01;31m[Kerror: [m[K‘[01m[KSwitch_Time[m[K’ was not declared in this scope; did you mean ‘[01m[Kswitch_time[m[K’?
+   53 |     [01;31m[KSwitch_Time[m[K++;
+      |     [01;31m[K^~~~~~~~~~~[m[K
+      |     [32m[Kswitch_time[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:57:9:[m[K [01;31m[Kerror: [m[K‘[01m[KGait_Switch[m[K’ was not declared in this scope
+   57 |         [01;31m[KGait_Switch[m[K = (Gait_Switch + 1) % 4;
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:61:37:[m[K [01;31m[Kerror: [m[K‘[01m[KGait_Switch[m[K’ was not declared in this scope
+   61 |     Target_State = Trot_Pattern.row([01;31m[KGait_Switch[m[K);
+      |                                     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:[m[K In member function ‘[01m[Kvoid Gait_Generator::Trot_Gait_Update()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Gait_Generator.cpp:119:29:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kleg[m[K’
+  119 |         for (size_t leg = 0l[01;31m[K [m[K[32m[Kleg[m[K < NUM_LEG; leg++)
+      |                             [01;31m[K^[m[K[32m[K~~~[m[K
+      |                             [32m[K;[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:163: include/Tools/CMakeFiles/Tools.dir/Gait_Generator.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:135: include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

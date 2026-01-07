@@ -150,6 +150,11 @@ private:
     Eigen::VectorXd dq_;
     Eigen::VectorXd torque_;
 
+    // Pinocchio 변수 저장소
+    Eigen::MatrixXd Foot_J[NUM_LEG];
+    Eigen::VectorXd Foot_Pos[NUM_LEG], Foot_Vel[NUM_LEG];
+    Eigen::VectorXd Torque[NUM_LEG];
+
     // Joint space 변수들 (quintic)
     int Start_Flag = 0;
     int Init_Time = 0;
@@ -166,38 +171,32 @@ private:
     double RPY_Command[NUM_AXIS] = {0.0, 0.0, 0.0};
     double ANG_Command[NUM_AXIS] = {0.0, 0.0, 0.0};
 
-    // Pinocchio 변수 저장소
-    Eigen::MatrixXd Foot_J[NUM_LEG];
-    Eigen::VectorXd Foot_Pos[NUM_LEG], Foot_Vel[NUM_LEG];
-    Eigen::VectorXd Torque[NUM_LEG];
+    Eigen::VectorXd Init_Foot_pos[NUM_LEG];
+
+    // (in Task Space)
+    Eigen::Vector3d EE_Pose_start[NUM_LEG]; // 동작의 시작 xyz값 (담아두는 용도)
+    Eigen::Vector3d EE_Pose_final[NUM_LEG]; // 동작의 최종 목표의 xyz값
+    Eigen::Vector3d EE_Pose_desired[NUM_LEG]; // 궤적과 PD제어기 사이의 "통신 채널" : Reference 값
+    Eigen::Vector3d EE_Vel_desired[NUM_LEG];
+
+    Eigen::Matrix3d Kp_Task{Eigen::Matrix3d::Zero()};
+    Eigen::Matrix3d Kd_Task{Eigen::Matrix3d::Zero()};
+
 
     // 게이트 변수
-    // 현재상태
     int Gait_Switch = 0;
     int Switch_Time = 0;
-    int Start_Swing_Time[NUM_LEG] = {0, 0, 0, 0};
 
     // 스윙 다리 변수 
     double Hor_Swing_Time[4] = {0, 0, 0, 0};
     double Ver_Swing_Time[4] = {0, 0, 0, 0};
-    Eigen::VectorXd Init_Foot_pos[NUM_LEG];
-    Eigen::VectorXd Trot_gait[NUM_LEG];
+    Eigen::VectorXd Trot_Gait[NUM_LEG];
     Eigen::Matrix4d Trot_Pattern;
     Eigen::MatrixXd Walk_Pattern;
     Eigen::Vector4d Contact_State;
     Eigen::Matrix3d Kp_Swing[NUM_LEG], Kd_Swing[NUM_LEG];
     Eigen::Vector4d Prev_Contact = Eigen::Vector4d::Ones();
 
-    // (in Task Space) 동작의 시작 xyz값 (담아두는 용도)
-    Eigen::Vector3d EE_Pose_start[NUM_LEG];
-    // (in Task Space) 동작의 최종 목표의 xyz값
-    Eigen::Vector3d EE_Pose_final[NUM_LEG];
-    // Task Space - 궤적과 PD제어기 사이의 "통신 채널"
-    Eigen::Vector3d EE_Pose_desired[NUM_LEG];
-    Eigen::Vector3d EE_Vel_desired[NUM_LEG];
-
-    Eigen::Matrix3d Kp_Task{Eigen::Matrix3d::Zero()};
-    Eigen::Matrix3d Kd_Task{Eigen::Matrix3d::Zero()};
 
     // // Kinematics 관련 변수
     Eigen::Matrix3d R_bw; // body to world
@@ -205,8 +204,6 @@ private:
     Eigen::Vector3d ee_vel[NUM_LEG];
     Eigen::Matrix<double, 6, 12> jacobian;
 
-    // Jacobians
-    // Eigen::Matrix<double, 6, 3> Jacobian[NUM_LEG];
 
     // 힘, 토크 관련 변수
     Eigen::VectorXd GRF;
@@ -216,14 +213,6 @@ private:
     Eigen::Vector3d Posture_Torque[NUM_LEG];
     Eigen::VectorXd Hor_Foot_pos[NUM_LEG];
     Eigen::VectorXd Ver_Foot_pos[NUM_LEG];
-
-    // // thread 처리 관련 변수
-    // std::mutex mtx_GRF; // GRF 데이터 보호용 자물쇠
-    // std::mutex mtx_state; // 로봇 상태 데이터 보호용 자물쇠 (필요하다면)
-    // std::mutex mtx_print;
-    // std::condition_variable cv_gait_; // 신호를 보내는 도구
-    // std::mutex mtx_cv_;               // 신호 확인용 자물쇠
-    // bool is_gait_updated_ = false;    // "업데이트 됐니?" 깃발
 
     // Squating 동작 상태 관리
     ros::Time motion_start_time_;
@@ -238,12 +227,6 @@ private:
 
     ros::Time Motion_Time;
     ros::Time Current_Time;
-    // int Homing_Time = 0;
-
-    QuinticTask Sinusoidal_Task(ros::Time &start_time, double period,
-                                    const Eigen::Vector3d &stand_pose,
-                                    const Eigen::Vector3d &squat_pose);
-
     int count = 0;
     
     // 접촉 상태 확인

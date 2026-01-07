@@ -68,7 +68,7 @@ void go2_controller::Init()
         Hor_Foot_pos[i].setZero(NUM_JOINT);
         Ver_Foot_pos[i].setZero(NUM_JOINT);
         Init_Foot_pos[i].setZero(NUM_JOINT);
-        Trot_gait[i].setZero(TROT_T);
+        Trot_Gait[i].setZero(T_TROT);
     }
 
     Walk_Pattern.resize(8, 4);
@@ -89,8 +89,8 @@ void go2_controller::Init()
 
 void go2_controller::Command(bool flag)
 {
-    Reference_Generator();
     Set_Kinematics();
+    Reference_Generator();
     // Set_FK_Kinematics();
 
     if (Recieved_Joint_State)
@@ -114,8 +114,8 @@ void go2_controller::Command(bool flag)
         }
         case POSTURE:
         {
-            Gait_Scheduler();
-            // Gait_Renewal();
+            // Gait_Scheduler(); // 내 거
+            Gait_Renewal();
             Posture_Control();
             // break;
         }
@@ -175,9 +175,9 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
         {
             Init_Time = 0; 
             Start_Flag = 0;
-            Pos_Command[X] = Local_body_pos(X);
+            Pos_Command[X] = 0.0;
             Pos_Command[Y] = Local_body_pos(Y);
-            Pos_Command[Z] = Local_body_pos(Z);
+            Pos_Command[Z] = gazebo_body_pos(Z);
             RPY_Command[ROLL] = gazebo_rpy(ROLL);
             RPY_Command[PITCH] = gazebo_rpy(PITCH);
             RPY_Command[YAW] = gazebo_rpy(YAW);
@@ -197,13 +197,13 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
             Ver_Foot_pos[RL] = PINO.GetPos(RL);
             Ver_Foot_pos[RR] = PINO.GetPos(RR);
 
-            for (int leg = 0; leg < NUM_LEG; leg++)
-            {
-                EE_Pose_start[leg] = Foot_Pos[leg]; // pinocchio
-                // EE_Pose_start[leg] = ee_pose[leg];
-                EE_Pose_final[leg] = EE_Pose_start[leg];
-                EE_Pose_final[leg](Z) = EE_Pose_start[leg](Z) + 0.1;
-            }
+            // for (int leg = 0; leg < NUM_LEG; leg++)
+            // {
+            //     EE_Pose_start[leg] = Foot_Pos[leg]; // pinocchio
+            //     // EE_Pose_start[leg] = ee_pose[leg];
+            //     EE_Pose_final[leg] = EE_Pose_start[leg];
+            //     EE_Pose_final[leg](Z) = EE_Pose_start[leg](Z) + 0.1;
+            // }
 
             controlmode = POSTURE;
         }
@@ -355,9 +355,9 @@ void go2_controller::SRBMControl()
 {
     CENT.Set_RobotState(Local_body_pos, gazebo_body_vel, gazebo_quat, gazebo_rpy, gazebo_rpy_dot);
     CENT.Set_FootPosition(PINO.GetPos(FL), PINO.GetPos(FR), PINO.GetPos(RL), PINO.GetPos(RR));
+    CENT.Set_RefGait(Trot_Gait);  
     CENT.Set_Reference(COM_Ref);
-    // CENT.Set_GaitRef(Trot_gait);  
-    CENT.Set_GaitPhase(Contact_State);
+    // CENT.Set_GaitPhase(Contact_State);
     CENT.Compute_A_Matrix();
     CENT.Compute_B_Vector();
     CENT.Set_CostFunction();
@@ -377,36 +377,18 @@ void go2_controller::Reference_Generator()
 
 void go2_controller::Gait_Scheduler()
 {
-    const int period = FREQUENCY; // 한 주기
-    const int swing_time = 150;
-    const int stance_time = period - swing_time; 
-    
-    /* 어차피 stance swing stance swing을 반복할 것이면 */
-    
-    Switch_Time++;
 
-    if (Switch_Time == stance_time)
-    {
-        Gait_Switch += 1;
-    }
-
-    if (Switch_Time == period)
-    {
-        Switch_Time = 0;
-        Gait_Switch = (Gait_Switch + 1) % 4;
-    }
-
-    std::cout << "====== Switich_Time ====== : "  << Switch_Time << std::endl; 
-    Contact_State = Trot_Pattern.row(Gait_Switch);
 }
 
 void go2_controller::Gait_Renewal()
 {
     GAIT.Gait_Update();
+ 
     for (int i = 0; i < NUM_LEG; i++)
     {
-        Trot_gait[i] = GAIT.GetRefGait(i);
+        Trot_Gait[i] = GAIT.Get_ReferenceGait(i);
     }
+    
 }
 
 void go2_controller::StanceLeg_Control(int leg)
@@ -417,7 +399,7 @@ void go2_controller::StanceLeg_Control(int leg)
     Leg_Force[leg](Y) = GRF(3 * leg + 1);
     Leg_Force[leg](Z) = GRF(3 * leg + 2);
 
-    Posture_Torque[leg] = (Foot_J[leg].transpose() * ((-1) * Leg_Force[leg]));
+    Posture_Torque[leg] = Foot_J[leg].transpose() * ((-1) * Leg_Force[leg]);
 
     Stance_Torque[leg](0) = Posture_Torque[leg](0);
     Stance_Torque[leg](1) = Posture_Torque[leg](1);
@@ -426,9 +408,8 @@ void go2_controller::StanceLeg_Control(int leg)
 
 void go2_controller::SwingLeg_Control(int leg)
 {
-    // 상수 설정
     const int period = FREQUENCY;
-    const int swing_time = 150, stance_time = period - swing_time;   
+    const int swing_time = 150, stance_time = period - swing_time + 1;   
     double step_height = 0.10;
 
     double tmp_Kp = 100;
@@ -464,13 +445,7 @@ void go2_controller::Posture_Control()
 { 
     for (int leg = 0; leg < NUM_LEG; leg++)
     {
-        // StanceLeg_Control(leg);
-
-        // torque_(3 * leg) = Stance_Torque[leg](0);
-        // torque_(3 * leg + 1) = Stance_Torque[leg](1);
-        // torque_(3 * leg + 2) = Stance_Torque[leg](2);
-
-        if (Contact_State(leg) == 1)
+        if (Trot_Gait[leg](0) == STANCE)
         {
             StanceLeg_Control(leg);
 
@@ -485,7 +460,7 @@ void go2_controller::Posture_Control()
             Ver_Swing_Time[leg] = 0;
         }
 
-        else if (Contact_State(leg) == 0)
+        else if (Trot_Gait[leg](0) == SWING)
         {
             SwingLeg_Control(leg);
 
@@ -493,12 +468,6 @@ void go2_controller::Posture_Control()
             torque_(3 * leg + 1) = Swing_Torque[leg](1);
             torque_(3 * leg + 2) = Swing_Torque[leg](2);
         }
-
-        // SwingLeg_Control(leg);
-
-        // torque_(3 * leg) = Swing_Torque[leg](0);
-        // torque_(3 * leg + 1) = Swing_Torque[leg](1);
-        // torque_(3 * leg + 2) = Swing_Torque[leg](2);
     }
 }
 
@@ -785,20 +754,23 @@ void go2_controller::DataStream()
     // TH_msg 메세지의 형태로 data를 발행함.
     // ex) EE_Pose_FL은 x, y, z의 형태로 되어 있으니까, EE_Pose_FL
     
-    // Eigen::Vector3d des_Pos_ = CENT.Get_DesPos();
-    // Eigen::Vector3d Err_Pos_ = CENT.Get_Error_Pose();
-    // Eigen::Vector3d Err_Ori_ = CENT.Get_Error_R();
-
-    // Eigen::Vector3d EPOS = R_bw.transpose() * (des_Pos_ - Err_Pos_);
+    Eigen::Vector3d Ref_Pos_ = CENT.Get_RefPos();
+    Eigen::Vector3d Err_Pos_ = CENT.Get_Error_Pose();
+    Eigen::Vector3d Err_Ori_ = CENT.Get_Error_R();
+    Eigen::Vector3d EPOS = (Ref_Pos_ - Err_Pos_);
 
     // SRBM 추출 힘
-    // TH_msg.data.push_back(EPOS(X));
-    // TH_msg.data.push_back(EPOS(Y));
-    // TH_msg.data.push_back(EPOS(Z));
+    TH_msg.data.push_back(Ref_Pos_(X));
+    TH_msg.data.push_back(Ref_Pos_(Y));
+    TH_msg.data.push_back(Ref_Pos_(Z));
 
-    // TH_msg.data.push_back(Err_Ori_(ROLL));
-    // TH_msg.data.push_back(Err_Ori_(PITCH));
-    // TH_msg.data.push_back(Err_Ori_(YAW));
+    TH_msg.data.push_back(Err_Pos_(X));
+    TH_msg.data.push_back(Err_Pos_(Y));
+    TH_msg.data.push_back(Err_Pos_(Z));
+
+    TH_msg.data.push_back(Err_Ori_(ROLL));
+    TH_msg.data.push_back(Err_Ori_(PITCH));
+    TH_msg.data.push_back(Err_Ori_(YAW));
 
     // TH_msg.data.push_back(count);
 
@@ -857,6 +829,8 @@ void go2_controller::Set_Kinematics()
                             inv_stance_count;
     }
 
+    Local_body_pos(X) = Local_body_pos(X);
+    Local_body_pos(Y) = Local_body_pos(Y);
     Local_body_pos(Z) = gazebo_body_pos(Z);
 
     Local_body_vel = R_bw.transpose() * gazebo_body_vel;

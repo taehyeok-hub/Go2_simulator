@@ -14,16 +14,16 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     I_body << 0.02448, 0.00012166, 0.0014849, 0.00012166, 0.098077, -3.12E-05, 0.0014849, -3.12E-05, 0.107;
 
     Kp_Pos.setIdentity();
-    Kp_Pos.diagonal() << 20000.0, 20000.0, 30000.0; //  10000.0, 10000.0, 10000.0
+    Kp_Pos.diagonal() << 10000.0, 10000.0, 10000.0; //  10000.0, 10000.0, 10000.0
 
     Kd_Pos.setIdentity();
-    Kd_Pos.diagonal() << 200.0, 200.0, 300.0; // 200.0, 200.0, 300.0
+    Kd_Pos.diagonal() << 600.0, 600.0, 600.0; // 200.0, 200.0, 300.0
 
     Kp_Ori.setIdentity();
-    Kp_Ori.diagonal() << 30000.0, 30000.0, 15000.0; //  5000.0, 5000.0, 5000.0
+    Kp_Ori.diagonal() << 5000.0, 5000.0, 5000.0; //  5000.0, 5000.0, 5000.0
 
     Kd_Ori.setIdentity();
-    Kd_Ori.diagonal() << 300.0, 300.0, 150.0; //  50.0, 50.0, 50.0
+    Kd_Ori.diagonal() << 250.0, 250.0, 250.0; //  50.0, 50.0, 50.0
 
     Hessian.resize(num_of_variables, num_of_variables);
     Gradient.resize(num_of_variables);
@@ -84,7 +84,7 @@ void Centroidal_Dynamics::Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_P
     EE_Pose_RR_Body = EE_Pose[RR];
 }
 
-void Centroidal_Dynamics::Set_GaitRef(Eigen::VectorXd Gait_Ref_[]) // 성민이형 거
+void Centroidal_Dynamics::Set_RefGait(Eigen::VectorXd Gait_Ref_[]) // 성민이형 거
 {
     for (int leg = 0; leg < NUM_LEG; ++leg)
     {
@@ -127,8 +127,8 @@ void Centroidal_Dynamics::Set_Reference(Eigen::VectorXd COM_Ref_)
     e_rpy(1) = Wrap2PI(COM_Ref_(7) - COM_RPY(1));
     e_rpy(2) = Wrap2PI(COM_Ref_(8) - COM_RPY(2));
 
-    Err_R = e_rpy;
-    // Err_R = ErrOri_so3(R_wb, I);
+    // Err_R = e_rpy;
+    Err_R = ErrOri_so3(R_wb, I);
 
     Lin_Acc_ref = (Kp_Pos * (Ref_Pos - COM_Pose) - Kd_Pos * R_wb * COM_Vel) / mass;
     Ang_Acc_ref = (Kp_Ori * Err_R - Kd_Ori * R_wb * COM_RPY_dot);
@@ -180,7 +180,7 @@ void Centroidal_Dynamics::Set_Constraint(double fz_min_, double fz_max_)
     
     for (int leg = 0; leg < NUM_LEG; leg++)
     {
-        double contact = Leg_Gait[leg];
+        double contact = Gait_Ref[leg]; // Leg_Gait[leg]
 
         double fz_min = contact * fz_min_;
         double fz_max = contact * fz_max_;

@@ -22,13 +22,6 @@ Gait Transition: 보행 전환 (걷다가 뛰기로 바꿀 때)
 */
 
 
-// struct GaitPattern
-// {
-//     Eigen::RowVector4d State1;
-//     Eigen::RowVector4d State2;
-//     Eigen::RowVector4d State3;
-// };
-
 class Gait_Generator 
 {
 private:
@@ -37,34 +30,25 @@ private:
 
 
     // Variables
-    Eigen::Vector3d stance[NUM_LEG];
-    Eigen::Vector4d Target_State;
-    Eigen::Vector4d State1, State2, State3, State4;
+    Eigen::VectorXd stance[NUM_LEG];
+    Eigen::VectorXd Target_State;
     
-    int Switch_Time = 0;
-    int Gait_Switch = 0;
-
-    // GaitPattern Gait;
     Eigen::MatrixXd Trot_Pattern;
 
 public:
     Gait_Generator();
     ~Gait_Generator();
 
-    void Trot_Gait_Generator(double switch_time = 0.3);
-
     void Gait_Update();
+    void Trot_Gait_Generator(double switch_time = 0.3);
+    Eigen::VectorXd Get_ReferenceGait(int leg) { return Gait_Timing[leg];}
 
-    Eigen::VectorXd GetRefGait(int leg) { return Gait_Timing[leg];}
-
-    Gait gaitmode;
+    Gait gaitmode; // enum 객체 생성
 
     Eigen::VectorXd Gait_Timing[NUM_LEG];
     int temp[NUM_LEG];
 
-    bool Init_Trot = false;
-    
-
+    bool Init_Trot = true; // 첫번째 트롯이냐?
 
     
 
