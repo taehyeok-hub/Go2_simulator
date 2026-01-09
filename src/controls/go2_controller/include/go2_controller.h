@@ -101,14 +101,14 @@ private:
     void Forward_Kinematics(const Eigen::VectorXd &q, const Eigen::VectorXd &dq);
     void Forward_Kinematics_ME(const Eigen::VectorXd &q, const Eigen::VectorXd &dq); // 내가 만든거
     void TaskSpacePDControl(double Kp_X, double Kp_Y, double Kp_Z, double Kd_X, double Kd_Y, double Kd_Z);
-    void TaskPD_LegControl(int leg);
+    void TaskPD(int leg);
     void Set_Kinematics();
     void Set_FK_Kinematics(); // 내가 만든거
     void Gait_Scheduler();
     void Gait_Renewal();
     void StanceLeg_Control(int leg);
     void SwingLeg_Control(int leg);
-    // void Swing_Control();
+    // void SwingLeg_Control();
 
     // Trajectory 관련 함수들
     QuinticTask Quintic_Task(ros::Time &start_time, double motion_time, Eigen::Vector3d &x_current, Eigen::Vector3d &x_final);
@@ -182,6 +182,7 @@ private:
     Eigen::Matrix3d Kp_Task{Eigen::Matrix3d::Zero()};
     Eigen::Matrix3d Kd_Task{Eigen::Matrix3d::Zero()};
 
+    bool is_LPF = false;
 
     // 게이트 변수
     int Gait_Switch = 0;

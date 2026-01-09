@@ -353,6 +353,30 @@ Trajectories.cpp.s:
 	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.s
 .PHONY : Trajectories.cpp.s
 
+Trajectory_Generator.o: Trajectory_Generator.cpp.o
+.PHONY : Trajectory_Generator.o
+
+# target to build an object file
+Trajectory_Generator.cpp.o:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Trajectory_Generator.cpp.o
+.PHONY : Trajectory_Generator.cpp.o
+
+Trajectory_Generator.i: Trajectory_Generator.cpp.i
+.PHONY : Trajectory_Generator.i
+
+# target to preprocess a source file
+Trajectory_Generator.cpp.i:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Trajectory_Generator.cpp.i
+.PHONY : Trajectory_Generator.cpp.i
+
+Trajectory_Generator.s: Trajectory_Generator.cpp.s
+.PHONY : Trajectory_Generator.s
+
+# target to generate assembly for a file
+Trajectory_Generator.cpp.s:
+	cd /home/pth/pth/model/Go2_simulator/build/go2_controller && $(MAKE) $(MAKESILENT) -f include/Tools/CMakeFiles/Tools.dir/build.make include/Tools/CMakeFiles/Tools.dir/Trajectory_Generator.cpp.s
+.PHONY : Trajectory_Generator.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -388,6 +412,9 @@ help:
 	@echo "... Trajectories.o"
 	@echo "... Trajectories.i"
 	@echo "... Trajectories.s"
+	@echo "... Trajectory_Generator.o"
+	@echo "... Trajectory_Generator.i"
+	@echo "... Trajectory_Generator.s"
 .PHONY : help
 
 

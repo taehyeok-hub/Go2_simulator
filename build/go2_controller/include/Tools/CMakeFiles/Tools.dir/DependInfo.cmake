@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp" "include/Tools/CMakeFiles/Tools.dir/SingleRigidBody.cpp.o" "gcc" "include/Tools/CMakeFiles/Tools.dir/SingleRigidBody.cpp.o.d"
   "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp" "include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o" "gcc" "include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o.d"
   "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp" "include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o" "gcc" "include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o.d"
+  "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectory_Generator.cpp" "include/Tools/CMakeFiles/Tools.dir/Trajectory_Generator.cpp.o" "gcc" "include/Tools/CMakeFiles/Tools.dir/Trajectory_Generator.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

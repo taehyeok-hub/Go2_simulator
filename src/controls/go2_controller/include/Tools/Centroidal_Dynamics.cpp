@@ -23,7 +23,7 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     Kp_Ori.diagonal() << 5000.0, 5000.0, 5000.0; //  5000.0, 5000.0, 5000.0
 
     Kd_Ori.setIdentity();
-    Kd_Ori.diagonal() << 250.0, 250.0, 250.0; //  50.0, 50.0, 50.0
+    Kd_Ori.diagonal() << 200.0, 200.0, 200.0; //  50.0, 50.0, 50.0
 
     Hessian.resize(num_of_variables, num_of_variables);
     Gradient.resize(num_of_variables);
@@ -44,9 +44,9 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     Q(1, 1) = 0.1;
     Q(2, 2) = 0.1; // X축, Y축, Z축 (선형)가중치
 
-    Q(3, 3) = 0.1;
-    Q(4, 4) = 0.1;
-    Q(5, 5) = 0.1; // Roll, Pitch, Yaw 방향 가중치
+    Q(3, 3) = 10.0;
+    Q(4, 4) = 10.0;
+    Q(5, 5) = 10.0; // Roll, Pitch, Yaw 방향 가중치
 
     Set_LinearMatrix();
 }
@@ -99,7 +99,7 @@ void Centroidal_Dynamics::Set_GaitPhase(Eigen::Vector4d Target_State_)
     Leg_Gait[RL] = Target_State_(2);
     Leg_Gait[RR] = Target_State_(3);
     
-    std::cout << "=== CENT_LEG_GAIT === \n FL : " << Leg_Gait[0] << " | FR : " << Leg_Gait[1] << " | RL : " << Leg_Gait[2] << " | RR : " << Leg_Gait[3] << std::endl;  
+    // std::cout << "=== CENT_LEG_GAIT === \n FL : " << Leg_Gait[0] << " | FR : " << Leg_Gait[1] << " | RL : " << Leg_Gait[2] << " | RR : " << Leg_Gait[3] << std::endl;  
 }
 
 void Centroidal_Dynamics::Compute_A_Matrix()
@@ -127,11 +127,31 @@ void Centroidal_Dynamics::Set_Reference(Eigen::VectorXd COM_Ref_)
     e_rpy(1) = Wrap2PI(COM_Ref_(7) - COM_RPY(1));
     e_rpy(2) = Wrap2PI(COM_Ref_(8) - COM_RPY(2));
 
-    // Err_R = e_rpy;
-    Err_R = ErrOri_so3(R_wb, I);
+    Err_R = e_rpy;
+    // Err_R = ErrOri_so3(R_wb, I);
 
-    Lin_Acc_ref = (Kp_Pos * (Ref_Pos - COM_Pose) - Kd_Pos * R_wb * COM_Vel) / mass;
-    Ang_Acc_ref = (Kp_Ori * Err_R - Kd_Ori * R_wb * COM_RPY_dot);
+        // === 1) raw 속도 (world→body) ===
+    // Eigen::Vector3d v_body_raw = R_wb * COM_Vel;
+    // Eigen::Vector3d w_body_raw = R_wb * COM_RPY_dot;
+
+    // const double alpha = 0.8;  // 0.8~0.95 정도에서 튜닝
+
+    // // === 2) 첫 루프면 raw로 초기화 ===
+    // if (!lpf_initialized)
+    // {
+    //     v_body_filt = v_body_raw;
+    //     w_body_filt = w_body_raw;
+    //     lpf_initialized = true;
+    // }
+    // else
+    // {
+    //     // === 3) LPF 적용 ===
+    //     v_body_filt = alpha * v_body_filt + (1.0 - alpha) * v_body_raw;
+    //     w_body_filt = alpha * w_body_filt + (1.0 - alpha) * w_body_raw;
+    // }
+
+    Lin_Acc_ref = (Kp_Pos * (Ref_Pos - Err_Pos) - Kd_Pos * COM_Vel) / mass;
+    Ang_Acc_ref = (Kp_Ori * Err_R - Kd_Ori * COM_RPY_dot);
 }
 
 void Centroidal_Dynamics::Compute_B_Vector()
@@ -180,7 +200,7 @@ void Centroidal_Dynamics::Set_Constraint(double fz_min_, double fz_max_)
     
     for (int leg = 0; leg < NUM_LEG; leg++)
     {
-        double contact = Gait_Ref[leg]; // Leg_Gait[leg]
+        double contact = Gait_Ref[leg]; // Leg_Gait[leg] , Gait_Ref[leg]
 
         double fz_min = contact * fz_min_;
         double fz_max = contact * fz_max_;

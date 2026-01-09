@@ -36,7 +36,7 @@ void go2_controller::TaskSpacePDControl(double Kp_X, double Kp_Y, double Kp_Z, d
     torque_.segment<3>(9) = Torque_RR;
 }
 
-void go2_controller::TaskPD_LegControl(int leg)
+void go2_controller::TaskPD(int leg)
 {   
     Kp_Task.diagonal() << 500.0, 500.0, 500.0;
     Kd_Task.diagonal() << 30.0, 30.0, 30.0;

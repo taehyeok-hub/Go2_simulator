@@ -120,7 +120,9 @@ void Gait_Generator::Gait_Update()
         {
             Gait_Timing[leg](2 * T_TROT - 1) = temp[leg];
         }
+        break;
 
+    default:
         break;
     }
 }

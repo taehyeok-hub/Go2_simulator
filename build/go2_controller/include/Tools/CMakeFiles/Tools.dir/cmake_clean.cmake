@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o.d"
   "CMakeFiles/Tools.dir/Trajectories.cpp.o"
   "CMakeFiles/Tools.dir/Trajectories.cpp.o.d"
+  "CMakeFiles/Tools.dir/Trajectory_Generator.cpp.o"
+  "CMakeFiles/Tools.dir/Trajectory_Generator.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

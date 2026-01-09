@@ -41,6 +41,9 @@ private:
     Eigen::Matrix3d des_Ori;
     Eigen::Vector3d Err_Pos, Err_R;
     
+    Eigen::Vector3d v_body_filt;
+    Eigen::Vector3d w_body_filt;
+
     Eigen::Vector3d Lin_Acc_ref; // -> 선형 레퍼런스 가속도
     Eigen::Vector3d Ang_Acc_ref; // -> 회전 레퍼런스 각가속도
 
@@ -71,6 +74,7 @@ private:
     int Gait_Ref[NUM_LEG] = {0, 0, 0, 0};
     Eigen::Vector4d Target_State;
     double gt = 1.0;
+    bool lpf_initialized = false; 
 
     // 7. Class 객체 선언
     OsqpEigen::Solver solver;
@@ -155,6 +159,12 @@ public:
         a = std::fmod(a + M_PI, 2.0 * M_PI);
         if (a < 0.0) a += 2.0 * M_PI;
         return a - M_PI;
+    }
+
+    inline double LPF(double a1, double &filtered, double raw)
+    {
+        filtered = a1 * filtered + (1.0 - a1) * raw;
+        return filtered;
     }
 
     // get 함수
