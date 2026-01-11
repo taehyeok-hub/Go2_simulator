@@ -421,8 +421,8 @@ void go2_controller::SwingLeg_Control(int leg)
     constexpr double step_height = 0.10;
 
     // 게인 설정
-    Kp_Swing[leg].diagonal() << 1300.0, 1300.0, 1000.0;
-    Kd_Swing[leg].diagonal() << 20.0, 20.0, 20.0;
+    Kp_Swing[leg].diagonal() << 1800.0, 1800.0, 1500.0; // 1800.0, 1800.0, 1200.0
+    Kd_Swing[leg].diagonal() << 26.0, 26.0, 25.0;
 
     double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
     double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
