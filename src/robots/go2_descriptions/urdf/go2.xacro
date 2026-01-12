@@ -139,6 +139,7 @@
     <child link="FL_hip" />
     <axis xyz="1 0 0" />
     <limit lower="-1.0472" upper="1.0472" effort="23.7" velocity="30.1" /> <!-- 이 이상으로 넘어가지 말아라-->
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="FL_hip_rotor">
@@ -189,6 +190,7 @@
     <child link="FL_thigh" />
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5707" effort="23.7" velocity="30.1" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="FL_thigh_rotor">
@@ -240,6 +242,7 @@
     <child link="FL_calf" />
     <axis xyz="0 1 0" />
     <limit lower="-2.7227" upper="-0.83776" effort="45.43" velocity="15.70" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="FL_calflower">
@@ -360,6 +363,7 @@
     <child link="FR_hip" />
     <axis xyz="1 0 0" />
     <limit lower="-1.0472" upper="1.0472" effort="23.7" velocity="30.1" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="FR_hip_rotor">
@@ -406,6 +410,7 @@
     <child link="FR_thigh" />
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5707" effort="23.7" velocity="30.1" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="FR_thigh_rotor">
@@ -452,6 +457,7 @@
     <child link="FR_calf" />
     <axis xyz="0 1 0" />
     <limit lower="-2.7227" upper="-0.83776" effort="45.43" velocity="15.70" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="FR_calflower">
@@ -564,6 +570,7 @@
     <child link="RL_hip" />
     <axis xyz="1 0 0" />
     <limit lower="-1.0472" upper="1.0472" effort="23.7" velocity="30.1" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="RL_hip_rotor">
@@ -611,6 +618,7 @@
     <child link="RL_thigh" />
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5707" effort="23.7" velocity="30.1" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="RL_thigh_rotor">
@@ -658,6 +666,7 @@
     <child link="RL_calf" />
     <axis xyz="0 1 0" />
     <limit lower="-2.7227" upper="-0.83776" effort="45.43" velocity="15.70" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="RL_calflower">
@@ -769,6 +778,7 @@
     <child link="RR_hip" />
     <axis xyz="1 0 0" />
     <limit lower="-1.0472" upper="1.0472" effort="23.7" velocity="30.1" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="RR_hip_rotor">
@@ -816,6 +826,7 @@
     <child link="RR_thigh" />
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5707" effort="23.7" velocity="30.1" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="RR_thigh_rotor">
@@ -863,6 +874,7 @@
     <child link="RR_calf" />
     <axis xyz="0 1 0" />
     <limit lower="-2.7227" upper="-0.83776" effort="45.43" velocity="15.70" />
+    <dynamics damping="${damping}" friction="${friction}"/>
   </joint>
 
   <link name="RR_calflower">

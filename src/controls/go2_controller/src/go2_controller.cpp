@@ -179,8 +179,8 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
 
             if (Start_Flag == 4)
             {
-                Pos_Command[X] = 0.0;
-                Pos_Command[Y] = 0.0;
+                Pos_Command[X] = Local_body_pos(X); // Local_body_pos(X)
+                Pos_Command[Y] = 0.0; // Local_body_pos(Y)
                 Pos_Command[Z] = gazebo_body_pos(Z);
                 RPY_Command[ROLL] = gazebo_rpy(ROLL);
                 RPY_Command[PITCH] = gazebo_rpy(PITCH);
@@ -421,8 +421,8 @@ void go2_controller::SwingLeg_Control(int leg)
     constexpr double step_height = 0.10;
 
     // 게인 설정
-    Kp_Swing[leg].diagonal() << 1500.0, 1500.0, 1500.0; // 1800.0, 1800.0, 1500.0
-    Kd_Swing[leg].diagonal() << 24.0, 24.0, 24.0;
+    Kp_Swing[leg].diagonal() << 3000.0, 3000.0, 3000.0; // 1800.0, 1800.0, 1500.0
+    Kd_Swing[leg].diagonal() << 25.0, 25.0, 20.0;
 
     double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
     double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
@@ -437,7 +437,6 @@ void go2_controller::SwingLeg_Control(int leg)
 
     // PINO.SetTaskspacePD(walking_kp_, walking_kd_, Ref_Foot_pos, Ref_Foot_vel, Ref_Foot_acc);
     // PINO.ComputeCTM();
-
     // Swing_Torque[leg] = PINO.GetTorque(leg);
 
     Swing_Torque[leg] = Foot_J[leg].transpose() * (Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]));

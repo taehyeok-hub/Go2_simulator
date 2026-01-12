@@ -14,10 +14,10 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     I_body << 0.02448, 0.00012166, 0.0014849, 0.00012166, 0.098077, -3.12E-05, 0.0014849, -3.12E-05, 0.107;
 
     Kp_Pos.setIdentity();
-    Kp_Pos.diagonal() << 20000.0, 22000.0, 20000.0; //  10000.0, 10000.0, 10000.0
+    Kp_Pos.diagonal() << 20000.0, 20000.0, 20000.0; //  10000.0, 10000.0, 10000.0
 
     Kd_Pos.setIdentity();
-    Kd_Pos.diagonal() << 1000.0, 1100.0, 1000.0; // 600.0, 600.0, 600.0
+    Kd_Pos.diagonal() << 1200.0, 1200.0, 1200.0; // 600.0, 600.0, 600.0
 
     Kp_Ori.setIdentity();
     Kp_Ori.diagonal() << 6000.0, 6000.0, 6000.0; //  5000.0, 5000.0, 5000.0
@@ -130,7 +130,7 @@ void Centroidal_Dynamics::Set_Reference(Eigen::VectorXd COM_Ref_)
     Err_R = e_rpy;
     // Err_R = ErrOri_so3(R_wb, I);
 
-        // === 1) raw 속도 (world→body) ===
+    // === 1) raw 속도 (world→body) ===
     // Eigen::Vector3d v_body_raw = R_wb * COM_Vel;
     // Eigen::Vector3d w_body_raw = R_wb * COM_RPY_dot;
 
