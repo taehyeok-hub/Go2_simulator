@@ -78,8 +78,8 @@ void go2_controller::Init()
     Contact_State.setZero(4);
     Trot_Pattern << 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0;
     Walk_Pattern << 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0,
-                    1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0;
-    
+        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0;
+
     // Swing 보행 검증: 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0;
     // TROT 보행시 : 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0;
     // 자세안정화시 : 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0;
@@ -102,7 +102,7 @@ void go2_controller::Command(bool flag)
             controlmode = HOMING;
             break;
         }
-        case HOMING:       
+        case HOMING:
         {
             Homing();
             break;
@@ -174,14 +174,14 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
         }
         else if (Init_Time == period)
         {
-            Init_Time = 1000; 
+            Init_Time = 1000;
             Start_Flag = 4;
 
             if (Start_Flag == 4)
             {
                 Pos_Command[X] = Local_body_pos(X); // Local_body_pos(X)
-                Pos_Command[Y] = 0.0; // Local_body_pos(Y)
-                Pos_Command[Z] = gazebo_body_pos(Z);
+                Pos_Command[Y] = 0.0;               // Local_body_pos(Y)
+                Pos_Command[Z] = Local_body_pos(Z);
                 RPY_Command[ROLL] = gazebo_rpy(ROLL);
                 RPY_Command[PITCH] = gazebo_rpy(PITCH);
                 RPY_Command[YAW] = gazebo_rpy(YAW);
@@ -352,7 +352,7 @@ void go2_controller::SRBMControl()
 {
     CENT.Set_RobotState(Local_body_pos, Local_body_vel, gazebo_quat, gazebo_rpy, Local_rpy_dot);
     CENT.Set_FootPosition(PINO.GetPos(FL), PINO.GetPos(FR), PINO.GetPos(RL), PINO.GetPos(RR));
-    CENT.Set_RefGait(Trot_Gait);  
+    CENT.Set_RefGait(Trot_Gait);
     // CENT.Set_GaitPhase(Contact_State);
     CENT.Set_Reference(COM_Ref);
     CENT.Compute_A_Matrix();
@@ -368,14 +368,14 @@ void go2_controller::Reference_Generator()
 {
     /* reference 를 한군데에다가 모아서 한 번에 전달. */
     COM_Ref << Pos_Command[X], Pos_Command[Y], Pos_Command[Z], Vel_Command[X], Vel_Command[Y], Vel_Command[Z],
-         RPY_Command[X], RPY_Command[Y], RPY_Command[Z], ANG_Command[X], ANG_Command[Y], ANG_Command[Z];
+        RPY_Command[X], RPY_Command[Y], RPY_Command[Z], ANG_Command[X], ANG_Command[Y], ANG_Command[Z];
 }
 
 void go2_controller::Gait_Scheduler()
-{   
+{
     Switch_Time++;
 
-    if (Switch_Time == T_SWING) // 350 tick (0 ~ 349)
+    if (Switch_Time == T_STANCE) // 350 tick (0 ~ 349)
     {
         Gait_Switch += 1;
     }
@@ -386,19 +386,18 @@ void go2_controller::Gait_Scheduler()
         Gait_Switch = (Gait_Switch + 1) % 4;
     }
 
-    // std::cout << "====== Switich_Time ====== : "  << Switch_Time << std::endl; 
-    Contact_State = Trot_Pattern.row(Gait_Switch);     
+    // std::cout << "====== Switich_Time ====== : "  << Switch_Time << std::endl;
+    Contact_State = Trot_Pattern.row(Gait_Switch);
 }
 
 void go2_controller::Gait_Renewal()
 {
     GAIT.Gait_Update();
- 
+
     for (int i = 0; i < NUM_LEG; i++)
     {
         Trot_Gait[i] = GAIT.Get_ReferenceGait(i);
     }
-    
 }
 
 void go2_controller::StanceLeg_Control(int leg)
@@ -428,12 +427,34 @@ void go2_controller::SwingLeg_Control(int leg)
     double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
 
     EE_Pose_desired[leg](X) = Hor_Foot_pos[leg](X) + (Init_Foot_pos[leg](X) - Hor_Foot_pos[leg](X)) * 0.5 * (1 - cos(M_PI * horizontal_phase)); // 오차 보정
-    EE_Pose_desired[leg](Y) = Hor_Foot_pos[leg](Y) + (Init_Foot_pos[leg](Y) - Hor_Foot_pos[leg](Y)) * 0.5 * (1 - cos(M_PI * horizontal_phase)); // 오차 보정 
+    EE_Pose_desired[leg](Y) = Hor_Foot_pos[leg](Y) + (Init_Foot_pos[leg](Y) - Hor_Foot_pos[leg](Y)) * 0.5 * (1 - cos(M_PI * horizontal_phase)); // 오차 보정
     EE_Pose_desired[leg](Z) = Init_Foot_pos[leg](Z) + step_height * 0.5 * (1 - cos(M_PI * vertical_phase));
 
-    EE_Vel_desired[leg](X) = 0.0;
-    EE_Vel_desired[leg](Y) = 0.0;
+    EE_Vel_desired[leg](X) = (Init_Foot_pos[leg](X) - Hor_Foot_pos[leg](X)) * 0.5 * M_PI * sin(M_PI * horizontal_phase);
+    EE_Vel_desired[leg](Y) = (Init_Foot_pos[leg](Y) - Hor_Foot_pos[leg](Y)) * 0.5 * M_PI * sin(M_PI * horizontal_phase);
     EE_Vel_desired[leg](Z) = step_height * 0.5 * M_PI * sin(M_PI * vertical_phase);
+    //     is_first = false;
+    // }
+
+    // else if (!is_first)
+    // {
+    // double x_target, 
+
+    // if (Hor_Swing_Time[leg] == 0)
+    // {
+    //     x_target = PLAN.Raibert_Heuristic_X(leg, Local_body_pos(X), Local_body_vel(X), T_TROT);
+    //     y_target = PLAN.Raibert_Heuristic_Y(leg, Local_body_pos(Y), Local_body_vel(Y), T_TROT);
+    // }
+
+    // EE_Pose_desired[leg](X) = Hor_Foot_pos[leg](X) + (x_target - Hor_Foot_pos[leg](X)) * 0.5 * (1 - cos(M_PI * horizontal_phase));
+    // EE_Pose_desired[leg](Y) = Hor_Foot_pos[leg](Y) + (y_target - Hor_Foot_pos[leg](Y)) * 0.5 * (1 - cos(M_PI * horizontal_phase));
+
+    // EE_Vel_desired[leg](X) = (x_target - Hor_Foot_pos[leg](X)) * 0.5 * M_PI * sin(M_PI * horizontal_phase);
+    // EE_Vel_desired[leg](Y) = (y_target - Hor_Foot_pos[leg](Y)) * 0.5 * M_PI * sin(M_PI * horizontal_phase);
+    // // }
+
+    
+   
 
     // PINO.SetTaskspacePD(walking_kp_, walking_kd_, Ref_Foot_pos, Ref_Foot_vel, Ref_Foot_acc);
     // PINO.ComputeCTM();
@@ -446,7 +467,7 @@ void go2_controller::SwingLeg_Control(int leg)
 }
 
 void go2_controller::Posture_Control()
-{ 
+{
     for (int leg = 0; leg < NUM_LEG; leg++)
     {
         if (Trot_Gait[leg](0) == STANCE) // Trot_Gait[leg](0) == STANCE , Contact_State[leg] == STANCE
@@ -594,7 +615,7 @@ void go2_controller::StateBodyCallback(const gazebo_msgs::ModelStates::ConstPtr 
         tf::Matrix3x3 m(q);
         double roll, pitch, yaw;
         m.getRPY(roll, pitch, yaw);
-        
+
         gazebo_body_pos(X) = position.x;
         gazebo_body_pos(Y) = position.y;
         gazebo_body_pos(Z) = position.z;
@@ -619,7 +640,6 @@ void go2_controller::StateBodyCallback(const gazebo_msgs::ModelStates::ConstPtr 
         Eigen::Quaterniond quat(orientation.w, orientation.x, orientation.y, orientation.z);
         quat.normalize();
         R_bw = quat.toRotationMatrix();
-
     }
 }
 
@@ -677,7 +697,7 @@ void go2_controller::FLcontactCallback(const gazebo_msgs::ContactsState::ConstPt
 void go2_controller::FRcontactCallback(const gazebo_msgs::ContactsState::ConstPtr &msg)
 {
     geometry_msgs::Vector3 force = msg->states[0].total_wrench.force;
-    if (!msg->states.empty()) 
+    if (!msg->states.empty())
     {
         ContactSensorCkFlag[FR] = 1;
         contact_[FR] = true;
@@ -695,7 +715,7 @@ void go2_controller::FRcontactCallback(const gazebo_msgs::ContactsState::ConstPt
 void go2_controller::RLcontactCallback(const gazebo_msgs::ContactsState::ConstPtr &msg)
 {
     geometry_msgs::Vector3 force = msg->states[0].total_wrench.force;
-    if (!msg->states.empty()) 
+    if (!msg->states.empty())
     {
         ContactSensorCkFlag[RL] = 1;
         contact_[RL] = true;
@@ -757,7 +777,7 @@ void go2_controller::DataStream()
 
     // TH_msg 메세지의 형태로 data를 발행함.
     // ex) EE_Pose_FL은 x, y, z의 형태로 되어 있으니까, EE_Pose_FL
-    
+
     Eigen::Vector3d Ref_Pos_ = CENT.Get_RefPos();
     Eigen::Vector3d Err_Pos_ = CENT.Get_Error_Pose();
     Eigen::Vector3d Err_Ori_ = CENT.Get_Error_R();
@@ -812,7 +832,6 @@ void go2_controller::DataStream()
     TH_msg.data.push_back(Err_Ori_(ROLL));
     TH_msg.data.push_back(Err_Ori_(PITCH));
     TH_msg.data.push_back(Err_Ori_(YAW));
-
 
     // TH_msg.data.push_back(count);
 

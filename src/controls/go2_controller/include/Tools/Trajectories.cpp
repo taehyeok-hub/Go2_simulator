@@ -239,3 +239,20 @@ QuinticTask Trajectories::Quintic_Task_rostime(ros::Time &start_time, double mot
     return Desired;
 }
 
+double Trajectories::Raibert_Heuristic_X(int leg, double p_com, double v_com, double T_Gait)
+{
+    /*target 구하기*/
+    double hip_offset_x[NUM_LEG] = {0.1881, 0.1881, -0.1881, -0.1881};
+    x_target = (p_com + hip_offset_x[leg]) + 0.5 * T_Gait * v_com;
+
+    return x_target;
+}
+
+double Trajectories::Raibert_Heuristic_Y(int leg, double p_com, double v_com, double T_Gait)
+{
+    double hip_offset_y[NUM_LEG] = {0.04675, -0.04675, 0.04675, -0.04675};
+    y_target = (p_com + hip_offset_y[leg]) + 0.5 * T_Gait * v_com;
+    
+    return y_target;
+}
+

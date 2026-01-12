@@ -173,6 +173,8 @@ private:
 
     Eigen::VectorXd Init_Foot_pos[NUM_LEG];
 
+    Eigen::Vector3d COM_Pos_, COM_Vel_;
+
     // (in Task Space)
     Eigen::Vector3d EE_Pose_start[NUM_LEG]; // 동작의 시작 xyz값 (담아두는 용도)
     Eigen::Vector3d EE_Pose_final[NUM_LEG]; // 동작의 최종 목표의 xyz값
