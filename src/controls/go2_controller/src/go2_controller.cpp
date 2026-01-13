@@ -179,7 +179,7 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
 
             if (Start_Flag == 4)
             {
-                Pos_Command[X] = Local_body_pos(X); // Local_body_pos(X)
+                Pos_Command[X] = 0.0; // Local_body_pos(X)
                 Pos_Command[Y] = 0.0;               // Local_body_pos(Y)
                 Pos_Command[Z] = Local_body_pos(Z);
                 RPY_Command[ROLL] = gazebo_rpy(ROLL);
@@ -421,7 +421,7 @@ void go2_controller::SwingLeg_Control(int leg)
 
     // 게인 설정
     Kp_Swing[leg].diagonal() << 3000.0, 3000.0, 3000.0; // 1800.0, 1800.0, 1500.0
-    Kd_Swing[leg].diagonal() << 25.0, 25.0, 20.0;
+    Kd_Swing[leg].diagonal() << 30.0, 30.0, 30.0;
 
     double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
     double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
@@ -430,35 +430,9 @@ void go2_controller::SwingLeg_Control(int leg)
     EE_Pose_desired[leg](Y) = Hor_Foot_pos[leg](Y) + (Init_Foot_pos[leg](Y) - Hor_Foot_pos[leg](Y)) * 0.5 * (1 - cos(M_PI * horizontal_phase)); // 오차 보정
     EE_Pose_desired[leg](Z) = Init_Foot_pos[leg](Z) + step_height * 0.5 * (1 - cos(M_PI * vertical_phase));
 
-    EE_Vel_desired[leg](X) = (Init_Foot_pos[leg](X) - Hor_Foot_pos[leg](X)) * 0.5 * M_PI * sin(M_PI * horizontal_phase);
-    EE_Vel_desired[leg](Y) = (Init_Foot_pos[leg](Y) - Hor_Foot_pos[leg](Y)) * 0.5 * M_PI * sin(M_PI * horizontal_phase);
+    EE_Vel_desired[leg](X) = 0.0;
+    EE_Vel_desired[leg](Y) = 0.0;
     EE_Vel_desired[leg](Z) = step_height * 0.5 * M_PI * sin(M_PI * vertical_phase);
-    //     is_first = false;
-    // }
-
-    // else if (!is_first)
-    // {
-    // double x_target, 
-
-    // if (Hor_Swing_Time[leg] == 0)
-    // {
-    //     x_target = PLAN.Raibert_Heuristic_X(leg, Local_body_pos(X), Local_body_vel(X), T_TROT);
-    //     y_target = PLAN.Raibert_Heuristic_Y(leg, Local_body_pos(Y), Local_body_vel(Y), T_TROT);
-    // }
-
-    // EE_Pose_desired[leg](X) = Hor_Foot_pos[leg](X) + (x_target - Hor_Foot_pos[leg](X)) * 0.5 * (1 - cos(M_PI * horizontal_phase));
-    // EE_Pose_desired[leg](Y) = Hor_Foot_pos[leg](Y) + (y_target - Hor_Foot_pos[leg](Y)) * 0.5 * (1 - cos(M_PI * horizontal_phase));
-
-    // EE_Vel_desired[leg](X) = (x_target - Hor_Foot_pos[leg](X)) * 0.5 * M_PI * sin(M_PI * horizontal_phase);
-    // EE_Vel_desired[leg](Y) = (y_target - Hor_Foot_pos[leg](Y)) * 0.5 * M_PI * sin(M_PI * horizontal_phase);
-    // // }
-
-    
-   
-
-    // PINO.SetTaskspacePD(walking_kp_, walking_kd_, Ref_Foot_pos, Ref_Foot_vel, Ref_Foot_acc);
-    // PINO.ComputeCTM();
-    // Swing_Torque[leg] = PINO.GetTorque(leg);
 
     Swing_Torque[leg] = Foot_J[leg].transpose() * (Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]));
 
@@ -480,6 +454,9 @@ void go2_controller::Posture_Control()
 
             Hor_Foot_pos[leg] = PINO.GetPos(leg);
             Ver_Foot_pos[leg] = PINO.GetPos(leg);
+
+            EE_Pose_start[leg] = Foot_Pos[leg];
+            EE_Pose_start[leg] = Foot_Pos[leg];
 
             Hor_Swing_Time[leg] = 0;
             Ver_Swing_Time[leg] = 0;
@@ -829,9 +806,9 @@ void go2_controller::DataStream()
     TH_msg.data.push_back(gazebo_rpy(PITCH));
     TH_msg.data.push_back(gazebo_rpy(YAW));
 
-    TH_msg.data.push_back(Err_Ori_(ROLL));
-    TH_msg.data.push_back(Err_Ori_(PITCH));
-    TH_msg.data.push_back(Err_Ori_(YAW));
+    TH_msg.data.push_back(Local_body_pos(X));
+    TH_msg.data.push_back(Local_body_pos(Y));
+    TH_msg.data.push_back(Local_body_pos(Z));
 
     // TH_msg.data.push_back(count);
 

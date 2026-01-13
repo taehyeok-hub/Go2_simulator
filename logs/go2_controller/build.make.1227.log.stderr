@@ -1,0 +1,99 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::SwingLeg_Control(int)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:435:46:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator+[m[K’ (operand types are ‘[01m[Kdouble [4][m[K’ and ‘[01m[KEigen::internal::enable_if<true, const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, 1> >, const Eigen::Matrix<double, -1, 1> > >::type[m[K’ {aka ‘[01m[Kconst Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, 1> >, const Eigen::Matrix<double, -1, 1> >[m[K’})
+  435 |         EE_Pose_final[leg](X) = [32m[Khip_offset_x[m[K [01;31m[K+[m[K [34m[K0.5 * T_STANCE * Local_body_vel[m[K;
+      |                                 [32m[K~~~~~~~~~~~~[m[K [01;31m[K^[m[K [34m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                 [32m[K|[m[K                             [34m[K|[m[K
+      |                                 [32m[Kdouble [4][m[K                    [34m[KEigen::internal::enable_if<true, const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, 1> >, const Eigen::Matrix<double, -1, 1> > >::type {aka const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, 1> >, const Eigen::Matrix<double, -1, 1> >}[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/SparseCore:48[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Sparse:26[m[K,
+                 from [01m[K/usr/local/include/pinocchio/fwd.hpp:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h:698:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class DenseDerived, class SparseDerived> const Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<typename DenseDerived::Scalar, typename SparseDerived::Scalar>, const DenseDerived, const SparseDerived> Eigen::operator+(const Eigen::MatrixBase<Derived>&, const Eigen::SparseMatrixBase<SparseDerived>&)[m[K’
+  698 | [01;36m[Koperator[m[K+(const MatrixBase<DenseDerived> &a, const SparseMatrixBase<SparseDerived> &b)
+      | [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h:698:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:435:65:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst Eigen::MatrixBase<Derived>[m[K’ and ‘[01m[Kdouble [4][m[K’
+  435 |         EE_Pose_final[leg](X) = hip_offset_x + 0.5 * T_STANCE * [01;36m[KLocal_body_vel[m[K;
+      |                                                                 [01;36m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/SparseCore:48[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Sparse:26[m[K,
+                 from [01m[K/usr/local/include/pinocchio/fwd.hpp:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h:705:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class SparseDerived, class DenseDerived> const Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<typename DenseDerived::Scalar, typename SparseDerived::Scalar>, const DenseDerived, const SparseDerived> Eigen::operator+(const Eigen::SparseMatrixBase<Derived>&, const Eigen::MatrixBase<U>&)[m[K’
+  705 | [01;36m[Koperator[m[K+(const SparseMatrixBase<SparseDerived> &a, const MatrixBase<DenseDerived> &b)
+      | [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h:705:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:435:65:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst Eigen::SparseMatrixBase<Derived>[m[K’ and ‘[01m[Kdouble [4][m[K’
+  435 |         EE_Pose_final[leg](X) = hip_offset_x + 0.5 * T_STANCE * [01;36m[KLocal_body_vel[m[K;
+      |                                                                 [01;36m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/unsupported/Eigen/CXX11/Tensor:101[m[K,
+                 from [01m[K/usr/local/include/pinocchio/fwd.hpp:57[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/usr/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorUInt128.h:112:35:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class HL, class LL, class HR, class LR> Eigen::internal::TensorUInt128<long unsigned int, long unsigned int> Eigen::internal::operator+(const Eigen::internal::TensorUInt128<HL, LL>&, const Eigen::internal::TensorUInt128<HR, LR>&)[m[K’
+  112 | TensorUInt128<uint64_t, uint64_t> [01;36m[Koperator[m[K + (const TensorUInt128<HL, LL>& lhs, const TensorUInt128<HR, LR>& rhs)
+      |                                   [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorUInt128.h:112:35:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:435:65:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst Eigen::internal::TensorUInt128<HL, LL>[m[K’ and ‘[01m[Kdouble [4][m[K’
+  435 |         EE_Pose_final[leg](X) = hip_offset_x + 0.5 * T_STANCE * [01;36m[KLocal_body_vel[m[K;
+      |                                                                 [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:436:46:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator+[m[K’ (operand types are ‘[01m[Kdouble [4][m[K’ and ‘[01m[KEigen::internal::enable_if<true, const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, 1> >, const Eigen::Matrix<double, -1, 1> > >::type[m[K’ {aka ‘[01m[Kconst Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, 1> >, const Eigen::Matrix<double, -1, 1> >[m[K’})
+  436 |         EE_Pose_final[leg](Y) = [32m[Khip_offset_x[m[K [01;31m[K+[m[K [34m[K0.5 * T_STANCE * Local_body_vel[m[K;
+      |                                 [32m[K~~~~~~~~~~~~[m[K [01;31m[K^[m[K [34m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                 [32m[K|[m[K                             [34m[K|[m[K
+      |                                 [32m[Kdouble [4][m[K                    [34m[KEigen::internal::enable_if<true, const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, 1> >, const Eigen::Matrix<double, -1, 1> > >::type {aka const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, -1, 1> >, const Eigen::Matrix<double, -1, 1> >}[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/SparseCore:48[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Sparse:26[m[K,
+                 from [01m[K/usr/local/include/pinocchio/fwd.hpp:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h:698:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class DenseDerived, class SparseDerived> const Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<typename DenseDerived::Scalar, typename SparseDerived::Scalar>, const DenseDerived, const SparseDerived> Eigen::operator+(const Eigen::MatrixBase<Derived>&, const Eigen::SparseMatrixBase<SparseDerived>&)[m[K’
+  698 | [01;36m[Koperator[m[K+(const MatrixBase<DenseDerived> &a, const SparseMatrixBase<SparseDerived> &b)
+      | [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h:698:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:436:65:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst Eigen::MatrixBase<Derived>[m[K’ and ‘[01m[Kdouble [4][m[K’
+  436 |         EE_Pose_final[leg](Y) = hip_offset_x + 0.5 * T_STANCE * [01;36m[KLocal_body_vel[m[K;
+      |                                                                 [01;36m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/SparseCore:48[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Sparse:26[m[K,
+                 from [01m[K/usr/local/include/pinocchio/fwd.hpp:41[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h:705:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class SparseDerived, class DenseDerived> const Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<typename DenseDerived::Scalar, typename SparseDerived::Scalar>, const DenseDerived, const SparseDerived> Eigen::operator+(const Eigen::SparseMatrixBase<Derived>&, const Eigen::MatrixBase<U>&)[m[K’
+  705 | [01;36m[Koperator[m[K+(const SparseMatrixBase<SparseDerived> &a, const MatrixBase<DenseDerived> &b)
+      | [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h:705:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:436:65:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst Eigen::SparseMatrixBase<Derived>[m[K’ and ‘[01m[Kdouble [4][m[K’
+  436 |         EE_Pose_final[leg](Y) = hip_offset_x + 0.5 * T_STANCE * [01;36m[KLocal_body_vel[m[K;
+      |                                                                 [01;36m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/unsupported/Eigen/CXX11/Tensor:101[m[K,
+                 from [01m[K/usr/local/include/pinocchio/fwd.hpp:57[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/usr/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorUInt128.h:112:35:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class HL, class LL, class HR, class LR> Eigen::internal::TensorUInt128<long unsigned int, long unsigned int> Eigen::internal::operator+(const Eigen::internal::TensorUInt128<HL, LL>&, const Eigen::internal::TensorUInt128<HR, LR>&)[m[K’
+  112 | TensorUInt128<uint64_t, uint64_t> [01;36m[Koperator[m[K + (const TensorUInt128<HL, LL>& lhs, const TensorUInt128<HR, LR>& rhs)
+      |                                   [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorUInt128.h:112:35:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:436:65:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst Eigen::internal::TensorUInt128<HL, LL>[m[K’ and ‘[01m[Kdouble [4][m[K’
+  436 |         EE_Pose_final[leg](Y) = hip_offset_x + 0.5 * T_STANCE * [01;36m[KLocal_body_vel[m[K;
+      |                                                                 [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Posture_Control()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:470:13:[m[K [01;31m[Kerror: [m[K‘[01m[KEE_Pose_Start[m[K’ was not declared in this scope; did you mean ‘[01m[KEE_Pose_start[m[K’?
+  470 |             [01;31m[KEE_Pose_Start[m[K[leg] = Foot_Pos[leg];
+      |             [01;31m[K^~~~~~~~~~~~~[m[K
+      |             [32m[KEE_Pose_start[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2775: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2
