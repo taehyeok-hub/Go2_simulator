@@ -93,6 +93,10 @@ private:
     void SendCommandsToRobot();
     void DataStream();
 
+    void Set_FK_Kinematics(); // 내가 만든거
+    void Set_Kinematics();
+    void Set_Dynamics();
+
     void Homing();
     void Squating();
     void SRBMControl();
@@ -102,29 +106,20 @@ private:
     void Forward_Kinematics_ME(const Eigen::VectorXd &q, const Eigen::VectorXd &dq); // 내가 만든거
     void TaskSpacePDControl(double Kp_X, double Kp_Y, double Kp_Z, double Kd_X, double Kd_Y, double Kd_Z);
     void TaskPD(int leg);
-    void Set_Kinematics();
-    void Set_FK_Kinematics(); // 내가 만든거
-    void Gait_Scheduler();
+    void Gait_Scheduler(); // 내가 만든거
     void Gait_Renewal();
     void StanceLeg_Control(int leg);
     void SwingLeg_Control(int leg);
     // void SwingLeg_Control();
 
-    // Trajectory 관련 함수들
-    QuinticTask Quintic_Task(ros::Time &start_time, double motion_time, Eigen::Vector3d &x_current, Eigen::Vector3d &x_final);
-    Eigen::VectorXd Quintic_Joint(ros::Time &start_time, double motion_time, Eigen::VectorXd &q, Eigen::VectorXd &qf);
-    // Eigen::Vector3d Sinusoidal_Task();
-    // Eigen::VectorXd Sinusoidal_Joint();
 
     // CLASS---------------------------------------------------------------------------------------------------------------------------------------------------
 
     Kinematics KINE;
     Trajectories PLAN;
-    SingleRigidBody SRBM;
     Centroidal_Dynamics CENT;
     Gait_Generator GAIT;
-    // Centt CENT;
-    
+    // SingleRigidBody SRBM;
 
     // VARIABLE---------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -151,6 +146,8 @@ private:
     Eigen::VectorXd torque_;
 
     // Pinocchio 변수 저장소
+    Eigen::MatrixXd M_Matrix, C_Matrix;
+    Eigen::VectorXd G_Matrix;
     Eigen::MatrixXd Foot_J[NUM_LEG];
     Eigen::VectorXd Foot_Pos[NUM_LEG], Foot_Vel[NUM_LEG];
     Eigen::VectorXd Torque[NUM_LEG];

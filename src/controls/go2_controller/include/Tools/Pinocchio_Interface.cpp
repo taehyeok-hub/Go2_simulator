@@ -161,9 +161,9 @@ void PinocchioInterface::SetDynamics(
     Kd_ = Kd;
 
     // 동역학 항 계산
-    pinocchio::crba(_model, _data, _q);
-    pinocchio::nonLinearEffects(_model, _data, _q, _dq);
-    pinocchio::computeGeneralizedGravity(_model, _data, _q);
+    pinocchio::crba(_model, _data, _q);                             // 질량항 계산 : M(q_ddot)
+    pinocchio::nonLinearEffects(_model, _data, _q, _dq);            // 코리올리 맟 원심력 항 계산 : C(q)
+    pinocchio::computeGeneralizedGravity(_model, _data, _q);        // 중력 항 계산 : G(q)
 
     r_M_ = _data.M;
     r_T_ = _data.tau;

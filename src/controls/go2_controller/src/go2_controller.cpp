@@ -31,15 +31,19 @@ void go2_controller::Init()
     controlmode = INIT;
     Recieved_Joint_State = false;
 
-    q_.setZero(12);
-    dq_.setZero(12);
-    torque_.setZero(12);
-    q_start.setZero(12);
-    q_final.setZero(12);
-    q_desired.setZero(12);
+    q_.setZero(NUM_DOF);
+    dq_.setZero(NUM_DOF);
+    torque_.setZero(NUM_DOF);
+    q_start.setZero(NUM_DOF);
+    q_final.setZero(NUM_DOF);
+    q_desired.setZero(NUM_DOF);
 
-    Start_Position.setZero(12);
-    Homing_Position.setZero(12);
+    M_Matrix.setZero(NUM_DOF, NUM_DOF);
+    C_Matrix.setZero(NUM_DOF, NUM_DOF);
+    G_Matrix.setZero(NUM_DOF);
+
+    Start_Position.setZero(NUM_DOF);
+    Homing_Position.setZero(NUM_DOF);
 
     contact_.setZero(NUM_LEG);
 
@@ -54,7 +58,7 @@ void go2_controller::Init()
     Local_rpy_dot.setZero(NUM_AXIS);
 
     COM_Ref.setZero(NUM_LEG * NUM_AXIS);
-    GRF.setZero(12);
+    GRF.setZero(NUM_DOF);
 
     for (size_t i = 0; i < 4; ++i)
     {
@@ -90,8 +94,8 @@ void go2_controller::Init()
 void go2_controller::Command(bool flag)
 {
     Set_Kinematics();
+    // Set_Dynamics();
     Reference_Generator();
-    // Set_FK_Kinematics();
 
     if (Recieved_Joint_State)
     {
@@ -116,9 +120,7 @@ void go2_controller::Command(bool flag)
         {
             // Gait_Scheduler(); // 내 거
             Gait_Renewal(); // 성민이 형 버전
-            // SRBMControl();
             Posture_Control();
-            // break;
         }
         }
 
@@ -360,8 +362,6 @@ void go2_controller::SRBMControl()
     CENT.Set_CostFunction();
     CENT.Set_Constraint();
     CENT.Solve_QP();
-
-    // CENT.Set_FKFootPosition(ee_pose);
 }
 
 void go2_controller::Reference_Generator()
@@ -434,7 +434,8 @@ void go2_controller::SwingLeg_Control(int leg)
     EE_Vel_desired[leg](Y) = 0.0;
     EE_Vel_desired[leg](Z) = step_height * 0.5 * M_PI * sin(M_PI * vertical_phase);
 
-    Swing_Torque[leg] = Foot_J[leg].transpose() * (Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]));
+    Leg_Force[leg] = Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]);
+    Swing_Torque[leg] = Foot_J[leg].transpose() * (Leg_Force[leg] + G_Matrix.segment<3>(3 * leg));
 
     Hor_Swing_Time[leg] += 1;
     Ver_Swing_Time[leg] += 1;
@@ -873,4 +874,10 @@ void go2_controller::Set_Kinematics()
 
     Local_body_vel = R_bw.transpose() * gazebo_body_vel;
     Local_rpy_dot = R_bw.transpose() * gazebo_rpy_dot;
+}
+
+void go2_controller::Set_Dynamics()
+{
+    PINO.SetGravity();
+    G_Matrix = PINO.GetGravityCompensation();
 }
