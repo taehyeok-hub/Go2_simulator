@@ -114,11 +114,11 @@ void go2_controller::Command(bool flag)
         }
         case POSTURE:
         {
+            Gait_Count++;
+            std::cout << "Gait_Count : " << Gait_Count << std::endl;
             // Gait_Scheduler(); // 내 거
             Gait_Renewal(); // 성민이 형 버전
-            // SRBMControl();
             Posture_Control();
-            // break;
         }
         }
 
@@ -179,7 +179,7 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
 
             if (Start_Flag == 4)
             {
-                Pos_Command[X] = 0.0; // Local_body_pos(X)
+                Pos_Command[X] = 0.0;               // Local_body_pos(X)
                 Pos_Command[Y] = 0.0;               // Local_body_pos(Y)
                 Pos_Command[Z] = Local_body_pos(Z);
                 RPY_Command[ROLL] = gazebo_rpy(ROLL);
@@ -200,6 +200,12 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
                 Ver_Foot_pos[FR] = PINO.GetPos(FR);
                 Ver_Foot_pos[RL] = PINO.GetPos(RL);
                 Ver_Foot_pos[RR] = PINO.GetPos(RR);
+
+                EE_Pose_start[FL] = PINO.GetPos(FL);
+                EE_Pose_start[FR] = PINO.GetPos(FR);
+                EE_Pose_start[RL] = PINO.GetPos(RL);
+                EE_Pose_start[RR] = PINO.GetPos(RR);
+
 
                 controlmode = POSTURE;
             }
@@ -420,24 +426,46 @@ void go2_controller::SwingLeg_Control(int leg)
     constexpr double step_height = 0.10;
 
     // 게인 설정
-    Kp_Swing[leg].diagonal() << 3000.0, 3000.0, 3000.0; // 1800.0, 1800.0, 1500.0
-    Kd_Swing[leg].diagonal() << 30.0, 30.0, 30.0;
+    Kp_Swing[leg].diagonal() << 4000.0, 4000.0, 4000.0; // 1800.0, 1800.0, 1500.0 // 3000.0, 3000.0, 3000.0
+    Kd_Swing[leg].diagonal() << 40.0, 40.0, 40.0; // 30.0, 30.0, 30.0
 
-    double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
-    double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
+    // double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
+    // double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
 
-    EE_Pose_desired[leg](X) = Hor_Foot_pos[leg](X) + (Init_Foot_pos[leg](X) - Hor_Foot_pos[leg](X)) * 0.5 * (1 - cos(M_PI * horizontal_phase)); // 오차 보정
-    EE_Pose_desired[leg](Y) = Hor_Foot_pos[leg](Y) + (Init_Foot_pos[leg](Y) - Hor_Foot_pos[leg](Y)) * 0.5 * (1 - cos(M_PI * horizontal_phase)); // 오차 보정
-    EE_Pose_desired[leg](Z) = Init_Foot_pos[leg](Z) + step_height * 0.5 * (1 - cos(M_PI * vertical_phase));
+    if (Gait_Count % 75 == 0)
+    {
+        if (is_upward[leg])
+        {
+            EE_Pose_start[leg] = Foot_Pos[leg];
+            EE_Pose_final[leg] = EE_Pose_start[leg];
+            EE_Pose_final[leg](Z) = EE_Pose_start[leg](Z) + step_height;
+            
+            is_upward[leg] = false;
+            std::cout << "upward!!!!!!11" << std::endl;
+        }
+        else if (!is_upward[leg])
+        {
+            EE_Pose_start[leg] = EE_Pose_final[leg];
+            EE_Pose_final[leg] = EE_Pose_start[leg];
+            EE_Pose_final[leg](Z) = EE_Pose_start[leg](Z) - step_height;
+
+            is_upward[leg] = true;
+            std::cout << "downward!!!!!!11" << std::endl;
+        }
+    }
+
+    EE_Pose_desired[leg](X) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING, EE_Pose_start[leg](X), EE_Pose_final[leg](X));
+    EE_Pose_desired[leg](Y) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING, EE_Pose_start[leg](Y), EE_Pose_final[leg](Y)); // 오차 보정
+    EE_Pose_desired[leg](Z) = PLAN.Quintic(Ver_Swing_Time[leg], T_SWING, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
 
     EE_Vel_desired[leg](X) = 0.0;
     EE_Vel_desired[leg](Y) = 0.0;
-    EE_Vel_desired[leg](Z) = step_height * 0.5 * M_PI * sin(M_PI * vertical_phase);
+    EE_Vel_desired[leg](Z) = PLAN.QuinticD(Ver_Swing_Time[leg], T_SWING, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
 
-    Swing_Torque[leg] = Foot_J[leg].transpose() * (Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]));
+    Swing_Torque[leg] = Foot_J[leg].transpose() * (Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]) );
 
-    Hor_Swing_Time[leg] += 1;
-    Ver_Swing_Time[leg] += 1;
+    Hor_Swing_Time[leg] += 1; 
+    Ver_Swing_Time[leg] += 1; 
 }
 
 void go2_controller::Posture_Control()

@@ -230,7 +230,9 @@ private:
 
     ros::Time Motion_Time;
     ros::Time Current_Time;
-    int count = 0;
+    int Gait_Count = 0;
+    bool is_upward[NUM_LEG] = {true, true, true, true};
+
     
     // 접촉 상태 확인
     Eigen::VectorXd contact_;

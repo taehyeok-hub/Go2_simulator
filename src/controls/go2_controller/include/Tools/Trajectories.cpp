@@ -2,7 +2,11 @@
 
 Trajectories::Trajectories()
 {
-    
+    M_Matrix_Task.resize(6, 6);
+    M_Matrix_Task.setZero();
+
+    B_Vector_Task.resize(6, 1);
+    B_Vector_Task.setZero();
 }
 
 Trajectories::~Trajectories() {}
@@ -48,11 +52,11 @@ void Trajectories::Quintic_Joint(int tick, double motion_time, Eigen::VectorXd q
     Eigen::Matrix<double, 6, 12> B;
 
     M << 1, 0, 0, 0, 0, 0,
-         0, 1, 0, 0, 0, 0,
-         0, 0, 2, 0, 0, 0,
-         1, T, T2, T3, T4, T5,
-         0, 1, 2*T, 3*T2, 4*T3, 5*T4,
-         0, 0, 2, 6*T, 12*T2, 20*T3;
+        0, 1, 0, 0, 0, 0,
+        0, 0, 2, 0, 0, 0,
+        1, T, T2, T3, T4, T5,
+        0, 1, 2 * T, 3 * T2, 4 * T3, 5 * T4,
+        0, 0, 2, 6 * T, 12 * T2, 20 * T3;
 
     B.row(0) = q_start_.transpose();
     B.row(1) = Eigen::RowVectorXd::Zero(12);
@@ -105,11 +109,11 @@ QuinticTask Trajectories::Quintic_Task(int tick, double motion_time, Eigen::Vect
     Eigen::Matrix<double, 6, 3> B;
 
     M << 1, 0, 0, 0, 0, 0,
-         0, 1, 0, 0, 0, 0,
-         0, 0, 2, 0, 0, 0,
-         1, T, T2, T3, T4, T5,
-         0, 1, 2*T, 3*T2, 4*T3, 5*T4,
-         0, 0, 2, 6*T, 12*T2, 20*T3;
+        0, 1, 0, 0, 0, 0,
+        0, 0, 2, 0, 0, 0,
+        1, T, T2, T3, T4, T5,
+        0, 1, 2 * T, 3 * T2, 4 * T3, 5 * T4,
+        0, 0, 2, 6 * T, 12 * T2, 20 * T3;
 
     B.row(0) = EE_start_.transpose();
     B.row(1) = Eigen::RowVector3d::Zero();
@@ -151,8 +155,6 @@ QuinticTask Trajectories::Quintic_Task(int tick, double motion_time, Eigen::Vect
 
     return Desired;
 }
-
-
 
 QuinticTask Trajectories::Quintic_Task_rostime(ros::Time &start_time, double motion_time, const Eigen::Vector3d &x_current, const Eigen::Vector3d &x_final)
 {
@@ -239,6 +241,73 @@ QuinticTask Trajectories::Quintic_Task_rostime(ros::Time &start_time, double mot
     return Desired;
 }
 
+double Trajectories::Quintic(double t, double T, double q0, double q1)
+{
+    /* 선 정규화 필수 */
+    if (t >= T) return q1;
+    if (t <= 0) return q0;
+
+    double s = t / T;
+    double quintic = q0 + (q1 - q0) * (10.0 * s*s*s - 15.0 * s*s*s*s + 6.0 * s*s*s*s*s);
+
+    return quintic;
+}
+
+
+// double Trajectories::Quintic(double t, double T, double q0, double q1)
+// {
+//     /* 선 정규화 필수 */
+//     Eigen::Matrix<double, 6, 6> M_Matrix;
+//     Eigen::Matrix<double, 6, 1> A_Matrix;
+//     Eigen::Matrix<double, 6, 1> B_Vector;
+//     Eigen::Matrix<double, 1, 6> t_vector;
+
+//     M_Matrix = Set_M_Matrix(T);
+//     B_Vector << q0, 0, 0, q1, 0, 0;
+//     A_Matrix = M_Matrix.inverse() * B_Vector;
+
+//     t_vector << 1, t, t * t, t * t * t, t * t * t * t, t * t * t * t * t;
+//     double quintic = t_vector.dot(A_Matrix);
+
+//     if (t < T)
+//         return quinticd;
+//     if (t >= T)
+//         return q1;
+// }
+
+double Trajectories::QuinticD(double t, double T, double q0, double q1)
+{
+    if (t >= T) return q1;
+    if (t <= 0) return q0;
+
+    double s = t / T;
+    double quinticd = (q1 - q0) * (30.0 * s*s - 60.0 * s*s*s + 30.0 * s*s*s*s);
+
+    return quinticd;
+}
+
+
+
+// double Trajectories::QuinticD(double t, double T, double q0, double q1)
+// {
+//     Eigen::Matrix<double, 6, 6> M_Matrix;
+//     Eigen::Matrix<double, 6, 1> A_Matrix;
+//     Eigen::Matrix<double, 6, 1> B_Vector;
+//     Eigen::Matrix<double, 1, 6> t_vector;
+
+//     M_Matrix = Set_M_Matrix(T);
+//     B_Vector << q0, 0, 0, q1, 0, 0;
+//     A_Matrix = M_Matrix.inverse() * B_Vector;
+
+//     t_vector << 0, 1, 2 * t, 3 * t * t, 4 * t * t * t, 5 * t * t * t * t;
+//     double quinticd = t_vector.dot(A_Matrix);
+
+//     if (t < T)
+//         return quinticd;
+//     if (t >= T)
+//         return q1;
+// }
+
 double Trajectories::RaibertX(int leg, double p_com, double v_com, double T_Gait)
 {
     /*target 구하기*/
@@ -252,7 +321,7 @@ double Trajectories::RaibertY(int leg, double p_com, double v_com, double T_Gait
 {
     double hip_offset_y[NUM_LEG] = {0.04675, -0.04675, 0.04675, -0.04675};
     y_target = (p_com + hip_offset_y[leg]) + 0.5 * T_Gait * v_com;
-    
+
     return y_target;
 }
 
@@ -261,7 +330,7 @@ Eigen::Vector3d Trajectories::Raibert_Heuristic(int leg, Eigen::Vector3d p_com, 
     /*target 구하기*/
     double hip_offset_x[NUM_LEG] = {0.1881, 0.1881, -0.1881, -0.1881};
     double hip_offset_y[NUM_LEG] = {0.04675, -0.04675, 0.04675, -0.04675};
-    
+
     Eigen::Vector3d result = Eigen::Vector3d::Zero();
     result.x() = p_com.x() + hip_offset_x[leg] + 0.5 * T_Gait * v_com.x();
     result.y() = p_com.y() + hip_offset_y[leg] + 0.5 * T_Gait * v_com.y();
