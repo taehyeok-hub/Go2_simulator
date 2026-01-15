@@ -428,6 +428,7 @@ void go2_controller::StanceLeg_Control(int leg)
 void go2_controller::SwingLeg_Control(int leg)
 {
     constexpr double step_height = 0.10;
+    constexpr double swing_time = static_cast<double>(T_SWING) / static_cast<double>(FREQUENCY);
 
     // 게인 설정
     Kp_Swing[leg].diagonal() << 1000.0, 2000.0, 1000.0; // 1800.0, 1800.0, 1500.0 // 3000.0, 3000.0, 3000.0
@@ -436,11 +437,11 @@ void go2_controller::SwingLeg_Control(int leg)
     // double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
     // double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
 
-    if (Gait_Count % 90 == 0)
+    if (Gait_Count % (T_SWING / 2) == 0)
     {
         if (is_upward[leg])
         {
-            EE_Pose_start[leg] = Foot_Pos[leg];
+            EE_Pose_start[leg] = Init_Foot_pos[leg];
             EE_Pose_final[leg] = EE_Pose_start[leg];
             EE_Pose_final[leg](Z) = EE_Pose_start[leg](Z) + step_height;
             
@@ -458,13 +459,13 @@ void go2_controller::SwingLeg_Control(int leg)
         }
     }
 
-    EE_Pose_desired[leg](X) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING, EE_Pose_start[leg](X), EE_Pose_final[leg](X));
-    EE_Pose_desired[leg](Y) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING, EE_Pose_start[leg](Y), EE_Pose_final[leg](Y)); // 오차 보정
-    EE_Pose_desired[leg](Z) = PLAN.Quintic(Ver_Swing_Time[leg], T_SWING, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
+    EE_Pose_desired[leg](X) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](X), EE_Pose_final[leg](X));
+    EE_Pose_desired[leg](Y) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Y), EE_Pose_final[leg](Y)); // 오차 보정
+    EE_Pose_desired[leg](Z) = PLAN.Quintic(Ver_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
 
-    EE_Vel_desired[leg](X) = 0.0;
-    EE_Vel_desired[leg](Y) = 0.0;
-    EE_Vel_desired[leg](Z) = PLAN.QuinticD(Ver_Swing_Time[leg], T_SWING, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
+    EE_Vel_desired[leg](X) = PLAN.QuinticD(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](X), EE_Pose_final[leg](X));
+    EE_Vel_desired[leg](Y) = PLAN.QuinticD(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Y), EE_Pose_final[leg](Y));
+    EE_Vel_desired[leg](Z) = PLAN.QuinticD(Ver_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
 
     Leg_Force[leg] = Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]);
     Swing_Torque[leg] = Foot_J[leg].transpose() * (Leg_Force[leg] + G_Matrix.segment<3>(3 * leg));

@@ -21,8 +21,8 @@ enum Walk_Parameter
     STANCE = 1,
     NUM_STATE = 2, 
     
-    T_SWING = 180,
-    T_STANCE = 180,
+    T_SWING = 150,
+    T_STANCE = 150,
     T_TROT = T_SWING + T_STANCE,
 };
 
