@@ -37,15 +37,11 @@ void go2_controller::Init()
     q_start.setZero(NUM_DOF);
     q_final.setZero(NUM_DOF);
     q_desired.setZero(NUM_DOF);
+    contact_.setZero(NUM_LEG);
 
     M_Matrix.setZero(NUM_DOF, NUM_DOF);
     C_Matrix.setZero(NUM_DOF, NUM_DOF);
     G_Matrix.setZero(NUM_DOF);
-
-    Start_Position.setZero(NUM_DOF);
-    Homing_Position.setZero(NUM_DOF);
-
-    contact_.setZero(NUM_LEG);
 
     gazebo_body_pos.setZero(NUM_AXIS);
     gazebo_body_vel.setZero(NUM_AXIS);
@@ -75,14 +71,14 @@ void go2_controller::Init()
         Trot_Gait[i].setZero(2 * T_TROT);
     }
 
-    Walk_Pattern.resize(8, 4);
+    Start_Position.setZero(NUM_DOF);
+    Homing_Position.setZero(NUM_DOF);
+
     Start_Position << 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60;
     Homing_Position << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
 
     Contact_State.setZero(4);
     Trot_Pattern << 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0;
-    Walk_Pattern << 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0,
-        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0;
 
     // Swing 보행 검증: 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0;
     // TROT 보행시 : 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0;
