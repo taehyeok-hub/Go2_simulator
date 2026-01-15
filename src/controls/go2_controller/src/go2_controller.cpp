@@ -436,7 +436,7 @@ void go2_controller::SwingLeg_Control(int leg)
     // double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
     // double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
 
-    if (Gait_Count % 75 == 0)
+    if (Gait_Count % 90 == 0)
     {
         if (is_upward[leg])
         {
@@ -471,6 +471,8 @@ void go2_controller::SwingLeg_Control(int leg)
 
     Hor_Swing_Time[leg] += 1; 
     Ver_Swing_Time[leg] += 1; 
+
+    // prev_upward[leg] = is_upward[leg];
 }
 
 void go2_controller::Posture_Control()

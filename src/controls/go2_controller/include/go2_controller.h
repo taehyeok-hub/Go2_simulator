@@ -235,6 +235,7 @@ private:
     ros::Time Current_Time;
     int Gait_Count = 0;
     bool is_upward[NUM_LEG] = {true, true, true, true};
+    bool prev_upward[NUM_LEG] = {true, true, true, true};
 
     
     // 접촉 상태 확인
