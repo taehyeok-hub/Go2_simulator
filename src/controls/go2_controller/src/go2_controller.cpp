@@ -431,8 +431,8 @@ void go2_controller::SwingLeg_Control(int leg)
     constexpr double swing_time = static_cast<double>(T_SWING) / static_cast<double>(FREQUENCY);
 
     // 게인 설정
-    Kp_Swing[leg].diagonal() << 1000.0, 2000.0, 1000.0; // 1800.0, 1800.0, 1500.0 // 3000.0, 3000.0, 3000.0
-    Kd_Swing[leg].diagonal() << 10.0, 20.0, 10.0; // 30.0, 30.0, 30.0
+    Kp_Swing[leg].diagonal() << 500.0, 500.0, 500.0; // 1800.0, 1800.0, 1500.0 // 3000.0, 3000.0, 3000.0
+    Kd_Swing[leg].diagonal() << 10.0, 10.0, 10.0; // 30.0, 30.0, 30.0
 
     // double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
     // double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
