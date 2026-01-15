@@ -103,6 +103,7 @@ private:
     void TaskSpacePDControl(double Kp_X, double Kp_Y, double Kp_Z, double Kd_X, double Kd_Y, double Kd_Z);
     void TaskPD(int leg);
     void Set_Kinematics();
+    void Set_Dynamics();
     void Set_FK_Kinematics(); // 내가 만든거
     void Gait_Scheduler();
     void Gait_Renewal();
@@ -151,6 +152,8 @@ private:
     Eigen::VectorXd torque_;
 
     // Pinocchio 변수 저장소
+    Eigen::MatrixXd M_Matrix;
+    Eigen::VectorXd C_Matrix, G_Matrix;
     Eigen::MatrixXd Foot_J[NUM_LEG];
     Eigen::VectorXd Foot_Pos[NUM_LEG], Foot_Vel[NUM_LEG];
     Eigen::VectorXd Torque[NUM_LEG];

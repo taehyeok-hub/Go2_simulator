@@ -31,17 +31,20 @@ void go2_controller::Init()
     controlmode = INIT;
     Recieved_Joint_State = false;
 
-    q_.setZero(12);
-    dq_.setZero(12);
-    torque_.setZero(12);
-    q_start.setZero(12);
-    q_final.setZero(12);
-    q_desired.setZero(12);
-
-    Start_Position.setZero(12);
-    Homing_Position.setZero(12);
-
+    q_.setZero(NUM_DOF);
+    dq_.setZero(NUM_DOF);
+    torque_.setZero(NUM_DOF);
+    q_start.setZero(NUM_DOF);
+    q_final.setZero(NUM_DOF);
+    q_desired.setZero(NUM_DOF);
     contact_.setZero(NUM_LEG);
+
+    M_Matrix.setZero(NUM_DOF, NUM_DOF);
+    C_Matrix.setZero(NUM_DOF);
+    G_Matrix.setZero(NUM_DOF);
+
+    Start_Position.setZero(NUM_DOF);
+    Homing_Position.setZero(NUM_DOF);
 
     gazebo_body_pos.setZero(NUM_AXIS);
     gazebo_body_vel.setZero(NUM_AXIS);
@@ -90,6 +93,7 @@ void go2_controller::Init()
 void go2_controller::Command(bool flag)
 {
     Set_Kinematics();
+    Set_Dynamics();
     Reference_Generator();
     // Set_FK_Kinematics();
 
@@ -426,8 +430,8 @@ void go2_controller::SwingLeg_Control(int leg)
     constexpr double step_height = 0.10;
 
     // 게인 설정
-    Kp_Swing[leg].diagonal() << 4000.0, 4000.0, 4000.0; // 1800.0, 1800.0, 1500.0 // 3000.0, 3000.0, 3000.0
-    Kd_Swing[leg].diagonal() << 40.0, 40.0, 40.0; // 30.0, 30.0, 30.0
+    Kp_Swing[leg].diagonal() << 1000.0, 2000.0, 1000.0; // 1800.0, 1800.0, 1500.0 // 3000.0, 3000.0, 3000.0
+    Kd_Swing[leg].diagonal() << 10.0, 20.0, 10.0; // 30.0, 30.0, 30.0
 
     // double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
     // double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
@@ -462,7 +466,8 @@ void go2_controller::SwingLeg_Control(int leg)
     EE_Vel_desired[leg](Y) = 0.0;
     EE_Vel_desired[leg](Z) = PLAN.QuinticD(Ver_Swing_Time[leg], T_SWING, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
 
-    Swing_Torque[leg] = Foot_J[leg].transpose() * (Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]) );
+    Leg_Force[leg] = Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]);
+    Swing_Torque[leg] = Foot_J[leg].transpose() * (Leg_Force[leg] + G_Matrix.segment<3>(3 * leg));
 
     Hor_Swing_Time[leg] += 1; 
     Ver_Swing_Time[leg] += 1; 
@@ -483,8 +488,8 @@ void go2_controller::Posture_Control()
             Hor_Foot_pos[leg] = PINO.GetPos(leg);
             Ver_Foot_pos[leg] = PINO.GetPos(leg);
 
-            EE_Pose_start[leg] = Foot_Pos[leg];
-            EE_Pose_start[leg] = Foot_Pos[leg];
+            EE_Pose_start[leg](X) = Init_Foot_pos[leg](X);
+            EE_Pose_start[leg](Y) = Init_Foot_pos[leg](Y);
 
             Hor_Swing_Time[leg] = 0;
             Ver_Swing_Time[leg] = 0;
@@ -901,4 +906,10 @@ void go2_controller::Set_Kinematics()
 
     Local_body_vel = R_bw.transpose() * gazebo_body_vel;
     Local_rpy_dot = R_bw.transpose() * gazebo_rpy_dot;
+}
+
+void go2_controller::Set_Dynamics()
+{
+    PINO.SetGravity();
+    G_Matrix = PINO.GetGravityCompensation();
 }
