@@ -40,7 +40,7 @@ void go2_controller::Init()
     contact_.setZero(NUM_LEG);
 
     M_Matrix.setZero(NUM_DOF, NUM_DOF);
-    C_Matrix.setZero(NUM_DOF, NUM_DOF);
+    C_Matrix.setZero(NUM_DOF);
     G_Matrix.setZero(NUM_DOF);
 
     gazebo_body_pos.setZero(NUM_AXIS);

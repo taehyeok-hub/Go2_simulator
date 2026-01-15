@@ -146,8 +146,8 @@ private:
     Eigen::VectorXd torque_;
 
     // Pinocchio 변수 저장소
-    Eigen::MatrixXd M_Matrix, C_Matrix;
-    Eigen::VectorXd G_Matrix;
+    Eigen::MatrixXd M_Matrix;
+    Eigen::VectorXd C_Matrix, G_Matrix;
     Eigen::MatrixXd Foot_J[NUM_LEG];
     Eigen::VectorXd Foot_Pos[NUM_LEG], Foot_Vel[NUM_LEG];
     Eigen::VectorXd Torque[NUM_LEG];
