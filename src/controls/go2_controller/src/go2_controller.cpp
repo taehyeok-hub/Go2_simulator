@@ -468,7 +468,7 @@ void go2_controller::SwingLeg_Control(int leg)
     EE_Vel_desired[leg](Z) = PLAN.QuinticD(Ver_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
 
     Leg_Force[leg] = Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]);
-    Swing_Torque[leg] = Foot_J[leg].transpose() * (Leg_Force[leg] + G_Matrix.segment<3>(3 * leg));
+    Swing_Torque[leg] = Foot_J[leg].transpose() * Leg_Force[leg] + G_Matrix.segment<3>(3 * leg);
 
     Hor_Swing_Time[leg] += 1; 
     Ver_Swing_Time[leg] += 1; 
