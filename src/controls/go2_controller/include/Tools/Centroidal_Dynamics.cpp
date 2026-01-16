@@ -14,16 +14,16 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     I_body << 0.02448, 0.00012166, 0.0014849, 0.00012166, 0.098077, -3.12E-05, 0.0014849, -3.12E-05, 0.107;
 
     Kp_Pos.setIdentity();
-    Kp_Pos.diagonal() << 0.0, 30000.0, 20000.0; //  10000.0, 10000.0, 10000.0
+    Kp_Pos.diagonal() << 0.0, 0.0, 20000.0; //  10000.0, 10000.0, 10000.0 // 30000.0, 35000.0, 20000.0
 
     Kd_Pos.setIdentity();
-    Kd_Pos.diagonal() << 2000.0, 2000.0, 1200.0; // 600.0, 600.0, 600.0
+    Kd_Pos.diagonal() << 2000.0, 2300.0, 1200.0; // 600.0, 600.0, 600.0 // 2000.0, 2300.0, 1200.0
 
     Kp_Ori.setIdentity();
-    Kp_Ori.diagonal() << 6000.0, 6000.0, 6000.0; //  5000.0, 5000.0, 5000.0
+    Kp_Ori.diagonal() << 6000.0, 6000.0, 6000.0; //  5000.0, 5000.0, 5000.0 // 6000.0, 6000.0, 6000.0
 
     Kd_Ori.setIdentity();
-    Kd_Ori.diagonal() << 225.0, 225.0, 225.0; //  200.0, 200.0, 200.0
+    Kd_Ori.diagonal() << 225.0, 225.0, 225.0; //  200.0, 200.0, 200.0 // 225.0, 225.0, 225.0
 
     Hessian.resize(num_of_variables, num_of_variables);
     Gradient.resize(num_of_variables);
@@ -44,7 +44,7 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     Q(1, 1) = 0.1;
     Q(2, 2) = 10.0; // X축, Y축, Z축 (선형)가중치
 
-    Q(3, 3) = 30.0;
+    Q(3, 3) = 100.0;
     Q(4, 4) = 30.0;
     Q(5, 5) = 30.0; // Roll, Pitch, Yaw 방향 가중치
 
@@ -53,13 +53,13 @@ Centroidal_Dynamics::Centroidal_Dynamics()
 
 Centroidal_Dynamics::~Centroidal_Dynamics() {}
 
-void Centroidal_Dynamics::Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_RPY_, Eigen::VectorXd COM_RPY_dot_)
+void Centroidal_Dynamics::Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_RPY_, Eigen::VectorXd COM_RPY_D_)
 {
     COM_Pose = COM_Pose_; // VectorXd ==> Vector3d 로 만들어둔다. 
     COM_Vel = COM_Vel_;
     COM_Quat = COM_Quat_;
     COM_RPY = COM_RPY_;
-    COM_RPY_dot = COM_RPY_dot_;
+    COM_RPY_D = COM_RPY_D_;
 
     Set_QuatRotationMatrix(COM_Quat);
 
@@ -120,7 +120,9 @@ void Centroidal_Dynamics::Compute_A_Matrix()
 void Centroidal_Dynamics::Set_Reference(Eigen::VectorXd COM_Ref_) 
 {
     /* COM_Ref_ : Reference COM 위치 -> 속도 -> 각도(RPY) -> 각속도(RPY_dot)*/
-    Ref_Pos << COM_Ref_(0), COM_Ref_(1), COM_Ref_(2);
+    Ref_Pos << COM_Ref_(0), COM_Ref_(1), COM_Ref_(2); 
+    Ref_Vel << COM_Ref_(3), COM_Ref_(4), COM_Ref_(5);    // 병진 이동할 때 활용할 것으로 예상
+    Ref_RPY_D << 0.0, 0.0, 0.0;                          // 이거는 회전 이동할 때 활용할 것으로 예상되지만, roll, pitch는 활용할 의미가 없기 때문에 yaw만 사용함.
 
     Eigen::Vector3d e_rpy = Eigen::Vector3d::Zero();
     e_rpy(0) = Wrap2PI(COM_Ref_(6) - COM_RPY(0));
@@ -128,30 +130,10 @@ void Centroidal_Dynamics::Set_Reference(Eigen::VectorXd COM_Ref_)
     e_rpy(2) = Wrap2PI(COM_Ref_(8) - COM_RPY(2));
 
     Err_R = e_rpy;
-    // Err_R = ErrOri_so3(R_wb, I);
+    // Err_R = ErrOri_so3(R_wb, I);         
 
-    // === 1) raw 속도 (world→body) ===
-    // Eigen::Vector3d v_body_raw = R_wb * COM_Vel;
-    // Eigen::Vector3d w_body_raw = R_wb * COM_RPY_dot;
-
-    // const double alpha = 0.8;  // 0.8~0.95 정도에서 튜닝
-
-    // // === 2) 첫 루프면 raw로 초기화 ===
-    // if (!lpf_initialized)
-    // {
-    //     v_body_filt = v_body_raw;
-    //     w_body_filt = w_body_raw;
-    //     lpf_initialized = true;
-    // }
-    // else
-    // {
-    //     // === 3) LPF 적용 ===
-    //     v_body_filt = alpha * v_body_filt + (1.0 - alpha) * v_body_raw;
-    //     w_body_filt = alpha * w_body_filt + (1.0 - alpha) * w_body_raw;
-    // }
-
-    Lin_Acc_ref = (Kp_Pos * (Ref_Pos - Err_Pos) - Kd_Pos * COM_Vel) / mass;
-    Ang_Acc_ref = (Kp_Ori * Err_R - Kd_Ori * COM_RPY_dot);
+    Lin_Acc_ref = (Kp_Pos * (Ref_Pos - Err_Pos) + Kd_Pos * (Ref_Vel - COM_Vel)) / mass;         // 전진, 후진 보행시 ??
+    Ang_Acc_ref = (Kp_Ori * Err_R - Kd_Ori * COM_RPY_D);
 }
 
 void Centroidal_Dynamics::Compute_B_Vector()

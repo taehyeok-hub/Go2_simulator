@@ -181,15 +181,27 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
             Init_Time = 1000;
             Start_Flag = 4;
 
-            if (Start_Flag == 4)
+            if (Start_Flag == 4) // Homing 상태에서의 몸통의 상태정보, 발끝위치를 저장해두는것이 매우 중요하다.
             {
-                Pos_Command[X] = 0.0;               // Local_body_pos(X)
-                Pos_Command[Y] = 0.0;               // Local_body_pos(Y)
-                Pos_Command[Z] = Local_body_pos(Z);
+                // 위치제어
+                Pos_Command[X] = Local_body_pos(X);
+                Pos_Command[Y] = Local_body_pos(Y);
+                Pos_Command[Z] = gazebo_body_pos(Z);
+                
+                // 속도제어
+                Vel_Command[X] = 0.1; // Local_body_vel(X)
+                Vel_Command[Y] = 0.0; // Local_body_vel(Y)
+                Vel_Command[Z] = 0.0; // Local_body_vel(Z) 
+
                 RPY_Command[ROLL] = gazebo_rpy(ROLL);
                 RPY_Command[PITCH] = gazebo_rpy(PITCH);
                 RPY_Command[YAW] = gazebo_rpy(YAW);
 
+                ANG_Command[ROLL] = 0.0;
+                ANG_Command[PITCH] = 0.0;
+                ANG_Command[YAW] = 0.0;
+
+                // 초기 발끝 위치 저장
                 Init_Foot_pos[FL] = PINO.GetPos(FL);
                 Init_Foot_pos[FR] = PINO.GetPos(FR);
                 Init_Foot_pos[RL] = PINO.GetPos(RL);
@@ -204,12 +216,6 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
                 Ver_Foot_pos[FR] = PINO.GetPos(FR);
                 Ver_Foot_pos[RL] = PINO.GetPos(RL);
                 Ver_Foot_pos[RR] = PINO.GetPos(RR);
-
-                EE_Pose_start[FL] = PINO.GetPos(FL);
-                EE_Pose_start[FR] = PINO.GetPos(FR);
-                EE_Pose_start[RL] = PINO.GetPos(RL);
-                EE_Pose_start[RR] = PINO.GetPos(RR);
-
 
                 controlmode = POSTURE;
             }
@@ -429,6 +435,7 @@ void go2_controller::SwingLeg_Control(int leg)
 {
     constexpr double step_height = 0.10;
     constexpr double swing_time = static_cast<double>(T_SWING) / static_cast<double>(FREQUENCY);
+    constexpr double stance_time = static_cast<double>(2.0 * T_TROT - T_SWING) / static_cast<double>(FREQUENCY);
 
     // 게인 설정
     Kp_Swing[leg].diagonal() << 500.0, 500.0, 500.0; // 1800.0, 1800.0, 1500.0 // 3000.0, 3000.0, 3000.0
@@ -442,7 +449,8 @@ void go2_controller::SwingLeg_Control(int leg)
         if (is_upward[leg])
         {
             EE_Pose_start[leg] = Init_Foot_pos[leg];
-            EE_Pose_final[leg] = EE_Pose_start[leg];
+            EE_Pose_final[leg](X) = EE_Pose_start[leg](X) + 0.5 * stance_time * Local_body_vel(X);
+            EE_Pose_final[leg](Y) = EE_Pose_start[leg](Y) + 0.5 * stance_time * Local_body_vel(Y);
             EE_Pose_final[leg](Z) = EE_Pose_start[leg](Z) + step_height;
             
             is_upward[leg] = false;
@@ -458,6 +466,12 @@ void go2_controller::SwingLeg_Control(int leg)
             std::cout << "downward!!!!!!11" << std::endl;
         }
     }
+
+    // if (Hor_Swing_Time[leg] == 0)
+    // {
+    //     EE_Pose_final[leg](X) = EE_Pose_start[leg](X) + 0.5 * stance_time * Local_body_vel(X);
+    //     EE_Pose_final[leg](Y) = EE_Pose_start[leg](Y) + 0.5 * stance_time * Local_body_vel(Y);
+    // }
 
     EE_Pose_desired[leg](X) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](X), EE_Pose_final[leg](X));
     EE_Pose_desired[leg](Y) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Y), EE_Pose_final[leg](Y)); // 오차 보정
