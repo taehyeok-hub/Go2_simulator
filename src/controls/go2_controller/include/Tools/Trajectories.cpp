@@ -308,23 +308,6 @@ double Trajectories::QuinticD(double t, double T, double q0, double q1)
 //         return q1;
 // }
 
-double Trajectories::RaibertX(int leg, double p_com, double v_com, double T_Gait)
-{
-    /*target 구하기*/
-    double hip_offset_x[NUM_LEG] = {0.1881, 0.1881, -0.1881, -0.1881};
-    x_target = (p_com + hip_offset_x[leg]) + 0.5 * T_Gait * v_com;
-
-    return x_target;
-}
-
-double Trajectories::RaibertY(int leg, double p_com, double v_com, double T_Gait)
-{
-    double hip_offset_y[NUM_LEG] = {0.04675, -0.04675, 0.04675, -0.04675};
-    y_target = (p_com + hip_offset_y[leg]) + 0.5 * T_Gait * v_com;
-
-    return y_target;
-}
-
 Eigen::Vector3d Trajectories::Raibert_Heuristic(int leg, Eigen::Vector3d p_com, Eigen::Vector3d v_com, double T_Gait)
 {
     /*target 구하기*/
@@ -337,4 +320,9 @@ Eigen::Vector3d Trajectories::Raibert_Heuristic(int leg, Eigen::Vector3d p_com, 
     result.z() = result.z();
 
     return result;
+}
+
+double Raibert(double p_hip, double T_stance, double local_body_vel)
+{
+    return p_hip + 0.5 * T_stance * local_body_vel;
 }
