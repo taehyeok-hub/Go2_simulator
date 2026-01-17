@@ -189,7 +189,7 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
                 Pos_Command[Z] = gazebo_body_pos(Z);
                 
                 // 속도제어
-                Vel_Command[X] = 0.1; // Local_body_vel(X)
+                Vel_Command[X] = 0.0; // Local_body_vel(X)
                 Vel_Command[Y] = 0.0; // Local_body_vel(Y)
                 Vel_Command[Z] = 0.0; // Local_body_vel(Z) 
 
@@ -429,6 +429,11 @@ void go2_controller::StanceLeg_Control(int leg)
     Stance_Torque[leg](0) = Posture_Torque[leg](0);
     Stance_Torque[leg](1) = Posture_Torque[leg](1);
     Stance_Torque[leg](2) = Posture_Torque[leg](2);
+
+    // // 중력보상 여부 확인
+    // Stance_Torque[leg](0) = G_Matrix(3 * leg);
+    // Stance_Torque[leg](1) = G_Matrix(3 * leg + 1);
+    // Stance_Torque[leg](2) = G_Matrix(3 * leg + 2);
 }
 
 void go2_controller::SwingLeg_Control(int leg)
@@ -473,7 +478,7 @@ void go2_controller::SwingLeg_Control(int leg)
     //     EE_Pose_final[leg](Y) = EE_Pose_start[leg](Y) + 0.5 * stance_time * Local_body_vel(Y);
     // }
 
-    EE_Pose_desired[leg](X) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](X), EE_Pose_final[leg](X));
+    EE_Pose_desired[leg](X) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](X), EE_Pose_final[leg](X)); // 오차 보정
     EE_Pose_desired[leg](Y) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Y), EE_Pose_final[leg](Y)); // 오차 보정
     EE_Pose_desired[leg](Z) = PLAN.Quintic(Ver_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
 

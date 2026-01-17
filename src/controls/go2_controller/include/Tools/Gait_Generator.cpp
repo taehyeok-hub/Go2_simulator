@@ -73,7 +73,7 @@ void Gait_Generator::Gait_Update()
                 Gait_Timing[FL](i) = STANCE;
                 Gait_Timing[FR](i) = STANCE;
                 Gait_Timing[RL](i) = STANCE;
-                Gait_Timing[RR](i) = STANCE;
+                Gait_Timing[RR](i) = STANCE; 
             }
 
             for (size_t i = T_STANCE; i < (T_STANCE + T_SWING); i++)
@@ -81,7 +81,7 @@ void Gait_Generator::Gait_Update()
                 Gait_Timing[FL](i) = STANCE;
                 Gait_Timing[FR](i) = SWING;
                 Gait_Timing[RL](i) = SWING;
-                Gait_Timing[RR](i) = STANCE;
+                Gait_Timing[RR](i) = STANCE; 
             }
             
             for (size_t i = (T_STANCE + T_SWING); i < (2 * T_STANCE + T_SWING); i++)
@@ -89,7 +89,7 @@ void Gait_Generator::Gait_Update()
                 Gait_Timing[FL](i) = STANCE;
                 Gait_Timing[FR](i) = STANCE;
                 Gait_Timing[RL](i) = STANCE;
-                Gait_Timing[RR](i) = STANCE;
+                Gait_Timing[RR](i) = STANCE; 
             }
 
             for (size_t i = (2 * T_STANCE + T_SWING); i < 2 * (T_STANCE + T_SWING); i++)
