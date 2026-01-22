@@ -13,7 +13,8 @@ Gait_Generator::Gait_Generator()
     {
         Gait_Timing[i] = Eigen::VectorXd::Zero(2 * T_TROT);
     }
-    gaitmode = TROT;
+    gaitmode = STAND; // STAND // STANCE_TROT // TROT
+    Stand_Time = T_STANCE + T_SWING;
 }
 
 Gait_Generator::~Gait_Generator() {}
@@ -65,7 +66,24 @@ void Gait_Generator::Gait_Update()
 {
     switch (gaitmode)
     {
-    case TROT:
+    case STAND:
+        if (Stand_Time > 0) // Stand_Time 은 GaitGenerator의 생성자에서 결정
+        {
+            for (int leg = 0; leg < NUM_LEG; leg++)
+            {
+                Gait_Timing[leg].setConstant(STANCE); // Gait_Timing[leg] = STANCE 랑은 다름.
+            }
+            Stand_Time--;
+        }
+
+        if (Stand_Time == 0) // 120 tick // T_STANCE + T_SWING // 무조건 네 다리가 stance여야하는 시간
+        {
+            gaitmode = TROT;
+            Init_Trot = true;
+        }
+        break;
+
+    case STANCE_TROT:
         if (Init_Trot)
         {
             for (size_t i = 0; i < T_STANCE; i++)
@@ -73,7 +91,7 @@ void Gait_Generator::Gait_Update()
                 Gait_Timing[FL](i) = STANCE;
                 Gait_Timing[FR](i) = STANCE;
                 Gait_Timing[RL](i) = STANCE;
-                Gait_Timing[RR](i) = STANCE; 
+                Gait_Timing[RR](i) = STANCE;
             }
 
             for (size_t i = T_STANCE; i < (T_STANCE + T_SWING); i++)
@@ -81,15 +99,15 @@ void Gait_Generator::Gait_Update()
                 Gait_Timing[FL](i) = STANCE;
                 Gait_Timing[FR](i) = SWING;
                 Gait_Timing[RL](i) = SWING;
-                Gait_Timing[RR](i) = STANCE; 
+                Gait_Timing[RR](i) = STANCE;
             }
-            
+
             for (size_t i = (T_STANCE + T_SWING); i < (2 * T_STANCE + T_SWING); i++)
             {
                 Gait_Timing[FL](i) = STANCE;
                 Gait_Timing[FR](i) = STANCE;
                 Gait_Timing[RL](i) = STANCE;
-                Gait_Timing[RR](i) = STANCE; 
+                Gait_Timing[RR](i) = STANCE;
             }
 
             for (size_t i = (2 * T_STANCE + T_SWING); i < 2 * (T_STANCE + T_SWING); i++)
@@ -119,6 +137,51 @@ void Gait_Generator::Gait_Update()
         for (size_t leg = 0; leg < NUM_LEG; leg++)
         {
             Gait_Timing[leg](2 * T_TROT - 1) = temp[leg];
+        }
+        break;
+
+    case TROT:
+        if (Init_Trot)
+        {
+            for (int leg = 0; leg < NUM_LEG; leg++)
+            {
+                Gait_Timing[leg].resize(T_TROT); // T_TROT로 바꿈.
+            }
+
+            for (size_t i = 0; i < T_STANCE; i++)
+            {
+                Gait_Timing[FL](i) = SWING;
+                Gait_Timing[FR](i) = STANCE;
+                Gait_Timing[RL](i) = STANCE;
+                Gait_Timing[RR](i) = SWING;
+            }
+
+            for (size_t i = T_STANCE; i < T_TROT; i++)
+            {
+                Gait_Timing[FL](i) = STANCE;
+                Gait_Timing[FR](i) = SWING;
+                Gait_Timing[RL](i) = SWING;
+                Gait_Timing[RR](i) = STANCE;
+            }
+            Init_Trot = false;
+        }
+
+        for (size_t leg = 0; leg < NUM_LEG; leg++)
+        {
+            temp[leg] = Gait_Timing[leg](0); // temp는 진짜 값을 저장하는 임시변수
+        }
+
+        for (size_t i = 1; i < T_TROT; i++)
+        {
+            Gait_Timing[FL](i - 1) = Gait_Timing[FL](i);
+            Gait_Timing[FR](i - 1) = Gait_Timing[FR](i);
+            Gait_Timing[RL](i - 1) = Gait_Timing[RL](i);
+            Gait_Timing[RR](i - 1) = Gait_Timing[RR](i);
+        }
+
+        for (size_t leg = 0; leg < NUM_LEG; leg++)
+        {
+            Gait_Timing[leg](T_TROT - 1) = temp[leg];
         }
         break;
 

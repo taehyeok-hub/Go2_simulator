@@ -31,6 +31,9 @@ void PinocchioInterface::Initialize()
     _dJ.setZero();
 
     target_torque_all_.setZero(n);
+    target_torque_.setZero(n);
+
+    r_G_.setZero(n);
 
     for (size_t i = 0; i < NUM_LEG; i++)
     {
@@ -316,24 +319,21 @@ void PinocchioInterface::SetTaskspacePD(Eigen::MatrixXd Kp,
 
 void PinocchioInterface::ComputeCTM()
 {
-    const double torque_limit_ = 1000.0;
+    Eigen::Matrix<double, NUM_JOINT, 1> tmp_torque[NUM_LEG];
+    const double torque_limit_ = 500;
 
     for (size_t i = 0; i < NUM_LEG; i++)
     {
-        auto Jpinv = DampedPseudoInverse3xN(J_[i], 1e-6);
+        auto Jinv = DampedPseudoInverse3xN(J_[i], lambda); // (NUM_JOINT x 3)
 
-        JointVector qdd_des =
-            Jpinv * (acc_d_[i] + Kp_ * err_[i] + Kd_ * err_dot_[i] - dJ_[i] * dq_[i]);
+        tmp_torque[i] = M_[i] * Jinv * (acc_d_[i] - dJ_[i] * dq_[i]) + B_[i] + J_[i].transpose() * (Kp_ * err_[i] + Kd_ * err_dot_[i]); // Task-space PD
 
-        JointVector tau = M_[i] * qdd_des + B_[i];
+        // // CTC + Task-Space PD
+        // tmp_torque[i] = M_[i] * J_[i].inverse() * (acc_d_[i] - dJ_[i] * dq_[i]) + NLE_[i] + J_[i].transpose() * (Kp_ * err_[i] + Kd_ * err_dot_[i]);
 
-        for (int j = 0; j < NUM_JOINT; j++)
-        {
-            if (tau(j) > torque_limit_) tau(j) = torque_limit_;
-            if (tau(j) < -torque_limit_) tau(j) = -torque_limit_;
-        }
+        // Task-Space PD
+        // tmp_torque[i] =  J_[i].transpose() * (Kp_ * err_[i] + Kd_ * err_dot_[i]);
 
-        target_torque_leg_[i] = tau;
-        target_torque_all_.segment(i * NUM_JOINT, NUM_JOINT) = tau;
+        target_torque_.block(i * NUM_JOINT, 0, NUM_JOINT, 1) = tmp_torque[i];
     }
 }

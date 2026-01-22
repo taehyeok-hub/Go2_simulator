@@ -243,7 +243,7 @@ QuinticTask Trajectories::Quintic_Task_rostime(ros::Time &start_time, double mot
 
 double Trajectories::Quintic(double t, double T, double q0, double q1)
 {
-    /* 선 정규화 필수 */
+    /* 선 정규화 필수  + T = 0일 때, v0, a0 = 0이라고 가정 */
     if (t >= T) return q1;
     if (t <= 0) return q0;
 
@@ -277,8 +277,8 @@ double Trajectories::Quintic(double t, double T, double q0, double q1)
 
 double Trajectories::QuinticD(double t, double T, double q0, double q1)
 {
-    if (t >= T) return q1;
-    if (t <= 0) return q0;
+    if (t >= T) return 0;
+    if (t <= 0) return 0;
 
     double s = t / T;
     double quinticd = (q1 - q0) * (30.0 * s*s - 60.0 * s*s*s + 30.0 * s*s*s*s);
@@ -286,7 +286,16 @@ double Trajectories::QuinticD(double t, double T, double q0, double q1)
     return quinticd;
 }
 
+double Trajectories::QuinticDD(double t, double T, double q0, double q1)
+{
+    if (t >= T) return 0;
+    if (t <= 0) return 0;
 
+    double s = t / T;
+    double quinticdd = (q1 - q0) * (60.0 * s - 180.0 * s*s + 120.0 * s*s*s);
+
+    return quinticdd;
+}
 
 // double Trajectories::QuinticD(double t, double T, double q0, double q1)
 // {

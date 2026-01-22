@@ -125,7 +125,6 @@ private:
     Centroidal_Dynamics CENT;
     Gait_Generator GAIT;
     // Centt CENT;
-    
 
     // VARIABLE---------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -153,21 +152,21 @@ private:
 
     // Pinocchio 변수 저장소
     Eigen::MatrixXd M_Matrix;
-    Eigen::VectorXd C_Matrix, G_Matrix;
-    Eigen::MatrixXd Foot_J[NUM_LEG];
+    Eigen::VectorXd B_Matrix, G_Matrix;
+    Eigen::MatrixXd Foot_J[NUM_LEG], Foot_dJ[NUM_LEG];
     Eigen::VectorXd Foot_Pos[NUM_LEG], Foot_Vel[NUM_LEG];
     Eigen::VectorXd Torque[NUM_LEG];
 
     // Joint space 변수들 (quintic)
     int Start_Flag = 0;
     int Init_Time = 0;
-    Eigen::VectorXd q_start;    
+    Eigen::VectorXd q_start;
     Eigen::VectorXd q_final;
     Eigen::VectorXd q_desired; // Planning 에서 Trajectory 받아오는 곳.
     Eigen::VectorXd Start_Position, Homing_Position;
 
     Eigen::VectorXd COM_Ref; // Reference 값 넣어두는 용도
-    
+
     // Reference Generator
     double Pos_Command[NUM_AXIS] = {0.0, 0.0, 0.0};
     double Vel_Command[NUM_AXIS] = {0.0, 0.0, 0.0};
@@ -179,10 +178,11 @@ private:
     Eigen::Vector3d COM_Pos_, COM_Vel_;
 
     // (in Task Space)
-    Eigen::Vector3d EE_Pose_start[NUM_LEG]; // 동작의 시작 xyz값 (담아두는 용도)
-    Eigen::Vector3d EE_Pose_final[NUM_LEG]; // 동작의 최종 목표의 xyz값
+    Eigen::Vector3d EE_Pose_start[NUM_LEG];   // 동작의 시작 xyz값 (담아두는 용도)
+    Eigen::Vector3d EE_Pose_final[NUM_LEG];   // 동작의 최종 목표의 xyz값
     Eigen::Vector3d EE_Pose_desired[NUM_LEG]; // 궤적과 PD제어기 사이의 "통신 채널" : Reference 값
     Eigen::Vector3d EE_Vel_desired[NUM_LEG];
+    Eigen::Vector3d EE_Acc_desired[NUM_LEG];
 
     Eigen::Matrix3d Kp_Task{Eigen::Matrix3d::Zero()};
     Eigen::Matrix3d Kd_Task{Eigen::Matrix3d::Zero()};
@@ -193,7 +193,7 @@ private:
     int Gait_Switch = 0;
     int Switch_Time = 0;
 
-    // 스윙 다리 변수 
+    // 스윙 다리 변수
     double Hor_Swing_Time[4] = {0, 0, 0, 0};
     double Ver_Swing_Time[4] = {0, 0, 0, 0};
     Eigen::VectorXd Trot_Gait[NUM_LEG];
@@ -202,14 +202,13 @@ private:
     Eigen::Vector4d Contact_State;
     Eigen::Matrix3d Kp_Swing[NUM_LEG], Kd_Swing[NUM_LEG];
     Eigen::Vector4d Prev_Contact = Eigen::Vector4d::Ones();
-
+    Eigen::Vector3d ddX_CTC[NUM_LEG], ddq_CTC[NUM_LEG];
 
     // // Kinematics 관련 변수
     Eigen::Matrix3d R_bw; // body to world
     std::array<Eigen::Vector3d, 4> ee_pose;
     Eigen::Vector3d ee_vel[NUM_LEG];
     Eigen::Matrix<double, 6, 12> jacobian;
-
 
     // 힘, 토크 관련 변수
     Eigen::VectorXd GRF;
@@ -228,7 +227,6 @@ private:
     std::array<Eigen::Vector3d, 4> traj_final_poses_;
     int squat_count = 0;
 
-    
     bool Recieved_Joint_State;
 
     ros::Time Motion_Time;
@@ -237,13 +235,26 @@ private:
     bool is_upward[NUM_LEG] = {true, true, true, true};
     bool prev_upward[NUM_LEG] = {true, true, true, true};
 
-    
     // 접촉 상태 확인
     Eigen::VectorXd contact_;
     Eigen::Vector3d ft_sensor_force[NUM_LEG];
     int ContactSensorCkFlag[4] = {0, 0, 0, 0};
     int Contact_foot[4] = {1, 1, 1, 1};
     int Contact[4] = {0, 0, 0, 0};
+
+    static inline Eigen::Matrix<double, NUM_JOINT, PinocchioInterface::kTaskDim>
+    DampedPseudoInverse3xN(const Eigen::Matrix<double, PinocchioInterface::kTaskDim, NUM_JOINT> &J,
+                           double lambda = 1e-6)
+    {
+        Eigen::Matrix<double, PinocchioInterface::kTaskDim, PinocchioInterface::kTaskDim> JJt =
+            J * J.transpose();
+        JJt.diagonal().array() += lambda * lambda;
+
+        Eigen::Matrix<double, PinocchioInterface::kTaskDim, PinocchioInterface::kTaskDim> JJt_inv =
+            JJt.ldlt().solve(Eigen::Matrix<double, PinocchioInterface::kTaskDim, PinocchioInterface::kTaskDim>::Identity());
+
+        return J.transpose() * JJt_inv; // (NUM_JOINT x 3)
+    }
 };
 
 #endif

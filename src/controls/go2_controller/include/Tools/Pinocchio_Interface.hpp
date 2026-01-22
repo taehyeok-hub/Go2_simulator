@@ -22,6 +22,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iomanip> 
 
 #include "Enum_Shared.hpp"
 
@@ -98,6 +99,7 @@ public:
 
     Eigen::VectorXd GetDynamics();
 
+    Eigen::MatrixXd GetCRBA() const { return r_M_; };
     Eigen::VectorXd GetNLEffects() const { return r_B_; }
     Eigen::VectorXd GetGravityCompensation() const { return r_G_; }
     Eigen::VectorXd GetTau() const { return r_T_; }
@@ -118,7 +120,11 @@ public:
 
     void ComputeCTM();
 
-    JointVector GetTorque(int i) const { return target_torque_leg_[i]; }
+    Eigen::VectorXd GetTargetTorque() { return target_torque_; }
+
+
+    void DebugPrintModelInfo() const;
+    void DebugPrintGravityMapping() const;
 
 private:
     // Variables for Pinocchio
@@ -154,8 +160,9 @@ private:
     TaskMatrix Kp_, Kd_;
 
     // Target torque
-    Eigen::VectorXd target_torque_all_; // (NUM_LEG*NUM_JOINT)
-    JointVector     target_torque_leg_[NUM_LEG];
+    Eigen::VectorXd target_torque_all_; 
+    Eigen::VectorXd target_torque_leg_[NUM_LEG];
+    Eigen::VectorXd target_torque_;
 
     // return buffers
     TaskVector   r_pos_, r_vel_, r_acc_;
@@ -172,6 +179,8 @@ private:
     Eigen::Matrix3d rot_matrix;
 
     Eigen::Vector3d rpy[NUM_LEG];
+
+    const double lambda = 1e-6;
 };
 
 #endif

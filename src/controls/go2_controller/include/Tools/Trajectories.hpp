@@ -78,6 +78,7 @@ public:
     QuinticTask Quintic_Task_rostime(ros::Time &start_time, double motion_time, const Eigen::Vector3d &x_current, const Eigen::Vector3d &x_final);
     double Quintic(double t, double T ,double q0, double q1);
     double QuinticD(double t, double T, double q0, double q1);
+    double QuinticDD(double t, double T, double q0, double q1);
     Eigen::Vector3d Raibert_Heuristic(int leg, Eigen::Vector3d p_com, Eigen::Vector3d v_com, double T_Gait);
     double Raibert(double p_hip, double T_stance, double local_body_vel);
 

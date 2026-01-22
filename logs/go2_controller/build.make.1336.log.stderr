@@ -1,0 +1,17 @@
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::SwingLeg_Control(int)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:500:40:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KPinocchioInterface::GetTorque()[m[K’
+  500 |     Swing_Torque[leg] = PINO.GetTorque([01;31m[K)[m[K;
+      |                                        [01;31m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:122:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KPinocchioInterface::JointVector PinocchioInterface::GetTorque(int) const[m[K’
+  122 |     JointVector [01;36m[KGetTorque[m[K(int i) const { return target_torque_leg_[i]; }
+      |                 [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:122:17:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/go2_controller.dir/build.make:79: CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2775: CMakeFiles/go2_controller.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

@@ -14,7 +14,7 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     I_body << 0.02448, 0.00012166, 0.0014849, 0.00012166, 0.098077, -3.12E-05, 0.0014849, -3.12E-05, 0.107;
 
     Kp_Pos.setIdentity();
-    Kp_Pos.diagonal() << 30000.0, 35000.0, 20000.0; //  10000.0, 10000.0, 10000.0 // 30000.0, 35000.0, 20000.0
+    Kp_Pos.diagonal() << 0.0, 0.0, 20000.0; //  10000.0, 10000.0, 10000.0 // 30000.0, 35000.0, 20000.0
 
     Kd_Pos.setIdentity();
     Kd_Pos.diagonal() << 2000.0, 2300.0, 1200.0; // 600.0, 600.0, 600.0 // 2000.0, 2300.0, 1200.0
@@ -88,7 +88,7 @@ void Centroidal_Dynamics::Set_RefGait(Eigen::VectorXd Gait_Ref_[]) // 성민이�
 {
     for (int leg = 0; leg < NUM_LEG; ++leg)
     {
-        Gait_Ref[leg] = Gait_Ref_[leg](0);
+        Gait_Ref[leg] = Gait_Ref_[leg](0); // 오는애들의 0번 상태(현재 상태) 만 받아오는거임. 
     }
 }
 
