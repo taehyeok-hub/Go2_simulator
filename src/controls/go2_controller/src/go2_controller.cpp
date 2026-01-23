@@ -40,8 +40,11 @@ void go2_controller::Init()
     contact_.setZero(NUM_LEG);
 
     M_Matrix.setZero(NUM_DOF, NUM_DOF);
-    C_Matrix.setZero(NUM_DOF);
+    B_Matrix.setZero(NUM_DOF);
     G_Matrix.setZero(NUM_DOF);
+
+    Start_Position.setZero(NUM_DOF);
+    Homing_Position.setZero(NUM_DOF);
 
     gazebo_body_pos.setZero(NUM_AXIS);
     gazebo_body_vel.setZero(NUM_AXIS);
@@ -54,7 +57,7 @@ void go2_controller::Init()
     Local_rpy_dot.setZero(NUM_AXIS);
 
     COM_Ref.setZero(NUM_LEG * NUM_AXIS);
-    GRF.setZero(NUM_DOF);
+    GRF.setZero(12);
 
     for (size_t i = 0; i < 4; ++i)
     {
@@ -71,14 +74,14 @@ void go2_controller::Init()
         Trot_Gait[i].setZero(2 * T_TROT);
     }
 
-    Start_Position.setZero(NUM_DOF);
-    Homing_Position.setZero(NUM_DOF);
-
+    Walk_Pattern.resize(8, 4);
     Start_Position << 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60;
     Homing_Position << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
 
     Contact_State.setZero(4);
     Trot_Pattern << 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0;
+    Walk_Pattern << 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0,
+        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0;
 
     // Swing 보행 검증: 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0;
     // TROT 보행시 : 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0;
@@ -90,8 +93,9 @@ void go2_controller::Init()
 void go2_controller::Command(bool flag)
 {
     Set_Kinematics();
-    // Set_Dynamics();
+    Set_Dynamics();
     Reference_Generator();
+    // Set_FK_Kinematics();
 
     if (Recieved_Joint_State)
     {
@@ -114,6 +118,8 @@ void go2_controller::Command(bool flag)
         }
         case POSTURE:
         {
+            Gait_Count++; // 글로벌 게이트 카운트
+            std::cout << "Gait_Count : " << Gait_Count << std::endl;
             // Gait_Scheduler(); // 내 거
             Gait_Renewal(); // 성민이 형 버전
             Posture_Control();
@@ -175,15 +181,27 @@ void go2_controller::Homing() // 초기자세 설정 하는 코드
             Init_Time = 1000;
             Start_Flag = 4;
 
-            if (Start_Flag == 4)
+            if (Start_Flag == 4) // Homing 상태에서의 몸통의 상태정보, 발끝위치를 저장해두는것이 매우 중요하다.
             {
-                Pos_Command[X] = 0.0; // Local_body_pos(X)
-                Pos_Command[Y] = 0.0;               // Local_body_pos(Y)
-                Pos_Command[Z] = Local_body_pos(Z);
+                // 위치제어
+                Pos_Command[X] = Local_body_pos(X);
+                Pos_Command[Y] = Local_body_pos(Y);
+                Pos_Command[Z] = gazebo_body_pos(Z);
+                
+                // 속도제어
+                Vel_Command[X] = 0.0; // Local_body_vel(X)
+                Vel_Command[Y] = -0.5; // Local_body_vel(Y)
+                Vel_Command[Z] = 0.0; // Local_body_vel(Z) 
+
                 RPY_Command[ROLL] = gazebo_rpy(ROLL);
                 RPY_Command[PITCH] = gazebo_rpy(PITCH);
                 RPY_Command[YAW] = gazebo_rpy(YAW);
 
+                ANG_Command[ROLL] = 0.0;
+                ANG_Command[PITCH] = 0.0;
+                ANG_Command[YAW] = 0.0;
+
+                // 초기 발끝 위치 저장
                 Init_Foot_pos[FL] = PINO.GetPos(FL);
                 Init_Foot_pos[FR] = PINO.GetPos(FR);
                 Init_Foot_pos[RL] = PINO.GetPos(RL);
@@ -358,6 +376,8 @@ void go2_controller::SRBMControl()
     CENT.Set_CostFunction();
     CENT.Set_Constraint();
     CENT.Solve_QP();
+
+    // CENT.Set_FKFootPosition(ee_pose);
 }
 
 void go2_controller::Reference_Generator()
@@ -408,33 +428,81 @@ void go2_controller::StanceLeg_Control(int leg)
 
     Stance_Torque[leg](0) = Posture_Torque[leg](0);
     Stance_Torque[leg](1) = Posture_Torque[leg](1);
-    Stance_Torque[leg](2) = Posture_Torque[leg](2);
+    Stance_Torque[leg](2) = Posture_Torque[leg](2); 
+
+    // // 중력보상 여부 확인
+    // Stance_Torque[leg](0) = G_Matrix(3 * leg);
+    // Stance_Torque[leg](1) = G_Matrix(3 * leg + 1);
+    // Stance_Torque[leg](2) = G_Matrix(3 * leg + 2);
 }
 
 void go2_controller::SwingLeg_Control(int leg)
 {
-    constexpr double step_height = 0.10;
+    constexpr double step_height = 0.10; 
+    constexpr double swing_time = static_cast<double>(T_SWING) / static_cast<double>(FREQUENCY);
+    constexpr double stance_time = static_cast<double>(3.0 * T_STANCE) / static_cast<double>(FREQUENCY); 
 
     // 게인 설정
-    Kp_Swing[leg].diagonal() << 3000.0, 3000.0, 3000.0; // 1800.0, 1800.0, 1500.0
-    Kd_Swing[leg].diagonal() << 30.0, 30.0, 30.0;
+    Kp_Swing[leg].diagonal() << 500.0, 500.0, 500.0; // 1800.0, 1800.0, 1500.0 // 3000.0, 3000.0, 3000.0
+    Kd_Swing[leg].diagonal() << 10.0, 10.0, 10.0; // 30.0, 30.0, 30.0
 
-    double horizontal_phase = static_cast<double>(Hor_Swing_Time[leg]) / static_cast<double>(T_SWING);
-    double vertical_phase = static_cast<double>(Ver_Swing_Time[leg]) / static_cast<double>(T_SWING);
+    if (Ver_Swing_Time[leg] == 0.0 || Ver_Swing_Time[leg] == (T_SWING / 2.0))
+    {
+        if (is_upward[leg])
+        {
+            EE_Pose_start[leg] = Init_Foot_pos[leg];
+            EE_Pose_final[leg](X) = EE_Pose_start[leg](X) + 0.5 * stance_time * Local_body_vel(X);
+            EE_Pose_final[leg](Y) = EE_Pose_start[leg](Y) + 0.9 * 0.5 * stance_time * Local_body_vel(Y); // EE_Pose_start[leg](Y) + 0.5 * stance_time * Local_body_vel(Y)
+            EE_Pose_final[leg](Z) = EE_Pose_start[leg](Z) + step_height;
+            
+            is_upward[leg] = false;
+            std::cout << "upward!!!!!!11" << std::endl;
+        }
+        else if (!is_upward[leg])
+        {
+            EE_Pose_start[leg] = EE_Pose_final[leg];
+            EE_Pose_final[leg] = EE_Pose_start[leg]; // Init_Foot_pos[leg]; 
+            EE_Pose_final[leg](Z) = EE_Pose_start[leg](Z) - step_height; // Init_Foot_pos[leg]
 
-    EE_Pose_desired[leg](X) = Hor_Foot_pos[leg](X) + (Init_Foot_pos[leg](X) - Hor_Foot_pos[leg](X)) * 0.5 * (1 - cos(M_PI * horizontal_phase)); // 오차 보정
-    EE_Pose_desired[leg](Y) = Hor_Foot_pos[leg](Y) + (Init_Foot_pos[leg](Y) - Hor_Foot_pos[leg](Y)) * 0.5 * (1 - cos(M_PI * horizontal_phase)); // 오차 보정
-    EE_Pose_desired[leg](Z) = Init_Foot_pos[leg](Z) + step_height * 0.5 * (1 - cos(M_PI * vertical_phase));
+            is_upward[leg] = true;
+            std::cout << "downward!!!!!!11" << std::endl;
+        }
+    }
+    
+    EE_Pose_desired[leg](X) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](X), EE_Pose_final[leg](X)); // 오차 보정
+    EE_Pose_desired[leg](Y) = PLAN.Quintic(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Y), EE_Pose_final[leg](Y)); // 오차 보정
+    EE_Pose_desired[leg](Z) = PLAN.Quintic(Ver_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
 
-    EE_Vel_desired[leg](X) = 0.0;
-    EE_Vel_desired[leg](Y) = 0.0;
-    EE_Vel_desired[leg](Z) = step_height * 0.5 * M_PI * sin(M_PI * vertical_phase);
+    EE_Vel_desired[leg](X) = PLAN.QuinticD(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](X), EE_Pose_final[leg](X));
+    EE_Vel_desired[leg](Y) = PLAN.QuinticD(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Y), EE_Pose_final[leg](Y));
+    EE_Vel_desired[leg](Z) = PLAN.QuinticD(Ver_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z));
 
-    Leg_Force[leg] = Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]);
-    Swing_Torque[leg] = Foot_J[leg].transpose() * (Leg_Force[leg] + G_Matrix.segment<3>(3 * leg));
+    EE_Acc_desired[leg](X) = PLAN.QuinticDD(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](X), EE_Pose_final[leg](X));
+    EE_Acc_desired[leg](Y) = PLAN.QuinticDD(Hor_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Y), EE_Pose_final[leg](Y));
+    EE_Acc_desired[leg](Z) = PLAN.QuinticDD(Ver_Swing_Time[leg], T_SWING / 2, EE_Pose_start[leg](Z), EE_Pose_final[leg](Z)); 
 
-    Hor_Swing_Time[leg] += 1;
-    Ver_Swing_Time[leg] += 1;
+    // 이건 순수한 CTC
+    // ddX_CTC[leg] = EE_Acc_desired[leg] + Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]);
+    // auto J_inv = DampedPseudoInverse3xN(Foot_J[leg], 1e-6);
+    // ddq_CTC[leg] = J_inv * (EE_Acc_desired[leg] - Foot_dJ[leg] * dq_.segment<3>(3 * leg));
+
+    // 이건 가속도항 피드포워드(CTC) + TaskPD 
+    // Swing_Torque[leg] = Foot_J[leg].transpose() * Leg_Force[leg] + M_Matrix.block<3,3>(3 * leg, 3 * leg) * ddq_CTC[leg] + B_Matrix.segment<3>(3 * leg);
+
+    // 이건 TaskPD +_중력보상 
+    // Leg_Force[leg] = Kp_Swing[leg] * (EE_Pose_desired[leg] - Foot_Pos[leg]) + Kd_Swing[leg] * (EE_Vel_desired[leg] - Foot_Vel[leg]);
+    // Swing_Torque[leg] = Foot_J[leg].transpose() * Leg_Force[leg] + G_Matrix.segment<3>(3 * leg);
+
+    // Pinocchio 활용
+    PINO.SetTaskspacePD(Kp_Swing[leg], Kd_Swing[leg], EE_Pose_desired, EE_Vel_desired, EE_Acc_desired);
+    PINO.ComputeCTM();
+
+    Swing_Torque[leg](0) = PINO.GetTargetTorque()(leg * 3);
+    Swing_Torque[leg](1) = PINO.GetTargetTorque()(leg * 3 + 1);
+    Swing_Torque[leg](2) = PINO.GetTargetTorque()(leg * 3 + 2);
+
+    Hor_Swing_Time[leg] += 1; 
+    Ver_Swing_Time[leg] += 1; 
 }
 
 void go2_controller::Posture_Control()
@@ -449,11 +517,8 @@ void go2_controller::Posture_Control()
             torque_(3 * leg + 1) = Stance_Torque[leg](1);
             torque_(3 * leg + 2) = Stance_Torque[leg](2);
 
-            Hor_Foot_pos[leg] = PINO.GetPos(leg);
-            Ver_Foot_pos[leg] = PINO.GetPos(leg);
-
-            EE_Pose_start[leg] = Foot_Pos[leg];
-            EE_Pose_start[leg] = Foot_Pos[leg];
+            EE_Pose_start[leg](X) = PINO.GetPos(leg)(X); // Init_Foot_pos[leg](X) // PINO.GetPos(leg)(X)
+            EE_Pose_start[leg](Y) = PINO.GetPos(leg)(Y); // Init_Foot_pos[leg](Y) // PINO.GetPos(leg)(Y)
 
             Hor_Swing_Time[leg] = 0;
             Ver_Swing_Time[leg] = 0;
@@ -787,13 +852,13 @@ void go2_controller::DataStream()
     TH_msg.data.push_back(EE_Pose_desired[RR](Z));
     TH_msg.data.push_back(Foot_Pos[RR](Z));
 
-    TH_msg.data.push_back(Ref_Pos_(X));
-    TH_msg.data.push_back(Ref_Pos_(Y));
-    TH_msg.data.push_back(Ref_Pos_(Z));
+    // TH_msg.data.push_back(Ref_Pos_(X));
+    // TH_msg.data.push_back(Ref_Pos_(Y));
+    // TH_msg.data.push_back(Ref_Pos_(Z));
 
-    TH_msg.data.push_back(Err_Pos_(X));
-    TH_msg.data.push_back(Err_Pos_(Y));
-    TH_msg.data.push_back(Err_Pos_(Z));
+    // TH_msg.data.push_back(Err_Pos_(X));
+    // TH_msg.data.push_back(Err_Pos_(Y));
+    // TH_msg.data.push_back(Err_Pos_(Z));
 
     TH_msg.data.push_back(RPY_Command[ROLL]);
     TH_msg.data.push_back(RPY_Command[PITCH]);
@@ -803,9 +868,21 @@ void go2_controller::DataStream()
     TH_msg.data.push_back(gazebo_rpy(PITCH));
     TH_msg.data.push_back(gazebo_rpy(YAW));
 
-    TH_msg.data.push_back(Local_body_pos(X));
-    TH_msg.data.push_back(Local_body_pos(Y));
-    TH_msg.data.push_back(Local_body_pos(Z));
+    TH_msg.data.push_back(Init_Foot_pos[FL](X));
+    TH_msg.data.push_back(Init_Foot_pos[FL](Y));
+    TH_msg.data.push_back(Init_Foot_pos[FL](Z)); 
+
+    TH_msg.data.push_back(Init_Foot_pos[FR](X));
+    TH_msg.data.push_back(Init_Foot_pos[FR](Y));
+    TH_msg.data.push_back(Init_Foot_pos[FR](Z)); 
+
+    TH_msg.data.push_back(Init_Foot_pos[RL](X));
+    TH_msg.data.push_back(Init_Foot_pos[RL](Y));
+    TH_msg.data.push_back(Init_Foot_pos[RL](Z)); 
+
+    TH_msg.data.push_back(Init_Foot_pos[RR](X));
+    TH_msg.data.push_back(Init_Foot_pos[RR](Y));
+    TH_msg.data.push_back(Init_Foot_pos[RR](Z)); 
 
     // TH_msg.data.push_back(count);
 
@@ -842,6 +919,7 @@ void go2_controller::Set_Kinematics()
     {
         PINO.SetKinematics(i);
         Foot_J[i] = PINO.GetJacobian(i);
+        Foot_dJ[i] = PINO.GetJacobianDot(i);
         Foot_Pos[i] = PINO.GetPos(i);
         Foot_Vel[i] = PINO.GetVel(i);
     }
@@ -876,4 +954,9 @@ void go2_controller::Set_Dynamics()
 {
     PINO.SetGravity();
     G_Matrix = PINO.GetGravityCompensation();
+    B_Matrix = PINO.GetNLEffects(); // B = C + G
+    M_Matrix = PINO.GetCRBA();
+    M_Matrix.triangularView<Eigen::StrictlyLower>() = M_Matrix.transpose().triangularView<Eigen::StrictlyLower>();
+
+    // std::cout << "=== B_Matrix === \n" << B_Matrix  << std::endl;
 }

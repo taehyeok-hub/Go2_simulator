@@ -8,19 +8,28 @@ enum HZ_Control
     FREQUENCY = 500,
 };
 
+enum Up_Down
+{
+    UP = 0,
+    DOWN = 1,
+    NUM_UPDOWN = 2,
+};
+
 enum Walk_Parameter
 {
     SWING = 0,
     STANCE = 1,
     NUM_STATE = 2, 
     
-    T_SWING = 120,
-    T_STANCE = 120,
+    T_SWING = 120, 
+    T_STANCE = 80,
     T_TROT = T_SWING + T_STANCE,
 };
 
 enum Gait
 {
+    STAND,
+    STANCE_TROT,
     TROT,
     J_TROT,
     PRONK,

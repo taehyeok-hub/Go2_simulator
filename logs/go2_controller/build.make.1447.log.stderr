@@ -1,0 +1,49 @@
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:109:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+  109 | [01;31m[K<<<<<<<[m[K HEAD
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:111:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+  111 | [01;31m[K=======[m[K
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:113:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kvoid go2_controller::Set_Dynamics()[m[K’ cannot be overloaded with ‘[01m[Kvoid go2_controller::Set_Dynamics()[m[K’
+  113 |     void [01;31m[KSet_Dynamics[m[K();
+      |          [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:98:10:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kvoid go2_controller::Set_Dynamics()[m[K’
+   98 |     void [01;36m[KSet_Dynamics[m[K();
+      |          [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:114:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kvoid go2_controller::Set_FK_Kinematics()[m[K’ cannot be overloaded with ‘[01m[Kvoid go2_controller::Set_FK_Kinematics()[m[K’
+  114 |     void [01;31m[KSet_FK_Kinematics[m[K(); // 내가 만든거
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:96:10:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kvoid go2_controller::Set_FK_Kinematics()[m[K’
+   96 |     void [01;36m[KSet_FK_Kinematics[m[K(); // 내가 만든거
+      |          [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:116:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+  116 | [01;31m[K>>>>>>>[m[K quintic
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:129:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+  129 | [01;31m[K<<<<<<<[m[K HEAD
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:161:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+  161 | [01;31m[K<<<<<<<[m[K HEAD
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:164:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+  164 | [01;31m[K=======[m[K
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:166:36:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::MatrixXd go2_controller::Foot_J [4][m[K’
+  166 |     Eigen::MatrixXd Foot_J[NUM_LEG][01;31m[K,[m[K Foot_dJ[NUM_LEG];
+      |                                    [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:163:21:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[KEigen::MatrixXd go2_controller::Foot_J [4][m[K’
+  163 |     Eigen::MatrixXd [01;36m[KFoot_J[m[K[NUM_LEG];
+      |                     [01;36m[K^~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:167:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+  167 | [01;31m[K>>>>>>>[m[K quintic
+      | [01;31m[K^~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:[m[K In constructor ‘[01m[Kgo2_controller::go2_controller(ros::NodeHandle&, std::string, std::string, double)[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:71:11:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[Kgo2_controller[m[K’ does not have any field named ‘[01m[Knh_[m[K’
+   71 |         : [01;31m[Knh_[m[K(nh),
+      |           [01;31m[K^~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:121: include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

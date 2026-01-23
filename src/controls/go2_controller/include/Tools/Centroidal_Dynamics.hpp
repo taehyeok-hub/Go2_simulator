@@ -33,11 +33,11 @@ private:
     Eigen::Vector3d EE_Pose_FL_Body, EE_Pose_FR_Body, EE_Pose_RL_Body, EE_Pose_RR_Body;
 
     // 2. 로봇 몸통 위치/속도/오일러각/각속도/쿼터니언 - World 좌표계
-    Eigen::VectorXd COM_Pose, COM_Vel, COM_RPY, COM_RPY_dot;
+    Eigen::VectorXd COM_Pose, COM_Vel, COM_RPY, COM_RPY_D;
     Eigen::VectorXd COM_Quat;
 
     // 3. 로봇 몸통의 desired / actual / error
-    Eigen::Vector3d Ref_Pos, Ref_Vel, des_Ori_dot, act_Ori_dot;
+    Eigen::Vector3d Ref_Pos, Ref_Vel, Ref_RPY_D;
     Eigen::Matrix3d des_Ori;
     Eigen::Vector3d Err_Pos, Err_R;
     
@@ -89,7 +89,7 @@ public:
     ~Centroidal_Dynamics();
 
     void Solve_QP();
-    void Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_RPY_, Eigen::VectorXd COM_RPY_dot_);
+    void Set_RobotState(Eigen::VectorXd COM_Pose_, Eigen::VectorXd COM_Vel_, Eigen::VectorXd COM_Quat_, Eigen::VectorXd COM_RPY_, Eigen::VectorXd COM_RPY_D_);
     void Set_FootPosition(Eigen::Vector3d Pino_FL_, Eigen::Vector3d Pino_FR_, Eigen::Vector3d Pino_RL_, Eigen::Vector3d Pino_RR_);
     void Set_FKFootPosition(std::array<Eigen::Vector3d, 4> EE_Pose);
     void Set_Reference(Eigen::VectorXd COM_Ref_);

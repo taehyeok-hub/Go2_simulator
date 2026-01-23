@@ -49,7 +49,7 @@ public:
     int temp[NUM_LEG];
 
     bool Init_Trot = true; // 첫번째 트롯이냐?
-
+    int Stand_Time = 0;
     
 
 
