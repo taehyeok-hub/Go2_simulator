@@ -1,4 +1,0 @@
-make[1]: *** [CMakeFiles/Makefile2:1941: CMakeFiles/std_srvs_generate_messages_cpp.dir/all] Interrupt
-make[2]: *** [CMakeFiles/gazebo_ros_gencfg.dir/build.make:84: CMakeFiles/gazebo_ros_gencfg.dir/depend] Interrupt
-make[1]: *** [CMakeFiles/Makefile2:1909: CMakeFiles/gazebo_ros_gencfg.dir/all] Interrupt
-make: *** [Makefile:146: all] Interrupt

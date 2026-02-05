@@ -46,6 +46,7 @@
 #include "Centroidal_Dynamics.hpp"
 #include "Enum_Shared.hpp"
 #include "Gait_Generator.hpp"
+#include "Model_Predictive.hpp"
 
 enum ControlMode
 {
@@ -78,6 +79,7 @@ public:
     void Init();
     void Run();
     void CentRun();
+    void MPCRun();
     void PlotRun();
 
 private:
@@ -96,6 +98,7 @@ private:
     void Homing();
     void Squating();
     void SRBMControl();
+    void MPCControl();
     void Reference_Generator();
     void Posture_Control();
     void Forward_Kinematics(const Eigen::VectorXd &q, const Eigen::VectorXd &dq);
@@ -119,12 +122,12 @@ private:
 
     // CLASS---------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Kinematics KINE;
+    Kinematics KINE; 
     Trajectories PLAN;
     SingleRigidBody SRBM;
     Centroidal_Dynamics CENT;
     Gait_Generator GAIT;
-    // Centt CENT;
+    ModelPredictive MPC;
 
     // VARIABLE---------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -241,20 +244,6 @@ private:
     int ContactSensorCkFlag[4] = {0, 0, 0, 0};
     int Contact_foot[4] = {1, 1, 1, 1};
     int Contact[4] = {0, 0, 0, 0};
-
-    static inline Eigen::Matrix<double, NUM_JOINT, PinocchioInterface::kTaskDim>
-    DampedPseudoInverse3xN(const Eigen::Matrix<double, PinocchioInterface::kTaskDim, NUM_JOINT> &J,
-                           double lambda = 1e-6)
-    {
-        Eigen::Matrix<double, PinocchioInterface::kTaskDim, PinocchioInterface::kTaskDim> JJt =
-            J * J.transpose();
-        JJt.diagonal().array() += lambda * lambda;
-
-        Eigen::Matrix<double, PinocchioInterface::kTaskDim, PinocchioInterface::kTaskDim> JJt_inv =
-            JJt.ldlt().solve(Eigen::Matrix<double, PinocchioInterface::kTaskDim, PinocchioInterface::kTaskDim>::Identity());
-
-        return J.transpose() * JJt_inv; // (NUM_JOINT x 3)
-    }
 };
 
 #endif

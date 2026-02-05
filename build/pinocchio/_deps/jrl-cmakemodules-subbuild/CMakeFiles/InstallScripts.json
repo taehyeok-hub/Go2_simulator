@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/pth/pth/model/Go2_simulator/build/pinocchio/_deps/jrl-cmakemodules-subbuild/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

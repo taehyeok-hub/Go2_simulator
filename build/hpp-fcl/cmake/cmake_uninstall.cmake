@@ -23,7 +23,7 @@ MESSAGE(STATUS "catkin path: /home/pth/pth/model/Go2_simulator/devel/.catkin")
 IF(EXISTS "/home/pth/pth/model/Go2_simulator/devel/.catkin")
   MESSAGE(STATUS "Try to remove /home/pth/pth/model/Go2_simulator/devel/.catkin")
   EXECUTE_PROCESS(
-      COMMAND /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E remove "/home/pth/pth/model/Go2_simulator/devel/.catkin"
+      COMMAND /opt/cmake-3.22/bin/cmake -E remove "/home/pth/pth/model/Go2_simulator/devel/.catkin"
       RESULT_VARIABLE rm_resval
       OUTPUT_VARIABLE rm_out
       ERROR_VARIABLE rm_err
@@ -39,7 +39,7 @@ FOREACH(file ${files})
   MESSAGE(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
   IF(EXISTS "$ENV{DESTDIR}${file}")
     EXECUTE_PROCESS(
-      COMMAND /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E remove "$ENV{DESTDIR}${file}"
+      COMMAND /opt/cmake-3.22/bin/cmake -E remove "$ENV{DESTDIR}${file}"
       RESULT_VARIABLE rm_resval
       OUTPUT_VARIABLE rm_out
       )
@@ -53,7 +53,7 @@ FOREACH(file ${files})
       IF(EXISTS "$ENV{DESTDIR}${pycfile}")
         MESSAGE(STATUS "Uninstalling \"$ENV{DESTDIR}${pycfile}\"")
         EXECUTE_PROCESS(
-          COMMAND /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E remove "$ENV{DESTDIR}${pycfile}"
+          COMMAND /opt/cmake-3.22/bin/cmake -E remove "$ENV{DESTDIR}${pycfile}"
           RESULT_VARIABLE rm_resval
           OUTPUT_VARIABLE rm_out
           )
@@ -69,7 +69,7 @@ FOREACH(file ${files})
     # If file is a broken symbolic link, EXISTS returns false.
     # Workaround this bug by attempting to remove the file anyway.
     EXECUTE_PROCESS(
-      COMMAND /home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E remove "$ENV{DESTDIR}${file}"
+      COMMAND /opt/cmake-3.22/bin/cmake -E remove "$ENV{DESTDIR}${file}"
       RESULT_VARIABLE rm_resval
       OUTPUT_VARIABLE rm_out
       ERROR_QUIET
@@ -77,7 +77,7 @@ FOREACH(file ${files})
   ENDIF(EXISTS "$ENV{DESTDIR}${file}")
 ENDFOREACH(file)
 EXECUTE_PROCESS(
-  COMMAND "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake" -E remove "/home/pth/pth/model/Go2_simulator/build/hpp-fcl/install_manifest.txt"
+  COMMAND "/opt/cmake-3.22/bin/cmake" -E remove "/home/pth/pth/model/Go2_simulator/build/hpp-fcl/install_manifest.txt"
   RESULT_VARIABLE rm_resval
   OUTPUT_VARIABLE rm_out
   ERROR_QUIET

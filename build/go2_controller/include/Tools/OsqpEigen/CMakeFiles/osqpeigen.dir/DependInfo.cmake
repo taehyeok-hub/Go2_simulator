@@ -43,12 +43,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/OsqpEigen/Solver.cpp" "include/Tools/OsqpEigen/CMakeFiles/osqpeigen.dir/Solver.cpp.o" "gcc" "include/Tools/OsqpEigen/CMakeFiles/osqpeigen.dir/Solver.cpp.o.d"
   )
 
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
-  )
-
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

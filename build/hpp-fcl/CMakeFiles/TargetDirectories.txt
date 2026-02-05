@@ -40,8 +40,6 @@
 /home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles/deb.dir
 /home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles/uninstall.dir
 /home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles/reinstall.dir
-/home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles/doc.dir
-/home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles/generate-template-css.dir
 /home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles/test.dir
 /home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles/edit_cache.dir
 /home/pth/pth/model/Go2_simulator/build/hpp-fcl/CMakeFiles/rebuild_cache.dir

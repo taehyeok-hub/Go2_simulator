@@ -6,5 +6,6 @@
         "iostream": "cpp",
         "core": "cpp",
         "specialfunctions": "cpp"
-    }
+    },
+    "terminal.integrated.altClickMovesCursor": false
 }

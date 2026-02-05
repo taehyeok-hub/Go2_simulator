@@ -57,7 +57,7 @@ void go2_controller::Init()
     Local_rpy_dot.setZero(NUM_AXIS);
 
     COM_Ref.setZero(NUM_LEG * NUM_AXIS);
-    GRF.setZero(12);
+    GRF.setZero(NUM_LEG * NUM_AXIS);
 
     for (size_t i = 0; i < 4; ++i)
     {
@@ -74,14 +74,11 @@ void go2_controller::Init()
         Trot_Gait[i].setZero(2 * T_TROT);
     }
 
-    Walk_Pattern.resize(8, 4);
     Start_Position << 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60, 0, 1.20, -2.60;
     Homing_Position << 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40, 0, 0.67, -1.40;
 
     Contact_State.setZero(4);
     Trot_Pattern << 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0;
-    Walk_Pattern << 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0,
-        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0;
 
     // Swing 보행 검증: 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0;
     // TROT 보행시 : 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0;
@@ -118,9 +115,6 @@ void go2_controller::Command(bool flag)
         }
         case POSTURE:
         {
-            Gait_Count++; // 글로벌 게이트 카운트
-            std::cout << "Gait_Count : " << Gait_Count << std::endl;
-            // Gait_Scheduler(); // 내 거
             Gait_Renewal(); // 성민이 형 버전
             Posture_Control();
         }
@@ -376,8 +370,18 @@ void go2_controller::SRBMControl()
     CENT.Set_CostFunction();
     CENT.Set_Constraint();
     CENT.Solve_QP();
+}
 
-    // CENT.Set_FKFootPosition(ee_pose);
+void go2_controller::MPCControl()
+{
+    MPC.SetBodyState(Local_body_pos, Local_body_vel, gazebo_quat, gazebo_rpy, Local_rpy_dot);
+    MPC.SetFootState(PINO.GetPos(FL), PINO.GetPos(FR), PINO.GetPos(RL), PINO.GetPos(RR));
+    MPC.SetRefGait(Trot_Gait);
+    MPC.ComputeModel();
+    MPC.SetConstraints();
+    MPC.SetBodyReference(COM_Ref);
+    MPC.SetCostFunction();
+    MPC.SolveQP();
 }
 
 void go2_controller::Reference_Generator()
@@ -418,7 +422,8 @@ void go2_controller::Gait_Renewal()
 
 void go2_controller::StanceLeg_Control(int leg)
 {
-    GRF = CENT.Get_Force();
+    // GRF = CENT.Get_Force(); // SRBM
+    GRF = MPC.GetStateNOW(); // SRBM + MPC
 
     Leg_Force[leg](X) = GRF(3 * leg);
     Leg_Force[leg](Y) = GRF(3 * leg + 1);
@@ -438,15 +443,15 @@ void go2_controller::StanceLeg_Control(int leg)
 
 void go2_controller::SwingLeg_Control(int leg)
 {
-    constexpr double step_height = 0.10;
+    constexpr double step_height = 0.10; 
     constexpr double swing_time = static_cast<double>(T_SWING) / static_cast<double>(FREQUENCY);
-    constexpr double stance_time = static_cast<double>(T_TROT - T_SWING) / static_cast<double>(FREQUENCY);
+    constexpr double stance_time = static_cast<double>(T_STANCE) / static_cast<double>(FREQUENCY); 
 
     // 게인 설정
     Kp_Swing[leg].diagonal() << 500.0, 500.0, 500.0; // 1800.0, 1800.0, 1500.0 // 3000.0, 3000.0, 3000.0
     Kd_Swing[leg].diagonal() << 10.0, 10.0, 10.0; // 30.0, 30.0, 30.0
 
-    if (Gait_Count % (T_SWING / 2) == 0)
+    if (Ver_Swing_Time[leg] == 0.0 || Ver_Swing_Time[leg] == (T_SWING / 2.0))
     {
         if (is_upward[leg])
         {
@@ -535,6 +540,8 @@ void go2_controller::Posture_Control()
     }
 }
 
+
+
 void go2_controller::Run()
 {
     ROS_INFO("Running the torque control loop .................");
@@ -591,6 +598,39 @@ void go2_controller::CentRun()
             last_control_time = current_time;
 
             SRBMControl();
+
+            ros::Duration sleep_time = control_period_ - elapsed_time;
+            if (sleep_time > ros::Duration(0))
+            {
+                sleep_time.sleep();
+            }
+        }
+    }
+}
+
+void go2_controller::MPCRun()
+{
+    ROS_INFO("Running the torque control loop .................");
+
+    const ros::Duration control_period_(1.0 / 50.0); // 200hz
+
+    ros::AsyncSpinner spinner(4); // 4자유도인거랑은 별개임 스레드 4개 사용해서 더 잘 처리한다는 뜻
+    spinner.start();
+
+    ros::Time start_time = ros::Time::now();
+    ros::Time last_control_time = start_time;
+
+    while (ros::ok())
+    {
+        ros::Time current_time = ros::Time::now();
+
+        ros::Duration elapsed_time = current_time - last_control_time;
+
+        if (elapsed_time >= control_period_)
+        {
+            last_control_time = current_time;
+
+            MPCControl();
 
             ros::Duration sleep_time = control_period_ - elapsed_time;
             if (sleep_time > ros::Duration(0))

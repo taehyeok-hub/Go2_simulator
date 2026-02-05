@@ -1,8 +1,0 @@
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:176:12:[m[K [01;31m[Kerror: [m[K‘[01m[KVectroXd[m[K’ in namespace ‘[01m[KEigen[m[K’ does not name a type; did you mean ‘[01m[KVectorXd[m[K’?
-  176 |     Eigen::[01;31m[KVectroXd[m[K tor = Eigen::VectorXd::Zero(12);
-      |            [01;31m[K^~~~~~~~[m[K
-      |            [32m[KVectorXd[m[K
-make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:121: include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
-make: *** [Makefile:146: all] Error 2

@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Tools.dir/Gait_Generator.cpp.o.d"
   "CMakeFiles/Tools.dir/Kinematics.cpp.o"
   "CMakeFiles/Tools.dir/Kinematics.cpp.o.d"
+  "CMakeFiles/Tools.dir/Model_Predictive.cpp.o"
+  "CMakeFiles/Tools.dir/Model_Predictive.cpp.o.d"
   "CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o"
   "CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o.d"
   "CMakeFiles/Tools.dir/SingleRigidBody.cpp.o"

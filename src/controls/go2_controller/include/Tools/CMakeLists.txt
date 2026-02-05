@@ -10,6 +10,7 @@ add_library(Tools
     Pinocchio_Interface.cpp
     Gait_Generator.cpp
     Trajectory_Generator.cpp
+    Model_Predictive.cpp
 )
 
 target_link_libraries(Tools osqpeigen)

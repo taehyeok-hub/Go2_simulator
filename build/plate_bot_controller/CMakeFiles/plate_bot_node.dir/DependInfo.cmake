@@ -11,12 +11,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/pth/pth/model/Go2_simulator/src/controls/plate_bot_controller/src/plate_bot_controller_node.cpp" "CMakeFiles/plate_bot_node.dir/src/plate_bot_controller_node.cpp.o" "gcc" "CMakeFiles/plate_bot_node.dir/src/plate_bot_controller_node.cpp.o.d"
   )
 
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
-  )
-
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/pth/pth/model/Go2_simulator/build/plate_bot_controller/CMakeFiles/plate_bot_controller.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

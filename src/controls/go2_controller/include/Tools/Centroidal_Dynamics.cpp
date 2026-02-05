@@ -30,7 +30,7 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     LinearMatrix.resize(num_of_constraints, num_of_variables);
     LowerBound.resize(num_of_constraints);
     UpperBound.resize(num_of_constraints);
-    QP_Solution.resize(num_of_variables);
+    QP_Solution.resize(num_of_variables); 
 
     Hessian.setZero();
     Gradient.setZero();
@@ -211,7 +211,7 @@ void Centroidal_Dynamics::Solve_QP()
 
     if (!solver.isInitialized())
     {
-        solver.settings()->setVerbosity(false);
+        solver.settings()->setVerbosity(true);
         solver.settings()->setWarmStart(true);
         solver.data()->setNumberOfVariables(num_of_variables);
         solver.data()->setNumberOfConstraints(num_of_constraints);
@@ -239,5 +239,5 @@ void Centroidal_Dynamics::Solve_QP()
         F_Vector(i) = QP_Solution(i);
     }
 
-    // std::cout << "===== Force_Vector ===== \n" << F_Vector << std::endl;
+    std::cout << "===== Force_Vector ===== \n" << F_Vector << std::endl;
 }
