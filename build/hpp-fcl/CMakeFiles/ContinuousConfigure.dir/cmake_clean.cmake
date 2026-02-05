@@ -1,7 +1,4 @@
 file(REMOVE_RECURSE
-  "doc/doxygen-html"
-  "doc/doxygen.log"
-  "doc/hpp-fcl.doxytag"
   "CMakeFiles/ContinuousConfigure"
 )
 

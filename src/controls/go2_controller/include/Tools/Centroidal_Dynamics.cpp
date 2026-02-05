@@ -20,17 +20,17 @@ Centroidal_Dynamics::Centroidal_Dynamics()
     Kd_Pos.diagonal() << 2000.0, 2300.0, 1200.0; // 600.0, 600.0, 600.0 // 2000.0, 2300.0, 1200.0
 
     Kp_Ori.setIdentity();
-    Kp_Ori.diagonal() << 7000.0, 7000.0, 7000.0; //  5000.0, 5000.0, 5000.0 // 6000.0, 6000.0, 6000.0
+    Kp_Ori.diagonal() << 6000.0, 6000.0, 6000.0; //  5000.0, 5000.0, 5000.0 // 6000.0, 6000.0, 6000.0
 
     Kd_Ori.setIdentity();
-    Kd_Ori.diagonal() << 250.0, 250.0, 250.0; //  200.0, 200.0, 200.0 // 225.0, 225.0, 225.0
+    Kd_Ori.diagonal() << 225.0, 225.0, 225.0; //  200.0, 200.0, 200.0 // 225.0, 225.0, 225.0
 
     Hessian.resize(num_of_variables, num_of_variables);
     Gradient.resize(num_of_variables);
     LinearMatrix.resize(num_of_constraints, num_of_variables);
     LowerBound.resize(num_of_constraints);
     UpperBound.resize(num_of_constraints);
-    QP_Solution.resize(num_of_variables);
+    QP_Solution.resize(num_of_variables); 
 
     Hessian.setZero();
     Gradient.setZero();
@@ -211,7 +211,7 @@ void Centroidal_Dynamics::Solve_QP()
 
     if (!solver.isInitialized())
     {
-        solver.settings()->setVerbosity(false);
+        solver.settings()->setVerbosity(true);
         solver.settings()->setWarmStart(true);
         solver.data()->setNumberOfVariables(num_of_variables);
         solver.data()->setNumberOfConstraints(num_of_constraints);
@@ -239,5 +239,5 @@ void Centroidal_Dynamics::Solve_QP()
         F_Vector(i) = QP_Solution(i);
     }
 
-    // std::cout << "===== Force_Vector ===== \n" << F_Vector << std::endl;
+    std::cout << "===== Force_Vector ===== \n" << F_Vector << std::endl;
 }

@@ -8,7 +8,12 @@ void MainThreadRun(go2_controller &controller)
 
 void CentThreadRun(go2_controller &controller)
 {
-    controller.CentRun();
+    // controller.CentRun();
+}
+
+void MPCThreadRun(go2_controller &controller)
+{
+    controller.MPCRun();
 }
 
 void PlotThreadRun(go2_controller &controller)
@@ -44,11 +49,13 @@ int main(int argc, char **argv)
 
     std::thread main_thread(MainThreadRun, std::ref(go2_controller));
     std::thread plot_thread(PlotThreadRun, std::ref(go2_controller));
-    std::thread cent_thread(CentThreadRun, std::ref(go2_controller));
+    // std::thread cent_thread(CentThreadRun, std::ref(go2_controller));
+    std::thread mpc_thread(MPCThreadRun, std::ref(go2_controller));
 
     main_thread.join();
     plot_thread.join();
-    cent_thread.join();
-
+    // cent_thread.join();
+    mpc_thread.join();
+    
     return 0;
 }

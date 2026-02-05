@@ -46,6 +46,7 @@
 #include "Centroidal_Dynamics.hpp"
 #include "Enum_Shared.hpp"
 #include "Gait_Generator.hpp"
+#include "Model_Predictive.hpp"
 
 enum ControlMode
 {
@@ -78,6 +79,7 @@ public:
     void Init();
     void Run();
     void CentRun();
+    void MPCRun();
     void PlotRun();
 
 private:
@@ -96,6 +98,7 @@ private:
     void Homing();
     void Squating();
     void SRBMControl();
+    void MPCControl();
     void Reference_Generator();
     void Posture_Control();
     void Forward_Kinematics(const Eigen::VectorXd &q, const Eigen::VectorXd &dq);
@@ -119,12 +122,12 @@ private:
 
     // CLASS---------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Kinematics KINE;
+    Kinematics KINE; 
     Trajectories PLAN;
     SingleRigidBody SRBM;
     Centroidal_Dynamics CENT;
     Gait_Generator GAIT;
-    // Centt CENT;
+    ModelPredictive MPC;
 
     // VARIABLE---------------------------------------------------------------------------------------------------------------------------------------------------
 

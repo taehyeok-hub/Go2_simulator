@@ -289,7 +289,7 @@ double Trajectories::QuinticD(double t, double T, double q0, double q1)
 double Trajectories::QuinticDD(double t, double T, double q0, double q1)
 {
     if (t >= T) return 0;
-    if (t <= 0) return 0;
+    if (t <= 0) return 0; 
 
     double s = t / T;
     double quinticdd = (q1 - q0) * (60.0 * s - 180.0 * s*s + 120.0 * s*s*s);

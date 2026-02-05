@@ -1,4 +1,69 @@
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
-    6 |     [01;35m[Ksystem("clear")[m[K;
-      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.hpp:22:1:[m[K [01;31m[Kerror: [m[Knew types may not be defined in a return type
+   22 | [01;31m[Kclass[m[K ModelPredictive
+      | [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.hpp:22:1:[m[K [01;36m[Knote: [m[K(perhaps a semicolon is missing after the definition of ‘[01m[KModelPredictive[m[K’)
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:3:34:[m[K [01;31m[Kerror: [m[Kreturn type specification for constructor invalid
+    3 | ModelPredictive::ModelPredictive([01;31m[K)[m[K
+      |                                  [01;31m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:[m[K In constructor ‘[01m[KModelPredictive::ModelPredictive()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:16:5:[m[K [01;31m[Kerror: [m[K‘[01m[KA_eq[m[K’ was not declared in this scope
+   16 |     [01;31m[KA_eq[m[K.setZero(NUM_DOF * prediction_horizon, NUM_DOF * 2 * prediction_horizon);
+      |     [01;31m[K^~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:17:5:[m[K [01;31m[Kerror: [m[K‘[01m[KB_eq[m[K’ was not declared in this scope
+   17 |     [01;31m[KB_eq[m[K.setZero(NUM_DOF * 2 * prediction_horizon, 1);
+      |     [01;31m[K^~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:[m[K At global scope:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:128:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid ModelPredictive::SetReference(Eigen::VectorXd)[m[K’
+  128 | void [01;31m[KModelPredictive[m[K::SetReference(Eigen::VectorXd Body_Ref_)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:128:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid ModelPredictive::SetReference(Eigen::VectorXd)[m[K’
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.hpp:22:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass ModelPredictive[m[K’ defined here
+   22 | class [01;36m[KModelPredictive[m[K
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:[m[K In member function ‘[01m[Kvoid ModelPredictive::SetConstraint()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:138:5:[m[K [01;31m[Kerror: [m[K‘[01m[KA_eq[m[K’ was not declared in this scope
+  138 |     [01;31m[KA_eq[m[K = Eigen::MatrixXd::Zero();
+      |     [01;31m[K^~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:142:45:[m[K [01;31m[Kerror: [m[Klvalue required as left operand of assignment
+  142 |         A_eq.block<12,12>(i * 12, 24 * i) = [01;31m[KIx12[m[K;            // x_{k+i+1} 앞의 I
+      |                                             [01;31m[K^~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:143:51:[m[K [01;31m[Kerror: [m[Klvalue required as left operand of assignment
+  143 |         A_eq.block<12,12>(i * 12, 24 * i + 12) = -[01;31m[KB_Matrix[m[K;  // u_{k+i} 앞의 -B
+      |                                                   [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:148:56:[m[K [01;31m[Kerror: [m[Klvalue required as left operand of assignment
+  148 |             A_eq.block<12,12>((i + 1) * 12, 24 * i) = -[01;31m[KA_Matrix[m[K; // -A * x_{k+i+1}
+      |                                                        [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:156:13:[m[K [01;31m[Kerror: [m[K‘[01m[KB_eq[m[K’ was not declared in this scope
+  156 |             [01;31m[KB_eq[m[K.block<12,1>(i * 12, 0) = A_Matrix * X_Matrix + C_Matrix; // C
+      |             [01;31m[K^~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:156:65:[m[K [01;31m[Kerror: [m[Klvalue required as left operand of assignment
+  156 |             B_eq.block<12,1>(i * 12, 0) = A_Matrix * X_Matrix + [01;31m[KC_Matrix[m[K; // C
+      |                                                                 [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:160:13:[m[K [01;31m[Kerror: [m[K‘[01m[KB_eq[m[K’ was not declared in this scope
+  160 |             [01;31m[KB_eq[m[K.block<12,1>(i * 12, 0) = C_Matrix; // C
+      |             [01;31m[K^~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:160:43:[m[K [01;31m[Kerror: [m[Klvalue required as left operand of assignment
+  160 |             B_eq.block<12,1>(i * 12, 0) = [01;31m[KC_Matrix[m[K; // C
+      |                                           [01;31m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Core:366[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Dense:1[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.hpp:10[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:1[m[K:
+/usr/include/eigen3/Eigen/src/Core/CwiseNullaryOp.h: In instantiation of ‘[01m[Kstatic const ConstantReturnType Eigen::DenseBase<Derived>::Constant(const Scalar&) [with Derived = Eigen::Matrix<double, -1, -1>; Eigen::DenseBase<Derived>::ConstantReturnType = Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, Eigen::Matrix<double, -1, -1> >; typename Eigen::internal::conditional<Eigen::internal::is_same<typename Eigen::internal::traits<T>::XprKind, Eigen::MatrixXpr>::value, Eigen::Matrix<typename Eigen::internal::traits<T>::Scalar, Eigen::internal::traits<T>::RowsAtCompileTime, Eigen::internal::traits<T>::ColsAtCompileTime, (Eigen::AutoAlign | ((Eigen::internal::traits<T>::Flags & Eigen::RowMajorBit) ? Eigen::RowMajor :  Eigen::ColMajor)), Eigen::internal::traits<T>::MaxRowsAtCompileTime, Eigen::internal::traits<T>::MaxColsAtCompileTime>, Eigen::Array<typename Eigen::internal::traits<T>::Scalar, Eigen::internal::traits<T>::RowsAtCompileTime, Eigen::internal::traits<T>::ColsAtCompileTime, (Eigen::AutoAlign | ((Eigen::internal::traits<T>::Flags & Eigen::RowMajorBit) ? Eigen::RowMajor :  Eigen::ColMajor)), Eigen::internal::traits<T>::MaxRowsAtCompileTime, Eigen::internal::traits<T>::MaxColsAtCompileTime> >::type = Eigen::Matrix<double, -1, -1>; typename Eigen::internal::traits<T>::Scalar = double; Eigen::DenseBase<Derived>::Scalar = double][m[K’:
+[01m[K/usr/include/eigen3/Eigen/src/Core/CwiseNullaryOp.h:469:18:[m[K   required from ‘[01m[Kstatic const ConstantReturnType Eigen::DenseBase<Derived>::Zero() [with Derived = Eigen::Matrix<double, -1, -1>; Eigen::DenseBase<Derived>::ConstantReturnType = Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, Eigen::Matrix<double, -1, -1> >; typename Eigen::internal::conditional<Eigen::internal::is_same<typename Eigen::internal::traits<T>::XprKind, Eigen::MatrixXpr>::value, Eigen::Matrix<typename Eigen::internal::traits<T>::Scalar, Eigen::internal::traits<T>::RowsAtCompileTime, Eigen::internal::traits<T>::ColsAtCompileTime, (Eigen::AutoAlign | ((Eigen::internal::traits<T>::Flags & Eigen::RowMajorBit) ? Eigen::RowMajor :  Eigen::ColMajor)), Eigen::internal::traits<T>::MaxRowsAtCompileTime, Eigen::internal::traits<T>::MaxColsAtCompileTime>, Eigen::Array<typename Eigen::internal::traits<T>::Scalar, Eigen::internal::traits<T>::RowsAtCompileTime, Eigen::internal::traits<T>::ColsAtCompileTime, (Eigen::AutoAlign | ((Eigen::internal::traits<T>::Flags & Eigen::RowMajorBit) ? Eigen::RowMajor :  Eigen::ColMajor)), Eigen::internal::traits<T>::MaxRowsAtCompileTime, Eigen::internal::traits<T>::MaxColsAtCompileTime> >::type = Eigen::Matrix<double, -1, -1>; typename Eigen::internal::traits<T>::Scalar = double][m[K’
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:138:34:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h:145:46:[m[K [01;31m[Kerror: [m[Kstatic assertion failed: YOU_CALLED_A_FIXED_SIZE_METHOD_ON_A_DYNAMIC_SIZE_MATRIX_OR_VECTOR
+  145 |   EIGEN_STATIC_ASSERT(TYPE::[01;31m[KSizeAtCompileTime!=Eigen::Dynamic[m[K, \
+      |                             [01;31m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h:33:54:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KEIGEN_STATIC_ASSERT[m[K’
+   33 |     #define EIGEN_STATIC_ASSERT(X,MSG) static_assert([01;36m[KX[m[K,#MSG);
+      |                                                      [01;36m[K^[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Core/CwiseNullaryOp.h:214:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KEIGEN_STATIC_ASSERT_FIXED_SIZE[m[K’
+  214 |   [01;36m[KEIGEN_STATIC_ASSERT_FIXED_SIZE[m[K(Derived)
+      |   [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:188: include/Tools/CMakeFiles/Tools.dir/Model_Predictive.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:2509: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

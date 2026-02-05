@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [  0%] [0mBuilt target go2_controller_xacro_generated_to_devel_space_[0m
 [ 72%] [0mBuilt target osqpeigen[0m
 [ 72%] [0mBuilt target geometry_msgs_generate_messages_cpp[0m
@@ -82,3 +83,86 @@
 [ 95%] [0mBuilt target go2_controller[0m
 [ 97%] [1m[32mLinking CXX executable /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node[0m
 [100%] [0mBuilt target go2_node[0m
+=======
+[  0%] Built target go2_controller_xacro_generated_to_devel_space_
+[ 70%] Built target osqpeigen
+[ 70%] Built target geometry_msgs_generate_messages_cpp
+[ 70%] Built target geometry_msgs_generate_messages_eus
+[ 70%] Built target geometry_msgs_generate_messages_lisp
+[ 70%] Built target geometry_msgs_generate_messages_nodejs
+[ 70%] Built target geometry_msgs_generate_messages_py
+[ 70%] Built target std_msgs_generate_messages_cpp
+[ 70%] Built target std_msgs_generate_messages_eus
+[ 70%] Built target std_msgs_generate_messages_lisp
+[ 70%] Built target std_msgs_generate_messages_nodejs
+[ 70%] Built target std_msgs_generate_messages_py
+[ 70%] Built target roscpp_generate_messages_cpp
+[ 70%] Built target roscpp_generate_messages_eus
+[ 70%] Built target roscpp_generate_messages_lisp
+[ 70%] Built target roscpp_generate_messages_nodejs
+[ 70%] Built target roscpp_generate_messages_py
+[ 70%] Built target rosgraph_msgs_generate_messages_cpp
+[ 70%] Built target rosgraph_msgs_generate_messages_eus
+[ 70%] Built target rosgraph_msgs_generate_messages_lisp
+[ 70%] Built target rosgraph_msgs_generate_messages_nodejs
+[ 70%] Built target rosgraph_msgs_generate_messages_py
+[ 70%] Built target sensor_msgs_generate_messages_cpp
+[ 70%] Built target sensor_msgs_generate_messages_eus
+[ 70%] Built target sensor_msgs_generate_messages_lisp
+[ 70%] Built target sensor_msgs_generate_messages_nodejs
+[ 70%] Built target sensor_msgs_generate_messages_py
+[ 70%] Built target tf_generate_messages_cpp
+[ 70%] Built target tf_generate_messages_eus
+[ 70%] Built target tf_generate_messages_lisp
+[ 70%] Built target tf_generate_messages_nodejs
+[ 70%] Built target tf_generate_messages_py
+[ 70%] Built target actionlib_generate_messages_cpp
+[ 70%] Built target actionlib_generate_messages_eus
+[ 70%] Built target actionlib_generate_messages_lisp
+[ 70%] Built target actionlib_generate_messages_nodejs
+[ 70%] Built target actionlib_generate_messages_py
+[ 70%] Built target actionlib_msgs_generate_messages_cpp
+[ 70%] Built target actionlib_msgs_generate_messages_eus
+[ 70%] Built target actionlib_msgs_generate_messages_lisp
+[ 70%] Built target actionlib_msgs_generate_messages_nodejs
+[ 70%] Built target actionlib_msgs_generate_messages_py
+[ 70%] Built target tf2_msgs_generate_messages_cpp
+[ 70%] Built target tf2_msgs_generate_messages_eus
+[ 70%] Built target tf2_msgs_generate_messages_lisp
+[ 70%] Built target tf2_msgs_generate_messages_nodejs
+[ 70%] Built target tf2_msgs_generate_messages_py
+[ 70%] Built target gazebo_ros_gencfg
+[ 70%] Built target std_srvs_generate_messages_cpp
+[ 70%] Built target std_srvs_generate_messages_eus
+[ 70%] Built target std_srvs_generate_messages_lisp
+[ 70%] Built target std_srvs_generate_messages_nodejs
+[ 70%] Built target std_srvs_generate_messages_py
+[ 70%] Built target dynamic_reconfigure_generate_messages_cpp
+[ 70%] Built target dynamic_reconfigure_generate_messages_eus
+[ 70%] Built target dynamic_reconfigure_generate_messages_lisp
+[ 70%] Built target dynamic_reconfigure_generate_messages_nodejs
+[ 70%] Built target dynamic_reconfigure_generate_messages_py
+[ 70%] Built target dynamic_reconfigure_gencfg
+[ 70%] Built target gazebo_msgs_generate_messages_cpp
+[ 70%] Built target gazebo_msgs_generate_messages_eus
+[ 70%] Built target gazebo_msgs_generate_messages_lisp
+[ 70%] Built target gazebo_msgs_generate_messages_nodejs
+[ 70%] Built target gazebo_msgs_generate_messages_py
+[ 70%] Built target trajectory_msgs_generate_messages_cpp
+[ 70%] Built target trajectory_msgs_generate_messages_eus
+[ 70%] Built target trajectory_msgs_generate_messages_lisp
+[ 70%] Built target trajectory_msgs_generate_messages_nodejs
+[ 70%] Built target trajectory_msgs_generate_messages_py
+[ 70%] Built target controller_manager_msgs_generate_messages_eus
+[ 70%] Built target controller_manager_msgs_generate_messages_cpp
+[ 70%] Built target controller_manager_msgs_generate_messages_lisp
+[ 70%] Built target controller_manager_msgs_generate_messages_nodejs
+[ 70%] Built target controller_manager_msgs_generate_messages_py
+[ 72%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Model_Predictive.cpp.o[0m
+[ 75%] [32m[1mLinking CXX shared library /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so[0m
+[ 91%] Built target Tools
+[ 93%] [32m[1mLinking CXX shared library /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so[0m
+[ 95%] Built target go2_controller
+[ 97%] [32m[1mLinking CXX executable /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node[0m
+[100%] Built target go2_node
+>>>>>>> quintic

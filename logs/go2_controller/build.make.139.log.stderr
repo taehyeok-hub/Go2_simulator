@@ -1,8 +1,0 @@
-In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.cpp:1[m[K:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:26:10:[m[K [01;31m[Kfatal error: [m[KEnum_Shared.h: No such file or directory
-   26 | #include [01;31m[K"Enum_Shared.h"[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~[m[K
-compilation terminated.
-make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:149: include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
-make: *** [Makefile:146: all] Error 2

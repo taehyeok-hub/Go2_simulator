@@ -1,9 +1,0 @@
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::TaskPD_LegControl(int)[m[K’:
-[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:46:19:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[KEigen::Vector3d[m[K’ {aka ‘[01m[KEigen::Matrix<double, 3, 1>[m[K’} to ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 3, 1>, 1>::Scalar[m[K’ {aka ‘[01m[Kdouble[m[K’} in assignment
-   46 |     Torque[leg] = [01;31m[KTorque[m[K;
-      |                   [01;31m[K^~~~~~[m[K
-      |                   [01;31m[K|[m[K
-      |                   [01;31m[KEigen::Vector3d {aka Eigen::Matrix<double, 3, 1>}[m[K
-make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:121: include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:3113: include/Tools/CMakeFiles/Tools.dir/all] Error 2
-make: *** [Makefile:146: all] Error 2

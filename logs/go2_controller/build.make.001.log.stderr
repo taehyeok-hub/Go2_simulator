@@ -1,0 +1,27 @@
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.hpp:22:1:[m[K [01;31m[Kerror: [m[Knew types may not be defined in a return type
+   22 | [01;31m[Kclass[m[K ModelPredictive
+      | [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.hpp:22:1:[m[K [01;36m[Knote: [m[K(perhaps a semicolon is missing after the definition of ‘[01m[KModelPredictive[m[K’)
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:3:34:[m[K [01;31m[Kerror: [m[Kreturn type specification for constructor invalid
+    3 | ModelPredictive::ModelPredictive([01;31m[K)[m[K
+      |                                  [01;31m[K^[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Core:366[m[K,
+                 from [01m[K/usr/include/eigen3/Eigen/Dense:1[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.hpp:10[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:1[m[K:
+/usr/include/eigen3/Eigen/src/Core/CwiseNullaryOp.h: In instantiation of ‘[01m[Kstatic const ConstantReturnType Eigen::DenseBase<Derived>::Constant(const Scalar&) [with Derived = Eigen::Matrix<double, -1, -1>; Eigen::DenseBase<Derived>::ConstantReturnType = Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, Eigen::Matrix<double, -1, -1> >; typename Eigen::internal::conditional<Eigen::internal::is_same<typename Eigen::internal::traits<T>::XprKind, Eigen::MatrixXpr>::value, Eigen::Matrix<typename Eigen::internal::traits<T>::Scalar, Eigen::internal::traits<T>::RowsAtCompileTime, Eigen::internal::traits<T>::ColsAtCompileTime, (Eigen::AutoAlign | ((Eigen::internal::traits<T>::Flags & Eigen::RowMajorBit) ? Eigen::RowMajor :  Eigen::ColMajor)), Eigen::internal::traits<T>::MaxRowsAtCompileTime, Eigen::internal::traits<T>::MaxColsAtCompileTime>, Eigen::Array<typename Eigen::internal::traits<T>::Scalar, Eigen::internal::traits<T>::RowsAtCompileTime, Eigen::internal::traits<T>::ColsAtCompileTime, (Eigen::AutoAlign | ((Eigen::internal::traits<T>::Flags & Eigen::RowMajorBit) ? Eigen::RowMajor :  Eigen::ColMajor)), Eigen::internal::traits<T>::MaxRowsAtCompileTime, Eigen::internal::traits<T>::MaxColsAtCompileTime> >::type = Eigen::Matrix<double, -1, -1>; typename Eigen::internal::traits<T>::Scalar = double; Eigen::DenseBase<Derived>::Scalar = double][m[K’:
+[01m[K/usr/include/eigen3/Eigen/src/Core/CwiseNullaryOp.h:469:18:[m[K   required from ‘[01m[Kstatic const ConstantReturnType Eigen::DenseBase<Derived>::Zero() [with Derived = Eigen::Matrix<double, -1, -1>; Eigen::DenseBase<Derived>::ConstantReturnType = Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, Eigen::Matrix<double, -1, -1> >; typename Eigen::internal::conditional<Eigen::internal::is_same<typename Eigen::internal::traits<T>::XprKind, Eigen::MatrixXpr>::value, Eigen::Matrix<typename Eigen::internal::traits<T>::Scalar, Eigen::internal::traits<T>::RowsAtCompileTime, Eigen::internal::traits<T>::ColsAtCompileTime, (Eigen::AutoAlign | ((Eigen::internal::traits<T>::Flags & Eigen::RowMajorBit) ? Eigen::RowMajor :  Eigen::ColMajor)), Eigen::internal::traits<T>::MaxRowsAtCompileTime, Eigen::internal::traits<T>::MaxColsAtCompileTime>, Eigen::Array<typename Eigen::internal::traits<T>::Scalar, Eigen::internal::traits<T>::RowsAtCompileTime, Eigen::internal::traits<T>::ColsAtCompileTime, (Eigen::AutoAlign | ((Eigen::internal::traits<T>::Flags & Eigen::RowMajorBit) ? Eigen::RowMajor :  Eigen::ColMajor)), Eigen::internal::traits<T>::MaxRowsAtCompileTime, Eigen::internal::traits<T>::MaxColsAtCompileTime> >::type = Eigen::Matrix<double, -1, -1>; typename Eigen::internal::traits<T>::Scalar = double][m[K’
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:199:37:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h:145:46:[m[K [01;31m[Kerror: [m[Kstatic assertion failed: YOU_CALLED_A_FIXED_SIZE_METHOD_ON_A_DYNAMIC_SIZE_MATRIX_OR_VECTOR
+  145 |   EIGEN_STATIC_ASSERT(TYPE::[01;31m[KSizeAtCompileTime!=Eigen::Dynamic[m[K, \
+      |                             [01;31m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h:33:54:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KEIGEN_STATIC_ASSERT[m[K’
+   33 |     #define EIGEN_STATIC_ASSERT(X,MSG) static_assert([01;36m[KX[m[K,#MSG);
+      |                                                      [01;36m[K^[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Core/CwiseNullaryOp.h:214:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KEIGEN_STATIC_ASSERT_FIXED_SIZE[m[K’
+  214 |   [01;36m[KEIGEN_STATIC_ASSERT_FIXED_SIZE[m[K(Derived)
+      |   [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:188: include/Tools/CMakeFiles/Tools.dir/Model_Predictive.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2509: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

@@ -14,6 +14,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 cmake_policy(SET CMP0007 NEW)
 if(EXISTS "/home/pth/pth/model/Go2_simulator/build/hpp-fcl/install_manifest.txt")
-  execute_process(COMMAND "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake" --build "/home/pth/pth/model/Go2_simulator/build/hpp-fcl" --target uninstall --config )
+  execute_process(COMMAND "/opt/cmake-3.22/bin/cmake" --build "/home/pth/pth/model/Go2_simulator/build/hpp-fcl" --target uninstall --config )
 endif()
-execute_process(COMMAND "/home/pth/.local/lib/python3.8/site-packages/cmake/data/bin/cmake" --build "/home/pth/pth/model/Go2_simulator/build/hpp-fcl" --target install --config )
+execute_process(COMMAND "/opt/cmake-3.22/bin/cmake" --build "/home/pth/pth/model/Go2_simulator/build/hpp-fcl" --target install --config )

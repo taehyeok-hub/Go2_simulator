@@ -1,8 +1,3 @@
-file(REMOVE_RECURSE
-  "doc/doxygen-html"
-  "doc/doxygen.log"
-  "doc/hpp-fcl.doxytag"
-)
 
 # Per-language clean rules from dependency scanning.
 foreach(lang )

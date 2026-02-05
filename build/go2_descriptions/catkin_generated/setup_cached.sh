@@ -8,8 +8,6 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/pth/pth/model/Go2_simulator/devel/.private/go2_descriptions:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/pth/pth/model/Go2_simulator/devel/.private/go2_descriptions/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/pth/pth/model/Go2_simulator/devel/.private/go2_descriptions/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/pth/pth/model/Go2_simulator/build/go2_descriptions'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/pth/pth/model/Go2_simulator/devel/.private/go2_descriptions/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/pth/pth/model/Go2_simulator/src/robots/go2_descriptions:$ROS_PACKAGE_PATH"

@@ -1,0 +1,11 @@
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.hpp:22:1:[m[K [01;31m[Kerror: [m[Knew types may not be defined in a return type
+   22 | [01;31m[Kclass[m[K ModelPredictive
+      | [01;31m[K^~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.hpp:22:1:[m[K [01;36m[Knote: [m[K(perhaps a semicolon is missing after the definition of ‘[01m[KModelPredictive[m[K’)
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Model_Predictive.cpp:3:34:[m[K [01;31m[Kerror: [m[Kreturn type specification for constructor invalid
+    3 | ModelPredictive::ModelPredictive([01;31m[K)[m[K
+      |                                  [01;31m[K^[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:188: include/Tools/CMakeFiles/Tools.dir/Model_Predictive.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2509: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2
