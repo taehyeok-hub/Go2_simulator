@@ -22,11 +22,7 @@ enum Walk_Parameter
     NUM_STATE = 2, 
     
     T_SWING = 120, 
-<<<<<<< HEAD
-    T_STANCE = 80,
-=======
     T_STANCE = 120,
->>>>>>> quintic
     T_TROT = T_SWING + T_STANCE,
 };
 

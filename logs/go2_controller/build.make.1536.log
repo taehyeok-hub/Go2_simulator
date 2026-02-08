@@ -1,0 +1,102 @@
+[  0%] Built target go2_controller_xacro_generated_to_devel_space_
+[ 70%] Built target osqpeigen
+[ 70%] Built target geometry_msgs_generate_messages_cpp
+[ 70%] Built target geometry_msgs_generate_messages_eus
+[ 70%] Built target geometry_msgs_generate_messages_lisp
+[ 70%] Built target geometry_msgs_generate_messages_nodejs
+[ 70%] Built target geometry_msgs_generate_messages_py
+[ 70%] Built target std_msgs_generate_messages_cpp
+[ 70%] Built target std_msgs_generate_messages_eus
+[ 70%] Built target std_msgs_generate_messages_lisp
+[ 70%] Built target std_msgs_generate_messages_nodejs
+[ 70%] Built target std_msgs_generate_messages_py
+[ 70%] Built target roscpp_generate_messages_cpp
+[ 70%] Built target roscpp_generate_messages_eus
+[ 70%] Built target roscpp_generate_messages_lisp
+[ 70%] Built target roscpp_generate_messages_nodejs
+[ 70%] Built target roscpp_generate_messages_py
+[ 70%] Built target rosgraph_msgs_generate_messages_cpp
+[ 70%] Built target rosgraph_msgs_generate_messages_eus
+[ 70%] Built target rosgraph_msgs_generate_messages_lisp
+[ 70%] Built target rosgraph_msgs_generate_messages_nodejs
+[ 70%] Built target rosgraph_msgs_generate_messages_py
+[ 70%] Built target sensor_msgs_generate_messages_cpp
+[ 70%] Built target sensor_msgs_generate_messages_eus
+[ 70%] Built target sensor_msgs_generate_messages_lisp
+[ 70%] Built target sensor_msgs_generate_messages_nodejs
+[ 70%] Built target sensor_msgs_generate_messages_py
+[ 70%] Built target tf_generate_messages_cpp
+[ 70%] Built target tf_generate_messages_eus
+[ 70%] Built target tf_generate_messages_lisp
+[ 70%] Built target tf_generate_messages_nodejs
+[ 70%] Built target tf_generate_messages_py
+[ 70%] Built target actionlib_generate_messages_cpp
+[ 70%] Built target actionlib_generate_messages_eus
+[ 70%] Built target actionlib_generate_messages_lisp
+[ 70%] Built target actionlib_generate_messages_nodejs
+[ 70%] Built target actionlib_generate_messages_py
+[ 70%] Built target actionlib_msgs_generate_messages_cpp
+[ 70%] Built target actionlib_msgs_generate_messages_eus
+[ 70%] Built target actionlib_msgs_generate_messages_lisp
+[ 70%] Built target actionlib_msgs_generate_messages_nodejs
+[ 70%] Built target actionlib_msgs_generate_messages_py
+[ 70%] Built target tf2_msgs_generate_messages_cpp
+[ 70%] Built target tf2_msgs_generate_messages_eus
+[ 70%] Built target tf2_msgs_generate_messages_lisp
+[ 70%] Built target tf2_msgs_generate_messages_nodejs
+[ 70%] Built target tf2_msgs_generate_messages_py
+[ 70%] Built target gazebo_ros_gencfg
+[ 70%] Built target std_srvs_generate_messages_cpp
+[ 70%] Built target std_srvs_generate_messages_eus
+[ 70%] Built target std_srvs_generate_messages_lisp
+[ 70%] Built target std_srvs_generate_messages_nodejs
+[ 70%] Built target std_srvs_generate_messages_py
+[ 70%] Built target dynamic_reconfigure_generate_messages_cpp
+[ 70%] Built target dynamic_reconfigure_generate_messages_eus
+[ 70%] Built target dynamic_reconfigure_generate_messages_lisp
+[ 70%] Built target dynamic_reconfigure_generate_messages_nodejs
+[ 70%] Built target dynamic_reconfigure_generate_messages_py
+[ 70%] Built target dynamic_reconfigure_gencfg
+[ 70%] Built target gazebo_msgs_generate_messages_cpp
+[ 70%] Built target gazebo_msgs_generate_messages_eus
+[ 70%] Built target gazebo_msgs_generate_messages_lisp
+[ 70%] Built target gazebo_msgs_generate_messages_nodejs
+[ 70%] Built target gazebo_msgs_generate_messages_py
+[ 70%] Built target trajectory_msgs_generate_messages_cpp
+[ 70%] Built target trajectory_msgs_generate_messages_eus
+[ 70%] Built target trajectory_msgs_generate_messages_lisp
+[ 70%] Built target trajectory_msgs_generate_messages_nodejs
+[ 70%] Built target trajectory_msgs_generate_messages_py
+[ 70%] Built target controller_manager_msgs_generate_messages_cpp
+[ 70%] Built target controller_manager_msgs_generate_messages_eus
+[ 70%] Built target controller_manager_msgs_generate_messages_lisp
+[ 70%] Built target controller_manager_msgs_generate_messages_nodejs
+[ 70%] Built target controller_manager_msgs_generate_messages_py
+[35m[1mConsolidate compiler generated dependencies of target Tools[0m
+[ 72%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/SingleRigidBody.cpp.o[0m
+[ 75%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Kinematics.cpp.o[0m
+[ 77%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o[0m
+[ 79%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o[0m
+[ 81%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Centroidal_Dynamics.cpp.o[0m
+[ 83%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Pinocchio_Interface.cpp.o[0m
+[ 85%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Gait_Generator.cpp.o[0m
+[ 87%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Trajectory_Generator.cpp.o[0m
+[ 89%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Model_Predictive.cpp.o[0m
+[ 91%] [32m[1mLinking CXX shared library /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libTools.so[0m
+[ 91%] Built target Tools
+[35m[1mConsolidate compiler generated dependencies of target go2_controller[0m
+[ 93%] [32mBuilding CXX object CMakeFiles/go2_controller.dir/src/go2_controller.cpp.o[0m
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:[m[K In member function ‘[01m[Kvoid go2_controller::Init()[m[K’:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/src/go2_controller.cpp:6:11:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+    6 |     [01;35m[Ksystem("clear")[m[K;
+      |     [01;35m[K~~~~~~^~~~~~~~~[m[K
+[ 95%] [32m[1mLinking CXX shared library /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so[0m
+[ 95%] Built target go2_controller
+[35m[1mConsolidate compiler generated dependencies of target go2_node[0m
+[ 97%] [32mBuilding CXX object CMakeFiles/go2_node.dir/src/go2_controller_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node[0m
+/usr/bin/ld: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: undefined reference to `ModelPredictive::SetConstraints()'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/go2_node.dir/build.make:240: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2378: CMakeFiles/go2_node.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

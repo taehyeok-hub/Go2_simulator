@@ -89,7 +89,6 @@ public:
     void SetEqConstraint2();
     void SetIneqConstraint1();
     void SetIneqConstraint2();
-    void SetConstraints();
     void SolveQP();
 
     Eigen::MatrixXd GetMPCState() { return MPC_State; };

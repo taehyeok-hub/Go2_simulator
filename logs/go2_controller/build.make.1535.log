@@ -1,0 +1,177 @@
+[  0%] Built target go2_controller_xacro_generated_to_devel_space_
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[35m[1mConsolidate compiler generated dependencies of target osqpeigen[0m
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[ 70%] Built target osqpeigen
+[ 70%] Built target std_msgs_generate_messages_py
+[ 70%] Built target roscpp_generate_messages_cpp
+[ 70%] Built target roscpp_generate_messages_eus
+[ 70%] Built target roscpp_generate_messages_lisp
+[ 70%] Built target roscpp_generate_messages_nodejs
+[ 70%] Built target roscpp_generate_messages_py
+[ 70%] Built target rosgraph_msgs_generate_messages_cpp
+[ 70%] Built target rosgraph_msgs_generate_messages_eus
+[ 70%] Built target rosgraph_msgs_generate_messages_lisp
+[ 70%] Built target rosgraph_msgs_generate_messages_nodejs
+[ 70%] Built target rosgraph_msgs_generate_messages_py
+[ 70%] Built target sensor_msgs_generate_messages_cpp
+[ 70%] Built target sensor_msgs_generate_messages_eus
+[ 70%] Built target sensor_msgs_generate_messages_lisp
+[ 70%] Built target sensor_msgs_generate_messages_nodejs
+[ 70%] Built target sensor_msgs_generate_messages_py
+[ 70%] Built target tf_generate_messages_cpp
+[ 70%] Built target tf_generate_messages_eus
+[ 70%] Built target tf_generate_messages_lisp
+[ 70%] Built target tf_generate_messages_nodejs
+[ 70%] Built target tf_generate_messages_py
+[ 70%] Built target actionlib_generate_messages_cpp
+[ 70%] Built target actionlib_generate_messages_eus
+[ 70%] Built target actionlib_generate_messages_lisp
+[ 70%] Built target actionlib_generate_messages_nodejs
+[ 70%] Built target actionlib_generate_messages_py
+[ 70%] Built target actionlib_msgs_generate_messages_cpp
+[ 70%] Built target actionlib_msgs_generate_messages_eus
+[ 70%] Built target actionlib_msgs_generate_messages_lisp
+[ 70%] Built target actionlib_msgs_generate_messages_nodejs
+[ 70%] Built target actionlib_msgs_generate_messages_py
+[ 70%] Built target tf2_msgs_generate_messages_cpp
+[ 70%] Built target tf2_msgs_generate_messages_eus
+[ 70%] Built target tf2_msgs_generate_messages_lisp
+[ 70%] Built target tf2_msgs_generate_messages_nodejs
+[ 70%] Built target tf2_msgs_generate_messages_py
+[ 70%] Built target gazebo_ros_gencfg
+[ 70%] Built target std_srvs_generate_messages_cpp
+[ 70%] Built target std_srvs_generate_messages_eus
+[ 70%] Built target std_srvs_generate_messages_lisp
+[ 70%] Built target std_srvs_generate_messages_nodejs
+[ 70%] Built target std_srvs_generate_messages_py
+[ 70%] Built target dynamic_reconfigure_generate_messages_cpp
+[ 70%] Built target dynamic_reconfigure_generate_messages_eus
+[ 70%] Built target dynamic_reconfigure_generate_messages_lisp
+[ 70%] Built target dynamic_reconfigure_generate_messages_nodejs
+[ 70%] Built target dynamic_reconfigure_generate_messages_py
+[ 70%] Built target dynamic_reconfigure_gencfg
+[ 70%] Built target gazebo_msgs_generate_messages_cpp
+[ 70%] Built target gazebo_msgs_generate_messages_eus
+[ 70%] Built target gazebo_msgs_generate_messages_lisp
+[ 70%] Built target gazebo_msgs_generate_messages_nodejs
+[ 70%] Built target gazebo_msgs_generate_messages_py
+[ 70%] Built target trajectory_msgs_generate_messages_cpp
+[ 70%] Built target trajectory_msgs_generate_messages_eus
+[ 70%] Built target trajectory_msgs_generate_messages_lisp
+[ 70%] Built target trajectory_msgs_generate_messages_nodejs
+[ 70%] Built target trajectory_msgs_generate_messages_py
+[ 70%] Built target controller_manager_msgs_generate_messages_cpp
+[ 70%] Built target controller_manager_msgs_generate_messages_eus
+[ 70%] Built target controller_manager_msgs_generate_messages_lisp
+[ 70%] Built target controller_manager_msgs_generate_messages_nodejs
+[ 70%] Built target controller_manager_msgs_generate_messages_py
+[35m[1mConsolidate compiler generated dependencies of target Tools[0m
+[ 72%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/SingleRigidBody.cpp.o[0m
+[ 75%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Kinematics.cpp.o[0m
+[ 77%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o[0m
+[ 79%] [32mBuilding CXX object include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o[0m
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Kinematics.hpp:9[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Kinematics.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:25:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+   25 | [01;31m[K<<<<<<<[m[K HEAD
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:26:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ before ‘[01m[KT_STANCE[m[K’
+   26 |     [01;31m[KT_STANCE[m[K = 80,
+      |     [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:19:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+   19 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:26:16:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kint[m[K’ to ‘[01m[KWalk_Parameter[m[K’ [[01;31m[K-fpermissive[m[K]
+   26 |     T_STANCE = [01;31m[K80[m[K,
+      |                [01;31m[K^~[m[K
+      |                [01;31m[K|[m[K
+      |                [01;31m[Kint[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:27:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+   27 | [01;31m[K=======[m[K
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:31:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+   31 | [01;31m[K}[m[K;
+      | [01;31m[K^[m[K
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.hpp:13[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/SingleRigidBody.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:25:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+   25 | [01;31m[K<<<<<<<[m[K HEAD
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:26:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ before ‘[01m[KT_STANCE[m[K’
+   26 |     [01;31m[KT_STANCE[m[K = 80,
+      |     [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:19:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+   19 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:26:16:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kint[m[K’ to ‘[01m[KWalk_Parameter[m[K’ [[01;31m[K-fpermissive[m[K]
+   26 |     T_STANCE = [01;31m[K80[m[K,
+      |                [01;31m[K^~[m[K
+      |                [01;31m[K|[m[K
+      |                [01;31m[Kint[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:27:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+   27 | [01;31m[K=======[m[K
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:31:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+   31 | [01;31m[K}[m[K;
+      | [01;31m[K^[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:90: include/Tools/CMakeFiles/Tools.dir/Kinematics.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Kinematics.hpp:9[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.hpp:7[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Trajectories.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:25:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+   25 | [01;31m[K<<<<<<<[m[K HEAD
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:26:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ before ‘[01m[KT_STANCE[m[K’
+   26 |     [01;31m[KT_STANCE[m[K = 80,
+      |     [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:19:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+   19 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:26:16:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kint[m[K’ to ‘[01m[KWalk_Parameter[m[K’ [[01;31m[K-fpermissive[m[K]
+   26 |     T_STANCE = [01;31m[K80[m[K,
+      |                [01;31m[K^~[m[K
+      |                [01;31m[K|[m[K
+      |                [01;31m[Kint[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:27:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+   27 | [01;31m[K=======[m[K
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:31:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+   31 | [01;31m[K}[m[K;
+      | [01;31m[K^[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:76: include/Tools/CMakeFiles/Tools.dir/SingleRigidBody.cpp.o] Error 1
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:104: include/Tools/CMakeFiles/Tools.dir/Trajectories.cpp.o] Error 1
+In file included from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/Pinocchio_Interface.hpp:27[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/go2_controller.h:4[m[K,
+                 from [01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Tools/TaskSpacePDControl.cpp:1[m[K:
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:25:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+   25 | [01;31m[K<<<<<<<[m[K HEAD
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:26:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ before ‘[01m[KT_STANCE[m[K’
+   26 |     [01;31m[KT_STANCE[m[K = 80,
+      |     [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:19:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+   19 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:26:16:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kint[m[K’ to ‘[01m[KWalk_Parameter[m[K’ [[01;31m[K-fpermissive[m[K]
+   26 |     T_STANCE = [01;31m[K80[m[K,
+      |                [01;31m[K^~[m[K
+      |                [01;31m[K|[m[K
+      |                [01;31m[Kint[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:27:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+   27 | [01;31m[K=======[m[K
+      | [01;31m[K^~~~~~~[m[K
+[01m[K/home/pth/pth/model/Go2_simulator/src/controls/go2_controller/include/Enum_Shared.hpp:31:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+   31 | [01;31m[K}[m[K;
+      | [01;31m[K^[m[K
+make[2]: *** [include/Tools/CMakeFiles/Tools.dir/build.make:118: include/Tools/CMakeFiles/Tools.dir/TaskSpacePDControl.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2509: include/Tools/CMakeFiles/Tools.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

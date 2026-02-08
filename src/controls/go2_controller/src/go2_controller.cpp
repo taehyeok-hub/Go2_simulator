@@ -378,7 +378,7 @@ void go2_controller::MPCControl()
     MPC.SetFootState(PINO.GetPos(FL), PINO.GetPos(FR), PINO.GetPos(RL), PINO.GetPos(RR));
     MPC.SetRefGait(Trot_Gait);
     MPC.ComputeModel();
-    MPC.SetConstraints();
+    MPC.SetLinearMatrix();
     MPC.SetBodyReference(COM_Ref);
     MPC.SetCostFunction();
     MPC.SolveQP();

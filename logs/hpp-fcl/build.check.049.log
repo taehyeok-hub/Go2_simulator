@@ -1,1 +1,0 @@
-/opt/cmake-3.22/bin/cmake -S/home/pth/pth/model/Go2_simulator/src/controls/hpp-fcl -B/home/pth/pth/model/Go2_simulator/build/hpp-fcl --check-build-system CMakeFiles/Makefile.cmake 0

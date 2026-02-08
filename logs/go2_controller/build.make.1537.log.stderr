@@ -1,0 +1,5 @@
+/usr/bin/ld: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/libgo2_controller.so: undefined reference to `ModelPredictive::SetConstraints()'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/go2_node.dir/build.make:240: /home/pth/pth/model/Go2_simulator/devel/.private/go2_controller/lib/go2_controller/go2_node] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2378: CMakeFiles/go2_node.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2
