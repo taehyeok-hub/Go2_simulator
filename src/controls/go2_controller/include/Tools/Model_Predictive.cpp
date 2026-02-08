@@ -10,7 +10,7 @@ ModelPredictive::ModelPredictive()
     // Initialize parameters
     prediction_horizon = 20; // 예측 지평선 설정
     control_horizon = 5;     // 제어 지평선 설정
-    dt = 0.025;              // 샘플링 시간 설정 -> 이거 잘못됐는데
+    dt = 0.02;              // 샘플링 시간 설정 -> 이거 잘못됐는데
 
     Force.setZero(NUM_DOF);
     Body_Ref.setZero(NUM_DOF);
@@ -39,7 +39,8 @@ ModelPredictive::ModelPredictive()
     UpperBound.setZero();
     QP_Solution.setZero();
 
-    Q.diagonal() << 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0; // 로봇 상태에 대한 가중치
+    // RPY, Pos, ANG, Vel
+    Q.diagonal() << 1000.0, 5000.0, 500.0, 50000.0, 50000.0, 30000.0, 1.0, 5.0, 1.0, 10000.0, 10000.0, 1125.0; // 로봇 상태에 대한 가중치
     R.diagonal() << 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01; // GRF에 대한 가중치
 
     for (int i = 0; i < 4; i++)
@@ -210,9 +211,9 @@ void ModelPredictive::SetBodyReference(Eigen::VectorXd Body_Ref_)
 void ModelPredictive::SetCostFunction()
 {
     /* sparse 행렬 활용법 : Dense한 행렬을 만들어서 여기서 계산한 다음에 sparse로 흩뿌린다. */
-    Eigen::MatrixXd dense_Hessian = A_Cost.transpose() * Q_Cost * A_Cost;
+    Eigen::MatrixXd dense_Hessian =  A_Cost.transpose() * Q_Cost * A_Cost;
     Hessian = dense_Hessian.sparseView();
-    Gradient = 2.0 * (-1) * A_Cost.transpose() * Q_Cost * B_Cost;
+    Gradient = (-1) * A_Cost.transpose() * Q_Cost * B_Cost;
 }
 
 void ModelPredictive::SetEqConstraint1() // A_matrix, B_matrix, C_matrix 엄밀히 말하면 다르지만, 같다고 가정함.
@@ -283,27 +284,27 @@ void ModelPredictive::SetIneqConstraint1()
         for (int leg = 0; leg < NUM_LEG; leg++)
         {   
             Select2(3 * leg, 3 * leg) = 0.0;
-            Select2(3 * leg + 1, 3 * leg + 1) = 0.0;
-            Select2(3 * leg + 2, 3 * leg + 2) = 1.0;
+            Select2(3 * leg, 3 * leg + 1) = 0.0;
+            Select2(3 * leg, 3 * leg + 2) = 1.0;
         }
-
+ 
         A_eq[2].block<12, 12>(12 * i, 24 * i + 12) = Select2;
     }
 
     for (int i = 0; i < prediction_horizon; i++)
     {
         // Fz_min : 최소 지지력 
-        L_eq[2].block<12,1>(12 * i, 0) << -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0;
+        L_eq[2].block<12,1>(12 * i, 0) << 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf;
 
         // Fz_max : 최대 지지력 
-        U_eq[2].block<12,1>(12 * i, 0) << inf, inf, 200.0, inf, inf, 200.0, inf, inf, 200.0, inf, inf, 200.0;
+        U_eq[2].block<12,1>(12 * i, 0) << 200.0, inf, inf, 200.0, inf, inf, 200.0, inf, inf, 200.0, inf, inf;
     }
 }
 
 void ModelPredictive::SetIneqConstraint2()
 {
     // Friction Cone Constraints
-    // Fx - mu * Fz <= 0 , Fx - mu * Fz >= 0
+    // Fx - mu * Fz <= 0 , Fx + mu * Fz >= 0
     
     // static int count = 0;
     // if (count == 0)
@@ -333,8 +334,8 @@ void ModelPredictive::SetIneqConstraint2()
 
         A_eq[3].block<12, 12>(12 * i, 24 * i + 12) = Select3;
 
-        L_eq[3].block<12,1>(12 * i , 0) << -inf, 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf;
-        U_eq[3].block<12,1>(12 * i , 0) << 0.0, 0.0, inf, 0.0, 0.0, inf, 0.0, 0.0, inf, 0.0, 0.0, inf;
+        L_eq[3].block<12,1>(12 * i , 0) << -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf;
+        U_eq[3].block<12,1>(12 * i , 0) << 0.0, inf, inf, 0.0, inf, inf, 0.0, inf, inf, 0.0, inf, inf;
     }
 
     
@@ -345,14 +346,14 @@ void ModelPredictive::SetIneqConstraint2()
         for (int leg = 0; leg < NUM_LEG; leg++)
         {   
             Select4(3 * leg, 3 * leg) = 1.0;
-            Select4(3 * leg + 1, 3 * leg + 1) = 0.0;
-            Select4(3 * leg + 2, 3 * leg + 2) = mu;
+            Select4(3 * leg, 3 * leg + 1) = 0.0;
+            Select4(3 * leg, 3 * leg + 2) = mu;
         }
 
         A_eq[3].block<12, 12>(NUM_DOF * prediction_horizon + 12 * i, 24 * i + 12) = Select4;
 
-        L_eq[3].block<12,1>(NUM_DOF * prediction_horizon  + 12 * i , 0) << 0.0, 0.0, -inf, 0.0, 0.0, -inf, 0.0, 0.0, -inf, 0.0, 0.0, -inf;
-        U_eq[3].block<12,1>(NUM_DOF * prediction_horizon  + 12 * i , 0) << inf, 0.0, inf, inf, 0.0, inf, inf, 0.0, inf, inf, 0.0, inf;
+        L_eq[3].block<12,1>(NUM_DOF * prediction_horizon  + 12 * i , 0) << 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf;
+        U_eq[3].block<12,1>(NUM_DOF * prediction_horizon  + 12 * i , 0) << inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf;
     }
 
     for (int i = 0; i < prediction_horizon; i++)
@@ -362,14 +363,14 @@ void ModelPredictive::SetIneqConstraint2()
         for (int leg = 0; leg < NUM_LEG; leg++)
         {   
             Select5(3 * leg, 3 * leg) = 0.0;
-            Select5(3 * leg + 1, 3 * leg + 1) = 1.0;
-            Select5(3 * leg + 2, 3 * leg + 2) = -mu;
+            Select5(3 * leg, 3 * leg + 1) = 1.0;
+            Select5(3 * leg, 3 * leg + 2) = -mu;
         }
 
         A_eq[3].block<12, 12>(2 * NUM_DOF * prediction_horizon + 12 * i, 24 * i + 12) = Select5;
 
-        L_eq[3].block<12,1>(2 * NUM_DOF * prediction_horizon  + 12 * i , 0) << 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf;
-        U_eq[3].block<12,1>(2 * NUM_DOF * prediction_horizon  + 12 * i , 0) << 0.0, 0.0, inf, 0.0, 0.0, inf, 0.0, 0.0, inf, 0.0, 0.0, inf;
+        L_eq[3].block<12,1>(2 * NUM_DOF * prediction_horizon  + 12 * i , 0) << -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf;
+        U_eq[3].block<12,1>(2 * NUM_DOF * prediction_horizon  + 12 * i , 0) << inf, 0.0, inf, inf, 0.0, inf, inf, 0.0, inf, inf, 0.0, inf;
     }
 
     for (int i = 0; i < prediction_horizon; i++)
@@ -379,21 +380,21 @@ void ModelPredictive::SetIneqConstraint2()
         for (int leg = 0; leg < NUM_LEG; leg++)
         {   
             Select6(3 * leg, 3 * leg) = 0.0;
-            Select6(3 * leg + 1, 3 * leg + 1) = 1.0;
-            Select6(3 * leg + 2, 3 * leg + 2) = mu;
+            Select6(3 * leg, 3 * leg + 1) = 1.0;
+            Select6(3 * leg, 3 * leg + 2) = mu;
         }
 
         A_eq[3].block<12, 12>(3 * NUM_DOF * prediction_horizon + 12 * i, 24 * i + 12) = Select6;
 
-        L_eq[3].block<12,1>(3 * NUM_DOF * prediction_horizon  + 12 * i , 0) << 0.0, 0.0, -inf, 0.0, 0.0, -inf, 0.0, 0.0, -inf, 0.0, 0.0, -inf;
-        U_eq[3].block<12,1>(3 * NUM_DOF * prediction_horizon  + 12 * i , 0) << 0.0, inf, inf, 0.0, inf, inf, 0.0, inf, inf, 0.0, inf, inf;
+        L_eq[3].block<12,1>(3 * NUM_DOF * prediction_horizon  + 12 * i , 0) << -inf, 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf, -inf, 0.0, -inf;
+        U_eq[3].block<12,1>(3 * NUM_DOF * prediction_horizon  + 12 * i , 0) << inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf;
     }
 
 }
 
-void ModelPredictive::SetConstraints()
+void ModelPredictive::SetLinearMatrix()
 {
-    SetEqConstraint1();
+    SetEqConstraint1();  
     SetEqConstraint2();
     SetIneqConstraint1();
     SetIneqConstraint2();
@@ -425,12 +426,13 @@ void ModelPredictive::SolveQP()
 {
     if (!solver.isInitialized())
     {
-        solver.settings()->setVerbosity(true);
+        solver.settings()->setVerbosity(false);
         solver.settings()->setWarmStart(true);
         solver.data()->setNumberOfVariables(num_of_variables);
         solver.data()->setNumberOfConstraints(num_of_constraints);
 
-        solver.data()->setHessianMatrix(Hessian);
+        // Hessian, Gradient, LinearMatrix, LowerBound/UpperBound 첫 호출
+        solver.data()->setHessianMatrix(Hessian); 
         solver.data()->setGradient(Gradient);
         solver.data()->setLinearConstraintsMatrix(LinearMatrix);
         solver.data()->setLowerBound(LowerBound);
@@ -439,8 +441,10 @@ void ModelPredictive::SolveQP()
     }
     else
     {
+        // Hessian, Gradient, LinearMatrix, LowerBound/UpperBound 업데이트
         solver.updateHessianMatrix(Hessian);
         solver.updateGradient(Gradient);
+        solver.updateLinearConstraintsMatrix(LinearMatrix);
         solver.updateBounds(LowerBound, UpperBound);
     }
 
